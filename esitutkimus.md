@@ -41,26 +41,9 @@
 
 ## Projektin tiedot
 
-\<Lintukoto>
-
 Tekijät: Annika Manninen, Siina Kaakinen, Rasmus Savolainen, Tuukka Neijonen, Herni Parviainen, Juho Tuomainen
 
-### Termit ja lyhenteet
 
-<\Esimerkiksi:>
-| Termi    | Kuvaus                                                    |
-| -------- | --------------------------------------------------------- |
-| GIT      | Versionhallintajärjestelmä                                |
-| GitHub   | Palvelu joka on rakennettu GIT versionhallinnan ympärille |
-| Markdown | Merkkauskieli                                             |
-
-### Viitteet
-
-<\Esimerkiksi:>
-| Viittaus | Materiaali                        |
-| -------- | --------------------------------- |
-| HLTP     | \<linkki hltp dokumenttiin>       |
-| GDD      | \<linkki gamedesign dokumenttiin> |
 
 ## Johdanto
 
