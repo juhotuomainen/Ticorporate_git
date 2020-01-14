@@ -8,7 +8,7 @@ Esille nousi seuraavai teemoja:
 * Konseptin esitutkimuksen päivittäminen nykyhetkeen
 * Projektisuunnitelman tekeminen julkaisukuntoon
 * ZenHub-työtilan valmistelu toimintavalmiuteen
-* Liiketoimintasuunnitelman aloittaminen (tapahtuu ke 22.1.)
+* Liiketoimintasuunnitelman aloittaminen (tapahtuu ke 22.1. jolloin ensimmäinen ryhmän yhteinen kokoontuminen)
 * Sivutöiden valmistelu ja aloittaminen (esim. testauskirjan lukeminen)
 * Materiaalin etsintä (Tutoriaalit, ohjeet jne)
 * Sovelluksen rakenteen suunnittelu sekä teknisellä että visuaalisella tasolla
