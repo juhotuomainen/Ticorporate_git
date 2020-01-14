@@ -175,7 +175,7 @@ Websovelluksen huonona puolena voidaan pitää hitaampaa käytön aloittamista v
 #### 1. Toteutusympäristö
 
 Mobiiliaplikaatio voidaan luoda suunnitellun web-sovelluksen pohjalta, eli web-sovellus tullaan muuntamaan esim. Ionicin avulla mobiililaitteille soveltuvaksi. Mobiiliaplikaatiota luotaessa tulee huomioida sen soveltuvuus eri käyttöjärjestelmille sekä miettiä, mistä sovelluksen pystyy puhelimelle lataamaan (Google Play, App Store, omat verkkosivut). 
-Toinen mahdollinen lähestymistapa on aloittaa sovelluksen luonti puhtaasti mobiiliversio edellä ja hyödyntää web-sivua ainoastaan sovelluksen markkinointi- ja infosivuna. Kolmantena vaihtoehtona on kääntää web sovellluksesta progressiivinen web sovellus eli PWA-sovellus. Tämän sovelluksen voisi ladata Lintukoto projektin internet sivuilta. PWA-sovellus kääntyy websovelluksesta helposti ja se poistaa mobiilikäyttäjillä suurimman web sovvelluksen ongelman eli 
+Toinen mahdollinen lähestymistapa on aloittaa sovelluksen luonti puhtaasti mobiiliversio edellä ja hyödyntää web-sivua ainoastaan sovelluksen markkinointi- ja infosivuna. Kolmantena vaihtoehtona on kääntää web sovellluksesta progressiivinen web sovellus eli PWA-sovellus. Tämän sovelluksen voisi ladata Lintukoto projektin internet sivuilta. PWA-sovellus kääntyy websovelluksesta helposti ja se poistaa mobiilikäyttäjillä suurimman web sovvelluksen ongelman eli sivustolle novigoimiseen kuluvan ajan ja vaivan.
 
 #### 2. Toteutettavat kertomukset
 
