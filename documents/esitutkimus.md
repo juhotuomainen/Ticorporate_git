@@ -156,13 +156,13 @@ Opiskelija tarvitsee vain jonkin palvelun, josta näkee mitä tehtäviä hänen 
 
 #### 1. Toteutusympäristö
 
-Koska kyseessä on projekti-idean konseptointi, emme ota vielä jyrkkää kantaa sovelluksen arkkitehtuurisiin vaatimuksiin. Sovelluksella tulee olemaan eri toiminnallisuuksia (kalenteri, tehtävät sekä virtuaalilemmikit) sekä yhteys tietokantaan ja mahdollisesti integraatio koulun järjestelmiin, kuten Asio (tuleva Peppi) ja/tai Optima.  
+Sovelluksella tulee olemaan eri toiminnallisuuksia (kalenteri, tehtävät sekä virtuaalilemmikit) sekä yhteys tietokantaan ja mahdollisesti integraatio koulun järjestelmän rajapintaan, kuten Asio ja/tai Optima. Tästä rajapinnasta saataisiin lukujärjsetyksen oppitunnit. 
 
 #### 2. Toteutettavat kertomukset
 
 #### 3. Työmääräarviot
 
-Konseptimme sovellus on hyvin skaalautuva, eli sen tarvitsemien työtuntien määrää on hyvin vaikea arvioida vielä suunnittelun tässä vaiheessa. Perus web-sovelluksen tekemiseen arvioimme tässä vaiheessa kuluvan hyvin TiCorporatelle varatut 25 op eli noin 625 työtuntia. 
+Konseptimme sovellus on hyvin skaalautuva, eli sen tarvitsemien työtuntien määrää on hyvin vaikea arvioida vielä suunnittelun tässä vaiheessa. Perus web-sovelluksen tekemiseen arvioimme tässä vaiheessa kuluvan hyvin TiCorporatelle varatut 25 op eli noin 3750 työtuntia. 
 
 #### 4. Pros & Cons
 
@@ -175,7 +175,7 @@ Websovelluksen huonona puolena voidaan pitää hitaampaa käytön aloittamista v
 #### 1. Toteutusympäristö
 
 Mobiiliaplikaatio voidaan luoda suunnitellun web-sovelluksen pohjalta, eli web-sovellus tullaan muuntamaan esim. Ionicin avulla mobiililaitteille soveltuvaksi. Mobiiliaplikaatiota luotaessa tulee huomioida sen soveltuvuus eri käyttöjärjestelmille sekä miettiä, mistä sovelluksen pystyy puhelimelle lataamaan (Google Play, App Store, omat verkkosivut). 
-Toinen mahdollinen lähestymistapa on aloittaa sovelluksen luonti puhtaasti mobiiliversio edellä ja hyödyntää web-sivua ainoastaan sovelluksen markkinointi- ja infosivuna.  
+Toinen mahdollinen lähestymistapa on aloittaa sovelluksen luonti puhtaasti mobiiliversio edellä ja hyödyntää web-sivua ainoastaan sovelluksen markkinointi- ja infosivuna. Kolmantena vaihtoehtona on kääntää web sovellluksesta progressiivinen web sovellus eli PWA-sovellus. Tämän sovelluksen voisi ladata Lintukoto projektin internet sivuilta. PWA-sovellus kääntyy websovelluksesta helposti ja se poistaa mobiilikäyttäjillä suurimman web sovvelluksen ongelman eli 
 
 #### 2. Toteutettavat kertomukset
 
