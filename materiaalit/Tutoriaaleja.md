@@ -1,0 +1,2 @@
+- [Markdown](https://www.markdownguide.org/basic-syntax/)
+- [Angular](https://material.angular.io/)
