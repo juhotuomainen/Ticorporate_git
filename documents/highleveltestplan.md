@@ -28,7 +28,9 @@ GDD | \<linkki gamedesign dokumenttiin>
 
 ### Projekti lyhyesti
 
-\<Projektin tiedot lyhyesti>
+Lintukoto on opiskelijoille tarkoitettu opintojen hallintatyökalu, joka visualisoi opintojaksot ja tukee opiskelijaa ajanhallinnan kanssa. Lintukoto kannustaa opiskelijaa pitämään huolta opintojaksoistaan samalla tavalla kuin hoidetaan virtuaalisia lemmikkejä. Lintukoto myös tukee opiskelijan hyvinvointia ja jaksamista opintojen aikana.   
+
+Lintukoto-sovelluksessa jokainen kurssi esitellään pöllönä. Kaikki lukukauden kurssit visualisoidaan “lintuorreksi”, jossa näkee yhdellä silmäyksellä kaikki sillä hetkellä käynnissä olevat opinnot. Pöllön koko kertoo opintojakson laajuudesta eli kuinka monen opintopisteen arvoinen se on. Mitä enemmän pisteitä kurssista saa, sitä suurempi pöllö on.   
 
 ### Tarkoitus
 
