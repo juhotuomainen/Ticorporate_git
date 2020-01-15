@@ -1,8 +1,20 @@
 # High level test plan
 
-\<Projektin nimi>
+/Lintukoto
 
 Tekijät:
+
+Annika Manninen 
+
+Henri Parviainen 
+
+Juho Tuomainen 
+
+Rasmus Savolainen 
+
+Siina Kaakinen 
+
+Tuukka Neijonen 
 
 ## Viitteet
 
