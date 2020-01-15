@@ -2,3 +2,4 @@
 - [Angular](https://material.angular.io/)
 - [Testing-kirja](https://www.pdfdrive.com/agile-testing-how-to-succeed-in-an-extreme-testing-environment-e184601341.html)
 - [Sample Test Plan Document](https://www.softwaretestinghelp.com/test-plan-sample-softwaretesting-and-quality-assurance-templates/)
+- [WEBSKA](http://tikorasia.jamk.fi/~tuito/websk/)
