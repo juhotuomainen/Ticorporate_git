@@ -1,3 +1,3 @@
 # Lintukoto-Demolab
-Lintukoto ryhmän TC Demolab
+Lintukoto ryhmän TC Demolab,
 Hu-Huu!
