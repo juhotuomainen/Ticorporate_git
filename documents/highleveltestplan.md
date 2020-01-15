@@ -1,6 +1,6 @@
 # High level test plan
 
-/Lintukoto
+Lintukoto
 
 Tekijät:
 
