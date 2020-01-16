@@ -4,6 +4,11 @@
 
 Tekijät:
 
+Juho Tuomainen 
+
+Rasmus Savolainen 
+
+Ryhmä: Lintukoto
 Annika Manninen 
 
 Henri Parviainen 
@@ -18,11 +23,11 @@ Tuukka Neijonen
 
 ## Viitteet
 
-<\Esimerkiksi:>
+<\Materiaalit ovat [Lintukoto-repositoryssa [https://www.github.com/jamktiko/lintukoto-demolab](https://www.github.com/jamktiko/lintukoto-demolab). >
 | Viittaus | Materiaali |
 |---|---|
-Projektisuunnitelma | \<linkki  projektisuunnitelmaan>
-GDD | \<linkki gamedesign dokumenttiin>
+Projektisuunnitelma | \<[documents/projektisuunnitelma_versio_Annika.md](documents/projektisuunnitelma_versio_Annika.md)>
+Esitutkimus | \<[documents/esitutkimus.md](documents/esitutkimus.md)
 
 ## Intro
 
@@ -42,15 +47,23 @@ Tulemme testaamaan kirjoittamamme koodin sekä yksilö- että yleistasolla hyöd
 \<Tässä aliluvussa kerrotaan mitä testataan, miksi testataan, miten testataan, milloin testaus on valmista, jne>
 Tulemme testaamaan kirjoittamamme koodin ja muun oheismateriaalin (kuten käyttöohjeet, nettisivut jne) ainakin perustestauksen avulla. Testaamme koodin sekä kehittäjä- että yleisellä tasolla (pääasiassa integraatiotestaus).  Teemme testausta, koska haluamme täten arvioida koodin laadun. Testaus on valmis, kun kaikki testit on suoritettu, toisin sanoen määrittelemiemme hyväksymiskriteerien täytyttyä.
 ### Test items
-
-- Screens, executables, documentation, reports, help, etc…
+Testaajat löytävät testattavat kohteet Lintukoto-projektin varastosta (repository) "jamktiko/lintukoto-demolab". Testaamme seuraavia asioita:
+- Frontend (asiakaspuoli):
+  - käyttöliittymän tilat/näkymät, joista asetus-, pää- ja kalenterinäkymä testataan korkealla tasolla.
+  - muut Angular-komponenttien väliset toiminnallisuudet, joista kaikki testataan korkealla tasolla.
+- Backend (palvelinpuoli): 
+ - tietokannan toiminnallisuudet (ainakin luonti-, päivitys, poisto-ominaisuudet (Create, Remove, Update and Delete)) testataan.
+ - Palvelimen muut toiminnot (kuten reittien ja näkymien toimivuus). Tehdään normaalit, korkeatasoiset testit.
+- nettisivujen toiminta (sekä toiminnallisuus että saavutettavuus (erityisesti ruudunlukuohjelmilla). Kaikki säätimet testataan.)
+- tekstuaaliset tuotokset  (esim. testiraportit) oikoluetaan huolellisesti.
+- Screens, executables, documentation, reports, help, etc…  
 - What is to be tested and in what level?
 - How the items are transmitted to the testers?
 
 FI: Mitkä ovat testattavat kohteet?
 
 ### Testing tasks
-
+Testit toteutetaan testisuunnitelmien mukaisesti.
 - What are the activities that must take place during testing? It includes all the planning and executing!
 - What kind of dependencies there are in the activities?
 
