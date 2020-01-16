@@ -4,6 +4,11 @@
 
 Tekijät:
 
+Juho Tuomainen 
+
+Rasmus Savolainen 
+
+Ryhmä: Lintukoto
 Annika Manninen 
 
 Henri Parviainen 
@@ -21,7 +26,7 @@ Tuukka Neijonen
 <\Materiaalit ovat [Lintukoto-repositoryssa [https://www.github.com/jamktiko/lintukoto-demolab](https://www.github.com/jamktiko/lintukoto-demolab). >
 | Viittaus | Materiaali |
 |---|---|
-Projektisuunnitelma | \<[https://www.github.com/jamktiko/lintukoto-demolab/documents/projektisuunnitelma.md](https://www.github.com/jamktiko/lintukoto-demolab/documents/projektisuunnitelma.md)>
+Projektisuunnitelma | \<[documents/projektisuunnitelma_versio_Annika.md](documents/projektisuunnitelma_versio_Annika.md)>
 
 
 ## Intro
