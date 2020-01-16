@@ -27,7 +27,7 @@ Tuukka Neijonen
 | Viittaus | Materiaali |
 |---|---|
 Projektisuunnitelma | \<[documents/projektisuunnitelma_versio_Annika.md](documents/projektisuunnitelma_versio_Annika.md)>
-
+Esitutkimus | \<[documents/esitutkimus.md](documents/esitutkimus.md)
 
 ## Intro
 
