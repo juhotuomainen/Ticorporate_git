@@ -18,5 +18,6 @@ export class KalenteriComponent {
   public selectedDate: Date = new Date(2018, 1, 15);
   public views: Array<string> = ["Day", "Week", "WorkWeek"];
   public showHeaderBar: Boolean = false;
+  public weekFirstDay: number = 1;
   title = "kalenteri";
 }

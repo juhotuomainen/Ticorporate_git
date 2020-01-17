@@ -14,9 +14,4 @@ import {
   styleUrls: ["./app.component.css"],
   providers: [WeekService, AgendaService]
 })
-export class AppComponent {
-  public selectedDate: Date = new Date(2018, 1, 15);
-  public views: Array<string> = ["Day", "Week", "WorkWeek"];
-  public showHeaderBar: Boolean = false;
-  title = "kalenteri";
-}
+export class AppComponent {}
