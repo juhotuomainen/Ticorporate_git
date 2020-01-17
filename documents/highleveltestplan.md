@@ -9,6 +9,7 @@ Juho Tuomainen
 Rasmus Savolainen 
 
 Ryhmä: Lintukoto
+
 Annika Manninen 
 
 Henri Parviainen 
