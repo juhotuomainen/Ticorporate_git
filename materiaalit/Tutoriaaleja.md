@@ -9,4 +9,4 @@
 - [Online-kalenterin teko NdhtmlSheduler -kirjaston ja nodejS:n avulla (vuodelta 2013)](https://dhtmlx.com/blog/using-dhtmlxscheduler-with-node-js/)
 - [Scheduler](https://ej2.syncfusion.com/angular/documentation/schedule/getting-started/)
 - [WCAG 2.1 (suomeksi)](https://www.w3.org/Translations/WCAG21-fi/)
-[WCAG 2.1 (englanniksi)](https://www.w3.org/TR/2018/REC-WCAG21-20180605/)
+- [WCAG 2.1 (englanniksi)](https://www.w3.org/TR/2018/REC-WCAG21-20180605/)
