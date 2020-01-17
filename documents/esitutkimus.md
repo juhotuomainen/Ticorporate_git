@@ -75,7 +75,7 @@ Kaikista toiminnoista saadaan visuaalinen tapa esittää opiskelijalle tämän o
 
 #### Käyttäjä 1: Opiskelija, joka aloittaa sovelluksen käytön
 
-Käyttäjä pääsee kirjautumaan sovellukseen Google-tunnuksillaan ja näkee etusivulla oman kalenteri- ja tehtävänäkymänsä. Hän voi käydä omissa käyttäjäasetuksissa päivittämässä tietonsa ja muokkaamassa sovellusta hänelle parhaiten toimivaksi. Otettuaan sovelluksen käyttöön, hänen kurssinsa ilmestyvät pöllöorsi sivulle, jossa käyttäjä näkee yksittäin jokaisen kurssinsa tehtävätilanteen. 
+Käyttäjä pääsee kirjautumaan sovellukseen joko Haka- tai Google-tunnuksillaan ja näkee etusivulla oman kalenteri- ja tehtävänäkymänsä. Hän voi käydä omissa käyttäjäasetuksissa päivittämässä tietonsa ja muokkaamassa sovellusta hänelle parhaiten toimivaksi. Otettuaan sovelluksen käyttöön, hänen kurssinsa ilmestyvät pöllöorsi sivulle, jossa käyttäjä näkee yksittäin jokaisen kurssinsa tehtävätilanteen. 
 
 ##### Ykstyiskohdat
 
@@ -83,7 +83,7 @@ Käyttäjä pääsee kirjautumaan sovellukseen Google-tunnuksillaan ja näkee et
 
 ##### Hyväksymiskriteerit
 
-* Käyttäjä pystyy kirjautumaan sisään jo olemassa olevien (Google) tunnuksien avulla  
+* Käyttäjä pystyy kirjautumaan sisään jo olemassa olevien (Google/Haka) tunnuksien avulla  
 
 * Käyttäjä pystyy muokkaamaan asetuksista omia tietojaan kuten opintojen alkamispäivää ja sitä onko hän aamu- vai iltaihminen   
 
