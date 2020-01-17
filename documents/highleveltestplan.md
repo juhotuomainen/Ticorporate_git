@@ -24,11 +24,11 @@ Tuukka Neijonen
 
 ## Viitteet
 
-<\Materiaalit ovat [Lintukoto-repositoryssa [https://www.github.com/jamktiko/lintukoto-demolab](https://www.github.com/jamktiko/lintukoto-demolab). >
-| Viittaus | Materiaali |
-|---|---|
-Projektisuunnitelma | \<[documents/projektisuunnitelma_versio_Annika.md](documents/projektisuunnitelma_versio_Annika.md)>
-Esitutkimus | \<[documents/esitutkimus.md](documents/esitutkimus.md)
+Materiaalit ovat [Lintukoto-repositoryssa](https://www.github.com/jamktiko/lintukoto-demolab)
+
+[Projektisuunnitelma](https://www.github.com/jamktiko/Lintukoto-Demolab/blob/master/documents/projektisuunnitelma.md)
+
+[Esitutkimus](https://github.com/jamktiko/Lintukoto-Demolab/blob/master/documents/esitutkimus.md)
 
 ## Intro
 
