@@ -43,7 +43,7 @@
 
 \<Lintukoto>
 
-Tekijät: Annika Manninen, Siina Kaakinen, Rasmus Savolainen, Tuukka Neijonen, Herni Parviainen, Juho Tuomainen
+Tekijät: Annika Manninen, Siina Kaakinen, Rasmus Savolainen, Tuukka Neijonen, Henri Parviainen, Juho Tuomainen
 
 ## Termit ja lyhenteet
 
