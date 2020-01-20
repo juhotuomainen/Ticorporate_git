@@ -243,12 +243,12 @@ Projektiin osallistuvat kertovat havaitsemistaan riskeistä daily scrum-tapaamis
 
 | Riskit                                                         | Todennäköisyys |  Impakti   | Minimointi  |
 | -------------------------------------------------------------- | -------------- | ---------- | ------------|
-| Työntekijät eivät osaa koodata ja projektia ei saada valmiiksi | Suuri          | Suuri      | Opiskelemme tarvittavat |   
-|                                                                |                |            | teknologiat |                                                                      
+| Työntekijät eivät osaa koodata ja projektia ei saada valmiiksi | Suuri          | Suuri      | Opiskelemme tarvittavat teknologiat |   
+|                                                                |                |            |  |                                                                      
 | Asion rajapinnan integraatio ei onnistu                        | Pieni          | Keskiverto | Neuvottelemme asian|   
 |                                                                |                |            | JAMKin kanssa|   |                                                                
 | Googlen kirjautuminen                                          | Pieni          | Keskiverto | Perehtymällä|      
-|                                                                |                |            | asiaan, tarvittaessa    |      
+|                                                                |                |            | asiaan, tarvittaessa apua   |      
 |                                                                |                |            | apua        |
 | Suunniteltuja ominaisuuksia on liikaa ja aikaa liian vähän     | Suuri          | Pieni      | Projekti jako  |
 |                                                                |                |            | itsenäisesti|
