@@ -39,14 +39,19 @@ Lintukoto on opiskelijoille tarkoitettu opintojen hallintatyökalu, joka visuali
 Lintukoto-sovelluksessa jokainen kurssi esitellään pöllönä. Kaikki lukukauden kurssit visualisoidaan “lintuorreksi”, jossa näkee yhdellä silmäyksellä kaikki sillä hetkellä käynnissä olevat opinnot. Pöllön koko kertoo opintojakson laajuudesta eli kuinka monen opintopisteen arvoinen se on. Mitä enemmän pisteitä kurssista saa, sitä suurempi pöllö on.   
 
 ### Tarkoitus
-Tämän projektin tarkoituksena on kuvata selkeästi Lintukoto-projektin testausmenetelmät ja -strategia yksityiskohtneen. 
+
 \<Dokumentin tarkoitus, mitä dokumentti sisältää>
 \<Chapter that tells the reader why this document is created. It usually includes references to the testing policy (QA and CM plans) of the company, project plan, standards etc.>
 
+Tämän projektin tarkoituksena on kuvata selkeästi Lintukoto-projektin testausmenetelmät ja -strategia yksityiskohtneen. 
+
 ## Testistrategia
-Tulemme testaamaan kirjoittamamme koodin sekä yksilö- että yleistasolla hyödyntäen testausstrategiaa (kuten TDD eli Test-Driven Development). 
 \<Tässä aliluvussa kerrotaan mitä testataan, miksi testataan, miten testataan, milloin testaus on valmista, jne>
+
+Tulemme testaamaan kirjoittamamme koodin sekä yksilö- että yleistasolla hyödyntäen testausstrategiaa (kuten TDD eli Test-Driven Development). 
 Tulemme testaamaan kirjoittamamme koodin ja muun oheismateriaalin (kuten käyttöohjeet, nettisivut jne) ainakin perustestauksen avulla. Testaamme koodin sekä kehittäjä- että yleisellä tasolla (pääasiassa integraatiotestaus).  Teemme testausta, koska haluamme täten arvioida koodin laadun. Testaus on valmis, kun kaikki testit on suoritettu, toisin sanoen määrittelemiemme hyväksymiskriteerien täytyttyä.
+
+
 ### Test items
 Testaajat löytävät testattavat kohteet Lintukoto-projektin varastosta (repository) "jamktiko/lintukoto-demolab". Testaamme seuraavia asioita:
 - Frontend (asiakaspuoli):
@@ -56,7 +61,7 @@ Testaajat löytävät testattavat kohteet Lintukoto-projektin varastosta (reposi
  - tietokannan toiminnallisuudet (ainakin luonti-, päivitys, poisto-ominaisuudet (Create, Remove, Update and Delete)) testataan.
  - Palvelimen muut toiminnot (kuten reittien ja näkymien toimivuus). Tehdään normaalit, korkeatasoiset testit.
 - nettisivujen toiminta (sekä toiminnallisuus että saavutettavuus (erityisesti ruudunlukuohjelmilla). Kaikki säätimet testataan.)
-- tekstuaaliset tuotokset  (esim. testiraportit) oikoluetaan huolellisesti.
+- tekstuaaliset tuotokset  (esim. testiraportit) oikoluetaan.
 - Screens, executables, documentation, reports, help, etc…  
 - What is to be tested and in what level?
 - How the items are transmitted to the testers?
@@ -65,6 +70,7 @@ FI: Mitkä ovat testattavat kohteet?
 
 ### Testing tasks
 Testit toteutetaan testisuunnitelmien mukaisesti.
+
 - What are the activities that must take place during testing? It includes all the planning and executing!
 - What kind of dependencies there are in the activities?
 
