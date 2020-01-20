@@ -155,7 +155,7 @@ Projekti lopetetaan opintojakson päättymiseen toukokuussa 2020.
 
 Projektilla on käytössä GitHub ja ZenHub palvelut, joilla toteutetaan projektihallinta. Käytämme projektin kuvitukseen Adobe Photoshopia, tarvittaessa Adobe Illustratoria ja sovelluksen muun ulkoasun toteutamme Angularin ulkoasutoimintojen kautta (CSS, Bootstrap jne). Koodin kirjoitamme Visual Studio Coden avulla. Tarvittaessa muut ohjelmat tekemisen tueksi. 
 
-Projektin jokainen vastaa itse tarvitsemistaan työ- ja apuvälineistä (tietokoneet, pistenäytöt ym. tarvittavat työvälineet).
+Projektin jokainen osallistuja vastaa itse tarvitsemistaan työ- ja apuvälineistä (tietokoneet, pistenäytöt jne.).
 Lisäksi projektin käyttämiin työkaluihin kuuluu ohjaajan tarjoamat valmiit pohjat projektisuunnitelmalle, esitutkimukselle, pöytäkirjoille, sekä raporteille ja palavereille.  
 
 ## Aikataulu
