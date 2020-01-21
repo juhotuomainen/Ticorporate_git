@@ -1,5 +1,6 @@
 <div id="schedule">
   <ejs-schedule
+    #scheduleObj
     width="100%"
     height="450px"
     [selectedDate]="selectedDate"
@@ -8,6 +9,9 @@
     [showHeaderBar]="showHeaderBar"
     [firstDayOfWeek]="weekFirstDay"
     locale="fi"
+    allowDragAndDrop="true"
+    (dragStart)="onDragStart($event)"
+    (resizeStart)="onResizeStart($event)"
   >
     <e-header-rows>
       <e-header-row option="Month"></e-header-row>
@@ -17,5 +21,11 @@
 </div>
 <h2>Tehtävät</h2>
 <div class="row justify-content-md-center">
-  <div class="col-sm-12 align-self-center blue-div"></div>
+  <div class="col-sm-12 align-self-center blue-div">
+    <ejs-treeview
+      [fields]="field"
+      allowDragAndDrop="true"
+      (nodeDragStop)="onTreeDragStop($event)"
+    ></ejs-treeview>
+  </div>
 </div>
