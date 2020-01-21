@@ -43,7 +43,7 @@
 
 \<Lintukoto>
 
-Tekijät: Annika Manninen, Siina Kaakinen, Rasmus Savolainen, Tuukka Neijonen, Herni Parviainen, Juho Tuomainen
+Tekijät: Annika Manninen, Siina Kaakinen, Rasmus Savolainen, Tuukka Neijonen, Henri Parviainen, Juho Tuomainen
 
 ## Termit ja lyhenteet
 
@@ -73,61 +73,70 @@ Kaikista toiminnoista saadaan visuaalinen tapa esittää opiskelijalle tämän o
 
 ### 1. Käyttäjäkertomukset
 
-#### Käyttäjä 1: Aikataulujen kanssa vaikeuksissa oleva opiskelija
+#### Käyttäjä 1: Opiskelija, joka aloittaa sovelluksen käytön
 
-Käyttäjällä on ollut hankaluuksia aikatauluttaa koulussa saatuja tehtäviä. Hän tarvitsee helpon tavan jäsentää, tarkastella ja aikatauluttaa näitä tehtäviä.
+Käyttäjä pääsee kirjautumaan sovellukseen joko Haka- tai Google-tunnuksillaan ja näkee etusivulla oman kalenteri- ja tehtävänäkymänsä. Hän voi käydä omissa käyttäjäasetuksissa päivittämässä tietonsa ja muokkaamassa sovellusta hänelle parhaiten toimivaksi. Otettuaan sovelluksen käyttöön, hänen kurssinsa ilmestyvät pöllöorsi sivulle, jossa käyttäjä näkee yksittäin jokaisen kurssinsa tehtävätilanteen. 
 
 ##### Ykstyiskohdat
 
-“Minusta on haastavaa saada aikataulutettua opintoja ja vapaa-aikaa. Aloitan usein tekemään koulutöitä liian myöhään ja huomaan, että tehtävät kasaantuvat helposti. Lintukoto sovelluksessa luokkakaverini lisäävät puolestani kaikki koulutehtävät Lintukoto sovelluksen tehtävälistalleni, josta voin helposti siirtää ne omaan kalenteriini. Sovellus ehdottaa minulle sopivaa aikaa, jolloin kalenterissani on tilaa tehtävän tekemiselle. Tämä helpottaa huomattavasti aikatauluttamista, sillä näen tehtävälistasta reaaliajassa kaikkien tehtävien deadlinet ja näin ollen tiedän täsmällisesti, kuinka paljon tehtävää on kulloinkin “rästissä”. Joskus kuitenkin jätän tehtävät silti tekemättä ja tällöin sovelluksen henkipöllö ehdottaa minulle tapaamista opon kanssa, jolloin saan taas opinnon järjestykseen.”  
+“Olen vasta aloittanut opiskelut ja kaikki tuntuu vielä vieraalta ja jännittävältä. Muutto isompaan kaupunkiin ja oman arjen pyörittäminen vaativat vielä opettelua ja huomaan pyöritteleväni samoja asioita useampaan kertaan päivänaikana ja stressaavani niistä jo etukäteen. Lintukoto-sovelluksen avulla pystyn merkitsemään kalenteriini opiskeluun liittyvien asioiden lisäksi myös arkisia askareita, kuten “maksa laskut ”. Koska sovellus muistuttaa deadlinen lähestymisestä jo hyvissä ajoin, voin keskittyä enemmän arjen pyöritykseen kuin sen murehtimiseen.”   
 
 ##### Hyväksymiskriteerit
 
-* Opiskelija alkaa hahmottamaan opintonsa useasta kurssista (pöllöstä) koostuvaksi kokonaisuudeksi, joista jokainen vaatii oman työpanoksensa.  
+* Käyttäjä pystyy kirjautumaan sisään jo olemassa olevien (Google/Haka) tunnuksien avulla  
 
-* Opiskelija tiedostaa oman aikatauluttamisen merkityksen opinnoissa etenemiseksi.  
+* Käyttäjä pystyy muokkaamaan asetuksista omia tietojaan kuten opintojen alkamispäivää ja sitä onko hän aamu- vai iltaihminen   
 
-* Opiskelija saa tarvittaessa tukea koulun tukiverkosta (esim. opot, tuutorit, psykologi, oppilaitospappi).
+* Käyttäjä pystyy asetuksista säätämään, kuinka paljon hän haluaa sovellukselta tukea elämänhallintaan ja haluaako nähdä pöllöhahmoja 
 
-#### Käyttäjä 2: Mallioppilas ja aktiivinen harrastaja 
+* Käyttäjän kurssit näkyvät omalla sivullaan ja käyttäjä hahmottaa sen sivun avulla kurssiensa tilanteen ja voi tallentaa muistiinpanoja kurssikohtaisesti 
 
-Opiskelija hoitaa tehtävänsä ja opinnot huolellisesti. Hän tarvitsee työkalun, jolla voi organisoida opintojaan, jotta voi tehokkaasti ennakoida ja hoitaa tehtävät ajoissa. Hän haluaa myös olla apuna muille oppilaille lisäämällä aina saadut tehtävät järjestelmään. Kurssien vaatimat ryhmätyöt aiheuttavat kuitenkin usein päänvaivaa, koska opiskelijalla on paljon harrastuksia. Tästä syystä kaikille ryhmäläisille sopivia ajankohtia on työlästä sopia.  
+#### Käyttäjä 2: Aikataulujen kanssa vaikeuksissa oleva opiskelija 
+
+Käyttäjällä on ollut hankaluuksia aikatauluttaa koulussa saatuja tehtäviä. Hän tarvitsee helpon tavan jäsentää, tarkastella ja aikatauluttaa tehtäviään. Muuten hänen kiinnostuksensa ja motivaationsa laskee eikä hän saa tehtäviä hoidettua. Lisämotivaatiota tarjoaa Lintukoto sovelluksen palkitsemisjärjestelmät sekä henkipöllö, joka kehuu ja kiittää onnistuessa ja tukee jos ei onnistu.   
 
 ##### Ykstyiskohdat
 
-“Tykkään pysyä aina ajan tasalla tehtävistä, jotta voin hoitaa ne alta pois mahdollisimman aikaisessa vaiheessa, jolloin aikaa jää myöhemmin aiheisiin syvällisempään paneutumiseen. Lisään aina tehtävät järjestelmään, kun olen saanut tiedon niistä. Sovellus helpottaa myös aikataulutustani, sillä voin lisätä myös vapaa-ajan harrastukseni kätevästi Lintukoto-kalenteriin. Lisäksi ryhmätöissä Lintukoto vertailee heti kaikkien ryhmäläisten kalentereita, mikä nopeuttaa yhteisten työskentelyajankohtien sopimista. En tarvitse enää muuta kalenteria sen rinnalle. “ 
+“Minusta on haastavaa saada aikataulutettua opintoja ja vapaa-aikaa. Aloitan usein tekemään koulutöitä liian myöhään ja huomaan, että tehtävät kasaantuvat helposti. Lintukoto sovelluksessa luokkakaverini lisäävät puolestani kaikki koulutehtävät Lintukoto sovelluksen tehtävälistalleni, josta voin helposti siirtää ne omaan kalenteriini. Näin pienet myöhästymiset ja poissaolot koulusta eivät vie pohjaa koko kurssin suoritukselta. Sovellus ehdottaa minulle sopivaa aikaa, jolloin kalenterissani on tilaa tehtävän tekemiselle. Tämä helpottaa huomattavasti aikatauluttamista, sillä näen tehtävälistasta reaaliajassa kaikkien tehtävien deadlinet ja näin ollen tiedän täsmällisesti, kuinka paljon tehtävää on kulloinkin “rästissä”.  
+ 
+Joskus kuitenkin jätän tehtävät silti tekemättä ja tällöin sovelluksen henkipöllö ehdottaa minulle tapaamista opon kanssa, jolloin saan taas opinnon järjestykseen. Tämä auttaa minua pysymään opintojen aikataulussa mukana. On myös mukavaa, kun henkipöllöni kehuu minua, kun saan jotain tehtyä ja se kannustaa myös elämään opiskelujen ulkopuolella. Henkipöllöltä saan myös lisämotivaatiota ja tsemppiä kurssien hoitamiseen ja tykkään tuunata kasvavaa pöllökokoelmaani ja lisätä pöllöille uusia skinejä, kun saan tehtäviä ja kursseja suoritettua.” 
 
 ##### Hyväksymiskriteerit 
 
-* Opiskelija tuntee merkityksen tunnetta, kun voi auttaa muita opiskelijoita opintojen aikatauluttamisessa. 
-* Opiskelija kokee hallitsevansa opiskelun aikatauluttamista niin, että aikaa jää myös omille harrastuksille.  
+* Käyttäjä alkaa hahmottamaan opintonsa useasta kurssista (pöllöstä) koostuvaksi kokonaisuudeksi, joista jokainen vaatii oman työpanoksensa 
+* Käyttäjä tiedostaa oman aikatauluttamisen merkityksen opinnoissa etenemiseksi.
+* Käyttäjä saa tarvittaessa tukea koulun tukiverkosta (esim. opot, tuutorit, psykologi, oppilaitospappi) josta sovelluksen henkipöllö tarvittaessa muistuttaa. 
+* Käyttäjä kokee koulutehtävien tekemisen mielekkäämmäksi saatuaan erilaisia palkintoja ja kehuja. Tehtävien suorittamisesta saa pisteitä. 
+* Käyttäjä tiedostaa, että myös muu tasapainoinen elämä vaikuttaa jaksamiseen ja motivaatioon. 
+* Sovelluksessa on oltava “shop”, josta käyttäjä voi hankkia pisteillään asusteita, ominaisuuksia tai vastaavia pöllöilleen. 
 
-#### Käyttäjä 3: Motivaatiopulasta kärsivä opiskelija 
+#### Käyttäjä 3: Mallioppilas ja aktiivinen harrastaja 
 
-Opiskelijaa ei yleensäkään kiinnosta opiskella. Hän tarvitsee lisämotivaatiota kurssien suorittamiseksi. Lisämotivaatiota tarjoaa Lintukoto sovelluksen palkitsemisjärjestelmät sekä henkipöllö.   
+Opiskelija hoitaa tehtävänsä ja opinnot huolellisesti. Hän tarvitsee työkalun, jolla voi organisoida opintojaan, jotta voi tehokkaasti ennakoida ja hoitaa tehtävät ajoissa. Hän haluaa myös olla apuna muille oppilaille lisäämällä aina saadut tehtävät järjestelmään. Kurssien vaatimat ryhmätyöt aiheuttavat kuitenkin usein päänvaivaa, koska opiskelijalla on paljon harrastuksia. Tästä syystä kaikille ryhmäläisille sopivia ajankohtia on työlästä sopia. Hän on myös aktiivinen tekemään muistiinpanoja, mutta muistiinpanojen määrä hämmentää häntä joskus, kun hän yrittää löytää jonkin tietyn asian muistiinpanoistaan. Häntä myös ärsyttää, kun kurssialustat sulkeutuvat ja hänen hyvät oppimispäiväkirjansa ym. tehtävänpalautukset eivät ole enää hänen käytettävissään.    
 
 ##### Yksityiskohdat
 
-“Mielestäni monet opettajien antamat tehtävät ovat huonoja, eikä niistä oikeastaan edes opi mitään. Lintukoto sovelluksen avulla saan kuitenkin lisämotivaatiota kurssien hoitamiseen, sillä voin aina tuunata kasvavaa pöllökokoelmaani ja lisätä pöllöille uusia skinejä, kun saan tehtäviä ja kursseja suoritettua. Tämä auttaa minua pysymään opintojen aikataulussa mukana. On myös mukavaa, kun henkipöllöni kehuu minua, kun saan jotain tehtyä ja tarvittaessa tsemppaa. Se myös lisää hieman motivaatiotani opiskeluun. Tykkään henkipöllöstä myös siksi, että se kannustaa myös muuhun elämään kuin vain opiskeluun. “ 
+“Tykkään pysyä aina ajan tasalla tehtävistä, jotta voin hoitaa ne alta pois mahdollisimman aikaisessa vaiheessa, jolloin aikaa jää myöhemmin aiheisiin syvällisempään paneutumiseen. Lisään aina tehtävät järjestelmään, kun olen saanut tiedon niistä. Sovellus helpottaa myös aikataulutustani, sillä voin lisätä myös vapaa-ajan harrastukseni kätevästi Lintukoto-kalenteriin. Lisäksi ryhmätöissä Lintukoto vertailee heti kaikkien ryhmäläisten kalentereita, mikä nopeuttaa yhteisten työskentelyajankohtien sopimista. Pidän myös siitä, kuinka voin tallentaa kurssien muistiinpanoni aina kyseisen kurssin alle ja vaikka kurssi päättyisi ja pöllöni siirtyisi arkistoon, pääsen yhä käsiksi tekemiini muistiinpanoihin.“  
 
 ##### Hyväksymiskriteerit
 
-* Opiskelija kokee koulutehtävien tekemisen mielekkäämmäksi saatuaan erilaisia palkintoja ja kehuja. 
-* Opiskelija pysyy kärryillä siitä, mitä häneltä opinnoissa vaaditaan. 
-* Opiskelija tiedostaa, että myös muu tasapainoinen elämä vaikuttaa jaksamiseen ja motivaatioon. 
+* Käyttäjä tuntee merkityksen tunnetta, kun voi auttaa muita opiskelijoita opintojen aikatauluttamisessa.  
+* Käyttäjä kokee hallitsevansa opiskelun aikatauluttamista niin, että aikaa jää myös omille harrastuksille.  
+* Käyttäjällä on mahdollisuus tehdä muistiinpanoja sovellukseen ja mahdollisuus palata niihin milloin vain.  
 
 #### Käyttäjä 4: Vain todo- ominaisuutta tarvitseva käyttäjä 
 
-Opiskelija tarvitsee vain jonkin palvelun, josta näkee mitä tehtäviä hänen tulee tehdä. Muut ylimääräiset ominaisuudet eivät kiinnosta häntä ollenkaan.  
+Opiskelija tarvitsee vain jonkin palvelun, josta näkee mitä tehtäviä hänen tulee tehdä. Muut ylimääräiset ominaisuudet eivät kiinnosta häntä ollenkaan. Hän pärjää ilman sovellustakin, mutta arvostaa sitä, että pystyy hallinnoimaan sekä koulu- että työmenot yhdestä paikasta välttäen näin päällekkäiset menot.   
 
 ##### Yksityiskohdat
 
-“Minua ei kiinnosta mikään pöllöjen tuunailu. Haluan keskittyä olennaiseen eli siihen, mitä tehtäviä täytyy tehdä ja milloin ne tulee olla tehtynä. Sovelluksesta näen aina suoraan mitä tehtäviä lähiaikoina tulee tehdä ja sen avulla saan hommat hoidettua aina ajoissa. Sovelluksessa oleva ominaisuus, jolla voi piilottaa kaikki pöllöhommat on mielestäni hyvä ominaisuus.”  
+“Minua ei kiinnosta mikään pöllöjen tuunailu. Haluan keskittyä olennaiseen eli siihen, mitä tehtäviä täytyy tehdä ja milloin ne tulee olla tehtynä. Sovelluksesta näen aina suoraan mitä tehtäviä lähiaikoina tulee tehdä ja sen avulla saan hommat hoidettua aina ajoissa. Sovelluksessa oleva ominaisuus, jolla voi piilottaa kaikki pöllöhommat on mielestäni hyvä. En koe tarvitsevani erityistä tukea ja neuvoja elämänhallintaan, varsinkaan henkipöllöltä, hyvin olen pärjännyt tähän saakka ilman ”  
 
 ##### Hyväksymiskriteerit
 
-* Opiskelija pystyy käyttämään sovellusta muistilappujen tapaan, ilman turhaa “hössötystä”. 
-* Opiskelija ei koe sovellusta liian holhoavana tai “typeränä”. 
+* Opiskelija pystyy merkitsemään kalenteriin, sekä kouluun että muuhun arkeen liittyvät menot  
+* Henkipöllön “palvelualttiutta” voidaan säädellä. 
+* Kurssipöllöt voidaan piilottaa pois käytöstä asetuksista. 
 
 ### 2. Tekniset vaatimukset
 

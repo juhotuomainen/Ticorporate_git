@@ -9,7 +9,15 @@
     [eventSettings]="eventObject"
     [showHeaderBar]="showHeaderBar"
     [firstDayOfWeek]="weekFirstDay"
+    locale="fi"
+    allowDragAndDrop="true"
+    (dragStart)="onDragStart($event)"
+    (resizeStart)="onResizeStart($event)"
   >
+    <e-header-rows>
+      <e-header-row option="Month"></e-header-row>
+      <e-header-row option="Date"></e-header-row>
+    </e-header-rows>
   </ejs-schedule>
 </div>
 <h2>Tehtävät</h2>
@@ -20,7 +28,11 @@
       [fields]="field"
       allowDragAndDrop="true"
       (nodeDragStop)="onTreeDragStop($event)"
+<<<<<<< HEAD
     >
     </ejs-treeview>
+=======
+    ></ejs-treeview>
+>>>>>>> c3978c115e8b3fa507bc237853bd8b56ae7e1ea0
   </div>
 </div>
