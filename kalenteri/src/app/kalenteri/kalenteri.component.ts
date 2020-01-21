@@ -1,39 +1,23 @@
 declare var require: any;
-<<<<<<< HEAD
 
-import { Component, OnInit, ViewChild } from "@angular/core";
-
-import { TreeViewComponent } from "@syncfusion/ej2-angular-navigations";
-
-import { DragAndDropEventArgs } from "@syncfusion/ej2-angular-navigations";
-
-=======
 import { Component, OnInit, ViewChild } from "@angular/core";
 import {
   TreeViewComponent,
   DragAndDropEventArgs
 } from "@syncfusion/ej2-angular-navigations";
-//import { DragAndDropEventArgs } from "@syncfusion/ej2-navigations";
->>>>>>> c3978c115e8b3fa507bc237853bd8b56ae7e1ea0
+
 import {
   EventSettingsModel,
   DayService,
   WeekService,
   WorkWeekService,
   AgendaService,
-<<<<<<< HEAD
-  DragEventArgs,
-  View,
-  CellClickEventArgs,
-  ScheduleComponent
-=======
   DragAndDropService,
   DragEventArgs,
   ResizeService,
   CellClickEventArgs,
   ScheduleComponent,
   ResizeEventArgs
->>>>>>> c3978c115e8b3fa507bc237853bd8b56ae7e1ea0
 } from "@syncfusion/ej2-angular-schedule";
 
 import { loadCldr, L10n } from "@syncfusion/ej2-base";
@@ -162,9 +146,6 @@ L10n.load({
   selector: "app-kalenteri",
   templateUrl: "./kalenteri.component.html",
   styleUrls: ["./kalenteri.component.css"],
-<<<<<<< HEAD
-  providers: [WeekService, AgendaService, TreeViewComponent, ScheduleComponent]
-=======
   providers: [
     WeekService,
     AgendaService,
@@ -173,7 +154,6 @@ L10n.load({
     TreeViewComponent,
     ScheduleComponent
   ]
->>>>>>> c3978c115e8b3fa507bc237853bd8b56ae7e1ea0
 })
 export class KalenteriComponent {
   @ViewChild("scheduleObj", { static: true })
@@ -181,7 +161,6 @@ export class KalenteriComponent {
   @ViewChild("treeObj", { static: true })
   public treeObj: TreeViewComponent;
   public selectedDate: Date = new Date();
-<<<<<<< HEAD
   public views: Array<string> = ["Day", "Week", "WorkWeek"];
   public showHeaderBar: Boolean = false;
   public weekFirstDay: number = 1;
@@ -211,49 +190,18 @@ export class KalenteriComponent {
   // };
 
   public onTreeDragStop(args: DragAndDropEventArgs): void {
-=======
-  public views: Array<string> = ["Week"];
-  public showHeaderBar: Boolean = true;
-  public weekFirstDay: number = 1;
-  title = "kalenteri";
-
-  public tehtavat: { [key: string]: Object }[] = [
-    {
-      Id: 1,
-      Name: "WEBSKA"
-    },
-    {
-      Id: 2,
-      Name: "Tietokannat"
-    },
-    {
-      Id: 3,
-      Name: "Ohjelmointi"
-    }
-  ];
-  public field: Object = { dataSource: this.tehtavat, id: "Id", text: "Name" };
-
-  onTreeDragStop(args: DragAndDropEventArgs): void {
->>>>>>> c3978c115e8b3fa507bc237853bd8b56ae7e1ea0
     let cellData: CellClickEventArgs = this.scheduleInstance.getCellDetails(
       args.target
     );
     let eventData: { [key: string]: Object } = {
-<<<<<<< HEAD
       Event: args.event,
       Subject: args.draggedNodeData.text,
       StartTime: cellData.startTime,
-=======
-      subject: args.draggedNodeData.text,
-      startTime: cellData.startTime,
->>>>>>> c3978c115e8b3fa507bc237853bd8b56ae7e1ea0
       EndTime: cellData.endTime,
       IsAllDay: cellData.isAllDay
     };
     this.scheduleInstance.addEvent(eventData);
   }
-<<<<<<< HEAD
-=======
 
   onResizeStart(args: ResizeEventArgs): void {
     //args.scroll.enable = true;
@@ -265,5 +213,4 @@ export class KalenteriComponent {
     args.interval = 10;
     args.scroll.scrollBy = 100;
   }
->>>>>>> c3978c115e8b3fa507bc237853bd8b56ae7e1ea0
 }
