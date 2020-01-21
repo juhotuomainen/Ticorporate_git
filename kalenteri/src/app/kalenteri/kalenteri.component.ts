@@ -1,7 +1,10 @@
 declare var require: any;
 import { Component, OnInit, ViewChild } from "@angular/core";
-import { TreeViewComponent } from "@syncfusion/ej2-angular-navigations";
-import { DragAndDropEventArgs } from "@syncfusion/ej2-navigations";
+import {
+  TreeViewComponent,
+  DragAndDropEventArgs
+} from "@syncfusion/ej2-angular-navigations";
+//import { DragAndDropEventArgs } from "@syncfusion/ej2-navigations";
 import {
   EventSettingsModel,
   DayService,
@@ -160,7 +163,6 @@ export class KalenteriComponent {
   public views: Array<string> = ["Week"];
   public showHeaderBar: Boolean = true;
   public weekFirstDay: number = 1;
-  public isTreeItemDropped: boolean = false;
   title = "kalenteri";
 
   public tehtavat: { [key: string]: Object }[] = [
