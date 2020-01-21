@@ -12,6 +12,8 @@ import { AktiivisetKurssitComponent } from "./aktiiviset-kurssit/aktiiviset-kurs
 import { NavbarComponent } from "./navbar/navbar.component";
 import { SuoritetutKurssitComponent } from "./suoritetut-kurssit/suoritetut-kurssit.component";
 
+import { TreeViewModule } from "@syncfusion/ej2-angular-navigations";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +22,7 @@ import { SuoritetutKurssitComponent } from "./suoritetut-kurssit/suoritetut-kurs
     NavbarComponent,
     SuoritetutKurssitComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, ScheduleModule],
+  imports: [BrowserModule, AppRoutingModule, ScheduleModule, TreeViewModule],
   providers: [DragAndDropService],
   bootstrap: [AppComponent]
 })

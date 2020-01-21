@@ -1,10 +1,12 @@
 <div id="schedule">
   <ejs-schedule
+    #scheduleObj
     width="100%"
+    locale="fi"
     height="450px"
     [selectedDate]="selectedDate"
     [views]="views"
-    [eventSettings]="eventSettings"
+    [eventSettings]="eventObject"
     [showHeaderBar]="showHeaderBar"
     [firstDayOfWeek]="weekFirstDay"
   >
@@ -12,5 +14,13 @@
 </div>
 <h2>Tehtävät</h2>
 <div class="row justify-content-md-center">
-  <div class="col-sm-12 align-self-center blue-div"></div>
+  <div class="col-sm-12 align-self-center blue-div">
+    <ejs-treeview
+      #treeObj
+      [fields]="field"
+      allowDragAndDrop="true"
+      (nodeDragStop)="onTreeDragStop($event)"
+    >
+    </ejs-treeview>
+  </div>
 </div>
