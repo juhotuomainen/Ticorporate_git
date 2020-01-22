@@ -7,7 +7,8 @@ import { AppComponent } from "./app.component";
 import { ScheduleModule } from "@syncfusion/ej2-angular-schedule";
 import {
   DragAndDropService,
-  ResizeService
+  ResizeService,
+  RecurrenceEditorModule
 } from "@syncfusion/ej2-angular-schedule";
 
 import { KalenteriComponent } from "./kalenteri/kalenteri.component";

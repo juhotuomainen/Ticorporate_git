@@ -92,8 +92,10 @@ L10n.load({
       seriesChangeAlert:
         "Tämän sarjan tiettyihin ilmentymiin tehdyt muutokset peruutetaan ja kyseiset tapahtumat vastaavat sarjaa uudelleen.",
       createError:
+        // tslint:disable-next-line: max-line-length
         "Tapahtuman keston on oltava lyhyempi kuin kuinka usein se tapahtuu. Lyhennä kestoa tai muuta toistuvuuskuviota toistotapahtumaeditorissa.",
       recurrenceDateValidation:
+        // tslint:disable-next-line: max-line-length
         "Joissakin kuukausissa on vähemmän kuin valittu päivämäärä. Näiden kuukausien aikana tapahtuma laskee kuukauden viimeisenä päivänä.",
       sameDayAlert:
         "Kaksi saman tapahtuman tapahtumaa ei voi tapahtua samana päivänä.",
@@ -185,6 +187,7 @@ export class KalenteriComponent {
   public showHeaderBar: Boolean = true;
   public weekFirstDay: number = 1;
 
+  // tslint:disable-next-line: ban-types
   public tehtavaLista: { [key: string]: Object }[] = [
     {
       Id: 1,
@@ -206,6 +209,7 @@ export class KalenteriComponent {
     }
   ];
 
+  // tslint:disable-next-line: ban-types
   public field: Object = {
     dataSource: this.tehtavaLista,
     Id: "Id",
@@ -227,10 +231,11 @@ export class KalenteriComponent {
 
   /*
   public onTreeDragStop(args: DragAndDropEventArgs): void {
-    let cellData: CellClickEventArgs = this.scheduleInstance.getCellDetails(
+    const cellData: CellClickEventArgs = this.scheduleInstance.getCellDetails(
       args.target
     );
-    let eventData: { [key: string]: Object } = {
+    // tslint:disable-next-line: ban-types
+    const eventData: { [key: string]: Object } = {
       Event: args.event,
       Subject: args.draggedNodeData.text,
       StartTime: cellData.startTime,
@@ -286,12 +291,12 @@ export class KalenteriComponent {
   }
 
   onResizeStart(args: ResizeEventArgs): void {
-    //args.scroll.enable = true;
+    // args.scroll.enable = true;
     args.interval = 10;
     args.scroll.scrollBy = 100;
   }
   onDragStart(args: DragEventArgs): void {
-    //args.scroll.enable = true;
+    // args.scroll.enable = true;
     args.interval = 10;
     args.scroll.scrollBy = 100;
   }
