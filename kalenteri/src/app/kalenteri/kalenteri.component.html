@@ -1,24 +1,60 @@
 <div id="schedule">
-    <ejs-schedule
-      #scheduleObj
-      width="100%"
-      locale="fi"
-      height="450px"
-      [selectedDate]="selectedDate"
-      [views]="views"
-      [eventSettings]="eventObject"
-      [showHeaderBar]="showHeaderBar"
-      [firstDayOfWeek]="weekFirstDay"
-      allowDragAndDrop="true"
-      (dragStart)="onDragStart($event)"
-      (resizeStart)="onResizeStart($event)"
-      showWeekNumber="true"
+  <ejs-schedule
+    #scheduleObj
+    width="100%"
+    locale="fi"
+    height="450px"
+    [selectedDate]="selectedDate"
+    [views]="views"
+    [eventSettings]="eventObject"
+    [showHeaderBar]="showHeaderBar"
+    [firstDayOfWeek]="weekFirstDay"
+    allowDragAndDrop="true"
+    (dragStart)="onDragStart($event)"
+    (resizeStart)="onResizeStart($event)"
+    showWeekNumber="true"
+    (renderCell)="onRenderCell($event)"
+    [eventSettings]="eventSettings"
+  >
+    <e-header-rows>
+      <e-header-row option="Month"></e-header-row>
+      <e-header-row option="Date"></e-header-row>
+    </e-header-rows>
+  </ejs-schedule>
+</div>
+<h2>Tehtävät</h2>
+<div class="row justify-content-md-center">
+  <div class="col-sm-12 align-self-center blue-div">
+    <ejs-grid
+      id="Grid"
+      #gridObj
+      [dataSource]="gridDS"
+      width="300px"
+      [allowSelection]="true"
+      [allowRowDragAndDrop]="true"
+      [editSettings]="editSettings"
+      [rowDropSettings]="srcDropOptions"
+      (rowDrop)="onDragStop($event)"
+      (rowDrag)="onRowDrag($event)"
     >
-      <e-header-rows>
-        <e-header-row option="Month"></e-header-row>
-        <e-header-row option="Date"></e-header-row>
-      </e-header-rows>
-    </ejs-schedule>
+      <e-columns>
+        <!--
+          <e-column
+          field="Id"
+          isPrimaryKey="primaryKeyVal"
+          headerText="ID"
+          width="30"
+          textAlign="Right"
+        ></e-column>
+        -->
+        <e-column field="Name" headerText="Opintojakso" width="100"></e-column>
+        <e-column
+          field="Description"
+          headerText="Tehtävä"
+          width="670"
+        ></e-column>
+      </e-columns>
+    </ejs-grid>
   </div>
   <h2>Tehtävät</h2>
   <div class="row justify-content-md-center">
