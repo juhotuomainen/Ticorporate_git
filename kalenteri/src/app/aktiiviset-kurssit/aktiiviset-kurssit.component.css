@@ -1,0 +1,9 @@
+#kurssilista {
+  list-style: none;
+  text-decoration: none;
+  display: inline-block;
+  max-width: 450px;
+}
+#pollo {
+  max-width: 20%;
+}

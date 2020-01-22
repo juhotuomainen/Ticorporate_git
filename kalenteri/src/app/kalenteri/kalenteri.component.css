@@ -17,3 +17,7 @@ h2 {
   box-sizing: border-box;
   width: 120em;
 }
+
+ejs-schedule caption {
+  display: none;
+}

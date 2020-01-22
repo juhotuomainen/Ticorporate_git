@@ -8,5 +8,11 @@
   </head>
   <body>
     <h1>Aktiiviset kurssit</h1>
+    <ul>
+      <li *ngFor="let kurssi of kurssit" id="kurssilista">
+        <img src="{{ kurssi.kuva }}" id="pollo" />
+        {{ kurssi.nimi }}
+      </li>
+    </ul>
   </body>
 </html>
