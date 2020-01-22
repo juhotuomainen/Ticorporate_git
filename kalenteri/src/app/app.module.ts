@@ -22,7 +22,8 @@ import { TreeViewModule } from "@syncfusion/ej2-angular-navigations";
 import {
   GridModule,
   RowDDService,
-  EditService
+  EditService,
+  ToolbarService
 } from "@syncfusion/ej2-angular-grids";
 
 @NgModule({
@@ -40,7 +41,13 @@ import {
     TreeViewModule,
     GridModule
   ],
-  providers: [DragAndDropService, ResizeService, RowDDService, EditService],
+  providers: [
+    DragAndDropService,
+    ResizeService,
+    RowDDService,
+    EditService,
+    ToolbarService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

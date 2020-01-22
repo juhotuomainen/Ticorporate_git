@@ -29,25 +29,22 @@
       id="Grid"
       #gridObj
       [dataSource]="gridDS"
-      width="300px"
+      width="100%"
+      height="100%"
       [allowSelection]="true"
       [allowRowDragAndDrop]="true"
       [editSettings]="editSettings"
       [rowDropSettings]="srcDropOptions"
       (rowDrop)="onDragStop($event)"
       (rowDrag)="onRowDrag($event)"
+      [toolbar]="toolbar"
     >
       <e-columns>
-        <!--
-          <e-column
-          field="Id"
-          isPrimaryKey="primaryKeyVal"
-          headerText="ID"
-          width="30"
-          textAlign="Right"
+        <e-column
+          field="Subject"
+          headerText="Opintojakso"
+          width="100"
         ></e-column>
-        -->
-        <e-column field="Name" headerText="Opintojakso" width="100"></e-column>
         <e-column
           field="Description"
           headerText="Tehtävä"
