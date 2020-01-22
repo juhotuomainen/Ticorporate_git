@@ -15,6 +15,7 @@ import { KalenteriComponent } from "./kalenteri/kalenteri.component";
 import { AktiivisetKurssitComponent } from "./aktiiviset-kurssit/aktiiviset-kurssit.component";
 import { NavbarComponent } from "./navbar/navbar.component";
 import { SuoritetutKurssitComponent } from "./suoritetut-kurssit/suoritetut-kurssit.component";
+import { AsetuksetComponent } from "./asetukset/asetukset.component";
 
 import { TreeViewModule } from "@syncfusion/ej2-angular-navigations";
 
@@ -32,7 +33,8 @@ import {
     KalenteriComponent,
     AktiivisetKurssitComponent,
     NavbarComponent,
-    SuoritetutKurssitComponent
+    SuoritetutKurssitComponent,
+    AsetuksetComponent
   ],
   imports: [
     BrowserModule,

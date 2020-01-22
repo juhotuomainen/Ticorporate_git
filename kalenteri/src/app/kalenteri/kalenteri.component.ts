@@ -1,6 +1,7 @@
 declare var require: any;
 
 import { Component, ViewChild, OnInit } from "@angular/core";
+
 import { extend, closest } from "@syncfusion/ej2-base";
 
 import {
@@ -192,7 +193,6 @@ export class KalenteriComponent implements OnInit {
   public showHeaderBar: Boolean = true;
   public weekFirstDay: number = 1;
 
-  // tslint:disable-next-line: ban-types
   public tehtavaLista: { [key: string]: Object }[] = [
     {
       Id: 1,
@@ -250,7 +250,6 @@ export class KalenteriComponent implements OnInit {
     }
   ];
 
-  // tslint:disable-next-line: ban-types
   public field: Object = {
     dataSource: this.tehtavaLista,
     Id: "Id",
@@ -275,7 +274,6 @@ export class KalenteriComponent implements OnInit {
     const cellData: CellClickEventArgs = this.scheduleInstance.getCellDetails(
       args.target
     );
-    // tslint:disable-next-line: ban-types
     const eventData: { [key: string]: Object } = {
       Event: args.event,
       Subject: args.draggedNodeData.text,
@@ -335,12 +333,12 @@ export class KalenteriComponent implements OnInit {
   }
 
   onResizeStart(args: ResizeEventArgs): void {
-    // args.scroll.enable = true;
+    //args.scroll.enable = true;
     args.interval = 10;
     args.scroll.scrollBy = 100;
   }
   onDragStart(args: DragEventArgs): void {
-    // args.scroll.enable = true;
+    //args.scroll.enable = true;
     args.interval = 10;
     args.scroll.scrollBy = 100;
   }
