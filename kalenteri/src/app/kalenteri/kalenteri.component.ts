@@ -1,16 +1,13 @@
 declare var require: any;
 
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component, ViewChild } from "@angular/core";
 import {
   TreeViewComponent,
   DragAndDropEventArgs
 } from "@syncfusion/ej2-angular-navigations";
 
 import {
-  EventSettingsModel,
-  DayService,
   WeekService,
-  WorkWeekService,
   AgendaService,
   DragAndDropService,
   DragEventArgs,
@@ -161,15 +158,15 @@ export class KalenteriComponent {
   @ViewChild("treeObj", { static: true })
   public treeObj: TreeViewComponent;
   public selectedDate: Date = new Date();
-  public views: Array<string> = ["Day", "Week", "WorkWeek"];
-  public showHeaderBar: Boolean = false;
+  public views: Array<string> = ["Week"];
+  public showHeaderBar: Boolean = true;
   public weekFirstDay: number = 1;
   title = "kalenteri";
 
   public tehtavaLista: { [key: string]: Object }[] = [
     { Id: 1, Name: "ohjelmointi" },
     { Id: 2, Name: "tietokannat" },
-    { Id: 3, Name: "tietokannat2" }
+    { Id: 3, Name: "tietokannat2", hasChild: false }
   ];
 
   public field: Object = {
@@ -201,6 +198,7 @@ export class KalenteriComponent {
       IsAllDay: cellData.isAllDay
     };
     this.scheduleInstance.addEvent(eventData);
+    //this.treeObj.(args.target);
   }
 
   onResizeStart(args: ResizeEventArgs): void {

@@ -9,10 +9,10 @@
     [eventSettings]="eventObject"
     [showHeaderBar]="showHeaderBar"
     [firstDayOfWeek]="weekFirstDay"
-    locale="fi"
     allowDragAndDrop="true"
     (dragStart)="onDragStart($event)"
     (resizeStart)="onResizeStart($event)"
+    showWeekNumber="true"
   >
     <e-header-rows>
       <e-header-row option="Month"></e-header-row>
