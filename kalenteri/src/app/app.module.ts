@@ -7,7 +7,8 @@ import { AppComponent } from "./app.component";
 import { ScheduleModule } from "@syncfusion/ej2-angular-schedule";
 import {
   DragAndDropService,
-  ResizeService
+  ResizeService,
+  RecurrenceEditorModule
 } from "@syncfusion/ej2-angular-schedule";
 
 import { KalenteriComponent } from "./kalenteri/kalenteri.component";
@@ -17,6 +18,13 @@ import { SuoritetutKurssitComponent } from "./suoritetut-kurssit/suoritetut-kurs
 
 import { TreeViewModule } from "@syncfusion/ej2-angular-navigations";
 
+//grid
+import {
+  GridModule,
+  RowDDService,
+  EditService
+} from "@syncfusion/ej2-angular-grids";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,8 +33,14 @@ import { TreeViewModule } from "@syncfusion/ej2-angular-navigations";
     NavbarComponent,
     SuoritetutKurssitComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, ScheduleModule, TreeViewModule],
-  providers: [DragAndDropService, ResizeService],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ScheduleModule,
+    TreeViewModule,
+    GridModule
+  ],
+  providers: [DragAndDropService, ResizeService, RowDDService, EditService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

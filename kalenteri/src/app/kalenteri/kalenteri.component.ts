@@ -1,16 +1,15 @@
 declare var require: any;
 
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component, ViewChild } from "@angular/core";
+import { extend, closest } from "@syncfusion/ej2-base";
+
 import {
   TreeViewComponent,
   DragAndDropEventArgs
 } from "@syncfusion/ej2-angular-navigations";
 
 import {
-  EventSettingsModel,
-  DayService,
   WeekService,
-  WorkWeekService,
   AgendaService,
   DragAndDropService,
   DragEventArgs,
@@ -19,6 +18,14 @@ import {
   ScheduleComponent,
   ResizeEventArgs
 } from "@syncfusion/ej2-angular-schedule";
+
+import {
+  GridComponent,
+  RowDDService,
+  EditService,
+  EditSettingsModel,
+  RowDropSettingsModel
+} from "@syncfusion/ej2-angular-grids";
 
 import { loadCldr, L10n } from "@syncfusion/ej2-base";
 /*import * as numberingSystems from './numberingSystems.json';
@@ -85,8 +92,10 @@ L10n.load({
       seriesChangeAlert:
         "Tämän sarjan tiettyihin ilmentymiin tehdyt muutokset peruutetaan ja kyseiset tapahtumat vastaavat sarjaa uudelleen.",
       createError:
+        // tslint:disable-next-line: max-line-length
         "Tapahtuman keston on oltava lyhyempi kuin kuinka usein se tapahtuu. Lyhennä kestoa tai muuta toistuvuuskuviota toistotapahtumaeditorissa.",
       recurrenceDateValidation:
+        // tslint:disable-next-line: max-line-length
         "Joissakin kuukausissa on vähemmän kuin valittu päivämäärä. Näiden kuukausien aikana tapahtuma laskee kuukauden viimeisenä päivänä.",
       sameDayAlert:
         "Kaksi saman tapahtuman tapahtumaa ei voi tapahtua samana päivänä.",
@@ -156,26 +165,57 @@ L10n.load({
   ]
 })
 export class KalenteriComponent {
-  @ViewChild("scheduleObj", { static: true })
-  public scheduleInstance: ScheduleComponent;
-  @ViewChild("treeObj", { static: true })
-  public treeObj: TreeViewComponent;
-  public selectedDate: Date = new Date();
-  public views: Array<string> = ["Day", "Week", "WorkWeek"];
-  public showHeaderBar: Boolean = false;
-  public weekFirstDay: number = 1;
   title = "kalenteri";
 
+  // Viikon numeron sijasta Viikko + numero
+  onRenderCell(args): void {
+    if (args.elementType === "emptyCells") {
+      let weekNumber = args.element.querySelector(".e-week-number span")
+        .innerText;
+      args.element.querySelector(".e-week-number span").innerText =
+        "Viikko " + weekNumber;
+    }
+  }
+
+  @ViewChild("scheduleObj", { static: true })
+  public scheduleInstance: ScheduleComponent;
+  @ViewChild("gridObj", { static: true })
+  public gridObj: GridComponent;
+
+  public selectedDate: Date = new Date();
+  public views: Array<string> = ["Week"];
+  public showHeaderBar: Boolean = true;
+  public weekFirstDay: number = 1;
+
+  // tslint:disable-next-line: ban-types
   public tehtavaLista: { [key: string]: Object }[] = [
-    { Id: 1, Name: "ohjelmointi" },
-    { Id: 2, Name: "tietokannat" },
-    { Id: 3, Name: "tietokannat2" }
+    {
+      Id: 1,
+      Name: "Ohjelmointi",
+      Description: "Ohjelmointi tehtävä 3 ja 4",
+      Subject: "Ohjelmointi"
+    },
+    {
+      Id: 2,
+      Name: "Tietokannat",
+      Description: "Tee tehtävä 3",
+      Subject: "Tietokannat"
+    },
+    {
+      Id: 3,
+      Name: "Tietokannat2",
+      Description: "Tee tehtävät 6, 7, 8",
+      Subject: "Tietokannat 2"
+    }
   ];
 
+  // tslint:disable-next-line: ban-types
   public field: Object = {
     dataSource: this.tehtavaLista,
-    id: "Id",
-    text: "Name"
+    Id: "Id",
+    Text: "Name",
+    Description: "Description",
+    Subject: "Subject"
   };
 
   // public EventObject: EventSettingsModel = {
@@ -189,11 +229,13 @@ export class KalenteriComponent {
   //   ]
   // };
 
+  /*
   public onTreeDragStop(args: DragAndDropEventArgs): void {
-    let cellData: CellClickEventArgs = this.scheduleInstance.getCellDetails(
+    const cellData: CellClickEventArgs = this.scheduleInstance.getCellDetails(
       args.target
     );
-    let eventData: { [key: string]: Object } = {
+    // tslint:disable-next-line: ban-types
+    const eventData: { [key: string]: Object } = {
       Event: args.event,
       Subject: args.draggedNodeData.text,
       StartTime: cellData.startTime,
@@ -201,15 +243,60 @@ export class KalenteriComponent {
       IsAllDay: cellData.isAllDay
     };
     this.scheduleInstance.addEvent(eventData);
+    //this.treeObj.(args.target);
+  }
+*/
+
+  //grid data
+  public gridDS: Object = this.tehtavaLista;
+  public allowDragAndDrop: boolean = true;
+  public srcDropOptions: RowDropSettingsModel = { targetID: "Schedule" };
+  public primaryKeyVal: boolean = true;
+  public editSettings: EditSettingsModel = {
+    allowAdding: true,
+    allowEditing: true,
+    allowDeleting: true
+  };
+
+  onRowDrag(event: any): void {
+    event.cancel = true;
+  }
+
+  onDragStop(event: any): void {
+    event.cancel = true;
+    let scheduleElement: Element = <Element>(
+      closest(event.target, ".e-content-wrap")
+    );
+    if (scheduleElement) {
+      if (event.target.classList.contains("e-work-cells")) {
+        const filteredData: Object = event.data;
+        let cellData: CellClickEventArgs = this.scheduleInstance.getCellDetails(
+          event.target
+        );
+        let eventData: { [key: string]: Object } = {
+          Id: filteredData[0].Id,
+          Name: filteredData[0].Name,
+          Title: filteredData[0].Title,
+          Subject: filteredData[0].Subject,
+          StartTime: cellData.startTime,
+          EndTime: cellData.endTime,
+          IsAllDay: cellData.isAllDay,
+          Description: filteredData[0].Description
+        };
+        this.scheduleInstance.addEvent(eventData);
+        // this.scheduleObj.openEditor(eventData, 'Add', true);
+        this.gridObj.deleteRecord(event.data[0]);
+      }
+    }
   }
 
   onResizeStart(args: ResizeEventArgs): void {
-    //args.scroll.enable = true;
+    // args.scroll.enable = true;
     args.interval = 10;
     args.scroll.scrollBy = 100;
   }
   onDragStart(args: DragEventArgs): void {
-    //args.scroll.enable = true;
+    // args.scroll.enable = true;
     args.interval = 10;
     args.scroll.scrollBy = 100;
   }
