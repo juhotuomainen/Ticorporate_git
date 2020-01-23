@@ -8,7 +8,7 @@
     - [Controllerit](#Controllerit)
     - [Luokat](#Luokat)
       - [TypeScript luokan järjestys](#TypeScript-luokan-järjestys)
-    - [Isot ja pienet kirjaimet](#Isot-ja-pienet-kirjaimet)
+    - [Isot ja pienet kirjaimet sekä hipsut](#Isot-ja-pienet-kirjaimet)
     - [Suojausmääret](#Suojausmääret)
 - [Whitespacen käyttö](#Whitespacen-käyttö)
 - [Kommentointikäytänteet](#Kommentointikäytänteet)
@@ -17,14 +17,14 @@
 Tämä dokumentti on ohjenuora projektissa kirjoitettavasta koodista.
 
 ## Nimeämiskäytänteet
-Jotta kaikki pysyvät kärryillä siitä mitä muut ovat kirjoittaneet, on tärkeää nimetä muuttujat, metodit, luokat jne. niitä parhaiten kuvaavalla nimellä, englanniksi.
+Jotta kaikki pysyvät kärryillä siitä mitä muut ovat kirjoittaneet, on tärkeää nimetä kaikki itsetehdyt muuttujat, metodit, luokat jne. niitä parhaiten kuvaavalla nimellä. 
 
 ### Muuttujat
-Muuttujan nimen tulee kuvata sen sisältämää tietoa. Muuttujan nimi kirjoitetaan englanniksi. Alaviivan käyttö on kiellettyä. Lähtökohtaisesti muuttujan tyyppinä on const, ellei muuttujan arvoa tulla ajonaikana uudelleen päivittämään. Muuttujatyyppiä **VAR** ei käytetä.
+Muuttujan nimen tulee kuvata sen sisältämää tietoa. Muuttujan nimi kirjoitetaan suomeksi. Alaviivan käyttö on kiellettyä. Lähtökohtaisesti muuttujan tyyppinä on const, ellei muuttujan arvoa tulla ajonaikana uudelleen päivittämään (tällöin let). Muuttujatyyppiä **VAR** ei käytetä.
 
 TypeScript-muuttujaan tulee aina määrittää tyyppi sekä suojausmääre. Alaviivaa käytetään vain kun muuttujan tyyppi on private. Private-muuttujan eteen lisätään alaviiva. Jos muuttujalle annetaan arvo sitä luotaessa, sille ei tarvitse erikseen määrittää tietotyyppiä. Kun muuttujan tyyppi on taulukko se määritetään seuraavalla tavalla  `number[]` , eikä näin  `Array<number>` .
 
-Esimerkiksi, jos meillä on käyttäjänimi muuttuja:
+Esimerkiksi lainatusta koodista, jos meillä on käyttäjänimi muuttuja:
 
 ```javascript
 // Väärä tapa. Muuttujassa on alaviiva.
@@ -44,7 +44,7 @@ public userName: string = 'Masa';
 ```
 
 ### Metodit
-Metodin nimen tulee kuvata sen mekanismia. Metodin nimi kirjoitetaan englanniksi. Alaviivan käyttö on kiellettyä. TypeScriptin metodeissa tulee olla palautusarvo. TypeScript-metodiin tulee asettaa oikea suojausmääre (public tai private). Tavallisissa funktioissa ei käytetä lambda-notaatiota.
+Metodin nimen tulee kuvata sen mekanismia. Metodin nimi kirjoitetaan omassa koodissa suomeksi. Alaviivan käyttö on kiellettyä. TypeScriptin metodeissa tulee olla palautusarvo. TypeScript-metodiin tulee asettaa oikea suojausmääre (public tai private). Tavallisissa funktioissa ei käytetä lambda-notaatiota. Selkeitä arrow-funktioita saa käyttää. (Nuolifunktiot).
 
 ```javascript
 // Väärä tapa. Funktion nimessä on alaviiva.
@@ -85,7 +85,7 @@ class Luokka {
 
 ### Css
 
-Css-tiedostoissa nimet kirjoitetaan pienellä kirjaimilla sekä viivalla erotettuna (ei camelCase!). Jaa css-osiot toisistaan 2 välillä (samaan osioon liittyviin asioihin ei tarvitse väliä).
+Css-tiedostoissa nimet kirjoitetaan pienellä kirjaimilla sekä viivalla erotettuna (ei camelCase!). Jaa css-osiot ({}-väliin, eli koodilohkon) toisistaan kahdella rivinvaihdolla (samaan osioon liittyviin asioihin ei tarvitse väliä).
 ```css
 /* Väärä tapa. Elementin nimi on kirjoitettu camelCasella. */
 commentArea { background-color: 'black'; }
@@ -93,10 +93,10 @@ commentArea { background-color: 'black'; }
 comment-area { background-color: 'black'; }
 ```
 
-Css-elementteihin olisi hyvä myös kirjoittaa pieni dokumentointi, joka selittää mitä osioita kyseinen teema muokkaa.
+Css-elementteihin olisi hyvä myös kirjoittaa pieni, selkeä dokumentointi suomeksi, joka selittää mitä osioita kyseinen teema muokkaa.
 
 ### Luokat
-Luokan nimen tulee alkaa isolla alkukirjaimella. Luokan nimi kirjoitetaan englanniksi. Alaviivan käyttö on kiellettyä. Luokan muuttujat tulevat ensimmäisenä. Tämän jälkeen jätetään 2 väliä ja tuodaan sekä ```constructor``` sekä ```ngOnInit```. Lopuksi jätetään taas kaksi väliä ja luodaan funktiot. Jokaisen funktion välissä on 2 väliä. Luokan sisältävän tiedon järjestys on:
+Luokan nimen tulee alkaa isolla alkukirjaimella. Luokan nimi kirjoitetaan suomeksi. Alaviivan käyttö on kiellettyä. Luokan muuttujat tulevat ensimmäisenä. Tämän jälkeen jätetään kaksi rivinvaihtoa ja tuodaan sekä ```constructor``` sekä ```ngOnInit```. Lopuksi jätetään taas kaksi rivinvaihtoa ja luodaan funktiot. Jokaisen funktion välissä on rivinvaihtoa. Luokan sisältävän tiedon järjestys on:
 
 #### TypeScript luokan järjestys
 
@@ -126,17 +126,17 @@ class Luokka implements OnInit {
 }
 ```
 
-### Isot ja pienet kirjaimet
-Kaikki luokkatyyppimuuttujat kirjoitetaan aina isolla alkukirjaimella.
+### Isot ja pienet kirjaimet sekä hipsut (heittomerkit)
+Kaikki muuttujat kirjoitetaan aina pienellä alkukirjaimella. ''-hipsut oletuksena, paitsi kielissä ja tilanteisssa, joissa ""-käyttö on pakollista.
 
 ### Suojausmääreet
 Muuttujien sekä metodien suojausmääreet tullaan määrittelemään sen mukaan, kuinka niitä tullaan käyttämään komponentin ulkopuolella. Private-suojausmäärettä ei siis käytetä jos muuttujaan laitetaan vain arvo/arvoja.
 
 ## Whitespacen käyttö
-Sisennyksen määrä on 2. Metodin parametri- ja kaarisulkeiden välissä tulee olla yksi tyhjä väli. Taulukon alkioden välissä tulee olla yksi, joka sijaitsee pilkun jälkeen.
+Sisennyksen määrä on kaksi tabia. Metodin parametri- ja kaarisulkeiden välissä tulee olla yksi tyhjä välilyönti. Taulukon alkioden välissä tulee olla yksi välilyönti, joka sijaitsee pilkun jälkeen.
 
 ```javascript
-// Oikea tapa. Tässä on oikea määrä whitescapea. Sulkeen ja kaarisulkeen välillä ON tyhjä väli. Metodin parametrien välissä pilkun jälkeen on yksi tyhjä väli.
+// Oikea tapa. Tässä on oikea määrä whitespacea. Sulkeen ja kaarisulkeen välillä ON tyhjä väli. Metodin parametrien välissä pilkun jälkeen on yksi tyhjä väli.
 function method(x, y, z) {
   console.log('Moi');
 }
@@ -156,16 +156,16 @@ function method(x,y,z){
 ```
 
 ## Routet
-Backend: (```express/routes```). Routet tulevat ```module.exports = app => {}``` funktion sisään. Routejen väliin tulee 1 väli ja jokainen route kommentoidaan lyhyesti.
+Backend: (```express/routes```). Routet tulevat ```module.exports = app => {}``` funktion sisään. Routejen väliin tulee yksi rivinvaihto ja jokainen route kommentoidaan lyhyesti.
 ```javascript
 const Controller = require('../controllers/controler.controller');
 
 module.exports = app => {
   
-  // Gets you stuff from database
+  //  Hakee tavarat tietokannasta
   app.get('/url/url/url', Controller.getStuff());
 
-  // Post new stuff to database
+  // Postaa uutta tavaraa tietokantaan
   app.post('/url/url/url/:id', Contoller.doStuff());
   
 }
@@ -173,7 +173,7 @@ module.exports = app => {
 
 ## Controllerit 
 Backend: (```express/controllers```).
-Controller-funktiot sijoitetaan oliomuuttujaan. Jokainen funktio kommentoidaan JSDocilla. Funktioiden välillä on 2 väliä. Funktion ensimmäinen rivi erotetaan muusta funktiosta. Muuten erottelu on tilanteesta riippuen vapaata.
+Controller-funktiot sijoitetaan oliomuuttujaan. Jokainen funktio kommentoidaan JSDocilla. Funktioiden välillä on kaksi rivinvaihtoa. Funktion ensimmäinen rivi erotetaan muusta funktiosta. Muuten erottelu on tilanteesta riippuen vapaata.
 ```javascript
 const libraries = require('library');
 
@@ -181,7 +181,7 @@ const LikeController = {
 
   /**
    * GETS STUFF
-   * 
+   * Funktiot
    * Function which'll get stuff from database. This information will
    * be sent back to frontend etc.
    * 
@@ -227,17 +227,18 @@ const LikeController = {
 ```
 
 ## Kommentointikäytänteet
-Käytämme JSDoc-kommentointityökalua luokkien sekä metodien dokumentointiin. Kommentointi englanniksi. Otsikko kirjoitetaan isoilla kirjaimilla, jonka jälkeen seuraa lyhyt kuvaus metodin/luokan toiminnasta. Lopuksi kommentoidaan parametrit, muuttujat ja palautettavat arvot.
-
+Käytämme JSDoc-kommentointityökalua luokkien sekä metodien dokumentointiin. Kommentointi suomeksi. Otsikko kirjoitetaan isoilla kirjaimilla, jonka jälkeen seuraa lyhyt kuvaus metodin/luokan toiminnasta. Lopuksi kommentoidaan parametrit, muuttujat ja palautettavat arvot.
+Useamman rivin kommentointi toteutetaan JSDOC-kommentilla ja yhdenrivin kommentit //-tyylillä.
+HTML-dokumenteissa hyödynnämme standardi kommentointityyliä.
 ```javascript
  /**
-   * RETURNS NUMBERS
+   * NUMEROIDEN PALAUTUS
    *
-   * Function which returns numbers.
+   * Funktio palauttaa numerot
    *
-   * @param {number} x Number which will be returned.
-   * @param {number} y Number which will be returned.
-   * @return {number} Returns numbers
+   * @param {number} x Palautettava numero
+   * @param {number} y Palautettava numero.
+   * @return {number} Palauttaa numerot
    *
    */
   function returnNumbers(x, y) {
@@ -250,9 +251,8 @@ Kuten tässä esimerkissä, kommentin ja kommentoitavan väliin ei lisätä rivi
 Muuttujien kommentti lisätään niiden yläpuolelle.
 
 ```javascript
-// This is right way to create a comment
+// Näin kommentoit oikein
 const name = 'Matti';
 
-const name = 'Maija'; // This is wrong.
-
+const name = 'Maija'; // Ei näin
 ```
