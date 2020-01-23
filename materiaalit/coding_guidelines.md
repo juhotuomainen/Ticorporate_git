@@ -8,7 +8,7 @@
     - [Controllerit](#Controllerit)
     - [Luokat](#Luokat)
       - [TypeScript luokan järjestys](#TypeScript-luokan-järjestys)
-    - [Isot ja pienet kirjaimet sekä hipsut](#Isot-ja-pienet-kirjaimet sekä hipsut (heittomerkit))
+    - [Isot ja pienet kirjaimet sekä hipsut](#Isot-ja-pienet-kirjaimet sekä hipsut)
     - [Suojausmääret](#Suojausmääret)
 - [Whitespacen käyttö](#Whitespacen-käyttö)
 - [Kommentointikäytänteet](#Kommentointikäytänteet)
@@ -126,7 +126,7 @@ class Luokka implements OnInit {
 }
 ```
 
-### Isot ja pienet kirjaimet sekä hipsut (heittomerkit)
+### Isot ja pienet kirjaimet sekä hipsut
 Kaikki muuttujat kirjoitetaan aina pienellä alkukirjaimella. ''-hipsut oletuksena, paitsi kielissä ja tilanteisssa, joissa ""-käyttö on pakollista.
 
 ### Suojausmääreet
