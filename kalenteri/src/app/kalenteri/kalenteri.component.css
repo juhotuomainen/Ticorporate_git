@@ -5,7 +5,7 @@
 .blue-div {
   background-color: #d4e4ff;
   max-width: 90%;
-  height: 150px;
+  height: 200px;
   margin-bottom: 3em;
 }
 h2 {
@@ -17,7 +17,21 @@ h2 {
   box-sizing: border-box;
   width: 120em;
 }
-
-ejs-schedule caption {
+/*
+.e-gridheader .e-table {
   display: none;
 }
+*/
+
+.e-toolbar .e-toolbar-items {
+  background: #e4e4ff;
+}
+.e-hide {
+  display: none;
+}
+/* tästä polusta löytyy värejä
+http: ; //localhost:4200/node_modules/@syncfusion/ej2-navigations/styles/material.css
+.e-toolbar .e-toolbar-items {
+    background: #d4e4ff;
+}
+*/

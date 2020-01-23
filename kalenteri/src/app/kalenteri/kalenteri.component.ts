@@ -1,6 +1,7 @@
 declare var require: any;
 
-import { Component, ViewChild } from "@angular/core";
+import { Component, ViewChild, OnInit } from "@angular/core";
+
 import { extend, closest } from "@syncfusion/ej2-base";
 
 import {
@@ -24,7 +25,8 @@ import {
   RowDDService,
   EditService,
   EditSettingsModel,
-  RowDropSettingsModel
+  RowDropSettingsModel,
+  ToolbarItems
 } from "@syncfusion/ej2-angular-grids";
 
 import { loadCldr, L10n } from "@syncfusion/ej2-base";
@@ -164,7 +166,11 @@ L10n.load({
     ScheduleComponent
   ]
 })
-export class KalenteriComponent {
+export class KalenteriComponent implements OnInit {
+  ngOnInit(): void {
+    this.toolbar = ["Add", "Search"];
+  }
+
   title = "kalenteri";
 
   // Viikon numeron sijasta Viikko + numero
@@ -187,18 +193,17 @@ export class KalenteriComponent {
   public showHeaderBar: Boolean = true;
   public weekFirstDay: number = 1;
 
-  // tslint:disable-next-line: ban-types
   public tehtavaLista: { [key: string]: Object }[] = [
     {
       Id: 1,
       Name: "Ohjelmointi",
-      Description: "Ohjelmointi tehtävä 3 ja 4",
+      Description: "Ohjelmointi tehtävä 63 ja 43",
       Subject: "Ohjelmointi"
     },
     {
       Id: 2,
       Name: "Tietokannat",
-      Description: "Tee tehtävä 3",
+      Description: "Tee tehtävä 13",
       Subject: "Tietokannat"
     },
     {
@@ -206,10 +211,45 @@ export class KalenteriComponent {
       Name: "Tietokannat2",
       Description: "Tee tehtävät 6, 7, 8",
       Subject: "Tietokannat 2"
+    },
+    {
+      Id: 4,
+      Name: "Ohjelmointi",
+      Description: "Ohjelmointi tehtävä 5 ja 6",
+      Subject: "Ohjelmointi"
+    },
+    {
+      Id: 5,
+      Name: "Tietokannat",
+      Description: "Tee tehtävä 41",
+      Subject: "Tietokannat"
+    },
+    {
+      Id: 6,
+      Name: "Tietokannat2",
+      Description: "Tee tehtävät 9, 10, 11",
+      Subject: "Tietokannat 2"
+    },
+    {
+      Id: 7,
+      Name: "Ohjelmointi",
+      Description: "Ohjelmointi tehtävä 13 ja 14",
+      Subject: "Ohjelmointi"
+    },
+    {
+      Id: 8,
+      Name: "Tietokannat",
+      Description: "Tee tehtävä 7",
+      Subject: "Tietokannat"
+    },
+    {
+      Id: 9,
+      Name: "Tietokannat2",
+      Description: "Tee tehtävät 16, 437, 28",
+      Subject: "Tietokannat 2"
     }
   ];
 
-  // tslint:disable-next-line: ban-types
   public field: Object = {
     dataSource: this.tehtavaLista,
     Id: "Id",
@@ -234,7 +274,6 @@ export class KalenteriComponent {
     const cellData: CellClickEventArgs = this.scheduleInstance.getCellDetails(
       args.target
     );
-    // tslint:disable-next-line: ban-types
     const eventData: { [key: string]: Object } = {
       Event: args.event,
       Subject: args.draggedNodeData.text,
@@ -257,6 +296,9 @@ export class KalenteriComponent {
     allowEditing: true,
     allowDeleting: true
   };
+
+  //grid toolbar
+  public toolbar: ToolbarItems[];
 
   onRowDrag(event: any): void {
     event.cancel = true;
@@ -291,12 +333,12 @@ export class KalenteriComponent {
   }
 
   onResizeStart(args: ResizeEventArgs): void {
-    // args.scroll.enable = true;
+    //args.scroll.enable = true;
     args.interval = 10;
     args.scroll.scrollBy = 100;
   }
   onDragStart(args: DragEventArgs): void {
-    // args.scroll.enable = true;
+    //args.scroll.enable = true;
     args.interval = 10;
     args.scroll.scrollBy = 100;
   }

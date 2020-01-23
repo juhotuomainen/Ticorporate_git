@@ -12,6 +12,16 @@
       <li *ngFor="let kurssi of kurssit" id="kurssilista">
         <img src="{{ kurssi.kuva }}" id="pollo" />
         {{ kurssi.nimi }}
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-toggle="modal"
+          data-target="#myModal"
+          (click)="showModal()"
+        >
+          Lisää muistiinpano
+        </button>
+        <app-modal></app-modal>
       </li>
     </ul>
   </body>
