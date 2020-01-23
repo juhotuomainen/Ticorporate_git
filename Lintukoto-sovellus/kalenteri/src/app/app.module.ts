@@ -27,6 +27,7 @@ import {
   ToolbarService
 } from "@syncfusion/ej2-angular-grids";
 import { ModalComponent } from "./modal/modal.component";
+import { MuistiinpanoComponent } from './muistiinpano/muistiinpano.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ModalComponent } from "./modal/modal.component";
     NavbarComponent,
     SuoritetutKurssitComponent,
     AsetuksetComponent,
-    ModalComponent
+    ModalComponent,
+    MuistiinpanoComponent
   ],
   imports: [
     BrowserModule,

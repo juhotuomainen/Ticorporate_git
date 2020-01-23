@@ -11,17 +11,19 @@
     <ul>
       <li *ngFor="let kurssi of kurssit" id="kurssilista">
         <img src="{{ kurssi.kuva }}" id="pollo" />
-        {{ kurssi.nimi }}
+        <h5>{{ kurssi.nimi }}</h5>
         <button
           type="button"
           class="btn btn-primary"
           data-toggle="modal"
           data-target="#myModal"
-          (click)="showModal()"
         >
           Lisää muistiinpano
         </button>
-        <app-modal></app-modal>
+        <a data-toggle="modal" data-target="#myModal2" id="muistiinpano-linkki">
+          {{ kurssi.muistiinpanoTag }}</a
+        >
+        <app-modal [muistiinpano]="muistiinpano"></app-modal>
       </li>
     </ul>
   </body>
