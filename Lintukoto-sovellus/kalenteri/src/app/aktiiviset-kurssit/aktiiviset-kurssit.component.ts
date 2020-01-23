@@ -4,7 +4,8 @@ import { ModalComponent } from "../modal/modal.component";
 @Component({
   selector: "app-aktiiviset-kurssit",
   templateUrl: "./aktiiviset-kurssit.component.html",
-  styleUrls: ["./aktiiviset-kurssit.component.css"]
+  styleUrls: ["./aktiiviset-kurssit.component.css"],
+  providers: [ModalComponent]
 })
 export class AktiivisetKurssitComponent implements OnInit {
   title = "Aktiiviset kurssit";
