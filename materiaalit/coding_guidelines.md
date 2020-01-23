@@ -8,7 +8,7 @@
     - [Controllerit](#Controllerit)
     - [Luokat](#Luokat)
       - [TypeScript luokan järjestys](#TypeScript-luokan-järjestys)
-    - [Isot ja pienet kirjaimet sekä hipsut](#Isot-ja-pienet-kirjaimet)
+    - [Isot ja pienet kirjaimet sekä hipsut](#Isot-ja-pienet-kirjaimet sekä hipsut (heittomerkit))
     - [Suojausmääret](#Suojausmääret)
 - [Whitespacen käyttö](#Whitespacen-käyttö)
 - [Kommentointikäytänteet](#Kommentointikäytänteet)
