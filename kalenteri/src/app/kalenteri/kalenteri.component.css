@@ -17,15 +17,11 @@ h2 {
   box-sizing: border-box;
   width: 120em;
 }
-/*
-.e-gridheader .e-table {
-  display: none;
-}
-*/
 
 .e-toolbar .e-toolbar-items {
   background: #e4e4ff;
 }
+
 .e-hide {
   display: none;
 }

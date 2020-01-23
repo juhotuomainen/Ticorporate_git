@@ -258,34 +258,6 @@ export class KalenteriComponent implements OnInit {
     Subject: "Subject"
   };
 
-  // public EventObject: EventSettingsModel = {
-  //   dataSource: [
-  //     {
-  //       Id: 1,
-  //       Subject: "Tehtävä",
-  //       StartTime: new Date(),
-  //       EndTime: new Date()
-  //     }
-  //   ]
-  // };
-
-  /*
-  public onTreeDragStop(args: DragAndDropEventArgs): void {
-    const cellData: CellClickEventArgs = this.scheduleInstance.getCellDetails(
-      args.target
-    );
-    const eventData: { [key: string]: Object } = {
-      Event: args.event,
-      Subject: args.draggedNodeData.text,
-      StartTime: cellData.startTime,
-      EndTime: cellData.endTime,
-      IsAllDay: cellData.isAllDay
-    };
-    this.scheduleInstance.addEvent(eventData);
-    //this.treeObj.(args.target);
-  }
-*/
-
   //grid data
   public gridDS: Object = this.tehtavaLista;
   public allowDragAndDrop: boolean = true;
