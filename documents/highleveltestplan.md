@@ -98,7 +98,7 @@ FI: Mitä toimintoja priorisoidaan pois? Esim. ulkoiset komponentit.
 FI: Lähestymiskulma. Mitä toimintoja, tekniikoita ja työkaluja käytetään. Harrastetaanko testiautomaatiota vai not? Onko esim. TDD prinsiippinä? Testauksen rajoitteet mukaan myös.
 
 ### Hyväksymiskriteerit
-
+- Hyväskymiskriteerit jokaiseen käyttäjäkertomukseen on pilkottu ja eritelty ZenHubissa. Näiden hyväskymiskriteerien pohjalta teemme testisuunnitelmat jokaiseen käyttäjäkertomukseen.
 - Specify the criteria that will be used to determine whether each test item (software/product) has passed or failed testing.
 - What criteria we use on testing? You  can define the criteria for each testable level (component, integration in the small, system etc.) separately
 - Remember that you can use metrics as a passing criteria also!
