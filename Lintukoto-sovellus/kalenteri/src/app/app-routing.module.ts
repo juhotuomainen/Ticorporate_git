@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: "asetukset", component: AsetuksetComponent },
   { path: "muistiinpano", component: ModalComponent },
 
-  { path: "", component: KalenteriComponent }
+  { path: "/", component: KalenteriComponent }
 ];
 
 @NgModule({
