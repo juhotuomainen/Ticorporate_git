@@ -3,7 +3,168 @@ h2, h1 {
     margin-top: 10px;
   }
 
-.form-group{
+/* Muokkaa asetus-sivun "kyselyjen" kokonaisuutta */
+.asetus-kyselyt {
     margin-left: 20px;
     margin-top: 10px;
+}
+
+/* Muokkaa asetus-sivun "kyselyjen" yksittäisiä kyselykohtia */
+.asetus-kohta {
+  margin-bottom: 20px;
+}
+
+
+/* Näkyvätkö pöllöt sivulla vai eivät */
+/* On/off-kytkimen "boxi" */
+.kytkin {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Oletuksena tällaisille kytkimille on tavallinen rastiruutuun-tab. Tämä poistaa oletuksen käytöstä */
+.kytkin input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Liukusäätimen yleisasetukset ennen ja jälkeen painamisen */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(26, 201, 49);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #ccc;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px rgb(216, 159, 121);
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* On/off-kytkintä pyöristävät säädöt */
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
+/* Henkipöllön ja opiskeluajankohta luokkien yhteiset asetukset */
+/* Valintaruutujen kokonaisboxin asetukset */
+.henkipolloherkkyys, .opiskeluajankohta {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Oletuksena tällaisille kytkimille on tavallinen rastiruutuun-tab. Tämä poistaa oletuksen käytöstä */
+.henkipolloherkkyys input, .opiskeluajankohta input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Luon customoidun rastiruutuun-ruudun */
+.neliomerkki, .ympyramerkki {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+/* Kun vie hiiren päälle, varjostaa ko. ruutua jo ennen painamista */
+.henkipolloherkkyys:hover input ~ .neliomerkki, .opiskeluajankohta:hover input ~ .ympyramerkki {
+  background-color: #ccc;
+}
+
+/* Klikatun ruudun väriasetukset */
+.henkipolloherkkyys input:checked ~ .neliomerkki, .opiskeluajankohta input:checked ~ .ympyramerkki {
+  background-color: rgb(26, 201, 49);
+}
+
+/* Luo "check"-merkin, joka ilmestyy ruudun sisään jos ruutu on valittu */
+.neliomerkki:after, .ympyramerkki:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Vie "check"-merkin ruudun sisään */
+.henkipolloherkkyys input:checked ~ .neliomerkki:after {
+  display: block;
+}
+
+/* merkin koko */
+.henkipolloherkkyys .neliomerkki:after, .opiskeluajankohta .ympyramerkki:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+}
+
+/* Henkipöllön asetuksien muotilut */
+/* "check"-merkin muotoilut */
+.henkipolloherkkyys .neliomerkki:after {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/* Opiskelijan optimi opiskeluajankohdan muotoilut */
+/* Luo merkistä ympyränmuotoisen */
+.ympyramerkki {
+  border-radius: 50%;
+}
+
+/* Luo merkistä ympyränmuotoisen */
+.opiskeluajankohta .ympyramerkki:after {
+  border-radius: 50%;
+  background: white;
+}
+
+
+/* Tallennus napin muotoilut */
+.tallennusnappi {
+  margin-bottom: 30px;
 }
