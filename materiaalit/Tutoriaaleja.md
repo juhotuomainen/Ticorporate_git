@@ -2,7 +2,7 @@
 
 ### Frontend
 - [Scheduler](https://ej2.syncfusion.com/angular/documentation/schedule/getting-started/)
-- [WEBSKA](http://tikorasia.jamk.fi/~tuito/websk/)
+- [TUIKAN WEBSKA](http://tikorasia.jamk.fi/~tuito/websk/)
 - [MEAN-stack (MongoDB, Express, Angular ja NOdeJS) tutoriaali, jossa tehdään kokonainen sovellus](https://www.positronx.io/angular-8-mean-stack-tutorial-build-crud-angular-material/)
 - [Yksinkertaisen kalenterisovelluksen tutoriaali GitHubissa (MEAN stack -malli)](https://github.com/altany/MEAN-Calendar)
 ### Backend
