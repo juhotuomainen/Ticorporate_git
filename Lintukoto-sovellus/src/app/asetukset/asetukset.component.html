@@ -11,17 +11,47 @@
   <body>
     <h1>Asetukset</h1>
     <form (ngSubmit) = "onSubmit()" #form1 ="ngForm">
+
       <div class = "asetuksetLomake">
-        <label for = "ryhmatunnus">Ryhmätunnus</label>
+        <label for = "aloituspaiva">Opintojen aloituspäivä</label><br />
+        <input type="date" [(ngModel)]= "kayttaja.aloituspaiva" class= "form-control" >
+      </div>
+
+      <div class = "asetuksetLomake">
+        <label for = "ryhmatunnus">Ryhmätunnus</label><br />
         <input type="text" [(ngModel)]= "kayttaja.ryhmatunnus" class= "form-control" >
       </div>
 
       <div class = "asetuksetLomake">
-        <label for = "opintopisteet">Opintopisteet</label>
-        <input type="number" [(ngModel)]= "kayttaja.opintopisteet" class= "form-control" >
+        <label for = "kokonaisOp">Koulutusohjelman opintopisteiden kokonaismäärä</label><br />
+        <input type="number" [(ngModel)]= "kayttaja.kokonaisOp" class= "form-control" >
       </div>
 
-      <input type="submit" name="tallenna" value="Submit">
+      <div class = "asetuksetLomakeMerkit">
+        <label for = "yhteisetTuokiot">Olen kiinnostunut osallistumaan mahdollisiin ryhmäni opiskelutuokioihin</label><br />
+        <input type="checkbox" [(ngModel)]= "kayttaja.yhteisetTuokiot" class= "form-control" > Kyllä<br />
+      </div>
+
+      <div class = "asetuksetLomakeMerkit">
+        <label for = "pollojenNakyminen">Haluan nähdä pöllöt sovelluksessani:</label><br />
+        <input type="checkbox" [(ngModel)]= "kayttaja.pollojenNakyminen" checked="checked" class= "form-control" > Kyllä<br />
+      </div>
+
+      <div class = "asetuksetLomakeMerkit">
+          <label for = "henkipollonAsetukset">Näistä teemoista haluan henkipöllön kertovan minulle:</label><br />
+          <input type="checkbox" [(ngModel)]= "kayttaja.henkipolloOpinnot" checked="checked" class= "form-control" > Opinnot<br />
+          <input type="checkbox" [(ngModel)]= "kayttaja.henkipolloElama" checked="checked" class= "form-control" > Elämänhallinta<br />
+          <input type="checkbox" [(ngModel)]= "kayttaja.henkipolloValistus" checked="checked" class= "form-control" > Valistus<br />
+      </div>
+
+      <div class = "asetuksetLomakeMerkit">
+          <label for = "opiskeluajankohta">Opiskelen tehokkaimmin tähän aikaan päivästä:</label><br />
+          <input type="radio" [(ngModel)]= "kayttaja.aamupaiva" class= "form-control" > Aamupäivä<br />
+          <input type="radio" [(ngModel)]= "kayttaja.iltapaiva" class= "form-control" > Iltapäivä<br />
+          <input type="radio" [(ngModel)]= "kayttaja.milloinVain" checked="checked" class= "form-control" > Mihin aikaan vain<br />
+      </div>
+
+      <button class="tallennusnappi" type="submit">Tallenna</button>
     </form>
   </body>
 </html>

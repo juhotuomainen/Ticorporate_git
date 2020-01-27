@@ -4,13 +4,13 @@ h2, h1 {
   }
 
 /* Muokkaa asetus-sivun "kyselyjen" kokonaisuutta */
-.asetus-kyselyt {
+.asetuksetLomake, .asetuksetLomakeMerkit {
     margin-left: 20px;
     margin-top: 10px;
 }
 
 /* Muokkaa asetus-sivun "kyselyjen" yksittäisiä kyselykohtia */
-.asetus-kohta {
+.form-control {
   margin-bottom: 20px;
 }
 

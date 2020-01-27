@@ -12,8 +12,17 @@ export class AsetuksetComponent implements OnInit {
   }
 
   kayttaja = {
+    aloituspaiva: '',
     ryhmatunnus: '',
-    opintopisteet: 0
+    kokonaisOp: 0,
+    yhteisetTuokiot: true,
+    pollojenNakyminen: true,
+    henkipolloOpinnot: true,
+    henkipolloElama: true,
+    henkipolloValistus: true,
+    aamupaiva: false,
+    iltapaiva: false,
+    milloinVain: true
   };
 
   onSubmit(asetusdata) {
