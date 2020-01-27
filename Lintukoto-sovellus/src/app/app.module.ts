@@ -1,31 +1,33 @@
-import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from "./app-routing.module";
-import { AppComponent } from "./app.component";
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 
-import { ScheduleModule } from "@syncfusion/ej2-angular-schedule";
+import { ScheduleModule } from '@syncfusion/ej2-angular-schedule';
 import {
   DragAndDropService,
   ResizeService,
   RecurrenceEditorModule
-} from "@syncfusion/ej2-angular-schedule";
+} from '@syncfusion/ej2-angular-schedule';
 
-import { KalenteriComponent } from "./kalenteri/kalenteri.component";
-import { AktiivisetKurssitComponent } from "./aktiiviset-kurssit/aktiiviset-kurssit.component";
-import { NavbarComponent } from "./navbar/navbar.component";
-import { SuoritetutKurssitComponent } from "./suoritetut-kurssit/suoritetut-kurssit.component";
-import { AsetuksetComponent } from "./asetukset/asetukset.component";
+import { KalenteriComponent } from './kalenteri/kalenteri.component';
+import { AktiivisetKurssitComponent } from './aktiiviset-kurssit/aktiiviset-kurssit.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { SuoritetutKurssitComponent } from './suoritetut-kurssit/suoritetut-kurssit.component';
+import { AsetuksetComponent } from './asetukset/asetukset.component';
 
-import { TreeViewModule } from "@syncfusion/ej2-angular-navigations";
+import { TreeViewModule } from '@syncfusion/ej2-angular-navigations';
 
-//grid
+// grid
 import {
   GridModule,
   RowDDService,
   EditService,
   ToolbarService
-} from "@syncfusion/ej2-angular-grids";
+} from '@syncfusion/ej2-angular-grids';
+import { ModalComponent } from './modal/modal.component';
+// import { MuistiinpanoComponent } from './muistiinpano/muistiinpano.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import {
     AktiivisetKurssitComponent,
     NavbarComponent,
     SuoritetutKurssitComponent,
-    AsetuksetComponent
+    AsetuksetComponent,
+    ModalComponent,
+    // MuistiinpanoComponent
   ],
   imports: [
     BrowserModule,

@@ -23,6 +23,13 @@ h1 {
   max-height: fit-content;
 }
 
+.navbar-toggler-icon {
+  background-color: white;
+  height: 3px;
+  display: block;
+  margin: 3px 0;
+}
+
 .navbar a:hover,
 :active {
   color: pink;
