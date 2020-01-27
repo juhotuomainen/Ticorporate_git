@@ -10,37 +10,52 @@
   
   <body>
     <h1>Asetukset</h1>
+    <form (ngSubmit) = "onSubmit()" #form1 ="ngForm">
+      <div class = "asetuksetLomake">
+        <label for = "ryhmatunnus">Ryhmätunnus</label>
+        <input type="text" [(ngModel)]= "kayttaja.ryhmatunnus" class= "form-control" >
+      </div>
+
+      <div class = "asetuksetLomake">
+        <label for = "opintopisteet">Opintopisteet</label>
+        <input type="number" [(ngModel)]= "kayttaja.opintopisteet" class= "form-control" >
+      </div>
+
+      <input type="submit" name="tallenna" value="Submit">
+    </form>
+  </body>
+</html>
+    <!--
     <h2>Opintojen tiedot</h2>
-    <!--Opintojen aloitus päivämäärä-->
+    Opintojen aloitus päivämäärä
     <div class = "asetus-kyselyt">
         <label for = "aloitusPaiva">Opintojen aloituspäivä</label><br />
         <input id = "aloitusPaiva" name = "aloitusPaiva"  type = "date" class = "asetus-kohta"><br />
 
-    <!--Opintojen laajuus opintopisteinä-->
+    Opintojen laajuus opintopisteinä
         <label for = "kokonaisOp">Opintojen laajuus opintopisteitä</label><br />
         <input id = "kokonaisOp" name = "kokonaisOp"  type = "number" min="0" class = "asetus-kohta"><br />
 
-    <!--Ryhmätunnus-->
+    Ryhmätunnus
         <label for = "ryhmatunnus">Ryhmätunnus</label><br />
         <input id = "ryhmatunnus" name = "ryhmatunnus"  type = "text" class = "asetus-kohta"><br />
 
-    <!--Kiinnostus aloitusryhmän yhteisiin opiskelutuokioihin-->
+    Kiinnostus aloitusryhmän yhteisiin opiskelutuokioihin
         <label for="yhteisetTuokiot">Olen kiinnostunut osallistumaan mahdollisiin ryhmäni opiskelutuokioihin</label><br /> 
         <input class = "asetus-kohta" type="checkbox" name="yhteisetTuokiot" formControlName =yhteisetTuokiot> Kyllä<br />
     </div>
 
     <h2>Sovelluksen asetukset</h2>
     <div class = "asetus-kyselyt">
-    <!--Näkyvätkö pöllöt vai ei-->
+    Näkyvätkö pöllöt vai ei
     <p>Haluan nähdä pöllöt sovelluksessani:</p>
         <label class="kytkin">
           <input type="checkbox">
           <span class="slider round"></span>
         </label><br />
 
-
     <p>Mistä teemoista haluan henkipöllön kertovan minulle: </p>
-    <!--Henkipöllön herkkyys-->
+    Henkipöllön herkkyys
     <label class="henkipolloherkkyys">Opinnot
       <input type="checkbox" checked="checked">
       <span class="neliomerkki"></span>
@@ -57,8 +72,32 @@
     </label><br />
 
 
-    <!--Onko opiskelijalle väliä mihin aikaan päivää henkipöllö ehdottelee opiskeluaikaa-->
+    Onko opiskelijalle väliä mihin aikaan päivää henkipöllö ehdottelee opiskeluaikaa
     <p>Minulle paras aika opiskella on: </p>
+    <form [formGroup]="asetustiedot" (ngSubmit)="onSubmit()"></form>
+      <div>
+         <input id="aamu" type="radio" class="opiskeluajankohta" value="aamu" name="opiskeluajankohta" formControlName="opiskeluajankohta">
+         <label class="opiskeluajankohta" for="aamu">Aamupäivä</label>
+      </div>
+   
+      <div>
+         <input id="ilta" type="radio" class="opiskeluajankohta" value="ilta" name="opiskeluajankohta" formControlName="opiskeluajankohta">
+         <label class="opiskeluajankohta" for="ilta">Iltapäivä</label>
+      </div>
+
+      <div>
+        <input id="eiValia" type="radio" class="opiskeluajankohta" value="eiValia" name="opiskeluajankohta" formControlName="opiskeluajankohta" checked="checked">
+        <label class="opiskeluajankohta" for="eiValia" >Ei väliä</label>
+     </div>
+   
+      <div *ngIf="isSubmitted && myForm.invalid">
+      </div>
+   
+      Submit Button 
+      <button type="submit">Tallenna</button>
+   </form>
+
+
     <label class="opiskeluajankohta">Aamu
       <input type="radio">
       <span class="ympyramerkki"></span>
@@ -75,6 +114,4 @@
     </label><br />
 
     <button class="tallennusnappi" type="submit">Tallenna</button>
-  </div>
-  </body>
-</html>
+  </div>-->

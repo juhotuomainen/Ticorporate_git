@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { FormsModule, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-asetukset',
@@ -6,13 +7,17 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./asetukset.component.css']
 })
 export class AsetuksetComponent implements OnInit {
-  asetustiedot;
 
-  constructor() {
+  constructor(public fb: FormBuilder) {
   }
 
-  onSubmit(asetukset) {
-    // tähän tieto siitä kuinka asetukset tallentuvat
+  kayttaja = {
+    ryhmatunnus: '',
+    opintopisteet: 0
+  };
+
+  onSubmit(asetusdata) {
+    console.log(this.kayttaja.ryhmatunnus);
   }
 
   ngOnInit() {
