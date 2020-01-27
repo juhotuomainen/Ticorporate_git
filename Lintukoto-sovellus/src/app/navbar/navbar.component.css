@@ -1,0 +1,36 @@
+.navUl {
+  list-style: none;
+  display: inline-block;
+}
+.headerNavLi {
+  display: inline-flex;
+  position: inherit;
+  margin-right: 2em;
+}
+.nav-a {
+  text-decoration: none;
+}
+h1 {
+  display: block;
+  position: relative;
+}
+
+.navbar-white a {
+  color: white;
+}
+
+.navbar a {
+  max-height: fit-content;
+}
+
+.navbar-toggler-icon {
+  background-color: white;
+  height: 3px;
+  display: block;
+  margin: 3px 0;
+}
+
+.navbar a:hover,
+:active {
+  color: pink;
+}
