@@ -7,11 +7,11 @@ import { FormsModule, FormBuilder } from '@angular/forms';
   styleUrls: ['./asetukset.component.css']
 })
 export class AsetuksetComponent implements OnInit {
+asetuslomake;
 
-  constructor(public fb: FormBuilder) {
-  }
+constructor(public fb: FormBuilder) {
 
-  kayttaja = {
+  this.asetuslomake = this.fb.group( {
     aloituspaiva: '',
     ryhmatunnus: '',
     kokonaisOp: 0,
@@ -22,13 +22,24 @@ export class AsetuksetComponent implements OnInit {
     henkipolloValistus: true,
     aamupaiva: false,
     iltapaiva: false,
-    milloinVain: true
-  };
-
-  onSubmit(asetusdata) {
-    console.log(this.kayttaja.ryhmatunnus);
+    milloinVain: false
   }
+  );
+}
+
+onSubmit(asetusdata) {
+  // koska backiä ei ole vielä niin tieto tallentuu localstorageen
+  let asetukset = JSON.parse(localStorage.getItem('ilmoittautumiset'));
+  // katsoo onko taulukossa dataa. Jos ei niin lisätään datatiedon
+  if (asetukset === null) {
+    asetukset = [asetusdata];
+  } else {
+    // jos on niin päivitetään vain muiden asetusten joukkon
+    asetukset.push(asetusdata);
+  }
+}
 
   ngOnInit() {
-    }
   }
+
+}
