@@ -62,14 +62,12 @@ Testaajat löytävät testattavat kohteet Lintukoto-projektin varastosta (reposi
  - Palvelimen muut toiminnot (kuten reittien ja näkymien toimivuus). Tehdään normaalit, korkeatasoiset testit.
 - nettisivujen toiminta (sekä toiminnallisuus että saavutettavuus (erityisesti ruudunlukuohjelmilla). Kaikki säätimet testataan.)
 - tekstuaaliset tuotokset  (esim. testiraportit) oikoluetaan.
-- Screens, executables, documentation, reports, help, etc…  
-- What is to be tested and in what level?
-- How the items are transmitted to the testers?
 
 FI: Mitkä ovat testattavat kohteet?
 
 ### Testing tasks
-Testit toteutetaan testisuunnitelmien mukaisesti.
+Testit toteutetaan testisuunnitelmien mukaisesti. Testaamme seuraavia kohteita:
+- 
 
 - What are the activities that must take place during testing? It includes all the planning and executing!
 - What kind of dependencies there are in the activities?
