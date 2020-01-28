@@ -13,6 +13,7 @@
   <body>
     <h1>Asetukset</h1>
     <!--Asetuksien lomake alkaa tästä-->
+    <!--Aluksi kohdat joissa pitää täyttää joko päivämäärätietoja, opintopistemääriä tai ryhmätunnuksia-->
     <form (ngSubmit) = "onSubmit(asetuslomake.value)" #form1 ="ngForm">
       <div class = "form-group">
         <label for = "aloituspaiva">Opintojen aloituspäivä</label><br />
@@ -30,6 +31,7 @@
       </div>
 
     <!--checkboxit tästä eteenpäin-->
+    <!--checkboxeilla varmistetaan kiinnostusta yhdessä opiskeluun, pöllöjen näkyminen sivuilla sekä henkipöllön asetukset-->
       <div class = "form-check">
         <label class="form-check-label" for = "yhteisetTuokiot">Olen kiinnostunut osallistumaan mahdollisiin ryhmäni opiskelutuokioihin</label><br />
         <input type="checkbox" [(ngModel)]= "kayttaja.yhteisetTuokiot" class= "form-check-input" > Kyllä<br />
@@ -47,7 +49,7 @@
           <input type="checkbox" [(ngModel)]= "kayttaja.henkipolloValistus" checked="checked" class= "form-check-input" > Valistus<br />
       </div>
 
-    <!--Radio-napit-->
+    <!--Radio-napit, joilla kysytään onko opiskeluajankohdalla väliä-->
       <div class = "form-check">
           <label class="form-check-label" for = "opiskeluajankohta">Opiskelen tehokkaimmin tähän aikaan päivästä:</label><br />
           <input type="radio" name="opiskeluajankohta" [(ngModel)]= "kayttaja.milloinVain" class="form-check-input" > Mihin aikaan vain<br />

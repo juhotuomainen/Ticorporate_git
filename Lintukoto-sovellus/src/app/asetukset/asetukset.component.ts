@@ -10,7 +10,7 @@ export class AsetuksetComponent implements OnInit {
 asetuslomake;
 
 constructor(public fb: FormBuilder) {
-
+// lomakkeen tiedot ja niiden tietotyypit
   this.asetuslomake = this.fb.group( {
     aloituspaiva: '',
     ryhmatunnus: '',
@@ -29,7 +29,7 @@ constructor(public fb: FormBuilder) {
 
 onSubmit(asetusdata) {
   // koska backiä ei ole vielä niin tieto tallentuu localstorageen
-  let asetukset = JSON.parse(localStorage.getItem('ilmoittautumiset'));
+  let asetukset = JSON.parse(localStorage.getItem('asetukset'));
   // katsoo onko taulukossa dataa. Jos ei niin lisätään datatiedon
   if (asetukset === null) {
     asetukset = [asetusdata];
