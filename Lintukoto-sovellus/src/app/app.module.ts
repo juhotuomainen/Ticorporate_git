@@ -12,11 +12,13 @@ import {
   RecurrenceEditorModule
 } from '@syncfusion/ej2-angular-schedule';
 
-import { KalenteriComponent } from './kalenteri/kalenteri.component';
-import { AktiivisetKurssitComponent } from './aktiiviset-kurssit/aktiiviset-kurssit.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { SuoritetutKurssitComponent } from './suoritetut-kurssit/suoritetut-kurssit.component';
-import { AsetuksetComponent } from './asetukset/asetukset.component';
+import { KalenteriComponent } from "./kalenteri/kalenteri.component";
+import { AktiivisetKurssitComponent } from "./aktiiviset-kurssit/aktiiviset-kurssit.component";
+import { NavbarComponent } from "./navbar/navbar.component";
+import { SuoritetutKurssitComponent } from "./suoritetut-kurssit/suoritetut-kurssit.component";
+import { AsetuksetComponent } from "./asetukset/asetukset.component";
+import { ModalComponent } from "./modal/modal.component";
+
 
 import { TreeViewModule } from '@syncfusion/ej2-angular-navigations';
 
@@ -35,7 +37,8 @@ import {
     AktiivisetKurssitComponent,
     NavbarComponent,
     SuoritetutKurssitComponent,
-    AsetuksetComponent
+    AsetuksetComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,

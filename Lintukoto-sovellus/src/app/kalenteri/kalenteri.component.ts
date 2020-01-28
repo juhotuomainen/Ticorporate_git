@@ -168,22 +168,18 @@ L10n.load({
 })
 export class KalenteriComponent implements OnInit {
 
-  // tslint:disable-next-line: member-ordering
   title = 'kalenteri';
 
-  // tslint:disable-next-line: member-ordering
   @ViewChild('scheduleObj', { static: true })
   public scheduleInstance: ScheduleComponent;
-  // tslint:disable-next-line: member-ordering
   @ViewChild('gridObj', { static: true })
   public gridObj: GridComponent;
 
   public selectedDate: Date = new Date();
   public views: Array<string> = ['Week'];
   public showHeaderBar: Boolean = true;
-  public weekFirstDay: number = 1;
+  public weekFirstDay = 1;
 
-  // tslint:disable-next-line: member-ordering
   public tehtavaLista: { [key: string]: Object }[] = [
     {
       Id: 1,
@@ -249,11 +245,39 @@ export class KalenteriComponent implements OnInit {
     Subject: 'Subject'
   };
 
-  //grid data
+  // public EventObject: EventSettingsModel = {
+  //   dataSource: [
+  //     {
+  //       Id: 1,
+  //       Subject: "Tehtävä",
+  //       StartTime: new Date(),
+  //       EndTime: new Date()
+  //     }
+  //   ]
+  // };
+
+  /*
+  public onTreeDragStop(args: DragAndDropEventArgs): void {
+    const cellData: CellClickEventArgs = this.scheduleInstance.getCellDetails(
+      args.target
+    );
+    const eventData: { [key: string]: Object } = {
+      Event: args.event,
+      Subject: args.draggedNodeData.text,
+      StartTime: cellData.startTime,
+      EndTime: cellData.endTime,
+      IsAllDay: cellData.isAllDay
+    };
+    this.scheduleInstance.addEvent(eventData);
+    //this.treeObj.(args.target);
+  }
+*/
+
+  // grid data
   public gridDS: Object = this.tehtavaLista;
-  public allowDragAndDrop: boolean = true;
+  public allowDragAndDrop = true;
   public srcDropOptions: RowDropSettingsModel = { targetID: 'Schedule' };
-  public primaryKeyVal: boolean = true;
+  public primaryKeyVal = true;
   public editSettings: EditSettingsModel = {
     allowAdding: true,
     allowEditing: true,
@@ -282,9 +306,9 @@ export class KalenteriComponent implements OnInit {
 
   onDragStop(event: any): void {
     event.cancel = true;
-    const scheduleElement: Element = <Element> (
+    const scheduleElement: Element = (
       closest(event.target, '.e-content-wrap')
-    );
+    ) as Element;
     if (scheduleElement) {
       if (event.target.classList.contains('e-work-cells')) {
         const filteredData: Object = event.data;
