@@ -1,6 +1,6 @@
 declare var require: any;
 
-import { Component, ViewChild, OnInit } from '@angular/core';
+import { Component, ViewChild, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 import { extend, closest } from '@syncfusion/ej2-base';
 
