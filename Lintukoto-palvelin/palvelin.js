@@ -54,3 +54,4 @@ app.listen(3000, () => {
 // tulostus konsoliin
 console.log('Palvelin käynnissä portissa 3000.');
 });
+}
