@@ -12,11 +12,11 @@
     (dragStart)="onDragStart($event)"
     (resizeStart)="onResizeStart($event)"
     showWeekNumber="true"
-    (renderCell)="onRenderCell($event)"
     [eventSettings]="eventSettings"
     [showTimeIndicator]="showTimeIndicator"
   >
     <!--
+      (renderCell)="onRenderCell($event)"
       <e-header-rows>
       <e-header-row option="Month"></e-header-row>
       <e-header-row option="Date"></e-header-row>
@@ -45,6 +45,12 @@
     (toolbarClick)="clickHandler($event)"
   >
     <e-columns>
+      <e-column
+        field="Id"
+        IsPrimaryKey="primaryKeyVal"
+        width="30"
+        headerText="ID"
+      ></e-column>
       <e-column
         class="unselectable"
         field="Subject"
