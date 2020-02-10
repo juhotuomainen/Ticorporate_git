@@ -1,0 +1,15 @@
+<h1>Lintukoto</h1>
+<div>
+    <p>
+        Lintukoto on opiskelijoiden ajanhallintaa helpottava sovellus.
+    </p>
+</div>
+
+<div class="login">
+    <h2 class="login-header">Kirjaudu sisään</h2>
+    <form [formGroup]="userData" class="login-container" (ngSubmit)="onSubmit(userData.value)">
+      <label>Käyttäjätunnus</label><br /> <input type="text" name="username" formControlName = username /><br />
+      <label>Salasana</label><br /> <input type="password" name="password" formControlName = password /><br />
+      <button type="submit">Kirjaudu</button>
+    </form>
+  </div>

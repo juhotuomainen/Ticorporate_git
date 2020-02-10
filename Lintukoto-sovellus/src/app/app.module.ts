@@ -12,15 +12,20 @@ import {
   RecurrenceEditorModule
 } from '@syncfusion/ej2-angular-schedule';
 
-import { KalenteriComponent } from "./kalenteri/kalenteri.component";
-import { AktiivisetKurssitComponent } from "./aktiiviset-kurssit/aktiiviset-kurssit.component";
-import { NavbarComponent } from "./navbar/navbar.component";
-import { SuoritetutKurssitComponent } from "./suoritetut-kurssit/suoritetut-kurssit.component";
-import { AsetuksetComponent } from "./asetukset/asetukset.component";
-import { ModalComponent } from "./modal/modal.component";
-
+import { KalenteriComponent } from './kalenteri/kalenteri.component';
+import { AktiivisetKurssitComponent } from './aktiiviset-kurssit/aktiiviset-kurssit.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { SuoritetutKurssitComponent } from './suoritetut-kurssit/suoritetut-kurssit.component';
+import { AsetuksetComponent } from './asetukset/asetukset.component';
+import { ModalComponent } from './modal/modal.component';
+import { KirjautuminenComponent } from './kirjautuminen/kirjautuminen.component';
 
 import { TreeViewModule } from '@syncfusion/ej2-angular-navigations';
+
+// in memory web apin importit
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { UserService } from './user.service';
 
 // grid
 import {
@@ -38,7 +43,8 @@ import {
     NavbarComponent,
     SuoritetutKurssitComponent,
     AsetuksetComponent,
-    ModalComponent
+    ModalComponent,
+    KirjautuminenComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +54,10 @@ import {
     AppRoutingModule,
     ScheduleModule,
     TreeViewModule,
-    GridModule
+    GridModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(UserService, { dataEncapsulation: false }),
+    ReactiveFormsModule
   ],
   providers: [
     DragAndDropService,

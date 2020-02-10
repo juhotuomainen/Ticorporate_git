@@ -177,9 +177,11 @@ export class KalenteriComponent implements OnInit {
 
   public selectedDate: Date = new Date();
   public views: Array<string> = ['Week'];
+  // tslint:disable-next-line: ban-types
   public showHeaderBar: Boolean = true;
   public weekFirstDay = 1;
 
+  // tslint:disable-next-line: ban-types
   public tehtavaLista: { [key: string]: Object }[] = [
     {
       Id: 1,
@@ -237,6 +239,7 @@ export class KalenteriComponent implements OnInit {
     }
   ];
 
+  // tslint:disable-next-line: ban-types
   public field: Object = {
     dataSource: this.tehtavaLista,
     Id: 'Id',
@@ -274,6 +277,7 @@ export class KalenteriComponent implements OnInit {
 */
 
   // grid data
+  // tslint:disable-next-line: ban-types
   public gridDS: Object = this.tehtavaLista;
   public allowDragAndDrop = true;
   public srcDropOptions: RowDropSettingsModel = { targetID: 'Schedule' };
@@ -311,10 +315,12 @@ export class KalenteriComponent implements OnInit {
     ) as Element;
     if (scheduleElement) {
       if (event.target.classList.contains('e-work-cells')) {
+        // tslint:disable-next-line: ban-types
         const filteredData: Object = event.data;
         const cellData: CellClickEventArgs = this.scheduleInstance.getCellDetails(
           event.target
         );
+        // tslint:disable-next-line: ban-types
         const eventData: { [key: string]: Object } = {
           Id: filteredData[0].Id,
           Name: filteredData[0].Name,

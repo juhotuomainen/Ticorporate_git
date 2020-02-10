@@ -20,26 +20,39 @@
           class="nav-item nav-link active"
           routerLink="/kalenteri"
           routerLinkActive="router-link-active"
-          >Kalenteri <span class="sr-only">(current)</span></a
-        >
+          >Kalenteri <span class="sr-only">(current)</span></a>
+
         <a
           class="nav-item nav-link white"
           routerLink="/aktiiviset"
           routerLinkActive="router-link-active"
-          >Aktiiviset kurssit</a
-        >
+          >Aktiiviset kurssit</a>
+
         <a
           class="nav-item nav-link white"
           routerLink="/suoritetut"
           routerLinkActive="router-link-active"
-          >Suoritetut kurssit</a
-        >
+          >Suoritetut kurssit</a>
+
         <a
           class="nav-item nav-link white"
           routerLink="/asetukset"
           routerLinkActive="router-link-active"
-          >Asetukset</a
-        >
+          >Asetukset</a>
+
+        <a
+        class="nav-item nav-link white"
+        *ngIf = "!authService.loggedIn"
+        routerLink="/kirjautuminen"
+        routerLinkActive="router-link-active"
+        >Kirjautuminen</a>
+
+        <a class="nav-item nav-link white"
+        *ngIf = "authService.loggedIn"
+        (click) = "authService.logout()"
+        routerLinkActive="router-link-active" 
+        >Kirjaudu ulos</a>
+
       </div>
     </div>
   </nav>
