@@ -3,6 +3,8 @@ import { NgModule } from "@angular/core";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
+import { HttpClientModule } from "@angular/common/http";
+import { HttpModule } from "@angular/http";
 
 import { ScheduleModule } from "@syncfusion/ej2-angular-schedule";
 import {
@@ -20,6 +22,8 @@ import { ModalComponent } from "./modal/modal.component";
 
 import { TreeViewModule } from "@syncfusion/ej2-angular-navigations";
 
+import { NgbModal, NgbModule } from "@ng-bootstrap/ng-bootstrap";
+
 // grid
 import {
   GridModule,
@@ -27,6 +31,7 @@ import {
   EditService,
   ToolbarService
 } from "@syncfusion/ej2-angular-grids";
+import { YhteysAPIService } from "./yhteys-api.service";
 
 @NgModule({
   declarations: [
@@ -43,14 +48,19 @@ import {
     AppRoutingModule,
     ScheduleModule,
     TreeViewModule,
-    GridModule
+    GridModule,
+    HttpClientModule,
+    HttpModule,
+    NgbModule
   ],
   providers: [
     DragAndDropService,
     ResizeService,
     RowDDService,
     EditService,
-    ToolbarService
+    ToolbarService,
+    YhteysAPIService,
+    NgbModal
   ],
   bootstrap: [AppComponent]
 })

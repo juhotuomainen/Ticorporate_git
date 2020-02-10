@@ -3,7 +3,7 @@
   width: 100vw;
 }
 .blue-div {
-  background-color: #d4e4ff;
+  background-color: #b0bad9;
   max-width: 90%;
   height: 200px;
   margin-bottom: 3em;
@@ -35,3 +35,6 @@ http: ; //localhost:4200/node_modules/@syncfusion/ej2-navigations/styles/materia
     background: #d4e4ff;
 }
 */
+body {
+  background-color: #b0bad9;
+}
