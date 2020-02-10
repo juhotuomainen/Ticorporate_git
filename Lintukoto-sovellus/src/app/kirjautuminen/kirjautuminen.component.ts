@@ -14,6 +14,7 @@ export class KirjautuminenComponent implements OnInit {
   cred: any[] = [];
 // käyttätiedot
   userData;
+  logo: '../../assets/images/LOGO_ilman_taustaa.png';
 
   // tslint:disable-next-line: no-shadowed-variable
   constructor(private FormBuilder: FormBuilder, private AuthService: AuthService) {
