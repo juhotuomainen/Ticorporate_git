@@ -212,7 +212,7 @@ export class KalenteriComponent implements OnInit {
   public showHeaderBar: Boolean = true;
   public weekFirstDay = 1;
 
-  public tehtavaLista: { [key: string]: Object }[] = [
+  public tehtavaLista: Object[] = [
     {
       Id: 1,
       Title: "Ohjelmointi",
@@ -296,9 +296,9 @@ export class KalenteriComponent implements OnInit {
 
   // grid data
   public gridDS: Object = this.tehtavaLista;
-  public allowDragAndDrop = true;
+  public allowDragAndDrop: boolean = true;
   public srcDropOptions: RowDropSettingsModel = { targetID: "Schedule" };
-  public primaryKeyVal = true;
+  public primaryKeyVal: boolean = true;
   public editSettings: EditSettingsModel = {
     allowAdding: true,
     allowEditing: true,
@@ -311,7 +311,7 @@ export class KalenteriComponent implements OnInit {
   ngOnInit(): void {
     this.toolbar = [{ text: "Tehtävät" }, "Add"];
   }
-  //automaattisesti säätää
+  //automaattisesti säätää columnien leveyden
   dataBound() {
     this.gridObj.autoFitColumns();
   }
@@ -334,17 +334,16 @@ export class KalenteriComponent implements OnInit {
 
   onDragStop(event: any): void {
     event.cancel = true;
-    const scheduleElement: Element = closest(
-      event.target,
-      ".e-content-wrap"
-    ) as Element;
+    const scheduleElement: Element = <Element>(
+      closest(event.target, ".e-content-wrap")
+    );
     if (scheduleElement) {
       if (event.target.classList.contains("e-work-cells")) {
         const filteredData: Object = event.data;
         const cellData: CellClickEventArgs = this.scheduleInstance.getCellDetails(
           event.target
         );
-        const eventData: { [key: string]: Object } = {
+        let eventData: { [key: string]: Object } = {
           Id: filteredData[0].Id,
           Name: filteredData[0].Name,
           Title: filteredData[0].Title,
@@ -354,10 +353,14 @@ export class KalenteriComponent implements OnInit {
           IsAllDay: cellData.isAllDay,
           Description: filteredData[0].Description
         };
+
         this.scheduleInstance.addEvent(eventData);
         // this.scheduleObj.openEditor(eventData, 'Add', true);
-        this.gridObj.deleteRecord(event.data[0]);
-        console.log(event.data[0]);
+        console.log(filteredData[0]);
+        console.log(
+          this.gridObj.deleteRecord("tehtavaLista", { Id: filteredData[0] })
+          //this.gridObj.deleteRecord(event.data[0])
+        );
       }
     }
   }
