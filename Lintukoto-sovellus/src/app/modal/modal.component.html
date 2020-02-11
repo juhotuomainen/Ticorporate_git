@@ -12,24 +12,38 @@
 
       <!-- Modal body -->
       <div class="modal-body">
-        <input
-          class="modal-input"
-          placeholder="Muistiinpanon nimi"
-          type="text"
-        />
-        <form>
+        <form method="POST" action="http://localhost:3000/kurssit/uus">
+          <input
+            class="modal-input"
+            placeholder="Muistiinpanon nimi"
+            type="text"
+            name="otsikko"
+          />
+          <input
+            class="modal-input"
+            placeholder="Kurssikoodi"
+            type="text"
+            name="kurssi"
+          />
           <textarea
+            name="muistiinpano"
             class="modal-textarea"
             placeholder="Kirjoita muistiinpanosi tähän.."
           ></textarea>
+          <button
+            type="submit"
+            method="POST"
+            name="muistiinpanoLahete"
+            class="btn btn-primary"
+            (click)="sendModal()"
+          >
+            Lähetä
+          </button>
         </form>
       </div>
 
       <!-- Modal footer -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" (click)="sendModal()">
-          Lähetä
-        </button>
         <button type="button" class="btn btn-danger" (click)="hideModal()">
           Sulje
         </button>
@@ -49,29 +63,30 @@
 </div>
 
 <!-- The Modal -->
-<div class="modal fade" id="myModal2">
+<!-- <div class="modal fade" id="myModal2">
   <div class="modal-dialog">
     <div class="modal-content">
-      <!-- Modal Header -->
-      <div class="modal-header">
+       Modal Header -->
+
+<!-- <div class="modal-header">
         <h4 class="modal-title">Muistiinpano</h4>
         <button type="button" class="close" (click)="hideModal2()">
           &times;
         </button>
-      </div>
-
-      <!-- Modal 2 body -->
+      </div> -->
+<!-- 
+      Modal 2 body
       <div class="modal-body">
-        <p>{{ muistiinpano }}</p>
+        <p>Muistiinpanon sisältö</p>
       </div>
 
-      <!-- Modal footer -->
+       Modal footer 
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" (click)="hideModal2()">
           Sulje
         </button>
 
-        <!-- this button is hidden, used to close from typescript -->
+        this button is hidden, used to close from typescript 
         <button
           type="button"
           id="close-modal2"
@@ -83,4 +98,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->

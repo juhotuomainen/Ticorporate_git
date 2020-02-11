@@ -7,24 +7,75 @@
     <title>{{ title }}</title>
   </head>
   <body>
-    <h1>Aktiiviset kurssit</h1>
     <ul>
-      <li *ngFor="let kurssi of kurssit" id="kurssilista">
-        <img src="{{ kurssi.kuva }}" id="pollo" />
-        <h5>{{ kurssi.nimi }}</h5>
-        <button
-          type="button"
-          class="btn btn-primary"
-          data-toggle="modal"
-          data-target="#myModal"
-        >
-          Lisää muistiinpano
-        </button>
-        <a data-toggle="modal" data-target="#myModal2" id="muistiinpano-linkki">
-          {{ kurssi.muistiinpanoTag }}</a
-        >
-        <app-modal [muistiinpano]="muistiinpano"></app-modal>
+      <li *ngFor="let kurssi of kurssit2[0]" id="kurssilista">
+        <div class="kurssi-kortti">
+          <img src="{{ kurssi.kuva }}" id="pollo" />
+          <h5>{{ kurssi.nimi }}</h5>
+          <button
+            name="kurssikoodi"
+            type="button"
+            class="btn btn-primary"
+            data-toggle="modal"
+            data-target="#myModal"
+            value="{{ kurssi.kurssikoodi }}"
+          >
+            Lisää muistiinpano
+          </button>
+
+          <div *ngFor="let muistio of kurssi.muistiinpanot">
+            <a
+              (click)="open(content, muistio.otsikko)"
+              id="muistiinpano-linkki"
+            >
+              {{ muistio.otsikko }}
+            </a>
+
+            <app-modal [kurssit2]="kurssit2"></app-modal>
+            <ng-template #content let-modal>
+              <div class="modal-header" id="myModal2">
+                <!-- Modal Header -->
+                <h4 class="modal-title">{{ muistio.otsikko }}</h4>
+                <button
+                  type="button"
+                  class="close"
+                  (click)="modal.dismiss('Cross click')"
+                >
+                  &times;
+                </button>
+              </div>
+              <!-- Modal 2 body -->
+              <div class="modal-body">
+                <p ngbAutofocus>{{ muistio.muistiinpano }}</p>
+              </div>
+
+              <!-- Modal footer -->
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-danger"
+                  (click)="modal.dismiss('Cross click')"
+                >
+                  Sulje
+                </button>
+
+                <!-- this button is hidden, used to close from typescript -->
+                <button
+                  type="button"
+                  id="close-modal2"
+                  data-dismiss="modal"
+                  style="display: none"
+                >
+                  Close
+                </button>
+              </div>
+            </ng-template>
+          </div>
+        </div>
       </li>
     </ul>
+    <button id="uusi-kurssi" class=" btn btn-secondary" (click)="lisaaKurssi()">
+      Lisää uusi kurssi
+    </button>
   </body>
 </html>
