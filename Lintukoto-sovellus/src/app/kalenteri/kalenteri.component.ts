@@ -9,6 +9,8 @@ import {
 
 import { extend, closest } from "@syncfusion/ej2-base";
 
+import { tehtavaLista } from "../data";
+
 import {
   TreeViewComponent,
   DragAndDropEventArgs,
@@ -190,7 +192,6 @@ L10n.load({
     AgendaService,
     DragAndDropService,
     ResizeService,
-    TreeViewComponent,
     ScheduleComponent
   ]
 })
@@ -211,7 +212,7 @@ export class KalenteriComponent implements OnInit {
   public views: Array<string> = ["Week"];
   public showHeaderBar: Boolean = true;
   public weekFirstDay = 1;
-
+  /*
   public tehtavaLista: Object[] = [
     {
       Id: 1,
@@ -257,14 +258,15 @@ export class KalenteriComponent implements OnInit {
       Subject: "Ohjelmointi 4"
     }
   ];
-
-  public field: Object = {
-    dataSource: this.tehtavaLista,
+*/
+  /*public field: Object = {
+    dataSource: tehtavaLista,
     Id: "Id",
     Text: "Name",
     Description: "Description",
     Subject: "Subject"
   };
+  */
 
   // public EventObject: EventSettingsModel = {
   //   dataSource: [
@@ -295,7 +297,7 @@ export class KalenteriComponent implements OnInit {
 */
 
   // grid data
-  public gridDS: Object = this.tehtavaLista;
+  public gridDS: Object = tehtavaLista;
   public allowDragAndDrop: boolean = true;
   public srcDropOptions: RowDropSettingsModel = { targetID: "Schedule" };
   public primaryKeyVal: boolean = true;
@@ -310,6 +312,7 @@ export class KalenteriComponent implements OnInit {
   public toolbar: Object[];
   ngOnInit(): void {
     this.toolbar = [{ text: "Tehtävät" }, "Add"];
+    console.log(tehtavaLista);
   }
   //automaattisesti säätää columnien leveyden
   dataBound() {
@@ -334,15 +337,19 @@ export class KalenteriComponent implements OnInit {
 
   onDragStop(event: any): void {
     event.cancel = true;
+    this.gridObj.deleteRecord(event.data[0]);
+    //console.log(event);
     const scheduleElement: Element = <Element>(
       closest(event.target, ".e-content-wrap")
     );
+
     if (scheduleElement) {
       if (event.target.classList.contains("e-work-cells")) {
         const filteredData: Object = event.data;
         const cellData: CellClickEventArgs = this.scheduleInstance.getCellDetails(
           event.target
         );
+
         let eventData: { [key: string]: Object } = {
           Id: filteredData[0].Id,
           Name: filteredData[0].Name,
@@ -355,12 +362,11 @@ export class KalenteriComponent implements OnInit {
         };
 
         this.scheduleInstance.addEvent(eventData);
+        console.log(tehtavaLista);
         // this.scheduleObj.openEditor(eventData, 'Add', true);
-        console.log(filteredData[0]);
-        console.log(
-          this.gridObj.deleteRecord("tehtavaLista", { Id: filteredData[0] })
-          //this.gridObj.deleteRecord(event.data[0])
-        );
+        //this.gridObj.deleteRecord("Id", this.gridObj.getSelectedRecords());
+        //this.gridObj.deleteRecord(event.data[0])
+        //this.gridObj.deleteRecord()
       }
     }
   }
