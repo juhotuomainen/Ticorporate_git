@@ -51,6 +51,7 @@ export class AktiivisetKurssitComponent implements OnInit {
       }
     }
   }
+  lisaaKurssi() {}
 
   loggaus = function() {
     console.log(this.kurssiTaulukko);
