@@ -4140,7 +4140,7 @@
 }
 
 .e-grid .e-gridheader {
-  background-color: #fff;
+  background-color: #a79284;
   border-bottom-color: #e0e0e0;
   border-top-color: #e0e0e0;
   color: #000000;
@@ -4191,7 +4191,7 @@
 }
 
 .e-grid .e-headercontent {
-  border-color: #e0e0e0;
+  border-color: #a79284;
 }
 
 .e-grid .e-headercell,
@@ -4276,7 +4276,7 @@
 .e-grid.e-gridhover tr[role='row']:hover .e-rowdragdrop:not(.e-cellselectionbackground):not(.e-active):not(.e-updatedtd):not(.e-indentcell),
 .e-grid.e-rtl .e-gridhover tr[role='row']:hover .e-rowdragdrop:not(.e-cellselectionbackground):not(.e-active):not(.e-updatedtd):not(.e-indentcell),
 .e-grid.e-gridhover tr[role='row']:hover .e-detailrowexpand:not(.e-cellselectionbackground):not(.e-active):not(.e-updatedtd):not(.e-indentcell) {
-  background-color: #eee;
+  background-color: #a79284;
   color: #000;
 }
 
