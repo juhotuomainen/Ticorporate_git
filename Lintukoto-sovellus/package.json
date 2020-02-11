@@ -9,6 +9,9 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
+  "permissions": [
+    "http://localhost:3000"
+  ],
   "private": true,
   "dependencies": {
     "@angular/animations": "~8.2.5",
@@ -16,14 +19,17 @@
     "@angular/compiler": "~8.2.5",
     "@angular/core": "~8.2.5",
     "@angular/forms": "~8.2.5",
+    "@angular/http": "^7.2.16",
     "@angular/platform-browser": "~8.2.5",
     "@angular/platform-browser-dynamic": "~8.2.5",
     "@angular/router": "~8.2.5",
+    "@ng-bootstrap/ng-bootstrap": "^5.2.1",
+    "@syncfusion/ej2-angular-grids": "^17.4.44",
     "@syncfusion/ej2-angular-navigations": "^17.4.43",
     "@syncfusion/ej2-angular-schedule": "^17.4.43",
-    "@syncfusion/ej2-angular-grids": "^17.4.44",
     "bootstrap": "^4.4.1",
     "cldr-data": "^36.0.0",
+    "ng-bootstrap": "^1.6.3",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
@@ -49,5 +55,8 @@
     "systemjs-plugin-json": "0.3.0",
     "tslint": "~5.15.0",
     "typescript": "~3.5.3"
+  },
+  "peerDependencies": {
+    "cldr-data": ">=26"
   }
 }
