@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { HttpClientModule } from "@angular/common/http";
@@ -16,6 +15,7 @@ import {
   RecurrenceEditorModule
 } from '@syncfusion/ej2-angular-schedule';
 
+// komponentit
 import { KalenteriComponent } from "./kalenteri/kalenteri.component";
 import { AktiivisetKurssitComponent } from "./aktiiviset-kurssit/aktiiviset-kurssit.component";
 import { NavbarComponent } from "./navbar/navbar.component";
@@ -27,6 +27,8 @@ import { ModalComponent } from "./modal/modal.component";
 import { TreeViewModule } from '@syncfusion/ej2-angular-navigations';
 
 import { NgbModal, NgbModule } from "@ng-bootstrap/ng-bootstrap";
+
+import { DragDropModule } from "@angular/cdk/drag-drop";
 
 // grid
 import {
@@ -56,7 +58,8 @@ import { YhteysAPIService } from "./yhteys-api.service";
     AppRoutingModule,
     ScheduleModule,
     TreeViewModule,
-    GridModule,
+    DragDropModule,
+    GridModule
     HttpClientModule,
     HttpModule,
     NgbModule
