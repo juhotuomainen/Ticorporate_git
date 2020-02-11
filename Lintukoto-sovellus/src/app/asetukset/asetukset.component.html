@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <title>{{ title }}</title>
+  </head>
+
+  
+  <body>
+    <h1>Asetukset</h1>
+    <!--Asetuksien lomake alkaa tästä-->
+    <!--Aluksi kohdat joissa pitää täyttää joko päivämäärätietoja, opintopistemääriä tai ryhmätunnuksia-->
+    <form (ngSubmit) = "onSubmit(asetuslomake.value)" #form1 ="ngForm">
+      <div class = "form-group">
+        <label for = "aloituspaiva">Opintojen aloituspäivä</label><br />
+        <input type="date" [(ngModel)]= "kayttaja.aloituspaiva" class= "form-control" >
+      </div>
+
+      <div class = "form-group">
+        <label for = "ryhmatunnus">Ryhmätunnus</label><br />
+        <input type="text" [(ngModel)]= "kayttaja.ryhmatunnus" class= "form-control" >
+      </div>
+
+      <div class = "form-group">
+        <label for = "kokonaisOp">Koulutusohjelman opintopisteiden kokonaismäärä</label><br />
+        <input type="number" [(ngModel)]= "kayttaja.kokonaisOp" class= "form-control" >
+      </div>
+
+    <!--checkboxit tästä eteenpäin-->
+    <!--checkboxeilla varmistetaan kiinnostusta yhdessä opiskeluun, pöllöjen näkyminen sivuilla sekä henkipöllön asetukset-->
+      <div class = "form-check">
+        <label class="form-check-label" for = "yhteisetTuokiot">Olen kiinnostunut osallistumaan mahdollisiin ryhmäni opiskelutuokioihin</label><br />
+        <input type="checkbox" [(ngModel)]= "kayttaja.yhteisetTuokiot" class= "form-check-input" > Kyllä<br />
+      </div>
+
+      <div class = "form-check">
+        <label class="form-check-label" for = "pollojenNakyminen">Haluan nähdä pöllöt sovelluksessani:</label><br />
+        <input type="checkbox" [(ngModel)]= "kayttaja.pollojenNakyminen" checked="checked" class= "form-check-input" > Kyllä<br />
+      </div>
+
+      <div class = "form-check">
+          <label class="form-check-label" for = "henkipollonAsetukset">Näistä teemoista haluan henkipöllön kertovan minulle:</label><br />
+          <input type="checkbox" [(ngModel)]= "kayttaja.henkipolloOpinnot" checked="checked" class= "form-check-input" > Opinnot<br />
+          <input type="checkbox" [(ngModel)]= "kayttaja.henkipolloElama" checked="checked" class= "form-check-input" > Elämänhallinta<br />
+          <input type="checkbox" [(ngModel)]= "kayttaja.henkipolloValistus" checked="checked" class= "form-check-input" > Valistus<br />
+      </div>
+
+    <!--Radio-napit, joilla kysytään onko opiskeluajankohdalla väliä-->
+      <div class = "form-check">
+          <label class="form-check-label" for = "opiskeluajankohta">Opiskelen tehokkaimmin tähän aikaan päivästä:</label><br />
+          <input type="radio" name="opiskeluajankohta" [(ngModel)]= "kayttaja.milloinVain" class="form-check-input" > Mihin aikaan vain<br />
+          <input type="radio" name="opiskeluajankohta" [(ngModel)]= "kayttaja.aamupaiva" class="form-check-input" > Aamupäivä<br />
+          <input type="radio" name="opiskeluajankohta" [(ngModel)]= "kayttaja.iltapaiva" class="form-check-input" > Iltapäivä<br />
+      </div>
+
+<!--Tallennusnappi-->
+      <button class="tallennusnappi" type="submit" value="Submit">Tallenna</button>
+    </form>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>  </body>
+</html>

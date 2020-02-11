@@ -1,0 +1,9 @@
+.modal-textarea {
+  width: 95%;
+  height: 300px;
+  align-self: center;
+}
+.modal-input {
+  margin: 1em 0;
+  width: 95%;
+}

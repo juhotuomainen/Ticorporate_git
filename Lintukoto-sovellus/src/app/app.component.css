@@ -1,0 +1,23 @@
+.navUl {
+  list-style: none;
+  display: inline-block;
+}
+.headerNavLi {
+  display: inline-flex;
+  position: inherit;
+  margin-right: 2em;
+}
+.nav-a {
+  text-decoration: none;
+}
+.outer-div {
+  align-content: center;
+  width: 100vw;
+}
+.blue-div {
+  background-color: #ebeff2;
+  width: 90%;
+  height: 200px;
+  align-content: center;
+  margin-left: 2em;
+}
