@@ -1,12 +1,20 @@
 declare var require: any;
 
-import { Component, ViewChild, OnInit } from "@angular/core";
+import {
+  Component,
+  ViewChild,
+  OnInit,
+  ChangeDetectionStrategy
+} from "@angular/core";
 
 import { extend, closest } from "@syncfusion/ej2-base";
 
+import { tehtavaLista } from "../data";
+
 import {
   TreeViewComponent,
-  DragAndDropEventArgs
+  DragAndDropEventArgs,
+  ClickEventArgs
 } from "@syncfusion/ej2-angular-navigations";
 
 import {
@@ -28,6 +36,8 @@ import {
   RowDropSettingsModel,
   ToolbarItems
 } from "@syncfusion/ej2-angular-grids";
+
+import { CdkDragDrop } from "@angular/cdk/drag-drop";
 
 import { loadCldr, L10n } from "@syncfusion/ej2-base";
 /*import * as numberingSystems from './numberingSystems.json';
@@ -149,6 +159,26 @@ L10n.load({
       summaryWeek: "viikko",
       summaryMonth: "kuukauden",
       summaryYear: "vuosi"
+    },
+    grid: {
+      EmptyRecord: "Ei näytettäviä tietoja",
+      GroupDropArea: "Vedä sarakkeen otsikko tähän ryhmitelläksesi sen sarake",
+      UnGroup: "Poista ryhmä painamalla tästä",
+      Item: "Asia",
+      Items: "Asiat",
+      Add: "Lisää",
+      AddFormTitle: "Lisää uusi tehtävä",
+      EditFormTitle: "Muokkaa tehtävää: ",
+      SaveButton: "Tallenna",
+      CancelButton: "Peruuta"
+    },
+    pager: {
+      currentPageInfo: "{0} {1} sivusta",
+      totalItemsInfo: "({0} Asiaa)",
+      firstPageTooltip: "Siirry ensimmäiselle sivulle",
+      lastPageTooltip: "Siirry viimeiselle sivulle",
+      nextPageTooltip: "Siirry seuraavalle sivulle",
+      previousPageTooltip: "Siirry edelliselle sivulle"
     }
   }
 });
@@ -162,7 +192,6 @@ L10n.load({
     AgendaService,
     DragAndDropService,
     ResizeService,
-    TreeViewComponent,
     ScheduleComponent
   ]
 })
@@ -175,17 +204,21 @@ export class KalenteriComponent implements OnInit {
   @ViewChild("gridObj", { static: true })
   public gridObj: GridComponent;
 
+  @ViewChild("cdk-drop-list-0", { static: true })
+  //public cdkobject: cdk;
+
+  //public selectedDate: Date = new Date();
   public showTimeIndicator: boolean = true;
-  public selectedDate: Date = new Date();
   public views: Array<string> = ["Week"];
   public showHeaderBar: Boolean = true;
   public weekFirstDay = 1;
-
-  public tehtavaLista: { [key: string]: Object }[] = [
+  /*
+  public tehtavaLista: Object[] = [
     {
       Id: 1,
+      Title: "Ohjelmointi",
       Name: "Ohjelmointi",
-      Description: "Ohjelmointi tehtävä 63 ja 43",
+      Description: "tehtävät 63 ja 43",
       Subject: "Ohjelmointi"
     },
     {
@@ -202,49 +235,38 @@ export class KalenteriComponent implements OnInit {
     },
     {
       Id: 4,
-      Name: "Ohjelmointi",
+      Name: "Ohjelmointi 2",
       Description: "Ohjelmointi tehtävä 5 ja 6",
-      Subject: "Ohjelmointi"
+      Subject: "Ohjelmointi 2"
     },
     {
       Id: 5,
-      Name: "Tietokannat",
+      Name: "Tietokannat 3",
       Description: "Tee tehtävä 41",
-      Subject: "Tietokannat"
+      Subject: "Tietokannat 3"
     },
     {
       Id: 6,
-      Name: "Tietokannat2",
+      Name: "Tietokannat 2 3",
       Description: "Tee tehtävät 9, 10, 11",
-      Subject: "Tietokannat 2"
+      Subject: "Tietokannat 2 3"
     },
     {
       Id: 7,
-      Name: "Ohjelmointi",
+      Name: "Ohjelmointi 4",
       Description: "Ohjelmointi tehtävä 13 ja 14",
-      Subject: "Ohjelmointi"
-    },
-    {
-      Id: 8,
-      Name: "Tietokannat",
-      Description: "Tee tehtävä 7",
-      Subject: "Tietokannat"
-    },
-    {
-      Id: 9,
-      Name: "Tietokannat2",
-      Description: "Tee tehtävät 16, 437, 28",
-      Subject: "Tietokannat 2"
+      Subject: "Ohjelmointi 4"
     }
   ];
-
-  public field: Object = {
-    dataSource: this.tehtavaLista,
+*/
+  /*public field: Object = {
+    dataSource: tehtavaLista,
     Id: "Id",
     Text: "Name",
     Description: "Description",
     Subject: "Subject"
   };
+  */
 
   // public EventObject: EventSettingsModel = {
   //   dataSource: [
@@ -275,31 +297,39 @@ export class KalenteriComponent implements OnInit {
 */
 
   // grid data
-  public gridDS: Object = this.tehtavaLista;
-  public allowDragAndDrop = true;
+  public gridDS: Object = tehtavaLista;
+  public allowDragAndDrop: boolean = true;
   public srcDropOptions: RowDropSettingsModel = { targetID: "Schedule" };
-  public primaryKeyVal = true;
+  public primaryKeyVal: boolean = true;
   public editSettings: EditSettingsModel = {
     allowAdding: true,
     allowEditing: true,
-    allowDeleting: true
+    allowDeleting: true,
+    mode: "Dialog"
   };
 
   // grid toolbar
-  public toolbar: ToolbarItems[];
+  public toolbar: Object[];
   ngOnInit(): void {
-    this.toolbar = ["Add", "Search"];
+    this.toolbar = [{ text: "Tehtävät" }, "Add"];
+    console.log(tehtavaLista);
+  }
+  //automaattisesti säätää columnien leveyden
+  dataBound() {
+    this.gridObj.autoFitColumns();
   }
 
   // Viikon numeron sijasta Viikko + numero
-  onRenderCell(args): void {
-    if (args.elementType === "emptyCells") {
-      const weekNumber = args.element.querySelector(".e-week-number span")
-        .innerText;
-      args.element.querySelector(".e-week-number span").innerText =
-        "Viikko " + weekNumber;
-    }
-  }
+  /**
+   * onRenderCell(args): void {
+   * if (args.elementType === "emptyCells") {
+   *  const weekNumber = args.element.querySelector(".e-week-number span")
+   *    .innerText;
+   * args.element.querySelector(".e-week-number span").innerText =
+   *  "Viikko " + weekNumber;
+   * }
+   * }
+   */
 
   onRowDrag(event: any): void {
     event.cancel = true;
@@ -307,17 +337,20 @@ export class KalenteriComponent implements OnInit {
 
   onDragStop(event: any): void {
     event.cancel = true;
-    const scheduleElement: Element = closest(
-      event.target,
-      ".e-content-wrap"
-    ) as Element;
+    this.gridObj.deleteRecord(event.data[0]);
+    //console.log(event);
+    const scheduleElement: Element = <Element>(
+      closest(event.target, ".e-content-wrap")
+    );
+
     if (scheduleElement) {
       if (event.target.classList.contains("e-work-cells")) {
         const filteredData: Object = event.data;
         const cellData: CellClickEventArgs = this.scheduleInstance.getCellDetails(
           event.target
         );
-        const eventData: { [key: string]: Object } = {
+
+        let eventData: { [key: string]: Object } = {
           Id: filteredData[0].Id,
           Name: filteredData[0].Name,
           Title: filteredData[0].Title,
@@ -327,9 +360,13 @@ export class KalenteriComponent implements OnInit {
           IsAllDay: cellData.isAllDay,
           Description: filteredData[0].Description
         };
+
         this.scheduleInstance.addEvent(eventData);
+        console.log(tehtavaLista);
         // this.scheduleObj.openEditor(eventData, 'Add', true);
-        this.gridObj.deleteRecord(event.data[0]);
+        //this.gridObj.deleteRecord("Id", this.gridObj.getSelectedRecords());
+        //this.gridObj.deleteRecord(event.data[0])
+        //this.gridObj.deleteRecord()
       }
     }
   }
