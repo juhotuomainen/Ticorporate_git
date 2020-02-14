@@ -2,8 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
+import { HttpClientModule } from "@angular/common/http";
+import { HttpModule } from "@angular/http";
+
 
 import { ScheduleModule } from '@syncfusion/ej2-angular-schedule';
 import {
@@ -11,6 +14,7 @@ import {
   ResizeService,
   RecurrenceEditorModule
 } from '@syncfusion/ej2-angular-schedule';
+
 
 import { KalenteriComponent } from './kalenteri/kalenteri.component';
 import { AktiivisetKurssitComponent } from './aktiiviset-kurssit/aktiiviset-kurssit.component';
@@ -22,10 +26,15 @@ import { KirjautuminenComponent } from './kirjautuminen/kirjautuminen.component'
 
 import { TreeViewModule } from '@syncfusion/ej2-angular-navigations';
 
+import { NgbModal, NgbModule } from "@ng-bootstrap/ng-bootstrap";
+
+import { DragDropModule } from "@angular/cdk/drag-drop";
+
 // in memory web apin importit
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { UserService } from './user.service';
+
 
 // grid
 import {
@@ -33,7 +42,9 @@ import {
   RowDDService,
   EditService,
   ToolbarService
-} from '@syncfusion/ej2-angular-grids';
+
+} from "@syncfusion/ej2-angular-grids";
+import { YhteysAPIService } from "./yhteys-api.service";
 
 @NgModule({
   declarations: [
@@ -54,17 +65,25 @@ import {
     AppRoutingModule,
     ScheduleModule,
     TreeViewModule,
+
     GridModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(UserService, { dataEncapsulation: false }),
     ReactiveFormsModule
+
+    DragDropModule,
+    HttpModule,
+    NgbModule
+
   ],
   providers: [
     DragAndDropService,
     ResizeService,
     RowDDService,
     EditService,
-    ToolbarService
+    ToolbarService,
+    YhteysAPIService,
+    NgbModal
   ],
   bootstrap: [AppComponent]
 })

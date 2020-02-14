@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { KalenteriComponent } from './kalenteri/kalenteri.component';
@@ -7,9 +8,11 @@ import { AsetuksetComponent } from './asetukset/asetukset.component';
 import { KirjautuminenComponent } from './kirjautuminen/kirjautuminen.component';
 import { ModalComponent } from './modal/modal.component';
 
+
 import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
+
 
   // canActivate: [AuthGuard] varmistaa että on kirjauduttu sisään, ennen kuin päästään muualle sovelluksessa
   { path: 'kalenteri', component: KalenteriComponent, canActivate: [AuthGuard] },
@@ -18,8 +21,9 @@ const routes: Routes = [
   { path: 'asetukset', component: AsetuksetComponent, canActivate: [AuthGuard] },
   { path: 'kirjautuminen', component: KirjautuminenComponent },
   { path: 'muistiinpano', component: ModalComponent, canActivate: [AuthGuard] },
-
+    
   { path: '', component: KirjautuminenComponent }
+    
 ];
 
 @NgModule({
