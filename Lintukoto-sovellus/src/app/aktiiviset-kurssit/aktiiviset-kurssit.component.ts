@@ -1,3 +1,4 @@
+
 import { Component, OnInit, Output } from "@angular/core";
 import { ModalComponent } from "../modal/modal.component";
 import { YhteysAPIService } from "../yhteys-api.service";
@@ -49,6 +50,7 @@ export class AktiivisetKurssitComponent implements OnInit {
       ) {
         return Kurssikoodi;
       }
+
     }
   }
   lisaaKurssi() {}

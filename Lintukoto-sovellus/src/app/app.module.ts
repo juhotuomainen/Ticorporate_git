@@ -15,20 +15,26 @@ import {
   RecurrenceEditorModule
 } from '@syncfusion/ej2-angular-schedule';
 
-// komponentit
-import { KalenteriComponent } from "./kalenteri/kalenteri.component";
-import { AktiivisetKurssitComponent } from "./aktiiviset-kurssit/aktiiviset-kurssit.component";
-import { NavbarComponent } from "./navbar/navbar.component";
-import { SuoritetutKurssitComponent } from "./suoritetut-kurssit/suoritetut-kurssit.component";
-import { AsetuksetComponent } from "./asetukset/asetukset.component";
-import { ModalComponent } from "./modal/modal.component";
 
+import { KalenteriComponent } from './kalenteri/kalenteri.component';
+import { AktiivisetKurssitComponent } from './aktiiviset-kurssit/aktiiviset-kurssit.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { SuoritetutKurssitComponent } from './suoritetut-kurssit/suoritetut-kurssit.component';
+import { AsetuksetComponent } from './asetukset/asetukset.component';
+import { ModalComponent } from './modal/modal.component';
+import { KirjautuminenComponent } from './kirjautuminen/kirjautuminen.component';
 
 import { TreeViewModule } from '@syncfusion/ej2-angular-navigations';
 
 import { NgbModal, NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 import { DragDropModule } from "@angular/cdk/drag-drop";
+
+// in memory web apin importit
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { UserService } from './user.service';
+
 
 // grid
 import {
@@ -48,7 +54,8 @@ import { YhteysAPIService } from "./yhteys-api.service";
     NavbarComponent,
     SuoritetutKurssitComponent,
     AsetuksetComponent,
-    ModalComponent
+    ModalComponent,
+    KirjautuminenComponent
   ],
   imports: [
     BrowserModule,
@@ -58,11 +65,16 @@ import { YhteysAPIService } from "./yhteys-api.service";
     AppRoutingModule,
     ScheduleModule,
     TreeViewModule,
-    DragDropModule,
-    GridModule
+
+    GridModule,
     HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(UserService, { dataEncapsulation: false }),
+    ReactiveFormsModule
+
+    DragDropModule,
     HttpModule,
     NgbModule
+
   ],
   providers: [
     DragAndDropService,
