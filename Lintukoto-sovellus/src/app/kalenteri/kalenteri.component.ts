@@ -337,7 +337,7 @@ export class KalenteriComponent implements OnInit {
 
   onDragStop(event: any): void {
     event.cancel = true;
-    this.gridObj.deleteRecord(event.data[0]);
+
     //console.log(event);
     const scheduleElement: Element = <Element>(
       closest(event.target, ".e-content-wrap")
@@ -362,6 +362,7 @@ export class KalenteriComponent implements OnInit {
         };
 
         this.scheduleInstance.addEvent(eventData);
+        this.gridObj.deleteRecord(event.data[0]);
         console.log(tehtavaLista);
         // this.scheduleObj.openEditor(eventData, 'Add', true);
         //this.gridObj.deleteRecord("Id", this.gridObj.getSelectedRecords());
