@@ -3,6 +3,8 @@ export class Kurssi {
     public kurssikoodi: string,
     public nimi: string,
     public kuva: string,
-    public muistiinpanot: string
+    public muistiinpanot: string,
+    public tehdytTehtavat: [],
+    public uudetTehtavat: []
   ) {}
 }
