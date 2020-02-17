@@ -18,6 +18,7 @@ export class AktiivisetKurssitComponent implements OnInit {
   kurssiTaulukko: Array<Muistiinpano> = [];
   modalContent: any;
   value;
+  arvo;
   constructor(
     private yhteysAPI: YhteysAPIService,
     private modalService: NgbModal
@@ -25,6 +26,9 @@ export class AktiivisetKurssitComponent implements OnInit {
 
   showModal2(): void {
     $("#myModal2").modal("show");
+  }
+  showUusiModal(): void {
+    $("#UusiKurssi").modal("show");
   }
   sendModal2(): void {
     // do something here
@@ -39,7 +43,9 @@ export class AktiivisetKurssitComponent implements OnInit {
     this.modalContent = kurssi;
     this.modalService.open(content, { ariaLabelledBy: "modal-basic-title" });
   }
-  title = "Aktiiviset kurssit";
+  avaa(content) {
+    this.modalService.open(content, { ariaLabelledBy: "modal-basic-title" });
+  }
   muistiinpano: Array<Muistiinpano>;
 
   kurssihaku() {
@@ -59,6 +65,7 @@ export class AktiivisetKurssitComponent implements OnInit {
   };
 
   kurssit2: Array<any> = [];
+  kurssit3: Array<any> = [];
 
   haeMuistiinpanot = () => {
     for (let kurssi of this.kurssit2) {
@@ -73,6 +80,13 @@ export class AktiivisetKurssitComponent implements OnInit {
     console.log(this.kurssit2);
   };
 
+  haeKaikkiKurssit = () => {
+    this.yhteysAPI
+      .getKaikkiKurssit()
+      .subscribe(data => this.kurssit3.push(data));
+    console.log(this.kurssit3);
+  };
+
   // showModal(): void {
   // this.displayService.setShowModal(true);
   // communication to show the modal, I use a behaviour subject from a service layer here
@@ -84,5 +98,6 @@ export class AktiivisetKurssitComponent implements OnInit {
     //   .subscribe(data => (this.kurssiTaulukko = data));
     this.haeMuistiinpanot();
     this.haeKurssit();
+    this.haeKaikkiKurssit();
   }
 }

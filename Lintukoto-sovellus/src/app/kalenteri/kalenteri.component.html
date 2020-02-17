@@ -4,7 +4,6 @@
     width="100%"
     locale="fi"
     height="450px"
-    [selectedDate]="selectedDate"
     [views]="views"
     [eventSettings]="eventObject"
     [showHeaderBar]="showHeaderBar"
@@ -13,45 +12,65 @@
     (dragStart)="onDragStart($event)"
     (resizeStart)="onResizeStart($event)"
     showWeekNumber="true"
-    (renderCell)="onRenderCell($event)"
     [eventSettings]="eventSettings"
+    [showTimeIndicator]="showTimeIndicator"
   >
-    <e-header-rows>
+    <!--
+      (renderCell)="onRenderCell($event)"
+      <e-header-rows>
       <e-header-row option="Month"></e-header-row>
       <e-header-row option="Date"></e-header-row>
     </e-header-rows>
+  -->
   </ejs-schedule>
 </div>
-<h2>Tehtävät</h2>
-<div class="row justify-content-md-center">
-  <div class="col-sm-12 align-self-center blue-div">
-    <ejs-grid
-      id="Grid"
-      #gridObj
-      [dataSource]="gridDS"
-      width="100%"
-      height="100%"
-      [allowSelection]="true"
-      [allowRowDragAndDrop]="true"
-      [editSettings]="editSettings"
-      [rowDropSettings]="srcDropOptions"
-      (rowDrop)="onDragStop($event)"
-      (rowDrag)="onRowDrag($event)"
-      [toolbar]="toolbar"
-    >
-      <e-columns>
-        <e-column
-          field="Subject"
-          headerText="Opintojakso"
-          width="100"
-        ></e-column>
-        <e-column
-          field="Description"
-          headerText="Tehtävä"
-          width="670"
-        ></e-column>
-      </e-columns>
-    </ejs-grid>
-  </div>
-</div>
+<!--<h2 class="unselectable">Tehtävät</h2>-->
 
+<div class="tehtavat-div unselectable">
+  <ejs-grid
+    id="Grid"
+    #gridObj
+    locale="fi"
+    (dataBound)="dataBound()"
+    [dataSource]="gridDS"
+    width="100%"
+    height="100%"
+    [allowSelection]="true"
+    [allowRowDragAndDrop]="true"
+    [editSettings]="editSettings"
+    [rowDropSettings]="srcDropOptions"
+    (rowDrop)="onDragStop($event)"
+    (rowDrag)="onRowDrag($event)"
+    [toolbar]="toolbar"
+    (toolbarClick)="clickHandler($event)"
+  >
+    <e-columns>
+      <e-column
+        field="Id"
+        IsPrimaryKey="true"
+        width="30"
+        headerText="ID"
+      ></e-column>
+      <e-column
+        class="unselectable"
+        field="Subject"
+        headerText="Opintojakso"
+        width="120"
+      ></e-column>
+      <e-column field="Description" headerText="Tehtävä" width="200"></e-column>
+    </e-columns>
+  </ejs-grid>
+
+  <!--
+    <div
+      cdkDropList
+      [cdkDropListData]="gridDS"
+      class="example-list"
+      (cdkDropListDropped)="onDragStop($event)"
+    >
+      <div class="example-box" *ngFor="let item of gridDS" cdkDrag>
+        {{ item.Name }} {{ item.Description }}
+      </div>
+    </div>
+  -->
+</div>

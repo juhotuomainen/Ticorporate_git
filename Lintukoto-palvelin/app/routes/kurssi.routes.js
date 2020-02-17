@@ -11,6 +11,10 @@ module.exports = app => {
   app.get('/kurssit', kurssi.findAll);
 
   app.get('/kurssit?kurssi=${kurssi}', kurssi.find);
+
+  app.get('/lataakurssit', kurssi.findAllKurssi);
+
+  app.post('/uusikurssi', kurssi.createKurssi);
 };
 
 //   app.get('/aktiiviset_kurssit', aktiivisetKurssit.findAll);
