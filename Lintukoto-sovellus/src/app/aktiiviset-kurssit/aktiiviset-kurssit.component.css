@@ -20,15 +20,69 @@
   align-self: inherit;
   margin: auto;
 }
+#muistiinpanolista {
+  overflow: auto;
+  height: 150px;
+  margin-top: 1em;
+  background-image: url("/../../assets/images/muistilappu.png");
+  background-position: center;
+  background-size: initial;
+  margin-top: 1em;
+  border: solid black 1px;
+  border-radius: 5px;
+}
+
 .kurssi-kortti {
   margin: 1em 2em;
+  width: 180px;
 }
 .close {
   outline: hidden;
 }
 #uusi-kurssi {
-  position: absolute;
-  right: 50%;
-  transform: translate(-50, -50);
-  margin-bottom: 10px;
+  margin: 10px 0;
+}
+.button-container {
+  text-align: center;
+  background-color: #fafafa;
+}
+.linkki {
+  color: burlywood;
+  cursor: pointer;
+}
+.modal-nappi {
+  width: 30%;
+  position: relative;
+  display: inline-block;
+  margin: 1em 1em;
+}
+h6 {
+  text-decoration: underline;
+}
+.teht-done {
+  background-color: #c5facd;
+  overflow: auto;
+  height: 75px;
+  margin-top: 1em;
+  border: solid black 1px;
+  border-radius: 5px;
+}
+.teht-undone {
+  background-color: #ffbfbf;
+  overflow: auto;
+  height: 75px;
+  margin-top: 1em;
+  margin-top: 1em;
+  border: solid black 1px;
+  border-radius: 5px;
+}
+.tehtava-linkki {
+  display: block;
+}
+.kurssi-listaus {
+  text-align: center;
+  padding: 0;
+}
+.lisays-nappi {
+  margin: 1em 1.5em;
 }
