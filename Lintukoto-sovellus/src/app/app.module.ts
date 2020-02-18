@@ -6,7 +6,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { HttpModule } from "@angular/http";
 
-import { ScheduleModule } from "@syncfusion/ej2-angular-schedule";
+import { ScheduleModule, WeekService } from "@syncfusion/ej2-angular-schedule";
 import {
   DragAndDropService,
   ResizeService,

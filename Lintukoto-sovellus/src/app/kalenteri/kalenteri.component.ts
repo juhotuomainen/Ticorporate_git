@@ -366,6 +366,7 @@ export class KalenteriComponent implements OnInit {
         };
 
         this.scheduleInstance.addEvent(eventData);
+        this.gridObj.deleteRecord(event.data[0]);
         console.log(tehtavaLista);
         this.gridObj.deleteRecord();
         // this.scheduleObj.openEditor(eventData, 'Add', true);

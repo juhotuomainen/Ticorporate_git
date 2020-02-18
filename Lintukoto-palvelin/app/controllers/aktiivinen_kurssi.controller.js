@@ -1,4 +1,5 @@
 const AktiivinenKurssi = require('../models/aktiivinen_kurssi.model');
+const Kurssi = require('../models/kurssi.model');
 const mongoose = require('mongoose');
 
 exports.create = (req, res) => {
@@ -90,7 +91,7 @@ exports.findjaupdate = (req, res) => {
       message: 'Dataa ei löytynyt'
     });
   }
-  query = { kurssikoodi: req.body.kurssi };
+  query = { nimi: req.body.nimi };
   console.log(query);
   AktiivinenKurssi.findOneAndUpdate(
     query,
@@ -108,4 +109,42 @@ exports.findjaupdate = (req, res) => {
     //   res.send(muistiinpano);
     // }
   ).then(res.redirect('http://localhost:4200/aktiiviset'));
+};
+
+exports.createKurssi = (req, res) => {
+  // Validate request
+  if (!req.body) {
+    return res.status(400).send({
+      message: 'Note content can not be empty'
+    });
+  }
+
+  const kurssi = new Kurssi({
+    kurssikoodi: req.body.kurssikoodi,
+    nimi: req.body.nimi,
+    kuvaus: req.body.kuvaus
+  });
+
+  kurssi
+    .save()
+    .then(result => {
+      res.status(200).redirect('http://localhost:4200/aktiiviset');
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: err.message || 'Some error occurred while creating the Note.'
+      });
+    });
+};
+
+exports.findAllKurssi = (req, res) => {
+  Kurssi.find()
+    .then(notes => {
+      res.send(notes);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: err.message || 'Some error occurred while retrieving notes.'
+      });
+    });
 };

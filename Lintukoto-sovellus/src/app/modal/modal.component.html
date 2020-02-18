@@ -4,7 +4,7 @@
     <div class="modal-content">
       <!-- Modal Header -->
       <div class="modal-header">
-        <h4 class="modal-title">Muistiinpano</h4>
+        <h4 class="modal-title">Uusi muistiinpano</h4>
         <button type="button" class="close" (click)="hideModal()">
           &times;
         </button>
@@ -13,51 +13,57 @@
       <!-- Modal body -->
       <div class="modal-body">
         <form method="POST" action="http://localhost:3000/kurssit/uus">
+          <label for="otsikko" class="labelit"> Otsikko</label>
           <input
             class="modal-input"
             placeholder="Muistiinpanon nimi"
             type="text"
             name="otsikko"
           />
-          <input
-            class="modal-input"
-            placeholder="Kurssikoodi"
-            type="text"
-            name="kurssi"
-          />
+          <div class="select-container">
+            <label for="nimi" class="labelit"> Kurssi</label>
+            <select name="nimi" class="form-control nimi-selecti">
+              <option *ngFor="let kurssi of kurssit2[0]">{{
+                kurssi.nimi
+              }}</option>
+            </select>
+          </div>
+          <label for="muistiinpano" class="labelit"> Muistiinpano</label>
           <textarea
             name="muistiinpano"
             class="modal-textarea"
             placeholder="Kirjoita muistiinpanosi tähän.."
           ></textarea>
-          <button
-            type="submit"
-            method="POST"
-            name="muistiinpanoLahete"
-            class="btn btn-primary"
-            (click)="sendModal()"
-          >
-            Lähetä
-          </button>
+          <div class="button-container">
+            <button
+              type="submit"
+              method="POST"
+              name="muistiinpanoLahete"
+              class="btn btn-primary modal-nappi"
+              (click)="sendModal()"
+            >
+              Lähetä
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger modal-nappi"
+              (click)="hideModal()"
+            >
+              Sulje
+            </button>
+          </div>
         </form>
       </div>
 
-      <!-- Modal footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" (click)="hideModal()">
-          Sulje
-        </button>
-
-        <!-- this button is hidden, used to close from typescript -->
-        <button
-          type="button"
-          id="close-modal"
-          data-dismiss="modal"
-          style="display: none"
-        >
-          Close
-        </button>
-      </div>
+      <!-- this button is hidden, used to close from typescript -->
+      <button
+        type="button"
+        id="close-modal"
+        data-dismiss="modal"
+        style="display: none"
+      >
+        Close
+      </button>
     </div>
   </div>
 </div>
@@ -99,3 +105,63 @@
     </div>
   </div>
 </div> -->
+
+<div class="modal fade" id="tehtavanLisaysModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Uusi tehtävä</h4>
+        <button type="button" class="close" (click)="hideTehtavanLisaysModal()">
+          &times;
+        </button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form method="POST" action="http://localhost:3000/tehtavat">
+          <div class="select-container">
+            <label for="kurssi" class="labelit"> Kurssi</label>
+            <select name="kurssi" class="form-control nimi-selecti">
+              <option *ngFor="let kurssi of kurssit2[0]">{{
+                kurssi.nimi
+              }}</option>
+            </select>
+          </div>
+
+          <label for="tehtava" class="labelit"> Tehtava</label>
+          <input name="tehtava" class="modal-input" placeholder="Tehtävä" />
+
+          <label for="deadline" class="labelit"> Deadline</label>
+          <input name="deadline" class="modal-input" placeholder="Deadline" />
+          <button
+            type="submit"
+            method="POST"
+            name="tehtavaLahete"
+            class="btn btn-primary modal-nappi"
+            (click)="sendModalTehtavanLahetys()"
+          >
+            Lähetä
+          </button>
+          <button
+            type="button"
+            class="btn btn-danger modal-nappi"
+            (click)="hideTehtavanLisaysModal()"
+          >
+            Sulje
+          </button>
+        </form>
+      </div>
+
+      <!-- this button is hidden, used to close from typescript -->
+      <button
+        type="button"
+        id="close-modal-teht"
+        data-dismiss="modal"
+        style="display: none"
+      >
+        Close
+      </button>
+    </div>
+  </div>
+</div>
