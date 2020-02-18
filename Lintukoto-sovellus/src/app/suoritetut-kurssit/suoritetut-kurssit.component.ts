@@ -8,34 +8,77 @@ import Swiper from "swiper";
 })
 export class SuoritetutKurssitComponent implements AfterViewInit {
   title: "Suoritetut kurssit";
+
   mySwiper: Swiper;
   // tslint:disable-next-line: ban-types
-  kurssit: Array<Object> = [
+  kurssit = [
     {
       Kurssikoodi: "X301",
       nimi: "Web sovelluskehitys",
-      kuva: "../../assets/images/pinkkihyrrahattu.png"
+      kuva: "../../assets/images/pinkkihyrrahattu.png",
+      pisteet: 5
     },
     {
       Kurssikoodi: "X302",
       nimi: "Tietokannat",
-      kuva: "../../assets/images/pinkkihyrrahattu.png"
+      kuva: "../../assets/images/pinkkihyrrahattu.png",
+      pisteet: 1
     },
     {
       Kurssikoodi: "X303",
       nimi: "Yrittäjyys",
-      kuva: "../../assets/images/pollomalli.png"
+      kuva: "../../assets/images/pollomalli.png",
+      pisteet: 1
     },
     {
       Kurssikoodi: "X304",
       nimi: "Web-liiketoiminta",
-      kuva: "../../assets/images/pollomalli3.0_surullinen.png"
+      kuva: "../../assets/images/pollomalli3.0_surullinen.png",
+      pisteet: 2
+    },
+    {
+      Kurssikoodi: "X303",
+      nimi: "Yrittäjyys",
+      kuva: "../../assets/images/pollomalli.png",
+      pisteet: 3
+    },
+    {
+      Kurssikoodi: "X303",
+      nimi: "Yrittäjyys",
+      kuva: "../../assets/images/pollomalli.png",
+      pisteet: 4
+    },
+    {
+      Kurssikoodi: "X303",
+      nimi: "Yrittäjyys",
+      kuva: "../../assets/images/pollomalli.png",
+      pisteet: 10
+    },
+    {
+      Kurssikoodi: "X303",
+      nimi: "Yrittäjyys",
+      kuva: "../../assets/images/pollomalli.png",
+      pisteet: 8
+    },
+    {
+      Kurssikoodi: "X303",
+      nimi: "Yrittäjyys",
+      kuva: "../../assets/images/pollomalli.png",
+      pisteet: 7
     }
   ];
+
+  //opintopisteet yhteensä
+  kurssityht: number = this.kurssit
+    .map(a => a.pisteet)
+    .reduce(function(a, b) {
+      return a + b;
+    });
 
   constructor() {}
 
   ngAfterViewInit() {
+    //swiperin koodi
     this.mySwiper = new Swiper(".swiper-container", {
       effect: "coverflow",
       grabCursor: true,

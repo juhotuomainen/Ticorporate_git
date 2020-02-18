@@ -10,6 +10,11 @@
     <title>{{ title }}</title>
   </head>
   <body>
+    <div id="kurssityht">
+      <div id="teksti">
+        <h5>Opintopisteet yhteensä: {{ kurssityht }}</h5>
+      </div>
+    </div>
     <div class="swiper-container">
       <div class="swiper-wrapper">
         <div
@@ -21,7 +26,10 @@
             <img src="{{ kurssi.kuva }}" width="300" height="300" />
           </div>
           <div class="details">
-            <h3>{{ kurssi.nimi }}</h3>
+            <h3>{{ kurssi.nimi }} ({{ kurssi.pisteet }}p)</h3>
+            <div class="muistiinpanotnappi">
+              <button>Muistiinpanot</button>
+            </div>
           </div>
         </div>
       </div>
