@@ -9,7 +9,7 @@ var cors = require('cors');
 
 const app = express();
 
-const MongoConnect = require('./database').MongoConnect;
+//const MongoConnect = require('./database').MongoConnect;
 
 app.use(cors());
 
@@ -42,6 +42,7 @@ mongoose
 
 require('./app/routes/muistiinpano.routes.js')(app);
 require('./app/routes/kurssi.routes.js')(app);
+require('./app/routes/tehtava.routes.js')(app);
 
 // MongoConnect(() => {
 // });

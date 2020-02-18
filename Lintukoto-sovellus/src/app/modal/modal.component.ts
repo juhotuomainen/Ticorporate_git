@@ -42,4 +42,7 @@ export class ModalComponent implements OnInit {
   hideModal2(): void {
     document.getElementById("close-modal2").click();
   }
+  hideTehtavanLisaysModal(): void {
+    document.getElementById("close-modal-teht").click();
+  }
 }
