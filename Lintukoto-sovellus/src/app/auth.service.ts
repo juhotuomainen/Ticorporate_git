@@ -12,6 +12,7 @@ export class AuthService {
   credUrl: "http://localhost:80/api";
   loggedIn = false;
 
+
   // tslint:disable-next-line: no-shadowed-variable
   constructor(private http: HttpClient, private router: Router) {}
 
