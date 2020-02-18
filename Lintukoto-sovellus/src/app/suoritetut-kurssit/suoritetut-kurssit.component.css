@@ -1,0 +1,47 @@
+body {
+  background: #fff;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+#kurssityht {
+  position: relative;
+}
+#teksti {
+  position: fixed;
+  right: 10px;
+}
+.muistiinpanotnappi {
+  text-align: center;
+}
+.swiper-container {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.swiper-slide {
+  background-position: center;
+  max-width: 300px;
+  max-height: auto;
+}
+.swiper-slide .imgBox {
+  max-width: 300px;
+  max-height: 300px;
+}
+.swiper-slide .imgBox img {
+  max-width: 300px;
+  max-height: 300px;
+}
+.swiper-slide .details {
+  box-sizing: border-box;
+  font-size: 20px;
+  padding: 20px;
+  position: center;
+}
+.swiper-slide .details h3 {
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  text-align: center;
+}
