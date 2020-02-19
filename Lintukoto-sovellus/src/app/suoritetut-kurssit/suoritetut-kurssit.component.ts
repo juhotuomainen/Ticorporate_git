@@ -21,13 +21,13 @@ export class SuoritetutKurssitComponent implements AfterViewInit {
     {
       Kurssikoodi: "X302",
       nimi: "Tietokannat",
-      kuva: "../../assets/images/pinkkihyrrahattu.png",
+      kuva: "../../assets/images/pollomalli3.0_violetti.png",
       pisteet: 1
     },
     {
       Kurssikoodi: "X303",
       nimi: "Yrittäjyys",
-      kuva: "../../assets/images/pollomalli.png",
+      kuva: "../../assets/images/pollomalli3.0.keltanen.png",
       pisteet: 1
     },
     {
@@ -45,7 +45,7 @@ export class SuoritetutKurssitComponent implements AfterViewInit {
     {
       Kurssikoodi: "X303",
       nimi: "Yrittäjyys",
-      kuva: "../../assets/images/pollomalli.png",
+      kuva: "../../assets/images/pollomalli3.0_sinine.png",
       pisteet: 4
     },
     {
@@ -57,7 +57,7 @@ export class SuoritetutKurssitComponent implements AfterViewInit {
     {
       Kurssikoodi: "X303",
       nimi: "Yrittäjyys",
-      kuva: "../../assets/images/pollomalli.png",
+      kuva: "../../assets/images/pollomalli3.0_punane.png",
       pisteet: 8
     },
     {
@@ -87,7 +87,7 @@ export class SuoritetutKurssitComponent implements AfterViewInit {
     {
       Kurssikoodi: "X303",
       nimi: "Yrittäjyys",
-      kuva: "../../assets/images/pollomalli3.png",
+      kuva: "../../assets/images/pollomalli3.0_sinine.png",
       pisteet: 7
     }
   ];
