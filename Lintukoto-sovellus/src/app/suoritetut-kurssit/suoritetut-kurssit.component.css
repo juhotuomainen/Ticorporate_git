@@ -1,24 +1,41 @@
 body {
-  background-image: url("../../assets/images/Puu_rasmukselle.png");
-  background-color: #fff;
+  background-image: url("../../assets/images/PUU-auringolla.png");
+  background-color: deepskyblue;
   font-size: 14px;
   color: #000;
-  margin: 0;
-  padding: 0;
+  height: 660px;
 }
-#kurssityht {
-  position: relative;
-}
-#teksti {
-  position: fixed;
+.kurssityht {
+  position: absolute;
   right: 10px;
+  top: 60px;
+}
+.otsikko {
+  position: absolute;
+  top: 50px;
+  margin: 10px;
 }
 .muistiinpanotnappi {
   text-align: center;
+  margin-top: 10px;
 }
+@media (max-width: 991px) {
+  .otsikko {
+    text-align: center;
+    position: relative;
+    top: 0px;
+  }
+  .kurssityht {
+    text-align: center;
+    position: relative;
+    top: 0px;
+    right: 0px;
+  }
+}
+
 .swiper-container {
   width: 100%;
-  padding-top: 50px;
+  padding-top: 130px;
   padding-bottom: 50px;
 }
 .swiper-slide {
