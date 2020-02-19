@@ -6,31 +6,29 @@ body {
   height: 660px;
 }
 .kurssityht {
+  background-color: rgba(31, 24, 24, 0.5);
+  backdrop-filter: blur(12px);
   position: absolute;
   right: 10px;
   top: 60px;
+  padding: 5px;
 }
 .otsikko {
+  background-color: rgba(31, 24, 24, 0.5);
+  backdrop-filter: blur(12px);
   position: absolute;
-  top: 50px;
-  margin: 10px;
+  top: 60px;
+  left: 5px;
+  padding: 5px;
+}
+.otsikkotext {
+  color: #f7f7f7;
 }
 .muistiinpanotnappi {
   text-align: center;
   margin-top: 10px;
 }
-@media (max-width: 991px) {
-  .otsikko {
-    text-align: center;
-    position: relative;
-    top: 0px;
-  }
-  .kurssityht {
-    text-align: center;
-    position: relative;
-    top: 0px;
-    right: 0px;
-  }
+.details {
 }
 
 .swiper-container {
@@ -54,7 +52,7 @@ body {
 .swiper-slide .details {
   box-sizing: border-box;
   font-size: 20px;
-  padding: 20px;
+  padding: 0px;
   position: center;
 }
 .swiper-slide .details h3 {
@@ -62,4 +60,20 @@ body {
   padding: 0;
   font-size: 20px;
   text-align: center;
+}
+
+@media (max-width: 991px) {
+  .otsikko {
+    text-align: left;
+    position: static;
+  }
+  .kurssityht {
+    text-align: left;
+    position: static;
+  }
+  .swiper-container {
+    width: 100%;
+    padding-top: 35px;
+    padding-bottom: 50px;
+  }
 }
