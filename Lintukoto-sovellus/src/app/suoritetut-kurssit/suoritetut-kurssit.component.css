@@ -3,7 +3,7 @@ body {
   background-color: deepskyblue;
   font-size: 14px;
   color: #000;
-  height: 660px;
+  height: 100vh;
 }
 .kurssityht {
   background-color: rgba(31, 24, 24, 0.5);
