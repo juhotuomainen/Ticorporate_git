@@ -1,23 +1,39 @@
 body {
-  background: #fff;
+  background-image: url("../../assets/images/PUU-auringolla.png");
+  background-color: deepskyblue;
   font-size: 14px;
   color: #000;
-  margin: 0;
-  padding: 0;
+  height: 100vh;
 }
-#kurssityht {
-  position: relative;
-}
-#teksti {
-  position: fixed;
+.kurssityht {
+  background-color: rgba(31, 24, 24, 0.5);
+  backdrop-filter: blur(12px);
+  position: absolute;
   right: 10px;
+  top: 60px;
+  padding: 5px;
+}
+.otsikko {
+  background-color: rgba(31, 24, 24, 0.5);
+  backdrop-filter: blur(12px);
+  position: absolute;
+  top: 60px;
+  left: 5px;
+  padding: 5px;
+}
+.otsikkotext {
+  color: #f7f7f7;
 }
 .muistiinpanotnappi {
   text-align: center;
+  margin-top: 10px;
 }
+.details {
+}
+
 .swiper-container {
   width: 100%;
-  padding-top: 50px;
+  padding-top: 150px;
   padding-bottom: 50px;
 }
 .swiper-slide {
@@ -36,7 +52,7 @@ body {
 .swiper-slide .details {
   box-sizing: border-box;
   font-size: 20px;
-  padding: 20px;
+  padding: 0px;
   position: center;
 }
 .swiper-slide .details h3 {
@@ -44,4 +60,20 @@ body {
   padding: 0;
   font-size: 20px;
   text-align: center;
+}
+
+@media (max-width: 991px) {
+  .otsikko {
+    text-align: left;
+    position: static;
+  }
+  .kurssityht {
+    text-align: left;
+    position: static;
+  }
+  .swiper-container {
+    width: 100%;
+    padding-top: 35px;
+    padding-bottom: 50px;
+  }
 }

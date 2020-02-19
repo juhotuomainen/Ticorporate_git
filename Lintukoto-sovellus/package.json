@@ -35,7 +35,6 @@
     "msal": "^1.2.1",
     "bootstrap": "^4.4.1",
     "cldr-data": "^36.0.0",
-    "msal": "^1.2.1",
     "ng-bootstrap": "^1.6.3",
     "rxjs": "~6.4.0",
     "swiper": "^5.3.1",
