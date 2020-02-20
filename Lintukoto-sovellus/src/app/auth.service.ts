@@ -10,7 +10,8 @@ export class AuthService {
   private cred;
   // oikeasti tulisi apin osoite
   credUrl: "http://localhost:80/api";
-  loggedIn = true;
+  loggedIn = false;
+
 
   // tslint:disable-next-line: no-shadowed-variable
   constructor(private http: HttpClient, private router: Router) {}

@@ -2,17 +2,41 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1, minimum-scale=1"
+    />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>{{ title }}</title>
   </head>
   <body>
-    <h1>Aktiiviset kurssit</h1>
-    <ul>
-      <li *ngFor="let kurssi of kurssit" id="kurssilista">
-        <img src="{{ kurssi.kuva }}" id="pollo" />
-        {{ kurssi.nimi }}
-      </li>
-    </ul>
+    <div id="kurssityht">
+      <div id="teksti">
+        <h5>Opintopisteet yhteensä: {{ kurssityht }}</h5>
+      </div>
+    </div>
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div
+          *ngFor="let kurssi of kurssit"
+          id="kurssilista"
+          class="swiper-slide"
+        >
+          <div class="imgBx">
+            <img src="{{ kurssi.kuva }}" width="300" height="300" />
+          </div>
+          <div class="details">
+            <h3>{{ kurssi.nimi }} ({{ kurssi.pisteet }}p)</h3>
+            <div class="muistiinpanotnappi">
+              <button>Muistiinpanot</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Add Pagination -->
+      <div class="swiper-pagination"></div>
+    </div>
+
+    <script type="text/javascript" src="swiper.min.js"></script>
   </body>
 </html>
