@@ -75,19 +75,19 @@ export class SuoritetutKurssitComponent implements AfterViewInit {
     {
       Kurssikoodi: "X303",
       nimi: "Viestintä",
-      kuva: "../../assets/images/pollomalli3.png",
+      kuva: "../../assets/images/kurssipollo_lila.png",
       pisteet: 7
     },
     {
       Kurssikoodi: "X303",
       nimi: "Liiketalousmatiikka",
-      kuva: "../../assets/images/pinkkihyrrahattu.png",
+      kuva: "../../assets/images/kurssipollo_mikatamaon.png",
       pisteet: 7
     },
     {
       Kurssikoodi: "X303",
       nimi: "Yrittäjyys",
-      kuva: "../../assets/images/pollomalli3.0_vihree.png",
+      kuva: "../../assets/images/kursspollo_tummakeltanen.png",
       pisteet: 7
     }
   ];
