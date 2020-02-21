@@ -12,3 +12,15 @@ footer {
   color: white;
   text-align: right;
 }
+h4 {
+  display: block;
+}
+.modal-dialog {
+  position: absolute;
+  bottom: 10px;
+  right: 220px;
+  margin: 10px;
+}
+.nappula {
+  margin: 10px;
+}
