@@ -1,9 +1,50 @@
+<div class="modal fade" id="henkipollomodal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Kuinka voin auttaa?</h4>
+        <button type="button" class="close" (click)="hideModal()">
+          &times;
+        </button>
+      </div>
+        <button class="btn btn-success nappula">
+          QOTD
+        </button>
+        <button class="btn btn-success nappula">
+          Mitä tällä sivulla tehdään?
+        </button>
+        <button class="btn btn-success nappula">
+         Henkipöllö näkymä
+        </button>
+
+            <button
+              type="button"
+              class="btn btn-danger modal-nappi"
+              (click)="hideModal()"
+            >
+              Sulje
+            </button>
+            <button
+                    type="button"
+                    id="close-modal"
+                    data-dismiss="modal"
+                    style="display: none"
+                  >
+                    Close
+                  </button>
+          </div>
+      </div>
+</div>
+
 <footer>
-  <div>
+  <a data-toggle="modal"
+  data-target="#henkipollomodal">
     <img
       class="polloicon"
-      src="../../assets/images/henkipollologo2.png"
+      src="../../assets/images/henkipollologo3.png"
       alt=""
     />
-  </div>
+</a>
+
 </footer>
