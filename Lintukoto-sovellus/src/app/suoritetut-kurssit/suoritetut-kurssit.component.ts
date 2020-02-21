@@ -115,6 +115,9 @@ export class SuoritetutKurssitComponent implements AfterViewInit {
         modifier: 1,
         slideShadows: true
       },
+      keyboard: {
+        enabled: true
+      },
       pagination: {
         el: ".swiper-pagination",
         type: "bullets"
