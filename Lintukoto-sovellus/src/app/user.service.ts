@@ -1,20 +1,17 @@
-import { Injectable } from '@angular/core';
-import { InMemoryDbService } from 'angular-in-memory-web-api';
+import { Injectable } from "@angular/core";
+import { InMemoryDbService } from "angular-in-memory-web-api";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 
 // UserService perii InMemoryDbServicen ominaisuudet
 export class UserService implements InMemoryDbService {
-
-  constructor() { }
+  constructor() {}
 
   // palauttaa mockup "tietokannan" datan
   createDb() {
-  const user = [
-    { id: 1, username: 'admin', password: 'password' }
-  ];
-  return {user};
+    const user = [{ id: 1, username: "admin", password: "password" }];
+    return { user };
   }
 }
