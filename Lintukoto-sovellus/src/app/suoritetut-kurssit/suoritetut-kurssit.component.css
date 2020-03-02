@@ -19,7 +19,7 @@ body {
   backdrop-filter: blur(12px);
   position: absolute;
   top: 60px;
-  left: 5px;
+  left: 10px;
   padding: 5px;
 }
 .otsikkotext {
@@ -30,7 +30,7 @@ body {
   margin-top: 10px;
 }
 #taulu {
-  background-image: url("../../assets/images/taulu2fix.png");
+  background-image: url("../../assets/images/taulu4.png");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -39,8 +39,8 @@ body {
 }
 
 img {
-  margin-top: 50px;
-  margin-left: 23px;
+  margin-top: 40px;
+  margin-left: 25px;
   width: 280px;
   height: 280px;
 }
@@ -71,7 +71,7 @@ img {
   font-size: 20px;
   padding: 0px;
   position: center;
-  margin-top: 18px;
+  margin-left: 40px;
 }
 .swiper-slide .details h3 {
   margin: 0;
