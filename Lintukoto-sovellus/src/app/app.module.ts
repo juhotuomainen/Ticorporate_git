@@ -41,6 +41,7 @@ import { YhteysAPIService } from "./yhteys-api.service";
 import { HenkipolloComponent } from './henkipollo/henkipollo.component';
 import { HenkipolloinfoComponent } from './henkipolloinfo/henkipolloinfo.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ModalComponent,
     KirjautuminenComponent,
     HenkipolloComponent,
-    HenkipolloinfoComponent
+    HenkipolloinfoComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,

@@ -8,43 +8,77 @@
           &times;
         </button>
       </div>
-        <button class="btn btn-success nappula">
-          QOTD
-        </button>
-        <button class="btn btn-success nappula">
-          Mitä tällä sivulla tehdään?
-        </button>
-        <button class="btn btn-success nappula">
-         Henkipöllö näkymä
-        </button>
+      <button
+        class="btn btn-success nappula"
+        data-toggle="modal"
+        data-target="#qotdmodal"
+      >
+        QOTD
+      </button>
+      <button class="btn btn-success nappula">
+        Mitä tällä sivulla tehdään?
+      </button>
+      <button class="btn btn-success nappula">
+        Henkipöllö näkymä
+      </button>
 
-            <button
-              type="button"
-              class="btn btn-danger modal-nappi"
-              (click)="hideModal()"
-            >
-              Sulje
-            </button>
-            <button
-                    type="button"
-                    id="close-modal"
-                    data-dismiss="modal"
-                    style="display: none"
-                  >
-                    Close
-                  </button>
-          </div>
+      <button
+        type="button"
+        class="btn btn-danger modal-nappi nappula"
+        (click)="hideModal()"
+      >
+        Sulje
+      </button>
+      <button
+        type="button"
+        id="close-modal"
+        data-dismiss="modal"
+        style="display: none"
+      >
+        Close
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="qotdmodal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">QOTD</h4>
+        <button type="button" class="close" (click)="hideModal()">
+          &times;
+        </button>
       </div>
+
+      <p>:D:D:D tuu koittaa</p>
+
+      <button
+        type="button"
+        class="btn btn-danger modal-nappi nappula"
+        (click)="hideModal()"
+      >
+        Sulje
+      </button>
+      <button
+        type="button"
+        id="close-modal"
+        data-dismiss="modal"
+        style="display: none"
+      >
+        Close
+      </button>
+    </div>
+  </div>
 </div>
 
 <footer>
-  <a data-toggle="modal"
-  data-target="#henkipollomodal">
+  <a data-toggle="modal" data-target="#henkipollomodal">
     <img
       class="polloicon"
       src="../../assets/images/henkipollologo3.png"
       alt=""
     />
-</a>
-
+  </a>
 </footer>
