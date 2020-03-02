@@ -1,9 +1,10 @@
 body {
-  background-image: url("../../assets/images/PUU-auringolla.png");
-  background-color: deepskyblue;
+  background-image: url("../../assets/images/galleria1.png");
+  background-color: skyblue;
   font-size: 14px;
   color: #000;
   height: 100vh;
+  background-repeat: no-repeat;
 }
 .kurssityht {
   background-color: rgba(31, 24, 24, 0.5);
@@ -54,6 +55,7 @@ body {
   font-size: 20px;
   padding: 0px;
   position: center;
+  margin-top: 18px;
 }
 .swiper-slide .details h3 {
   margin: 0;
