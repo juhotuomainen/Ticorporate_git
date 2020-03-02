@@ -109,7 +109,7 @@ export class SuoritetutKurssitComponent implements AfterViewInit {
       centeredSlides: true,
       slidesPerView: "auto",
       coverflowEffect: {
-        rotate: 0,
+        rotate: 20,
         stretch: 0,
         depth: 100,
         modifier: 1,
