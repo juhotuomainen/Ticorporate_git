@@ -1,5 +1,5 @@
 body {
-  background-image: url("../../assets/images/galleria1.png");
+  background-image: url("../../assets/images/galleria2.png");
   background-color: skyblue;
   font-size: 14px;
   color: #000;
@@ -30,7 +30,7 @@ body {
   margin-top: 10px;
 }
 #taulu {
-  background-image: url("../../assets/images/taulu2.png");
+  background-image: url("../../assets/images/taulu2fix.png");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
