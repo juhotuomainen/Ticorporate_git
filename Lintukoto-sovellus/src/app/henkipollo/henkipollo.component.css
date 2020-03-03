@@ -3,7 +3,12 @@
   height: 80px;
   margin: 20px;
 }
-
+.aktiivinen {
+  display: block;
+}
+.hidden {
+  display: none;
+}
 footer {
   position: fixed;
   left: 0;
@@ -11,6 +16,7 @@ footer {
   width: 100%;
   color: white;
   text-align: right;
+  z-index: 1;
 }
 h4 {
   display: block;
@@ -22,5 +28,8 @@ h4 {
   margin: 10px;
 }
 .nappula {
+  margin: 10px;
+}
+.qotd {
   margin: 10px;
 }

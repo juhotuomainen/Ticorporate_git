@@ -12,10 +12,17 @@
         class="btn btn-success nappula"
         data-toggle="modal"
         data-target="#qotdmodal"
+        (click)="hideModal()"
+        (click)="randomLause()"
       >
-        QOTD
+        Hauska fakta
       </button>
-      <button class="btn btn-success nappula">
+      <button
+        class="btn btn-success nappula"
+        data-toggle="modal"
+        data-target="#sivumodal"
+        (click)="hideModal()"
+      >
         Mitä tällä sivulla tehdään?
       </button>
       <button class="btn btn-success nappula">
@@ -41,29 +48,128 @@
   </div>
 </div>
 
+<!--hauskafakta modal-->
 <div class="modal" id="qotdmodal">
   <div class="modal-dialog">
     <div class="modal-content">
       <!-- Modal Header -->
       <div class="modal-header">
-        <h4 class="modal-title">QOTD</h4>
-        <button type="button" class="close" (click)="hideModal()">
+        <h4 class="modal-title">Hauska fakta</h4>
+        <button type="button" class="close" (click)="hideModalqotd()">
           &times;
         </button>
       </div>
 
-      <p>:D:D:D tuu koittaa</p>
+      <p class="qotd">{{ lause }}</p>
 
-      <button
-        type="button"
-        class="btn btn-danger modal-nappi nappula"
-        (click)="hideModal()"
-      >
-        Sulje
+      <button (click)="randomLause()" class="btn btn-primary nappula">
+        Seuraava
       </button>
       <button
         type="button"
-        id="close-modal"
+        class="btn btn-danger nappula"
+        (click)="hideModalqotd()"
+        data-toggle="modal"
+        data-target="#henkipollomodal"
+      >
+        Takaisin
+      </button>
+      <button
+        type="button"
+        id="close-modalqotd"
+        data-dismiss="modal"
+        style="display: none"
+      >
+        Close
+      </button>
+    </div>
+  </div>
+</div>
+
+<!--mikä tämä sivu on -modal-->
+<div class="modal" id="sivumodal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Mikä sivu?</h4>
+        <button type="button" class="close" (click)="hideModalsivu()">
+          &times;
+        </button>
+      </div>
+      <div *ngIf="router.url === '/suoritetut'" class="qotd">
+        <p>
+          “Suoritetut kurssit sivulta näet kaikki tähän asti suorittamasi
+          kurssit. Näet kurssin ja sen oman räätälöidyn kurssipöllön, paljonko
+          pisteitä kurssi sinulle toi ja lisäksi löydät kurssin aikanasi
+          kirjoittamat muistiinpanot. Sivun yläkulmassa näet, paljonko
+          opintopisteitä sinulle on kaiken kaikkiaan kertynyt.”
+        </p>
+      </div>
+      <div *ngIf="router.url === '/aktiiviset'" class="qotd">
+        <p>
+          “Täältä löydät kaikki tällä hetkellä käynnissä olevat kurssisi.
+          Jokaista kurssia kuvataan kurssipöllöllä, joita voit muokata. Tältä
+          sivulta löytyy myös kurssitehtäväsi ja sinulla on mahdollisuus
+          kirjoittaa muistiinpanoja jokaiselle kurssille.”
+        </p>
+      </div>
+      <div *ngIf="router.url === '/kalenteri'" class="qotd">
+        <div *ngIf="sivu === 1">
+          <p>
+            “Tässä näet kalenterisi, johon voit lisätä kaikki tuntisi, tehtäväsi
+            ja vapaa-ajan menosi. Kalenteri-sivun tarkoituksena on auttaa sinua
+            hallitsemaan aikatauluasi ja parantamaan oloasi, kun tiedät mitä
+            tulet tekemään ja milloin.”
+          </p>
+          <button
+            type="button"
+            class="btn btn-primary nappula"
+            (click)="sivu = 2"
+          >
+            Seuraava
+          </button>
+        </div>
+        <div *ngIf="sivu === 2">
+          <p>
+            “Kalenterin Tehtävät-kohtaan voit lisätä kaikki koulusta saamasi
+            tehtävät ja vetää ne kalenteriin. Voit valita itsellesi sopivan
+            ajankohdan ja tarvittaessa minä voin auttaa sinua ja ehdottaa
+            sinulle aikoja! Näin pidämme huolta, että mitään ei jää tekemättä.”
+          </p>
+          <button
+            type="button"
+            class="btn btn-primary nappula"
+            (click)="sivu = 1"
+          >
+            Takaisin
+          </button>
+        </div>
+      </div>
+      <div *ngIf="router.url === '/asetukset'" class="qotd">
+        <p>
+          “Asetukset sivulla pystyt lisäämään tietoja itsestäsi ja
+          koulutuksestasi. Lisäksi voit vaikuttaa sovelluksen toimintaan,
+          esimerkiksi kertomalla työskenteletkö mieluummin aamulla vai illalla.
+          Jos pöllöt eivät ole tyyliäsi, pystyt poistamaan ne käytöstä täältä.”
+        </p>
+      </div>
+      <div *ngIf="router.url === '/kirjautuminen'" class="qotd">
+        <p>Tämä on kirjautumis sivu</p>
+      </div>
+
+      <button
+        type="button"
+        class="btn btn-danger nappula"
+        (click)="hideModalsivu()"
+        data-toggle="modal"
+        data-target="#henkipollomodal"
+      >
+        Takaisin
+      </button>
+      <button
+        type="button"
+        id="close-modalsivu"
         data-dismiss="modal"
         style="display: none"
       >
