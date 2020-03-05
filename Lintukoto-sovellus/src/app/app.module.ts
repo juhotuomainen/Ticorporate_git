@@ -38,6 +38,10 @@ import {
   ToolbarService
 } from "@syncfusion/ej2-angular-grids";
 import { YhteysAPIService } from "./yhteys-api.service";
+import { HenkipolloComponent } from './henkipollo/henkipollo.component';
+import { HenkipolloinfoComponent } from './henkipolloinfo/henkipolloinfo.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +52,10 @@ import { YhteysAPIService } from "./yhteys-api.service";
     SuoritetutKurssitComponent,
     AsetuksetComponent,
     ModalComponent,
-    KirjautuminenComponent
+    KirjautuminenComponent,
+    HenkipolloComponent,
+    HenkipolloinfoComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +73,8 @@ import { YhteysAPIService } from "./yhteys-api.service";
     ReactiveFormsModule,
     DragDropModule,
     HttpModule,
-    NgbModule
+    NgbModule,
+    BrowserAnimationsModule
   ],
   providers: [
     DragAndDropService,

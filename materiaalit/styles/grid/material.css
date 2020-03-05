@@ -2129,11 +2129,11 @@
 .e-grid .e-headercelldiv {
   border: 0 none;
   display: block;
-  font-size: 15px;
+  font-size: 12px;
   font-weight: 500;
   height: 29px;
   line-height: 30px;
-  margin: -11px;
+  margin: -7px;
   overflow: hidden;
   padding: 0 0.6em;
   text-align: left;
@@ -4098,7 +4098,7 @@
 }
 
 .e-grid .e-table {
-  background-color: #DAC7B8;
+  background-color: #fff;
 }
 
 .e-grid .e-focused:not(.e-menu-item) {
@@ -4140,10 +4140,10 @@
 }
 
 .e-grid .e-gridheader {
-  background-color: #a79284;
+  background-color: #fff;
   border-bottom-color: #e0e0e0;
   border-top-color: #e0e0e0;
-  color: #000000;
+  color: rgba(0, 0, 0, 0.54);
 }
 
 .e-grid .e-gridcontent tr:first-child td {
@@ -4191,13 +4191,13 @@
 }
 
 .e-grid .e-headercontent {
-  border-color: #a79284;
+  border-color: #e0e0e0;
 }
 
 .e-grid .e-headercell,
 .e-grid .e-detailheadercell {
-  background-color: #A79284;
-  border-color: #000000;
+  background-color: #fff;
+  border-color: #e0e0e0;
 }
 
 .e-grid [aria-selected] + tr .e-detailindentcell {
@@ -4214,7 +4214,8 @@
 .e-grid .e-detailrowexpand:not(.e-editedbatchcell),
 .e-grid .e-gridcontent .e-rowdragdrop:not(.e-editedbatchcell),
 .e-grid .e-emptyrow:not(.e-editedbatchcell) {
-  color: #000000;
+  color: #000;
+  opacity: 0.87;
 }
 
 .e-grid .e-summarycell {
@@ -4241,7 +4242,7 @@
 .e-grid .e-detailrowexpand,
 .e-grid .e-detailindentcell,
 .e-grid .e-detailcell {
-  border-color: #000000;
+  border-color: #e0e0e0;
 }
 
 .e-grid.e-default .e-grouptopleftcell {
@@ -4276,7 +4277,7 @@
 .e-grid.e-gridhover tr[role='row']:hover .e-rowdragdrop:not(.e-cellselectionbackground):not(.e-active):not(.e-updatedtd):not(.e-indentcell),
 .e-grid.e-rtl .e-gridhover tr[role='row']:hover .e-rowdragdrop:not(.e-cellselectionbackground):not(.e-active):not(.e-updatedtd):not(.e-indentcell),
 .e-grid.e-gridhover tr[role='row']:hover .e-detailrowexpand:not(.e-cellselectionbackground):not(.e-active):not(.e-updatedtd):not(.e-indentcell) {
-  background-color: #a79284;
+  background-color: #eee;
   color: #000;
 }
 
@@ -4303,7 +4304,7 @@
 }
 
 .e-grid td.e-active {
-  background: #A79284;
+  background: #e0e0e0;
   color: #000;
 }
 

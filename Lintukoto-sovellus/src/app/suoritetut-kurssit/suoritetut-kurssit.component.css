@@ -1,24 +1,23 @@
 body {
-  background-image: url("../../assets/images/PUU-auringolla.png");
-  background-color: deepskyblue;
+  background-image: url("../../assets/images/galleria2.sininen.png");
+  background-size: cover;
   font-size: 14px;
   color: #000;
   height: 100vh;
+  background-repeat: no-repeat;
 }
 .kurssityht {
   background-color: rgba(31, 24, 24, 0.5);
   backdrop-filter: blur(12px);
-  position: absolute;
-  right: 10px;
-  top: 60px;
+  position: relative;
+  float: right;
   padding: 5px;
 }
 .otsikko {
   background-color: rgba(31, 24, 24, 0.5);
   backdrop-filter: blur(12px);
-  position: absolute;
-  top: 60px;
-  left: 5px;
+  position: relative;
+  float: left;
   padding: 5px;
 }
 .otsikkotext {
@@ -28,7 +27,24 @@ body {
   text-align: center;
   margin-top: 10px;
 }
-.details {
+#taulu {
+  background-image: url("../../assets/images/taulu4.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 330px;
+  height: 330px;
+}
+.btn-custom {
+  background-color: transparent;
+  border-color: #ffffff;
+  color: #ffffff;
+}
+img {
+  margin-top: 40px;
+  margin-left: 25px;
+  width: 280px;
+  height: 280px;
 }
 
 .swiper-container {
@@ -44,36 +60,55 @@ body {
 .swiper-slide .imgBox {
   max-width: 300px;
   max-height: 300px;
+  align-content: center;
 }
+
 .swiper-slide .imgBox img {
-  max-width: 300px;
-  max-height: 300px;
+  margin-top: 50px;
+  width: 300px;
+  height: 300px;
 }
 .swiper-slide .details {
   box-sizing: border-box;
   font-size: 20px;
   padding: 0px;
   position: center;
+  margin-left: 40px;
 }
 .swiper-slide .details h3 {
   margin: 0;
   padding: 0;
   font-size: 20px;
   text-align: center;
+  color: #fefefd;
 }
 
 @media (max-width: 991px) {
   .otsikko {
     text-align: left;
-    position: static;
+    position: relative;
   }
   .kurssityht {
     text-align: left;
-    position: static;
+    position: relative;
   }
   .swiper-container {
     width: 100%;
     padding-top: 35px;
     padding-bottom: 50px;
+  }
+}
+@media (max-width: 500px) {
+  .kurssityht {
+    display: block;
+    width: 100%;
+    position: relative;
+    text-align: center;
+  }
+  .otsikko {
+    display: block;
+    width: 100%;
+    position: relative;
+    text-align: center;
   }
 }

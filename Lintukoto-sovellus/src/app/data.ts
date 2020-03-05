@@ -36,6 +36,30 @@ export let tehtavaLista: { [key: string]: Object }[] = [
     Subject: "Tietokannat 2 3"
   },
   {
+    Id: 6,
+    Name: "Tietokannat 2 3",
+    Description: "Tee tehtävät 9, 10, 11",
+    Subject: "Tietokannat 2 3"
+  },
+  {
+    Id: 6,
+    Name: "Tietokannat 2 3",
+    Description: "Tee tehtävät 9, 10, 11",
+    Subject: "Tietokannat 2 3"
+  },
+  {
+    Id: 6,
+    Name: "Tietokannat 2 3",
+    Description: "Tee tehtävät 9, 10, 11",
+    Subject: "Tietokannat 2 3"
+  },
+  {
+    Id: 6,
+    Name: "Tietokannat 2 3",
+    Description: "Tee tehtävät 9, 10, 11",
+    Subject: "Tietokannat 2 3"
+  },
+  {
     Id: 7,
     Name: "Ohjelmointi 4",
     Description: "Ohjelmointi tehtävä 13 ja 14",
