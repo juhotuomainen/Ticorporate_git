@@ -38,7 +38,14 @@ import {
   ToolbarService
 } from "@syncfusion/ej2-angular-grids";
 import { YhteysAPIService } from "./yhteys-api.service";
+<<<<<<< HEAD
 import { PesaComponent } from './pesa/pesa.component';
+=======
+import { HenkipolloComponent } from './henkipollo/henkipollo.component';
+import { HenkipolloinfoComponent } from './henkipolloinfo/henkipolloinfo.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ErrorComponent } from './error/error.component';
+>>>>>>> 3251705d6f2fc3fc10c77ff635a111d76767e8f3
 
 @NgModule({
   declarations: [
@@ -50,7 +57,13 @@ import { PesaComponent } from './pesa/pesa.component';
     AsetuksetComponent,
     ModalComponent,
     KirjautuminenComponent,
+<<<<<<< HEAD
     PesaComponent
+=======
+    HenkipolloComponent,
+    HenkipolloinfoComponent,
+    ErrorComponent
+>>>>>>> 3251705d6f2fc3fc10c77ff635a111d76767e8f3
   ],
   imports: [
     BrowserModule,
@@ -68,7 +81,8 @@ import { PesaComponent } from './pesa/pesa.component';
     ReactiveFormsModule,
     DragDropModule,
     HttpModule,
-    NgbModule
+    NgbModule,
+    BrowserAnimationsModule
   ],
   providers: [
     DragAndDropService,

@@ -1,0 +1,9 @@
+body {
+    margin: 50px;
+    font-family: Verdana;
+}
+
+#henkipollo_kuva {
+    float: right;
+    position: relative;
+}
