@@ -11,9 +11,8 @@
 }
 footer {
   position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
+  right: 0px;
+  bottom: 0px;
   color: white;
   text-align: right;
   z-index: 1;
@@ -30,6 +29,6 @@ h4 {
 .nappula {
   margin: 10px;
 }
-.qotd {
+.margin {
   margin: 10px;
 }
