@@ -186,6 +186,18 @@
           kirjautua sisään.”
         </p>
       </div>
+      <div *ngIf="router.url === '/pesa'">
+        <div class="modal-header">
+          <h4 class="modal-title">Henkipöllön pesä</h4>
+          <button type="button" class="close" (click)="hideModalsivu()">
+            &times;
+          </button>
+        </div>
+        <p class="margin">
+          “Tämä on minun pesäni. Täältä saat apua pulmaan kuin pulmaan! 
+          Linkkien takaa löydät paljon arvokasta tietoa opintojasi varten ja vähän muuhunkin.”
+        </p>
+      </div>
 
       <button
         type="button"
