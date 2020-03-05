@@ -106,6 +106,7 @@ export class SuoritetutKurssitComponent implements AfterViewInit {
     this.mySwiper = new Swiper(".swiper-container", {
       effect: "coverflow",
       grabCursor: true,
+      initialSlide: 2,
       centeredSlides: true,
       slidesPerView: "auto",
       coverflowEffect: {
