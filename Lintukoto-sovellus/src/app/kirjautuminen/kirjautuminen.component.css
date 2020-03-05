@@ -7,10 +7,13 @@
 /* sisäänkirjautumislomakkeen muotoilut*/
 .login {
   position: absolute;
-  right: 10%;
+  left: 45%;
   top: 260px;
 }
-
+.kirjautumisnappi {
+  margin-top: 10px;
+}
+/* otsikon muotoilut*/
 .otsikko {
   position: relative;
   top: 0px;
@@ -24,10 +27,26 @@ img {
   padding: 1em;
 }
 
-@media (max-width: 730px) {
+/*responsiivisuus*/
+@media (max-width: 991px) {
   .login {
+    text-align: center;
     position: relative;
-    left: 40px;
+    left: 0px;
     top: 0px;
+    margin-bottom: 45px;
+  }
+  .info {
+    text-align: center;
+    position: relative;
+    max-width: 500px;
+    left: 0px;
+    top: 0px;
+  }
+  .otsikko {
+    text-align: center;
+    position: relative;
+    top: 0px;
+    margin: 10px;
   }
 }

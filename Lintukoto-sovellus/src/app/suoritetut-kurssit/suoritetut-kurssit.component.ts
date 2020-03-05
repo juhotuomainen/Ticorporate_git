@@ -21,13 +21,13 @@ export class SuoritetutKurssitComponent implements AfterViewInit {
     {
       Kurssikoodi: "X302",
       nimi: "Tietokannat",
-      kuva: "../../assets/images/pinkkihyrrahattu.png",
+      kuva: "../../assets/images/pollomalli3.0_violetti.png",
       pisteet: 1
     },
     {
       Kurssikoodi: "X303",
       nimi: "Yrittäjyys",
-      kuva: "../../assets/images/pollomalli.png",
+      kuva: "../../assets/images/pollomalli3.0.keltanen.png",
       pisteet: 1
     },
     {
@@ -39,31 +39,55 @@ export class SuoritetutKurssitComponent implements AfterViewInit {
     {
       Kurssikoodi: "X303",
       nimi: "Yrittäjyys",
-      kuva: "../../assets/images/pollomalli.png",
+      kuva: "../../assets/images/pollomalli3.png",
       pisteet: 3
     },
     {
       Kurssikoodi: "X303",
       nimi: "Yrittäjyys",
-      kuva: "../../assets/images/pollomalli.png",
+      kuva: "../../assets/images/pollomalli3.0_sinine.png",
       pisteet: 4
     },
     {
       Kurssikoodi: "X303",
       nimi: "Yrittäjyys",
-      kuva: "../../assets/images/pollomalli.png",
+      kuva: "../../assets/images/pollomalli3.0_sateenkaari.png",
       pisteet: 10
     },
     {
       Kurssikoodi: "X303",
       nimi: "Yrittäjyys",
-      kuva: "../../assets/images/pollomalli.png",
+      kuva: "../../assets/images/pollomalli3.0_vihree.png",
       pisteet: 8
     },
     {
       Kurssikoodi: "X303",
+      nimi: "Venäjä",
+      kuva: "../../assets/images/pollomalli3.0_lumipollo.png",
+      pisteet: 7
+    },
+    {
+      Kurssikoodi: "X303",
+      nimi: "Ruotsi 1",
+      kuva: "../../assets/images/pollomalli3.0_punane.png",
+      pisteet: 7
+    },
+    {
+      Kurssikoodi: "X303",
+      nimi: "Viestintä",
+      kuva: "../../assets/images/pollomalli3.png",
+      pisteet: 7
+    },
+    {
+      Kurssikoodi: "X303",
+      nimi: "Liiketalousmatiikka",
+      kuva: "../../assets/images/pinkkihyrrahattu.png",
+      pisteet: 7
+    },
+    {
+      Kurssikoodi: "X303",
       nimi: "Yrittäjyys",
-      kuva: "../../assets/images/pollomalli.png",
+      kuva: "../../assets/images/pollomalli3.0_vihree.png",
       pisteet: 7
     }
   ];
