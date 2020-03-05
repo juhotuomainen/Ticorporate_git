@@ -1,5 +1,5 @@
 body {
-  background-image: url("../../assets/images/galleria2.png");
+  background-image: url("../../assets/images/galleria2.sininen.png");
   background-color: skyblue;
   font-size: 14px;
   color: #000;
@@ -78,7 +78,7 @@ img {
   padding: 0;
   font-size: 20px;
   text-align: center;
-  color: #413F3C;
+  color: #fefefd;
 }
 
 @media (max-width: 991px) {
@@ -95,4 +95,10 @@ img {
     padding-top: 35px;
     padding-bottom: 50px;
   }
+}
+
+.btn-custom {
+  background-color: transparent;
+  border-color: white;
+  color: white;
 }
