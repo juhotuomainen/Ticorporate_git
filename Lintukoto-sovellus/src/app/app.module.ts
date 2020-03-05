@@ -38,6 +38,7 @@ import {
   ToolbarService
 } from "@syncfusion/ej2-angular-grids";
 import { YhteysAPIService } from "./yhteys-api.service";
+import { PesaComponent } from './pesa/pesa.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { YhteysAPIService } from "./yhteys-api.service";
     SuoritetutKurssitComponent,
     AsetuksetComponent,
     ModalComponent,
-    KirjautuminenComponent
+    KirjautuminenComponent,
+    PesaComponent
   ],
   imports: [
     BrowserModule,

@@ -7,6 +7,7 @@ import { SuoritetutKurssitComponent } from './suoritetut-kurssit/suoritetut-kurs
 import { AsetuksetComponent } from './asetukset/asetukset.component';
 import { KirjautuminenComponent } from './kirjautuminen/kirjautuminen.component';
 import { ModalComponent } from './modal/modal.component';
+import { PesaComponent } from './pesa/pesa.component';
 
 
 import { AuthGuard } from './auth.guard';
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'asetukset', component: AsetuksetComponent, canActivate: [AuthGuard] },
   { path: 'kirjautuminen', component: KirjautuminenComponent },
   { path: 'muistiinpano', component: ModalComponent, canActivate: [AuthGuard] },
+  { path: 'pesa', component: PesaComponent, canActivate: [AuthGuard] },
     
   { path: '', component: KirjautuminenComponent }
     
