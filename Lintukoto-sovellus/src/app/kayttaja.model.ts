@@ -1,3 +1,3 @@
 export class Kayttaja {
-  constructor(public tunnus: string, public salasana: string) {}
+  constructor(public tunnus: string, public password: string) {}
 }

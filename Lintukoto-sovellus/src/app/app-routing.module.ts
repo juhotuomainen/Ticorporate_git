@@ -16,7 +16,11 @@ const routes: Routes = [
     component: KalenteriComponent,
     canActivate: [AuthGuard]
   },
-  { path: "aktiiviset", component: AktiivisetKurssitComponent },
+  {
+    path: "aktiiviset",
+    component: AktiivisetKurssitComponent,
+    canActivate: [AuthGuard]
+  },
   {
     path: "suoritetut",
     component: SuoritetutKurssitComponent,
@@ -29,7 +33,7 @@ const routes: Routes = [
   },
   { path: "muistiinpano", component: ModalComponent, canActivate: [AuthGuard] },
 
-  { path: "", component: KalenteriComponent }
+  { path: "", component: KirjautuminenComponent }
 ];
 
 @NgModule({

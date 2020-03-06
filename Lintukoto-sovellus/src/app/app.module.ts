@@ -26,8 +26,10 @@ import { NgbModal, NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 import { DragDropModule } from "@angular/cdk/drag-drop";
 
+import { HttpReqInterceptor } from "./http-req-interceptor";
+
 // in memory web apin importit
-import { HttpClientInMemoryWebApiModule } from "angular-in-memory-web-api";
+//import { HttpClientInMemoryWebApiModule } from "angular-in-memory-web-api";
 import { UserService } from "./user.service";
 
 // grid

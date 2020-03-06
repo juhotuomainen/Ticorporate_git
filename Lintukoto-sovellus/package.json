@@ -25,6 +25,7 @@
     "@angular/platform-browser": "~8.2.5",
     "@angular/platform-browser-dynamic": "~8.2.5",
     "@angular/router": "~8.2.5",
+    "@auth0/angular-jwt": "^4.0.0",
     "@ng-bootstrap/ng-bootstrap": "^5.2.1",
     "@syncfusion/ej2-angular-grids": "^17.4.44",
     "@syncfusion/ej2-angular-navigations": "^17.4.43",

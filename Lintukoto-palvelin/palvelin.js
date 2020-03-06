@@ -41,6 +41,7 @@ mongoose
 require('./app/routes/muistiinpano.routes.js')(app);
 require('./app/routes/kurssi.routes.js')(app);
 require('./app/routes/tehtava.routes.js')(app);
+require('./app/routes/user.routes.js')(app);
 
 // MongoConnect(() => {
 // });

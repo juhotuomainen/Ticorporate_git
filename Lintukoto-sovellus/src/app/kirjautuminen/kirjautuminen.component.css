@@ -3,7 +3,7 @@ h1 {
 }
 
 /* tekstikentän muotoilut*/
-div {
+.tekstit {
   width: 500px;
   margin: 10px;
   float: left;
@@ -11,11 +11,30 @@ div {
 }
 /* sisäänkirjautumislomakkeen muotoilut*/
 .login {
-  max-width: 100%;
-  height: auto;
-  float: right;
+  width: 47%;
+  max-height: 300px;
   padding: 1em;
-  margin-right: 20%;
+  align-content: center;
+  justify-content: center;
+  align-self: center;
+  margin: 0 auto;
+  display: inline-block;
+}
+
+.login input,
+h2 {
+  width: 70%;
+  margin: 0.3em auto;
+  display: block;
+}
+label {
+  width: 70%;
+  margin: 0 auto;
+  display: block;
+}
+h2,
+label {
+  text-align: center;
 }
 
 /* kuvan muotoilut*/
@@ -23,4 +42,10 @@ img {
   width: 60%;
   height: auto;
   padding: 1em;
+}
+
+#submit-btn {
+  margin: 1em auto;
+  width: 60%;
+  display: block;
 }

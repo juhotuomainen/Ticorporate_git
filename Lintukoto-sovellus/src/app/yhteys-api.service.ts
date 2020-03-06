@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpParams } from "@angular/common/http";
 import { Http, Response, Headers, RequestOptions } from "@angular/http";
 import { Muistiinpano } from "./muistiinpano.model";
 import { Kurssi } from "./kurssi.model";
@@ -27,13 +27,22 @@ export class YhteysAPIService {
       `http://localhost:3000/notes?kurssi=${kurssi}`
     );
   }
-  getKurssit(): Observable<Kurssi[]> {
-    return this.http.get<Kurssi[]>(`http://localhost:3000/kurssit`);
+  getKurssit(tunnus: string): Observable<Kurssi[]> {
+    console.log(tunnus);
+    return this.http.get<Kurssi[]>(`http://localhost:3000/kurssit`, {
+      params: { tunnus: tunnus }
+    });
   }
   getKaikkiKurssit(): Observable<Kurssit[]> {
     return this.http.get<Kurssit[]>(`http://localhost:3000/lataakurssit`);
   }
-  getUser(kayttaja: string, password: string): Observable<Kayttaja[]> {
-    return this.http.get<Kayttaja[]>("http://localhost:3000/getuser");
+  getUser(): Observable<Kayttaja> {
+    return this.http.get<Kayttaja>("http://localhost:3000/getuser");
+  }
+  lahetaKirjautumisTiedot(tunnus, password): Observable<Kayttaja> {
+    return this.http.post<Kayttaja>("http://localhost:3000/login", [
+      tunnus,
+      password
+    ]);
   }
 }

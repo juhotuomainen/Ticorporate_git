@@ -64,7 +64,10 @@
     </div>
 
     <ul class="kurssi-listaus">
-      <li *ngFor="let kurssi of kurssit2[0]" id="kurssilista">
+      <li
+        *ngFor="let kurssi of kurssit2[0].aktiiviset_kurssit"
+        id="kurssilista"
+      >
         <div class="kurssi-kortti">
           <img src="{{ kurssi.kuva }}" id="pollo" />
           <h5>{{ kurssi.nimi }}</h5>
@@ -156,7 +159,11 @@
       </div>
       <!-- Uusi kurssi modal body -->
       <div class="modal-body">
-        <form action="http://localhost:3000/kurssit" method="POST">
+        <form
+          (submit)="submit()"
+          action="http://localhost:3000/kurssit"
+          method="POST"
+        >
           <div class="form-group">
             <label for="kurssinValinta">Uusi kurssi</label>
             <select
@@ -166,8 +173,8 @@
               name="nimi"
             >
               <option>-- Valitse kurssi --</option>
-              <option *ngFor="let kurssi of kurssit3[0]">
-                {{ kurssi.nimi }}
+              <option *ngFor="let i of kurssit3[0]">
+                {{ i.nimi }}
               </option>
               <input
                 type="text"
@@ -175,6 +182,7 @@
                 hidden
                 name="kuva"
               />
+              <input type="text" [value]="tunnus" hidden name="tunnus" />
             </select>
           </div>
           <hr />

@@ -34,3 +34,6 @@ h1 {
 :active {
   color: pink;
 }
+.navbar-brand {
+  cursor: default;
+}
