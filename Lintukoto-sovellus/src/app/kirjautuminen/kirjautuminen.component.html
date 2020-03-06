@@ -1,5 +1,5 @@
 <div class="otsikko"><h1>Lintukoto</h1></div>
-<div class="otsikko">
+<div class="otsikko tekstit">
   <p>
     Lintukoto on opiskelijoiden ajanhallintaa helpottava sovellus.<br />
     Pääset sovellukseen kirjautumalla henkilökohtaisella käyttäjätunnuksella ja
@@ -11,15 +11,26 @@
 <!--Sisäänkirjautumisen lomake-->
 <div class="login">
   <h2 class="login-header">Kirjaudu sisään</h2>
-  <form
-    [formGroup]="userData"
-    class="login-container"
-    (ngSubmit)="onSubmit(userData.value)"
-  >
-    <label>Käyttäjätunnus</label><br />
-    <input type="text" name="username" formControlName="username" /><br />
-    <label>Salasana</label><br />
-    <input type="password" name="password" formControlName="password" /><br />
-    <button type="submit" class="kirjautumisnappi">Kirjaudu</button>
+  <form #loginForm="ngForm" (submit)="login(loginForm)">
+    <label for="#tunnus">Käyttäjätunnus</label>
+    <input
+      class="form-control"
+      type="text"
+      #tunnus="ngModel"
+      name="tunnus"
+      [(ngModel)]="loginData.tunnus"
+    />
+    <label for="#password">Salasana</label>
+    <input
+      class="form-control"
+      type="password"
+      #password="ngModel"
+      name="password"
+      [(ngModel)]="loginData.password"
+    />
+
+    <button class="btn btn-primary" type="submit" id="submit-btn">
+      Lähetä
+    </button>
   </form>
 </div>

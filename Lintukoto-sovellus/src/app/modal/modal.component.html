@@ -12,7 +12,11 @@
 
       <!-- Modal body -->
       <div class="modal-body">
-        <form method="POST" action="http://localhost:3000/kurssit/uus">
+        <form
+          (submit)="submit()"
+          method="POST"
+          action="http://localhost:3000/kurssit/uus"
+        >
           <label for="otsikko" class="labelit"> Otsikko</label>
           <input
             class="modal-input"
@@ -20,10 +24,11 @@
             type="text"
             name="otsikko"
           />
+          <input type="text" [value]="kayttajatunnus" hidden name="tunnus" />
           <div class="select-container">
-            <label for="nimi" class="labelit"> Kurssi</label>
-            <select name="nimi" class="form-control nimi-selecti">
-              <option *ngFor="let kurssi of kurssit2[0]">{{
+            <label for="kurssi" class="labelit"> Kurssi</label>
+            <select name="kurssi" class="form-control nimi-selecti">
+              <option *ngFor="let kurssi of kurssit2[0].aktiiviset_kurssit">{{
                 kurssi.nimi
               }}</option>
             </select>
@@ -119,7 +124,11 @@
 
       <!-- Modal body -->
       <div class="modal-body">
-        <form method="POST" action="http://localhost:3000/tehtavat">
+        <form
+          (submit)="submit()"
+          method="POST"
+          action="http://localhost:3000/tehtavat"
+        >
           <div class="select-container">
             <label for="kurssi" class="labelit"> Kurssi</label>
             <select name="kurssi" class="form-control nimi-selecti">

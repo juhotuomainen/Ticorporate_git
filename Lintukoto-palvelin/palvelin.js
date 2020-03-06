@@ -9,8 +9,6 @@ var cors = require('cors');
 
 const app = express();
 
-//const MongoConnect = require('./database').MongoConnect;
-
 app.use(cors());
 
 //const reitit = require('./app/routes/muistiinpano.routes');
@@ -43,6 +41,7 @@ mongoose
 require('./app/routes/muistiinpano.routes.js')(app);
 require('./app/routes/kurssi.routes.js')(app);
 require('./app/routes/tehtava.routes.js')(app);
+require('./app/routes/user.routes.js')(app);
 
 // MongoConnect(() => {
 // });
