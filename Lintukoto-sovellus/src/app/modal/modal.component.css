@@ -4,6 +4,35 @@
   align-self: center;
 }
 .modal-input {
-  margin: 1em 0;
+  margin-top: 0em;
   width: 95%;
+}
+
+.nimi-selecti {
+  width: 95%;
+  margin: 0px auto;
+}
+
+.modal-body {
+  text-align: center;
+}
+.select-container {
+  text-align: center;
+  margin: 0;
+}
+
+#teht-input {
+  margin-bottom: 1em;
+}
+.button-container {
+  text-align: center;
+}
+.modal-nappi {
+  width: 30%;
+  position: relative;
+  display: inline-block;
+  margin: 1em 1em;
+}
+.labelit {
+  margin-top: 1em;
 }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from './auth.service';
 
 import {
   EventSettingsModel,
@@ -14,4 +15,7 @@ import {
   styleUrls: ['./app.component.css'],
   providers: [WeekService, AgendaService]
 })
-export class AppComponent {}
+export class AppComponent {
+  constructor(private authService: AuthService) {
+  }
+}

@@ -1,5 +1,5 @@
 <header>
-  <nav class="navbar navbar-expand-lg navbar-white bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-white navbarcustom">
     <a class="navbar-brand" href="#">Lintukoto</a>
     <button
       class="navbar-toggler"
@@ -22,23 +22,48 @@
           routerLinkActive="router-link-active"
           >Kalenteri <span class="sr-only">(current)</span></a
         >
+
         <a
           class="nav-item nav-link white"
           routerLink="/aktiiviset"
           routerLinkActive="router-link-active"
           >Aktiiviset kurssit</a
         >
+
+        <a
+          class="nav-item nav-link white"
+          routerLink="/pesa"
+          routerLinkActive="router-link-active"
+          >Henkipöllön pesä</a>
+
         <a
           class="nav-item nav-link white"
           routerLink="/suoritetut"
           routerLinkActive="router-link-active"
           >Suoritetut kurssit</a
         >
+
         <a
           class="nav-item nav-link white"
           routerLink="/asetukset"
           routerLinkActive="router-link-active"
           >Asetukset</a
+        >
+
+        <a
+          class="nav-item nav-link white"
+          *ngIf="!authService.loggedIn"
+          routerLink="/kirjautuminen"
+          routerLinkActive="router-link-active"
+          >Kirjaudu sisään</a
+        >
+
+        <a
+          class="nav-item nav-link white"
+          *ngIf="authService.loggedIn"
+          (click)="authService.logout()"
+          [routerLink]="['/']"
+          >Kirjaudu ulos</a
         >
       </div>
     </div>
