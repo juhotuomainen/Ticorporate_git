@@ -1,8 +1,21 @@
-body {
-    margin: 50px;
-}
-
 #henkipollo_kuva {
-    float: right;
+  right: 0px;
+  top: 240px;
+  position: absolute;
+  height: 400px;
+  width: 400px;
+}
+.margin {
+  margin: 20px;
+}
+@media (max-width: 630px) {
+  #henkipollo_kuva {
     position: relative;
+    top: 0px;
+  }
+  .kuva {
+    text-align: center;
+    height: 400px;
+    width: 400px;
+  }
 }
