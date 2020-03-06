@@ -8,8 +8,9 @@ import { KirjautuminenComponent } from "./kirjautuminen/kirjautuminen.component"
 import { ModalComponent } from "./modal/modal.component";
 import { HenkipolloinfoComponent } from "./henkipolloinfo/henkipolloinfo.component";
 import { ErrorComponent } from "./error/error.component";
+import { PesaComponent } from "./pesa/pesa.component";
 
-import { AuthGuard } from "./auth.guard";
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   // canActivate: [AuthGuard] varmistaa että on kirjauduttu sisään, ennen kuin päästään muualle sovelluksessa
@@ -38,6 +39,11 @@ const routes: Routes = [
   {
     path: "henkipolloinfo",
     component: HenkipolloinfoComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "pesa",
+    component: PesaComponent,
     canActivate: [AuthGuard]
   },
 
