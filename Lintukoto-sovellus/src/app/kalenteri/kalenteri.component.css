@@ -1,6 +1,6 @@
 .tehtavat-div {
-  max-width: 100%;
-  height: 220px;
+  width: 100%;
+  height: 33.7vh;
 }
 
 h2 {
@@ -10,6 +10,7 @@ h2 {
 
 #schedule {
   width: 100%;
+  height: 60vh;
 }
 
 .e-appointment-details {

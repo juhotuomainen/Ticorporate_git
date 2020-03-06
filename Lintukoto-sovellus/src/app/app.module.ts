@@ -4,10 +4,9 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { HttpClientModule } from "@angular/common/http";
 import { HttpModule } from "@angular/http";
 
-import { ScheduleModule } from "@syncfusion/ej2-angular-schedule";
+import { ScheduleModule, WeekService } from "@syncfusion/ej2-angular-schedule";
 import {
   DragAndDropService,
   ResizeService,
@@ -23,6 +22,7 @@ import { ModalComponent } from "./modal/modal.component";
 import { KirjautuminenComponent } from "./kirjautuminen/kirjautuminen.component";
 
 import { NgbModal, NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { HttpClientModule } from "@angular/common/http";
 
 import { DragDropModule } from "@angular/cdk/drag-drop";
 
@@ -40,6 +40,11 @@ import {
   ToolbarService
 } from "@syncfusion/ej2-angular-grids";
 import { YhteysAPIService } from "./yhteys-api.service";
+import { PesaComponent } from "./pesa/pesa.component";
+import { HenkipolloComponent } from "./henkipollo/henkipollo.component";
+import { HenkipolloinfoComponent } from "./henkipolloinfo/henkipolloinfo.component";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { ErrorComponent } from "./error/error.component";
 
 @NgModule({
   declarations: [
@@ -50,7 +55,11 @@ import { YhteysAPIService } from "./yhteys-api.service";
     SuoritetutKurssitComponent,
     AsetuksetComponent,
     ModalComponent,
-    KirjautuminenComponent
+    KirjautuminenComponent,
+    PesaComponent,
+    HenkipolloComponent,
+    HenkipolloinfoComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +74,8 @@ import { YhteysAPIService } from "./yhteys-api.service";
     ReactiveFormsModule,
     DragDropModule,
     HttpModule,
-    NgbModule
+    NgbModule,
+    BrowserAnimationsModule
   ],
   providers: [
     DragAndDropService,

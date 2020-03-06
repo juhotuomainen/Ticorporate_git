@@ -1,9 +1,10 @@
 <div id="schedule">
   <ejs-schedule
     #scheduleObj
+    [showTimeIndicator]="showTimeIndicator"
     width="100%"
     locale="fi"
-    height="450px"
+    height="100%"
     [views]="views"
     [eventSettings]="eventObject"
     [showHeaderBar]="showHeaderBar"
@@ -45,12 +46,6 @@
     (toolbarClick)="clickHandler($event)"
   >
     <e-columns>
-      <e-column
-        field="Id"
-        IsPrimaryKey="true"
-        width="30"
-        headerText="ID"
-      ></e-column>
       <e-column
         class="unselectable"
         field="Subject"

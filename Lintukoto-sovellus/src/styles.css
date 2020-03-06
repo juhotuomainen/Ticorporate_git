@@ -13,5 +13,7 @@
 @import "../node_modules/@syncfusion/ej2-angular-grids/styles/material.css";
 
 body {
-  max-height: 80vh;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  max-height: 93.8vh;
 }

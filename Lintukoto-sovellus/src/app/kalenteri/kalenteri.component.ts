@@ -204,7 +204,6 @@ export class KalenteriComponent implements OnInit {
   @ViewChild("gridObj", { static: true })
   public gridObj: GridComponent;
 
-
   @ViewChild("cdk-drop-list-0", { static: true })
   //public cdkobject: cdk;
 
@@ -342,24 +341,20 @@ export class KalenteriComponent implements OnInit {
 
   onDragStop(event: any): void {
     event.cancel = true;
-    this.gridObj.deleteRecord(event.data[0]);
+
     //console.log(event);
     const scheduleElement: Element = <Element>(
       closest(event.target, ".e-content-wrap")
     );
 
     if (scheduleElement) {
-
       if (event.target.classList.contains("e-work-cells")) {
-
         const filteredData: Object = event.data;
         const cellData: CellClickEventArgs = this.scheduleInstance.getCellDetails(
           event.target
         );
 
-
         let eventData: { [key: string]: Object } = {
-
           Id: filteredData[0].Id,
           Name: filteredData[0].Name,
           Title: filteredData[0].Title,
@@ -371,6 +366,7 @@ export class KalenteriComponent implements OnInit {
         };
 
         this.scheduleInstance.addEvent(eventData);
+        this.gridObj.deleteRecord(event.data[0]);
         console.log(tehtavaLista);
         // this.scheduleObj.openEditor(eventData, 'Add', true);
         //this.gridObj.deleteRecord("Id", this.gridObj.getSelectedRecords());
