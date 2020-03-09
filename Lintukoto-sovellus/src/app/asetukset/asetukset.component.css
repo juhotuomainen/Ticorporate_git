@@ -1,17 +1,38 @@
-
 h1 {
-    margin-left: 10px;
-    margin-top: 10px;
-  }
+  margin-left: 10px;
+  margin-top: 10px;
+}
 
 /* Muokkaa asetus-sivun "kyselyjen" kokonaisuutta */
-.form-group, .form-check {
-    width: 50%;
-    margin: auto;
+.form-group,
+.form-check {
+  width: 50%;
+  margin: auto;
 }
 
 /* Muokkaa asetus-sivun "kyselyjen" yksittäisiä kyselykohtia */
 .form-check {
   margin-top: 10px;
   margin-bottom: 20px;
+}
+
+.tallennusnappi {
+  width: 100px;
+  margin: 1em auto;
+}
+
+.btn-container {
+  text-align: center;
+}
+
+.background {
+  width: 70%;
+  background-color: rgba(0, 0, 0, 0.12);
+  margin: 2em auto;
+  border-radius: 8px;
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+h1 {
+  text-align: center;
 }

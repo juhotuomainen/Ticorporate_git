@@ -1,4 +1,3 @@
-
 import { Component, OnInit, Output } from "@angular/core";
 import { ModalComponent } from "../modal/modal.component";
 import { YhteysAPIService } from "../yhteys-api.service";
@@ -20,6 +19,9 @@ export class AktiivisetKurssitComponent implements OnInit {
   modalContent: any;
   value;
   arvo;
+  tunnus = localStorage.user;
+  @Output() kurssit2: Array<any> = [];
+  @Output() kurssit3: Array<any> = [];
   constructor(
     private yhteysAPI: YhteysAPIService,
     private modalService: NgbModal
@@ -47,7 +49,6 @@ export class AktiivisetKurssitComponent implements OnInit {
   avaa(content) {
     this.modalService.open(content, { ariaLabelledBy: "modal-basic-title" });
   }
-  title = "Aktiiviset kurssit";
   muistiinpano: Array<Muistiinpano>;
 
   kurssihaku() {
@@ -57,7 +58,6 @@ export class AktiivisetKurssitComponent implements OnInit {
       ) {
         return Kurssikoodi;
       }
-
     }
   }
   lisaaKurssi() {}
@@ -67,9 +67,6 @@ export class AktiivisetKurssitComponent implements OnInit {
     console.log(this.kurssit2[0]);
   };
 
-  kurssit2: Array<any> = [];
-  kurssit3: Array<any> = [];
-
   haeMuistiinpanot = () => {
     for (let kurssi of this.kurssit2) {
       this.yhteysAPI
@@ -78,16 +75,19 @@ export class AktiivisetKurssitComponent implements OnInit {
     }
   };
 
-  haeKurssit = () => {
-    this.yhteysAPI.getKurssit().subscribe(data => this.kurssit2.push(data));
+  haeKurssit = tunnus => {
+    this.yhteysAPI
+      .getKurssit(tunnus)
+      .subscribe(data => this.kurssit2.push(data));
     console.log(this.kurssit2);
   };
 
   haeKaikkiKurssit = () => {
-    this.yhteysAPI
-      .getKaikkiKurssit()
-      .subscribe(data => this.kurssit3.push(data));
-    console.log(this.kurssit3);
+    this.yhteysAPI.getKaikkiKurssit().subscribe(data => {
+      this.kurssit3.push(data);
+      console.log(data);
+    });
+    console.log("KURSSIT 3 !!!! !!!!! !!!! -> " + this.kurssit3);
   };
 
   // showModal(): void {
@@ -100,7 +100,8 @@ export class AktiivisetKurssitComponent implements OnInit {
     //   .getMuistiinpano("f344")
     //   .subscribe(data => (this.kurssiTaulukko = data));
     this.haeMuistiinpanot();
-    this.haeKurssit();
+    this.haeKurssit(this.tunnus);
     this.haeKaikkiKurssit();
+    console.log(this.tunnus + "testaushommia!!!!!!!!!");
   }
 }

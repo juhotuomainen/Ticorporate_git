@@ -21,13 +21,15 @@ import { AsetuksetComponent } from "./asetukset/asetukset.component";
 import { ModalComponent } from "./modal/modal.component";
 import { KirjautuminenComponent } from "./kirjautuminen/kirjautuminen.component";
 
-import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { HttpClientModule } from "@angular/common/http";
 
-import { DragDropModule } from '@angular/cdk/drag-drop';
+import { DragDropModule } from "@angular/cdk/drag-drop";
+
+import { HttpReqInterceptor } from "./http-req-interceptor";
 
 // in memory web apin importit
-import { HttpClientModule } from "@angular/common/http";
-import { HttpClientInMemoryWebApiModule } from "angular-in-memory-web-api";
+//import { HttpClientInMemoryWebApiModule } from "angular-in-memory-web-api";
 import { UserService } from "./user.service";
 
 // grid
@@ -38,11 +40,11 @@ import {
   ToolbarService
 } from "@syncfusion/ej2-angular-grids";
 import { YhteysAPIService } from "./yhteys-api.service";
-import { PesaComponent } from './pesa/pesa.component';
-import { HenkipolloComponent } from './henkipollo/henkipollo.component';
-import { HenkipolloinfoComponent } from './henkipolloinfo/henkipolloinfo.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ErrorComponent } from './error/error.component';
+import { PesaComponent } from "./pesa/pesa.component";
+import { HenkipolloComponent } from "./henkipollo/henkipollo.component";
+import { HenkipolloinfoComponent } from "./henkipolloinfo/henkipolloinfo.component";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { ErrorComponent } from "./error/error.component";
 
 @NgModule({
   declarations: [
@@ -69,9 +71,6 @@ import { ErrorComponent } from './error/error.component';
     DragDropModule,
     GridModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(UserService, {
-      dataEncapsulation: false
-    }),
     ReactiveFormsModule,
     DragDropModule,
     HttpModule,
