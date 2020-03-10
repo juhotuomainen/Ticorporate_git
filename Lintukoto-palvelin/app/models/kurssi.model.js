@@ -11,5 +11,5 @@ const KurssiSchema = mongoose.Schema(
   },
   { collection: 'kurssi' }
 );
-
+module.exports = KurssiSchema;
 module.exports = mongoose.model('kurssi', KurssiSchema);
