@@ -55,14 +55,14 @@
           *ngIf="!authService.loggedIn"
           routerLink="/kirjautuminen"
           routerLinkActive="router-link-active"
-          >Kirjautuminen</a
+          >Kirjaudu sisään</a
         >
 
         <a
           class="nav-item nav-link white"
           *ngIf="authService.loggedIn"
           (click)="authService.logout()"
-          routerLinkActive="router-link-active"
+          [routerLink]="['/']"
           >Kirjaudu ulos</a
         >
       </div>

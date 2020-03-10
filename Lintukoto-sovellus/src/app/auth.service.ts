@@ -9,14 +9,14 @@ import { Router } from "@angular/router";
 export class AuthService {
   private cred;
   // oikeasti tulisi apin osoite
-  credUrl: "http://localhost:80/api";
-  loggedIn = true;
+  credUrl: "http://localhost:3000/login";
+  loggedIn = localStorage.token;
 
   // tslint:disable-next-line: no-shadowed-variable
   constructor(private http: HttpClient, private router: Router) {}
 
   getData() {
-    return this.http.get("http://localhost:80/api/user");
+    return this.http.get("http://localhost:3000/login");
   }
 
   login() {
@@ -28,7 +28,7 @@ export class AuthService {
 
   logout() {
     this.loggedIn = false;
-    this.router.navigate(["/kirjautuminen"]);
-    alert("Olet kirjautunut ulos");
+    this.router.navigate(["/"]);
+    localStorage.clear();
   }
 }

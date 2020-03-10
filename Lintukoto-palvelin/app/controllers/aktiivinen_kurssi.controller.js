@@ -1,5 +1,9 @@
 const AktiivinenKurssi = require('../models/aktiivinen_kurssi.model');
 const Kurssi = require('../models/kurssi.model');
+const Kayttaja = require('../models/user.model');
+const Muistiinpano = require('../models/muistiinpano.model');
+const url = require('../../config/database.config');
+
 const mongoose = require('mongoose');
 
 exports.create = (req, res) => {
@@ -9,36 +13,58 @@ exports.create = (req, res) => {
       message: 'Note content can not be empty'
     });
   }
-
-  const aktiivinen = new AktiivinenKurssi({
+  const aktiivinen = new Object({
     kurssikoodi: req.body.kurssikoodi,
     nimi: req.body.nimi,
     kuva: req.body.kuva,
     muistiinpanot: req.body.muistiinpanot
   });
 
-  aktiivinen
-    .save()
-    .then(result => {
-      res.status(200).redirect('http://localhost:4200/aktiiviset');
-    })
-    .catch(err => {
-      res.status(500).send({
-        message: err.message || 'Some error occurred while creating the Note.'
-      });
-    });
+  // const aktiivinen = new AktiivinenKurssi({
+  //   kurssikoodi: req.body.kurssikoodi,
+  //   nimi: req.body.nimi,
+  //   kuva: req.body.kuva,
+  //   muistiinpanot: req.body.muistiinpanot
+  // });
+  // const useri = Kayttaja.findOne({ tunnus: req.body.tunnus });
+  // console.log(useri.nimi + 'Testaushommia 666 !!!!!!!!!!');
+  // useri.kurssit.update(aktiivinen);
+
+  Kayttaja.Kayttaja.findOneAndUpdate(
+    { tunnus: req.body.tunnus },
+    {
+      $push: { aktiiviset_kurssit: aktiivinen }
+    },
+    { upsert: true }
+  ).then(res.status(200).redirect('http://localhost:4200/aktiiviset'));
+
+  // useri
+  //   .save()
+  //   .then(result => {
+  //     res.status(200).redirect('http://localhost:4200/aktiiviset');
+  //   })
+  //   .catch(err => {
+  //     res.status(500).send({
+  //       message: err.message || 'Some error occurred while creating the Note.'
+  //     });
+  //   });
 };
 
 exports.findAll = (req, res) => {
-  AktiivinenKurssi.find()
-    .then(notes => {
-      res.send(notes);
-    })
-    .catch(err => {
-      res.status(500).send({
-        message: err.message || 'Some error occurred while retrieving notes.'
-      });
-    });
+  console.log('tunnus --->>' + req.query.tunnus);
+  Kayttaja.Kayttaja.findOne({ tunnus: req.query.tunnus }).then(result => {
+    console.log(result);
+    res.send(result);
+  });
+  // AktiivinenKurssi.find()
+  //   .then(notes => {
+  //     res.send(notes);
+  //   })
+  //   .catch(err => {
+  //     res.status(500).send({
+  //       message: err.message || 'Some error occurred while retrieving notes.'
+  //     });
+  //   });
 };
 
 exports.find = (req, res) => {
@@ -91,24 +117,37 @@ exports.findjaupdate = (req, res) => {
       message: 'Dataa ei löytynyt'
     });
   }
-  query = { nimi: req.body.nimi };
-  console.log(query);
-  AktiivinenKurssi.findOneAndUpdate(
-    query,
-    {
-      $push: { muistiinpanot: req.body }
-    },
-    { new: true }
-    // ,(err, muistiinpano) => {
-    //   if (err) {
-    //     return res
-    //       .status(404)
-    //       .send('Muistiinpanon lisäämisessä tapahtui virhe!');
-    //   }
-    //   console.log(muistiinpano);
-    //   res.send(muistiinpano);
-    // }
-  ).then(res.redirect('http://localhost:4200/aktiiviset'));
+  console.log(req.body);
+
+  // const user =  Kayttaja.Kayttaja.findOne({ tunnus: req.body.tunnus });
+  Kayttaja.Kayttaja.updateOne(
+    { tunnus: req.body.tunnus, 'aktiiviset_kurssit.nimi': req.body.kurssi },
+    { $push: { 'aktiiviset_kurssit.$.muistiinpanot': req.body } }
+  )
+    .then(res.status(200).redirect('http://localhost:4200/aktiiviset'))
+    .catch(err => {
+      console.log(err);
+    });
+
+  // const muistiinpano = new Muistiinpano({
+  //   kurssi: req.body.kurssi,
+  //   otsikko: req.body.otsikko,
+  //   muistiinpano: req.body.muistiinpano,
+  //   tunnus: req.body.tunnus
+  // });
+  // muistiinpano.save().then(result => {
+  //   const user = Kayttaja.Kayttaja.findOne({ tunnus: req.body.tunnus });
+  //   for (i in user.aktiiviset_kurssit.nimi) {
+  //     if (user.aktiiviset_kurssit.nimi[i] == req.body.kurssi) {
+  //       user.aktiiviset_kurssit.muistiinpanot.push(result);
+  //       user.save();
+  //     }
+  //   }
+  //   res
+  //     .status(200)
+  //     .json({ message: 'muistiinpano lisätty' })
+  //     .redirect('http://localhost:4200/aktiiviset');
+  // });
 };
 
 exports.createKurssi = (req, res) => {
