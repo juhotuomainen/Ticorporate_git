@@ -10,6 +10,9 @@
 .nav-a {
   text-decoration: none;
 }
+.navbarcustom {
+  background-color: #335164;
+}
 h1 {
   display: block;
   position: relative;
@@ -32,5 +35,8 @@ h1 {
 
 .navbar a:hover,
 :active {
-  color: pink;
+  color: #99acee;
+}
+.navbar-brand {
+  cursor: default;
 }

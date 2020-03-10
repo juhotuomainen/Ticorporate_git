@@ -127,7 +127,7 @@ class Luokka implements OnInit {
 ```
 
 ### Isot ja pienet kirjaimet ja hipsut
-Kaikki muuttujat kirjoitetaan aina pienellä alkukirjaimella. ''-hipsut oletuksena, paitsi kielissä ja tilanteisssa, joissa ""-käyttö on pakollista.
+Kaikki muuttujat kirjoitetaan aina pienellä alkukirjaimella. " " -hipsut oletuksena.
 
 ### Suojausmääreet
 Muuttujien sekä metodien suojausmääreet tullaan määrittelemään sen mukaan, kuinka niitä tullaan käyttämään komponentin ulkopuolella. Private-suojausmäärettä ei siis käytetä jos muuttujaan laitetaan vain arvo/arvoja.
