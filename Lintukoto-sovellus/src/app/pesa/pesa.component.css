@@ -5,4 +5,7 @@ body {
 #henkipollo_kuva {
     float: right;
     position: relative;
+    width: 500px;
+    height: 500px;
+
 }
