@@ -353,7 +353,7 @@ export class KalenteriComponent implements OnInit {
         const cellData: CellClickEventArgs = this.scheduleInstance.getCellDetails(
           event.target
         );
-
+        // tehdään eventistä oikean muotoinen
         let eventData: { [key: string]: Object } = {
           Id: filteredData[0].Id,
           Name: filteredData[0].Name,
@@ -364,9 +364,12 @@ export class KalenteriComponent implements OnInit {
           IsAllDay: cellData.isAllDay,
           Description: filteredData[0].Description
         };
-
+        //.addEvent-illä voidaan lisätä kyseinen tapahtuma kalenteriin
         this.scheduleInstance.addEvent(eventData);
+        //poistaa listasta tehtävän sen jälkeen kun se on lisätty kalenteriin
         this.gridObj.deleteRecord(event.data[0]);
+
+        //debug
         console.log(tehtavaLista);
         // this.scheduleObj.openEditor(eventData, 'Add', true);
         //this.gridObj.deleteRecord("Id", this.gridObj.getSelectedRecords());
@@ -376,11 +379,13 @@ export class KalenteriComponent implements OnInit {
     }
   }
 
+  // määrittää asteet jolla tehtävien pituutta voi kalenterissa muuttaa, nyt asetettu 10min
   onResizeStart(args: ResizeEventArgs): void {
     // args.scroll.enable = true;
     args.interval = 10;
     args.scroll.scrollBy = 100;
   }
+  // määrittää asteet jolla tehtävien paikkaa voi kalenterissa muuttaa , nyt asetettu 10min
   onDragStart(args: DragEventArgs): void {
     // args.scroll.enable = true;
     args.interval = 10;
