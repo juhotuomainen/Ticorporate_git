@@ -99,6 +99,7 @@ FI: Lähestymiskulma. Mitä toimintoja, tekniikoita ja työkaluja käytetään. 
 
 ### Hyväksymiskriteerit
 - Hyväskymiskriteerit jokaiseen käyttäjäkertomukseen on pilkottu ja eritelty ZenHubissa. Näiden hyväskymiskriteerien pohjalta teemme testisuunnitelmat jokaiseen käyttäjäkertomukseen.
+- [Linkki käyttäjäkertomuksiin](https://github.com/jamktiko/Lintukoto-Demolab/issues)
 - Specify the criteria that will be used to determine whether each test item (software/product) has passed or failed testing.
 - What criteria we use on testing? You  can define the criteria for each testable level (component, integration in the small, system etc.) separately
 - Remember that you can use metrics as a passing criteria also!

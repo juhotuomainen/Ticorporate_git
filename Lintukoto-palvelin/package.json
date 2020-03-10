@@ -1,9 +1,10 @@
 {
-  "name": "Lintukoto",
-  "version": "0.1",
+  "name": "lintukoto",
+  "version": "1.0.0",
   "description": "Lintukoto-sovellus on opiskelijioille tarkoitettu ajanhallintasovellus, josta opiskelija näkee kontaktitunnit, kurssisuoritukset sekä tekemättä olevat ja tehdyt tehtävät. Sovelluksessa on myös eri näkymiä, kuten pää-, kalenteri- kauppa- ja asetusnäkymä.",
   "main": "palvelin.js",
   "scripts": {
+    "start": "node palvelin.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -16,8 +17,15 @@
   "author": "Juho Tuomainen",
   "license": "MIT",
   "dependencies": {
+    "@types/bcrypt": "^3.0.0",
+    "@types/cors": "^2.8.6",
+    "@types/mongoose": "^5.7.1",
+    "bcrypt": "^3.0.8",
     "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
-    "mongoose": "^5.8.9"
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.5.2",
+    "mongoose": "^5.9.0"
   }
 }
