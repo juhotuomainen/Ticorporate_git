@@ -7,12 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DialogComponent implements OnInit {
 
+  valittuKehu;
+
   constructor() { }
 
   ngOnInit() {
     this.randomKehu();
   }
 
+  // Taulukko, jossa on kaikki kehuvaihtoehdot
   kehut = [
     "Olet tehnyt upeasti hommia viime aikoina, hyvää työtä!",
     "Olet ollut mestari ajankäyttäjä. Jatka samaan malliin!",
@@ -22,14 +25,12 @@ export class DialogComponent implements OnInit {
     "Olet taitava! Olen sinusta ylpeä!",
     "Et taida olla eilisen teeren poikia.",
     "Hienoa katsella, kun joku osaa.",
-    "Sinulla on homma hallussa! Ja vaikka ei olisikaan, otat homman kyllä haltuun!",
+    "Sinulla on homma hallussa! Ja vaikka ei olisikaan, otat homman kyllä aina lopulta haltuun!",
     "Tähän aktiivisuuteen ei ole kellään nokan koputtamista."
 
   ];
-  //tämä näytetään sivulla {{valittuKehu}}
-  valittuKehu;
   
-  //arpoo randomilla yhden kehun taulusta
+  //arpoo randomilla yhden kehun aiemmin luodusta taulukosta
   randomKehu() {
     this.valittuKehu = this.kehut[
       Math.floor(Math.random() * this.kehut.length)
