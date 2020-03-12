@@ -48,7 +48,7 @@ module.exports = app => {
   });
 
   app.post('/signup', (req, res, next) => {
-    Kayttaja.find({ tunnus: req.body.tunnus })
+    Kayttaja.Kayttaja.find({ tunnus: req.body.tunnus })
       .exec()
       .then(kayttaja => {
         if (kayttaja.length >= 1) {
@@ -63,7 +63,7 @@ module.exports = app => {
                 error: err
               });
             } else {
-              const kayttaja = new Kayttaja({
+              const kayttaja = new Kayttaja.Kayttaja({
                 _id: new mongoose.Types.ObjectId(),
                 tunnus: req.body.tunnus,
                 password: hash
