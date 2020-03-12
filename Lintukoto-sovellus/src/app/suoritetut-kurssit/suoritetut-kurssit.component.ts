@@ -27,13 +27,13 @@ export class SuoritetutKurssitComponent implements AfterViewInit {
     {
       Kurssikoodi: "X303",
       nimi: "Yrittäjyys",
-      kuva: "../../assets/images/Kurssipollo_keltanen.svg",
+      kuva: "../../assets/images/Kurssipollo_gradientlilaoranssi.svg",
       pisteet: 1
     },
     {
       Kurssikoodi: "X304",
       nimi: "Web-liiketoiminta",
-      kuva: "../../assets/images/Kurssipollo.svg",
+      kuva: "../../assets/images/Kurssipollo_surku1.svg",
       pisteet: 2
     },
     {
@@ -51,13 +51,13 @@ export class SuoritetutKurssitComponent implements AfterViewInit {
     {
       Kurssikoodi: "X303",
       nimi: "Yrittäjyys",
-      kuva: "../../assets/images/Kurssipollo_tummavioletti.svg",
+      kuva: "../../assets/images/Kurssipollo_gradientlila.svg",
       pisteet: 10
     },
     {
       Kurssikoodi: "X303",
       nimi: "Yrittäjyys",
-      kuva: "../../assets/images/Kurssipollo_kirkkaanvihree.svg",
+      kuva: "../../assets/images/Kurssipollo_gradientkeltanen.svg",
       pisteet: 8
     },
     {
@@ -87,7 +87,7 @@ export class SuoritetutKurssitComponent implements AfterViewInit {
     {
       Kurssikoodi: "X303",
       nimi: "Yrittäjyys",
-      kuva: "../../assets/images/Kurssipollo_haaleevihree.svg",
+      kuva: "../../assets/images/Kurssipollo_sinilila.svg",
       pisteet: 7
     }
   ];
