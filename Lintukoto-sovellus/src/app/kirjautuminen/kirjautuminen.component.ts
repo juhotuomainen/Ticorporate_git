@@ -58,6 +58,7 @@ export class KirjautuminenComponent implements OnInit {
         localStorage.setItem("token", res.token);
         localStorage.setItem("user", this.loginData.tunnus);
         this.router.navigate(["/kalenteri"]);
+        this.popup();
       },
       err => {
         alert("Invalid username or password");
@@ -65,6 +66,7 @@ export class KirjautuminenComponent implements OnInit {
     );
   }
 
+  // Avaa sisäänkirjautuessa popup-ikkunan
   popup() {
     this.dialog.open(DialogComponent);
   }

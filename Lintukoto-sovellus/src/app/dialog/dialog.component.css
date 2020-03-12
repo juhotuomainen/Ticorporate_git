@@ -5,20 +5,22 @@
     position: relative;
 }
 
+/* Dialogi-boxin muotoilut */
 .mat-dialog-content {
     width: 40%; 
     height: auto;
-    margin: 10% auto; /* 15% from the top and centered */
+    margin: 10% auto;
     padding: 10px;
     border: 1px solid black;
     border-radius: 10%; 
 }
+/* Dialogi-ikkunan tekstin ja otsikon muotoilut*/
 p, h1 {
     padding-top: 20px;
     padding-left: 20px;
     color: black;
 }
-
+/* OK-napin muotoilut */
 .mat-button {
     background-color: #335164;
     color: #FEFEFD;
