@@ -99,4 +99,19 @@ module.exports = app => {
         res.status(500).json({ message: 'Käyttäjätiliä ei voitu poistaa' });
       });
   });
+
+  app.post('/tallennaAseukset', (req, res, next) => {
+    console.log(req.body);
+    Kayttaja.Kayttaja.findOneAndUpdate(
+      { tunnus: req.body.tunnus },
+      { $set: { asetukset: req.body } }
+    ).then(res.status(200).json({ message: 'Asetukset tallennettu' }));
+  });
+
+  app.get('/haeAsetukset', (req, res, next) => {
+    console.log(req);
+    Kayttaja.Kayttaja.findOne({ tunnus: req.query.tunnus }).then(user => {
+      res.status(200).json({ asetukset: user.asetukset });
+    });
+  });
 };

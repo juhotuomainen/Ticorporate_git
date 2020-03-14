@@ -34,7 +34,8 @@ const KayttajaSchema = mongoose.Schema(
     _id: mongoose.Schema.Types.ObjectId,
     tunnus: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    aktiiviset_kurssit: [AktiivisetKurssitSchema]
+    aktiiviset_kurssit: [AktiivisetKurssitSchema],
+    asetukset: { type: Object, required: false }
   },
   { collection: 'kayttaja' }
 );

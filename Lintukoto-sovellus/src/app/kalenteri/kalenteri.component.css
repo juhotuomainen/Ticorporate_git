@@ -13,9 +13,11 @@ h2 {
   height: 60vh;
 }
 
-.e-appointment-details {
+/deep/.e-appointment-details,
+.e-lib /deep/.e-draggable {
   box-sizing: border-box;
   width: 120em;
+  background-color: #e3165b !important;
 }
 /*
 .e-gridheader .e-table {

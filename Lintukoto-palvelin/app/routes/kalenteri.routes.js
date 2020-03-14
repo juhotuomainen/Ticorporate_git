@@ -59,6 +59,8 @@ module.exports = app => {
           delete eventData[i]._id;
           var sdate = new Date(eventData[i].StartTime);
           var edate = new Date(eventData[i].EndTime);
+          var user = req.body.params.user;
+          eventData[i].user = user;
           eventData[i].StartTime = new Date(+sdate);
           eventData[i].EndTime = new Date(+edate);
           dbo

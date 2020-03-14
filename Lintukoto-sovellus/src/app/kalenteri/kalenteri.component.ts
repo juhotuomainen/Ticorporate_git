@@ -357,8 +357,8 @@ export class KalenteriComponent implements OnInit {
         );
         // tehdään eventistä oikean muotoinen
         let eventData: { [key: string]: Object } = {
-          user: "villev",
-          Id: Math.random(),
+          user: localStorage.getItem("user"),
+          Id: Math.random() * 1000 * 10,
           Name: filteredData[0].Name,
           Title: filteredData[0].Title,
           Subject: filteredData[0].Subject,

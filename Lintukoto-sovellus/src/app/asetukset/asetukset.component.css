@@ -1,6 +1,6 @@
 h1 {
-  margin-left: 10px;
-  margin-top: 10px;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
 }
 
 /* Muokkaa asetus-sivun "kyselyjen" kokonaisuutta */
@@ -12,8 +12,9 @@ h1 {
 
 /* Muokkaa asetus-sivun "kyselyjen" yksittäisiä kyselykohtia */
 .form-check {
-  margin-top: 10px;
+  margin-top: 20px;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 .tallennusnappi {
@@ -27,12 +28,15 @@ h1 {
 
 .background {
   width: 70%;
-  background-color: rgba(0, 0, 0, 0.12);
-  margin: 2em auto;
+  background-color: rgba(0, 0, 0, 0.07);
+  margin: 0 auto 2em auto;
   border-radius: 8px;
   padding-top: 2em;
   padding-bottom: 2em;
 }
 h1 {
   text-align: center;
+}
+.bold {
+  font-weight: bold;
 }
