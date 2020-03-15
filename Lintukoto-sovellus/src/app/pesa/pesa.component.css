@@ -1,13 +1,42 @@
+body {
+  background: url("../../assets/images/Tapetti.png");
+  background-position: center;
+  background-repeat: repeat;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  height: auto;
+}
+
 #henkipollo_kuva {
-  right: 250px;
-  top: 200px;
-  position: absolute;
-  height: 500px;
-  width: 500px;
+  height: auto;
+  width: 430px;
+}
+.kuva {
+  grid-area: kuva;
 }
 .margin {
   margin: 20px;
 }
+.listat {
+  grid-area: linkit;
+}
+
+.grid-container {
+  position: relative;
+  background-color: rgb(235, 235, 235);
+  display: grid;
+  grid-template-areas:
+    "otsikko otsikko otsikko otsikko "
+    "linkit linkit kuva kuva"
+    "linkit linkit kuva kuva";
+  width: 75%;
+  margin: 2em auto;
+  border: 10px solid #8f5400;
+}
+.otsikkoTaso {
+  grid-area: otsikko;
+}
+
 @media (max-width: 991px) {
   #henkipollo_kuva {
     position: relative;
