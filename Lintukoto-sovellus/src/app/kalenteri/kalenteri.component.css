@@ -14,9 +14,8 @@ h2 {
 }
 
 /deep/.e-appointment-details,
-.e-lib /deep/.e-draggable {
+/deep/.e-draggable {
   box-sizing: border-box;
-  width: 120em;
   background-color: #e3165b !important;
 }
 /*

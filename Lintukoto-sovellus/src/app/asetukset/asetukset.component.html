@@ -1,153 +1,156 @@
-<h1>Asetukset</h1>
-<!--Asetuksien lomake alkaa tästä-->
-<!--Aluksi kohdat joissa pitää täyttää joko päivämäärätietoja, opintopistemääriä tai ryhmätunnuksia-->
-<div class="background">
-  <form (ngSubmit)="onSubmit(form1.value)" #form1="ngForm">
-    <div class="form-group">
-      <label class="bold" for="aloituspaiva">Opintojen aloituspäivä</label
-      ><br />
-      <input
-        type="text"
-        [value]="tunnus"
-        hidden
-        [(ngModel)]="asetuslomake.tunnus"
-        name="tunnus"
-      />
-      <input
-        type="date"
-        [(ngModel)]="asetuslomake.aloituspaiva"
-        name="aloituspaiva"
-        class="form-control"
-        [value]="asetuksetLadattu.asetukset.aloituspaiva"
-      />
-    </div>
-
-    <div class="form-group">
-      <label class="bold" for="ryhmatunnus">Ryhmätunnus</label><br />
-      <input
-        type="text"
-        [(ngModel)]="asetuslomake.ryhmatunnus"
-        class="form-control"
-        name="ryhmatunnus"
-        [placeholder]="asetuksetLadattu.asetukset.ryhmatunnus"
-      />
-    </div>
-
-    <div class="form-group">
-      <label class="bold" for="kokonaisOp"
-        >Koulutusohjelman opintopisteiden kokonaismäärä</label
-      ><br />
-      <input
-        type="number"
-        [(ngModel)]="asetuslomake.kokonaisOp"
-        class="form-control"
-        name="kokonaisOp"
-        [value]="asetuksetLadattu.asetukset.kokonaisOp"
-      />
-    </div>
-
-    <!--checkboxit tästä eteenpäin-->
-    <!--checkboxeilla varmistetaan kiinnostusta yhdessä opiskeluun, pöllöjen näkyminen sivuilla sekä henkipöllön asetukset-->
-    <div class="form-check">
-      <label class="form-check-label bold" for="yhteisetTuokiot"
-        >Olen kiinnostunut osallistumaan mahdollisiin ryhmäni
-        opiskelutuokioihin</label
-      ><br />
-      <input
-        type="checkbox"
-        [(ngModel)]="asetuksetLadattu.asetukset.yhteisetTuokiot"
-        name="yhteisetTuokiot"
-        class="form-check-input"
-      />
-      Kyllä<br />
-    </div>
-
-    <div class="form-check">
-      <label class="form-check-label bold" for="pollojenNakyminen"
-        >Haluan nähdä pöllöt sovelluksessani:</label
-      ><br />
-      <input
-        type="checkbox"
-        [(ngModel)]="asetuksetLadattu.asetukset.pollojenNakyminen"
-        checked="checked"
-        name="pollojenNakyminen"
-        class="form-check-input"
-      />
-      Kyllä<br />
-    </div>
-
-    <div class="form-check">
-      <label class="form-check-label bold" for="henkipollonAsetukset"
-        >Näistä teemoista haluan henkipöllön kertovan minulle:</label
-      ><br />
-      <input
-        type="checkbox"
-        [(ngModel)]="asetuksetLadattu.asetukset.henkipolloOpinnot"
-        checked="checked"
-        name="henkipolloOpinnot"
-        class="form-check-input"
-      />
-      Opinnot<br />
-      <input
-        type="checkbox"
-        [(ngModel)]="asetuksetLadattu.asetukset.henkipolloElama"
-        name="henkipolloElama"
-        checked="checked"
-        class="form-check-input"
-      />
-      Elämänhallinta<br />
-      <input
-        type="checkbox"
-        [(ngModel)]="asetuksetLadattu.asetukset.henkipolloValistus"
-        checked="checked"
-        name="henkipolloValistus"
-        class="form-check-input"
-      />
-      Valistus<br />
-    </div>
-
-    <!--Radio-napit, joilla kysytään onko opiskeluajankohdalla väliä-->
-    <div class="form-check">
-      <label class="form-check-label bold" for="opiskeluajankohta"
-        >Opiskelen tehokkaimmin tähän aikaan päivästä:</label
-      ><br />
-      <input
-        type="radio"
-        name="opiskeluajankohta"
-        [(ngModel)]="asetuksetLadattu.asetukset.opiskeluajankohta"
-        class="form-check-input"
-        value="milloinVain"
-      />
-      Mihin aikaan vain<br />
-      <input
-        type="radio"
-        name="opiskeluajankohta"
-        [(ngModel)]="asetuksetLadattu.asetukset.opiskeluajankohta"
-        class="form-check-input"
-        value="aamupaiva"
-      />
-      Aamupäivä<br />
-      <input
-        type="radio"
-        name="opiskeluajankohta"
-        [(ngModel)]="asetuksetLadattu.asetukset.opiskeluajankohta"
-        class="form-check-input"
-        value="iltapaiva"
-      />
-      Iltapäivä<br />
-    </div>
-
-    <!--Tallennusnappi-->
-    <div class="btn-container">
-      <div>
-        <button
-          class=" btn btn-primary tallennusnappi"
-          type="submit"
-          value="Submit"
-        >
-          Tallenna
-        </button>
+<div class="content-container">
+  <h1>Asetukset</h1>
+  <!--Asetuksien lomake alkaa tästä-->
+  <!--Aluksi kohdat joissa pitää täyttää joko päivämäärätietoja, opintopistemääriä tai ryhmätunnuksia-->
+  <div id="background">
+    <form (ngSubmit)="onSubmit(form1.value)" #form1="ngForm">
+      <div class="form-group">
+        <label class="bold" for="aloituspaiva">Opintojen aloituspäivä</label
+        ><br />
+        <input
+          type="text"
+          [value]="tunnus"
+          hidden
+          [(ngModel)]="asetuslomake.tunnus"
+          name="tunnus"
+        />
+        <input
+          type="date"
+          [(ngModel)]="asetuslomake.aloituspaiva"
+          name="aloituspaiva"
+          class="form-control"
+          [value]="asetuksetLadattu.asetukset.aloituspaiva"
+        />
       </div>
-    </div>
-  </form>
+
+      <div class="form-group">
+        <label class="bold" for="ryhmatunnus">Ryhmätunnus</label><br />
+        <input
+          type="text"
+          [(ngModel)]="asetuslomake.ryhmatunnus"
+          class="form-control"
+          name="ryhmatunnus"
+          [placeholder]="asetuksetLadattu.asetukset.ryhmatunnus"
+        />
+      </div>
+
+      <div class="form-group">
+        <label class="bold" for="kokonaisOp"
+          >Koulutusohjelman opintopisteiden kokonaismäärä</label
+        ><br />
+        <input
+          type="number"
+          [(ngModel)]="asetuslomake.kokonaisOp"
+          class="form-control"
+          name="kokonaisOp"
+          [value]="asetuksetLadattu.asetukset.kokonaisOp"
+        />
+      </div>
+
+      <!--checkboxit tästä eteenpäin-->
+      <!--checkboxeilla varmistetaan kiinnostusta yhdessä opiskeluun, pöllöjen näkyminen sivuilla sekä henkipöllön asetukset-->
+      <div class="form-check">
+        <label class="form-check-label bold" for="yhteisetTuokiot"
+          >Olen kiinnostunut osallistumaan mahdollisiin ryhmäni
+          opiskelutuokioihin</label
+        ><br />
+        <input
+          type="checkbox"
+          [(ngModel)]="asetuksetLadattu.asetukset.yhteisetTuokiot"
+          name="yhteisetTuokiot"
+          class="form-check-input"
+        />
+        Kyllä<br />
+      </div>
+
+      <div class="form-check">
+        <label class="form-check-label bold" for="pollojenNakyminen"
+          >Haluan nähdä pöllöt sovelluksessani:</label
+        ><br />
+        <input
+          type="checkbox"
+          [(ngModel)]="asetuksetLadattu.asetukset.pollojenNakyminen"
+          checked="checked"
+          name="pollojenNakyminen"
+          class="form-check-input"
+        />
+        Kyllä<br />
+      </div>
+
+      <div class="form-check">
+        <label class="form-check-label bold" for="henkipollonAsetukset"
+          >Näistä teemoista haluan henkipöllön kertovan minulle:</label
+        ><br />
+        <input
+          type="checkbox"
+          [(ngModel)]="asetuksetLadattu.asetukset.henkipolloOpinnot"
+          checked="checked"
+          name="henkipolloOpinnot"
+          class="form-check-input"
+        />
+        Opinnot<br />
+        <input
+          type="checkbox"
+          [(ngModel)]="asetuksetLadattu.asetukset.henkipolloElama"
+          name="henkipolloElama"
+          checked="checked"
+          class="form-check-input"
+        />
+        Elämänhallinta<br />
+        <input
+          type="checkbox"
+          [(ngModel)]="asetuksetLadattu.asetukset.henkipolloValistus"
+          checked="checked"
+          name="henkipolloValistus"
+          class="form-check-input"
+        />
+        Valistus<br />
+      </div>
+
+      <!--Radio-napit, joilla kysytään onko opiskeluajankohdalla väliä-->
+      <div class="form-check">
+        <label class="form-check-label bold" for="opiskeluajankohta"
+          >Opiskelen tehokkaimmin tähän aikaan päivästä:</label
+        ><br />
+        <input
+          type="radio"
+          name="opiskeluajankohta"
+          [(ngModel)]="asetuksetLadattu.asetukset.opiskeluajankohta"
+          class="form-check-input"
+          value="milloinVain"
+        />
+        Mihin aikaan vain<br />
+        <input
+          type="radio"
+          name="opiskeluajankohta"
+          [(ngModel)]="asetuksetLadattu.asetukset.opiskeluajankohta"
+          class="form-check-input"
+          value="aamupaiva"
+        />
+        Aamupäivä<br />
+        <input
+          type="radio"
+          name="opiskeluajankohta"
+          [(ngModel)]="asetuksetLadattu.asetukset.opiskeluajankohta"
+          class="form-check-input"
+          value="iltapaiva"
+        />
+        Iltapäivä<br />
+      </div>
+
+      <!--Tallennusnappi-->
+      <div class="btn-container">
+        <div>
+          <button
+            class=" btn btn-primary tallennusnappi"
+            type="submit"
+            value="Submit"
+          >
+            Tallenna
+          </button>
+          <p id="ilmoitus" class="piilotaIlmoitus">Asetukset tallennettu!</p>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>

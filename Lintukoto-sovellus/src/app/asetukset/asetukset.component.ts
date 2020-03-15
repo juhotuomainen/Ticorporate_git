@@ -42,6 +42,9 @@ export class AsetuksetComponent implements OnInit {
     // jos on niin päivitetään vain muiden asetusten joukkon
     // asetukset.push(asetusdata);
     // }
+    document.getElementById("ilmoitus").classList.add("naytaIlmoitus");
+
+    document.getElementById("ilmoitus").classList.remove("piilotaIlmoitus");
   }
   haeTunnus() {
     this.tunnus = localStorage.getItem("user");
