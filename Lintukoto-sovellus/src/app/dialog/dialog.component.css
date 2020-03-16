@@ -1,0 +1,66 @@
+#henkipollo_kuva {
+  width: 90%;
+  height: auto;
+  max-height: 100%;
+  position: relative;
+}
+
+/* Dialogi-boxin muotoilut */
+.mat-dialog-content {
+  width: 100%;
+  height: 100%;
+  margin: 0 0;
+  padding: 2.5em;
+  border: 1px solid black;
+  border-radius: 15%;
+  background-color: rgb(255, 255, 255);
+  display: grid;
+  grid-template-areas:
+    "otsikko otsikko"
+    "nappi kuva"
+    "nappi kuva"
+    "nappi kuva";
+  text-align: center;
+}
+
+/* OK-napin muotoilut */
+.mat-button {
+  background-color: #335164;
+  color: #fefefd;
+  padding: 1em;
+}
+
+/deep/.mat-dialog-container {
+  background-color: rgba(255, 255, 255, 0.01) !important;
+  padding: 0;
+  border-radius: 15%;
+  width: 380px;
+  height: 380px;
+}
+
+h1 {
+  padding: 0 1em 1em 1em;
+  margin: 0;
+}
+p {
+  padding: 0 1em 1em 1em;
+  margin: 0;
+}
+.kuva {
+  grid-area: kuva;
+  min-width: 190px;
+  width: 100%;
+  height: 100%;
+}
+.tekstit {
+  grid-area: tekstit;
+  width: 99%;
+}
+.otsikko {
+  grid-area: otsikko;
+  max-height: 100px;
+}
+.nappi {
+  grid-area: nappi;
+  align-self: center;
+}

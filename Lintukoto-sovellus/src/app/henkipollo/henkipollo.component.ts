@@ -1,11 +1,9 @@
 import { Component, OnInit } from "@angular/core";
-import {
-  MatBottomSheet,
-  MatBottomSheetRef
-} from "@angular/material/bottom-sheet";
+import { MatBottomSheet, MatBottomSheetRef } from "@angular/material/bottom-sheet";
 
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { Router } from "@angular/router";
+
 @Component({
   selector: "app-henkipollo",
   templateUrl: "./henkipollo.component.html",

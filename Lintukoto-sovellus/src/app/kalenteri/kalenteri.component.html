@@ -6,7 +6,6 @@
     locale="fi"
     height="100%"
     [views]="views"
-    [eventSettings]="eventObject"
     [showHeaderBar]="showHeaderBar"
     [firstDayOfWeek]="weekFirstDay"
     allowDragAndDrop="true"
@@ -46,6 +45,12 @@
     (toolbarClick)="clickHandler($event)"
   >
     <e-columns>
+      <e-column
+        [visible]="false"
+        field="GridId"
+        headerText="Id"
+        isPrimaryKey="true"
+      ></e-column>
       <e-column
         class="unselectable"
         field="Subject"

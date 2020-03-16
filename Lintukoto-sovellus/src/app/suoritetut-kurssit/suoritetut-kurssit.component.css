@@ -1,6 +1,7 @@
 body {
   background-image: url("../../assets/images/tapetti&pallit.png");
   background-size: cover;
+  background-position: center;
   font-size: 14px;
   color: #000;
   height: 100vh;
@@ -10,8 +11,12 @@ body {
   background-color: rgba(31, 24, 24, 0.5);
   backdrop-filter: blur(12px);
   position: relative;
-  float: right;
-  padding: 5px;
+  width: 260px;
+  padding: 10px;
+  margin-right: auto;
+  top: 1em;
+  margin-left: auto;
+  text-align: center;
 }
 .otsikko {
   background-color: rgba(31, 24, 24, 0.5);
@@ -19,9 +24,12 @@ body {
   position: relative;
   float: left;
   padding: 5px;
+  margin-left: 1em;
+  margin-top: 1em;
 }
 .otsikkotext {
   color: #f7f7f7;
+  margin: 0;
 }
 .muistiinpanotnappi {
   text-align: center;
@@ -39,17 +47,18 @@ body {
   background-color: transparent;
   border-color: #ffffff;
   color: #ffffff;
+  margin: 1px;
 }
 img {
-  margin-top: 40px;
-  margin-left: 25px;
-  width: 280px;
-  height: 280px;
+  margin-top: 75px;
+  margin-left: 65px;
+  width: 200px;
+  height: 200px;
 }
 
 .swiper-container {
   width: 100%;
-  padding-top: 150px;
+  padding-top: 20px;
   padding-bottom: 50px;
 }
 .swiper-slide {

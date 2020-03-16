@@ -48,7 +48,7 @@ module.exports = app => {
   });
 
   app.post('/signup', (req, res, next) => {
-    Kayttaja.find({ tunnus: req.body.tunnus })
+    Kayttaja.Kayttaja.find({ tunnus: req.body.tunnus })
       .exec()
       .then(kayttaja => {
         if (kayttaja.length >= 1) {
@@ -63,7 +63,7 @@ module.exports = app => {
                 error: err
               });
             } else {
-              const kayttaja = new Kayttaja({
+              const kayttaja = new Kayttaja.Kayttaja({
                 _id: new mongoose.Types.ObjectId(),
                 tunnus: req.body.tunnus,
                 password: hash
@@ -98,5 +98,20 @@ module.exports = app => {
         console.log(err);
         res.status(500).json({ message: 'Käyttäjätiliä ei voitu poistaa' });
       });
+  });
+
+  app.post('/tallennaAseukset', (req, res, next) => {
+    console.log(req.body);
+    Kayttaja.Kayttaja.findOneAndUpdate(
+      { tunnus: req.body.tunnus },
+      { $set: { asetukset: req.body } }
+    ).then(res.status(200).json({ message: 'Asetukset tallennettu' }));
+  });
+
+  app.get('/haeAsetukset', (req, res, next) => {
+    console.log(req);
+    Kayttaja.Kayttaja.findOne({ tunnus: req.query.tunnus }).then(user => {
+      res.status(200).json({ asetukset: user.asetukset });
+    });
   });
 };
