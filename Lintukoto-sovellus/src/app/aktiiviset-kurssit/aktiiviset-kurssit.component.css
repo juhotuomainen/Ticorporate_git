@@ -33,6 +33,10 @@
   border-radius: 5px;
 }
 
+h5 {
+  color: white;
+}
+
 .kurssi-kortti {
   margin: 1em 2em;
   width: 180px;
@@ -45,7 +49,6 @@
 }
 .button-container {
   text-align: center;
-  background-color: #fafafa;
 }
 .linkki {
   color: burlywood;
@@ -83,7 +86,15 @@ h6 {
 .kurssi-listaus {
   text-align: center;
   padding: 0;
+  background-image: url("../../assets/images/Tapetti.png");
+  background-position: center;
+  background-size: none;
+  background-repeat: repeat;
+  margin-bottom: 0;
 }
 .lisays-nappi {
   margin: 1em 1.5em;
+}
+body {
+  background-color: #335164;
 }

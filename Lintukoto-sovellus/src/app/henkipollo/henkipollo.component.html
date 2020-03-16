@@ -26,7 +26,11 @@
       >
         Mitä tällä sivulla tehdään?
       </button>
-      <button class="btn btn-success nappula">
+      <button
+        class="btn btn-success nappula"
+        routerLink="/pesa"
+        (click)="hideModal()"
+      >
         Henkipöllön pesä
       </button>
 
@@ -194,8 +198,9 @@
           </button>
         </div>
         <p class="margin">
-          “Tämä on minun pesäni. Täältä saat apua pulmaan kuin pulmaan! 
-          Linkkien takaa löydät paljon arvokasta tietoa opintojasi varten ja vähän muuhunkin.”
+          “Tämä on minun pesäni. Täältä saat apua pulmaan kuin pulmaan! Linkkien
+          takaa löydät paljon arvokasta tietoa opintojasi varten ja vähän
+          muuhunkin.”
         </p>
       </div>
 

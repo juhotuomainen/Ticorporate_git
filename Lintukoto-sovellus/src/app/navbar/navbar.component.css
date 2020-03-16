@@ -35,7 +35,8 @@ h1 {
 
 .navbar a:hover,
 :active {
-  color: #99acee;
+  color: skyblue;
+  text-shadow: 1px 1px 1px black;
 }
 .navbar-brand {
   cursor: default;
