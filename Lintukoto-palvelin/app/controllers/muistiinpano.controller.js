@@ -6,7 +6,7 @@ exports.create = (req, res) => {
   // Validate request
   if (!req.body) {
     return res.status(400).send({
-      message: 'Note content can not be empty'
+      message: 'Muistiinpanon sisältö ei saa olla tyhjä.'
     });
   }
 
@@ -20,12 +20,15 @@ exports.create = (req, res) => {
   // Save Note in the database
   muistiinpano
     .save()
+/* Ohjataan tiedot .then-metodille, joka ottaa parametrikseen nuolifunktion. Se lähettää res-luokan status-metodia käyttäen parametrina HTTP-vastauksen 200, mikä tarkoitta hyväksyttyä tulosta. Sen jälkeen then-metodin tulos ketjutetaan * redirect-metodille, joka uudelleenohjaa käyttäjän heittomerkkien sisässä olevalle sivulle eli aktiisivet kurssit -sivulle. */
     .then(data => {
       res.status(200).redirect('http://localhost:4200/aktiiviset');
     })
+/* catch-lohko, jossa oleva nuolifunktio ottaa virheen vastaan parametrina, lähettää res-luokkaa status-ominaisuutta käyttäen status-omminaisuuden parametrina olevan HTTP 500-vastauksen eteenpäin ketjussa seuraavana olevalle send-* metodille, jonka olion message-avaimen arvona on err-luokan message-ominaisuus virheviesti "Some error occurred while creating the note" suomennettuna. */
+
     .catch(err => {
       res.status(500).send({
-        message: err.message || 'Some error occurred while creating the Note.'
+        message: err.message || 'Jokin virhe tapahtui muistiinpanoa luotaessa.'
       });
     });
 };
@@ -37,33 +40,41 @@ exports.findAll = (req, res) => {
     .then(notes => {
       res.send(notes);
     })
+/* catch-lohko, jossa oleva nuolifunktio ottaa virheen vastaan parametrina, lähettää res-luokkaa status-ominaisuutta käyttäen status-omminaisuuden parametrina olevan HTTP 500-vastauksen eteenpäin ketjussa seuraavana olevalle send-* metodille, jonka olion message-avaimen arvona on err-luokan message-ominaisuus virheviesti "Some error occurred while rethrieving the note" suomennettuna. */
+
     .catch(err => {
       res.status(500).send({
-        message: err.message || 'Some error occurred while retrieving notes.'
+        message: err.message || 'Jokin virhe tapahtui muistiinpanoa haettaessa.'
       });
     });
 };
 
 // Find a single note with a noteId
 exports.find = (req, res) => {
+// tulostetaan req-luokan body-kohta konsoliin.
   console.log(req.body);
   Muistiinpano.find(req.body)
+/* catch-lohko, jossa oleva nuolifunktio ottaa virheen vastaan parametrina, lähettää res-luokkaa status-ominaisuutta käyttäen status-omminaisuuden parametrina olevan HTTP 500-vastauksen eteenpäin ketjussa seuraavana olevalle send-* metodille, jonka olion message-avaimen arvona on err-luokan message-ominaisuus , looginen tai-operaattori (||) ja virheviesti§  "Note not found with ID + muistiinpanon id" suomennettuna. */
+
     .then(note => {
       if (!note) {
         return res.status(404).send({
-          message: 'Note not found with id ' + req.body
+          message: 'Muistiinpanoa ei löytynyt id:llä ' + req.body
         });
       }
+// Lähetetään muistiinpanot käyttäen res-luokan send-metodia
       res.send(note);
     })
+/* Luodaan catch-lohko, jossa on virheentarkistus. Jos virhe on tyyppiä (kind ===) merkkijonomuotoinen objektiID ("ObjectId), lähetetään res-luokan status-metodia käyttäen HTTP-vastaus 404, joka ohjataan send-metodille, joka * pouolestaan  lähettää err-luokan message-ominaisuuden arvon tai erikseen määritellyn virheviestin.*/
     .catch(err => {
       if (err.kind === 'ObjectId') {
         return res.status(404).send({
-          message: 'Note not found with id ' + req.body.kurssi
+          message: 'Muistiinpanoa ei löytynyt id:llä ' + req.body.kurssi
         });
       }
+
       return res.status(500).send({
-        message: 'Error retrieving note with id ' + req.body.kurssi
+        message: 'Virhe haettaessa muistiinpanoa ID:llä ' + req.body.kurssi
       });
     });
 };
@@ -82,7 +93,7 @@ exports.update = (req, res) => {
   Muistiinpano.findByIdAndUpdate(
     req.params.noteId,
     {
-      title: req.body.title || 'Untitled Note',
+      title: req.body.title || 'Nimetön muistiinpano',
       content: req.body.content
     },
     { new: true }
@@ -90,23 +101,25 @@ exports.update = (req, res) => {
     .then(note => {
       if (!note) {
         return res.status(404).send({
-          message: 'Note not found with id ' + req.params.noteId
+          message: 'Muistiinpanoa ei löytynyt id:llä ' + req.params.noteId
         });
       }
       res.send(note);
     })
+/* catch-lohko, jossa oleva nuolifunktio ottaa virheen vastaan parametrina, lähettää res-luokkaa status-ominaisuutta käyttäen status-omminaisuuden parametrina olevan HTTP 500-vastauksen eteenpäin ketjussa seuraavana olevalle send-* metodille, jonka olion message-avaimen arvona on err-luokan message-ominaisuus , looginen tai-operaattori (||) ja virheviesti§  "Note not found with ID + muistiinpanon id" suomennettuna. */
+
     .catch(err => {
       if (err.kind === 'ObjectId') {
         return res.status(404).send({
-          message: 'Note not found with id ' + req.params.noteId
+          message: 'Muistiinpanoa ei löytynyt id:llä ' + req.params.noteId
         });
       }
       return res.status(500).send({
-        message: 'Error updating note with id ' + req.params.noteId
+        message: 'Virhe päivitettäessä muistiinpanoa Id:llä ' + req.params.noteId
       });
     });
 };
-
+// Ladataan asioita tietokannasta palvelimelle.
 exports.lataa = (req, res) => {
   const db = getDb();
   return db
@@ -127,19 +140,21 @@ exports.delete = (req, res) => {
     .then(note => {
       if (!note) {
         return res.status(404).send({
-          message: 'Note not found with id ' + req.params.noteId
+          message: 'Muistiinpanoa ei löytynyt tunnisteella ' + req.params.noteId
         });
       }
-      res.send({ message: 'Note deleted successfully!' });
+      res.send({ message: 'Muistiinpano poistettu onnistuneesti.' });
     })
+/* catch-lohko, jossa oleva nuolifunktio ottaa virheen vastaan parametrina, lähettää res-luokkaa status-ominaisuutta käyttäen status-omminaisuuden parametrina olevan HTTP 500-vastauksen eteenpäin ketjussa seuraavana olevalle send-* * metodille, jonka olion message-avaimen arvona on err-luokan message-ominaisuus , looginen tai-operaattori (||) ja virheviesti§  "Note not found with ID + muistiinpanon id" suomennettuna. */
+
     .catch(err => {
       if (err.kind === 'ObjectId' || err.name === 'NotFound') {
         return res.status(404).send({
-          message: 'Note not found with id ' + req.params.noteId
+          message: 'Muistiinpanoa ei löydetty tunnisteella ' + req.params.noteId
         });
       }
       return res.status(500).send({
-        message: 'Could not delete note with id ' + req.params.noteId
+        message: 'Ei voitu poistaa muistiinpnanoa ID:llä ' + req.params.noteId
       });
     });
 };
