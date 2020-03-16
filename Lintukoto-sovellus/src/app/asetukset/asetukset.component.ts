@@ -12,6 +12,7 @@ export class AsetuksetComponent implements OnInit {
   tunnus = localStorage.getItem("user");
   asetuksetLadattu;
 
+
   constructor(public fb: FormBuilder, private asetus: AsetuksetService) {
     // lomakkeen tiedot ja niiden tietotyypit
     this.asetuslomake = this.fb.group({
