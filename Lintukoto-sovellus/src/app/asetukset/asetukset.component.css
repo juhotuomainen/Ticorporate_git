@@ -3,9 +3,7 @@ html {
 }
 
 h1 {
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
-  color: #fefefd;
+  color: black;
 }
 
 /* Muokkaa asetus-sivun "kyselyjen" kokonaisuutta */
@@ -60,4 +58,5 @@ h1 {
   background-position: center;
   background-repeat: repeat;
   padding-bottom: 3em;
+  padding-top: 2em;
 }
