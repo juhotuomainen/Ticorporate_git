@@ -23,6 +23,7 @@
   margin-top: 20%;
   margin-bottom: 33%;
   margin-left: 25%;
+  padding: 1em;
 }
 
 /deep/.mat-dialog-container {
