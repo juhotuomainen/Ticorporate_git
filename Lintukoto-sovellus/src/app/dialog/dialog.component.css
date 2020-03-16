@@ -16,8 +16,9 @@
   background-color: rgb(255, 255, 255);
   display: grid;
   grid-template-areas:
-    "otsikko kuva"
-    "tekstit kuva"
+    "otsikko otsikko"
+    "nappi kuva"
+    "nappi kuva"
     "nappi kuva";
   text-align: center;
 }
@@ -38,7 +39,7 @@
 }
 
 h1 {
-  padding: 1em;
+  padding: 0 1em 1em 1em;
   margin: 0;
 }
 p {
@@ -57,7 +58,9 @@ p {
 }
 .otsikko {
   grid-area: otsikko;
+  max-height: 100px;
 }
 .nappi {
   grid-area: nappi;
+  align-self: center;
 }
