@@ -1,25 +1,40 @@
 #henkipollo_kuva {
-    width: 40%;
-    height: auto;
-    float: right;
-    position: relative;
+  width: 40%;
+  height: auto;
+  float: right;
+  position: relative;
 }
 
 /* Dialogi-boxin muotoilut */
 .mat-dialog-content {
-    width: 50%; 
-    height: auto;
-    margin: 10% auto;
-    padding: 10px;
-    border: 1px solid black;
-    border-radius: 10%; 
+  width: 100%;
+  height: 100%;
+  margin: 0 0;
+  padding: 0;
+  border: 1px solid black;
+  border-radius: 10%;
+  background-color: rgb(255, 255, 255);
 }
 
 /* OK-napin muotoilut */
 .mat-button {
-    background-color: #335164;
-    color: #FEFEFD;
-    margin-top: 30%;
-    margin-bottom: 10%;
-    margin-left: 10%;  
+  background-color: #335164;
+  color: #fefefd;
+  margin-top: 20%;
+  margin-bottom: 33%;
+  margin-left: 25%;
+}
+
+/deep/.mat-dialog-container {
+  background-color: rgba(255, 255, 255, 0.01) !important;
+  padding: 0;
+  border-radius: 10%;
+}
+
+h1 {
+  padding: 1em;
+  margin: 0;
+}
+p {
+  padding: 1em;
 }
