@@ -30,7 +30,7 @@
         <div class="form-group">
           <label for="aloituspaiva">Opintojen aloituspäivä</label><br />
           <input
-            type="date"
+            type="date" min="1990-01-01"
             [(ngModel)]="kayttaja.aloituspaiva"
             class="form-control"
           />
@@ -50,7 +50,7 @@
             >Koulutusohjelman opintopisteiden kokonaismäärä</label
           ><br />
           <input
-            type="number"
+            type="number" min="0" max="800"
             [(ngModel)]="kayttaja.kokonaisOp"
             class="form-control"
           />

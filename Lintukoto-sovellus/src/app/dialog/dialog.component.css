@@ -1,0 +1,25 @@
+#henkipollo_kuva {
+    width: 40%;
+    height: auto;
+    float: right;
+    position: relative;
+}
+
+/* Dialogi-boxin muotoilut */
+.mat-dialog-content {
+    width: 50%; 
+    height: auto;
+    margin: 10% auto;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 10%; 
+}
+
+/* OK-napin muotoilut */
+.mat-button {
+    background-color: #335164;
+    color: #FEFEFD;
+    margin-top: 30%;
+    margin-bottom: 10%;
+    margin-left: 10%;  
+}
