@@ -15,79 +15,79 @@ export class SuoritetutKurssitComponent implements AfterViewInit {
     {
       Kurssikoodi: "X301",
       nimi: "Web sovelluskehitys",
-      kuva: "../../assets/images/pinkkihyrrahattu.png",
+      kuva: "../../assets/images/Kurssipollo_oranssi.svg",
       pisteet: 5
     },
     {
       Kurssikoodi: "X302",
       nimi: "Tietokannat",
-      kuva: "../../assets/images/pollomalli3.0_violetti.png",
+      kuva: "../../assets/images/Kurssipollo_violetti.svg",
       pisteet: 1
     },
     {
       Kurssikoodi: "X303",
       nimi: "Yrittäjyys",
-      kuva: "../../assets/images/pollomalli3.0.keltanen.png",
+      kuva: "../../assets/images/Kurssipollo_gradientlilaoranssi.svg",
       pisteet: 1
     },
     {
       Kurssikoodi: "X304",
       nimi: "Web-liiketoiminta",
-      kuva: "../../assets/images/pollomalli3.0_surullinen.png",
+      kuva: "../../assets/images/Kurssipollo_surku1.svg",
       pisteet: 2
     },
     {
       Kurssikoodi: "X303",
       nimi: "Yrittäjyys",
-      kuva: "../../assets/images/pollomalli3.png",
+      kuva: "../../assets/images/Kurssipollo_tummanvihree.svg",
       pisteet: 3
     },
     {
       Kurssikoodi: "X303",
       nimi: "Yrittäjyys",
-      kuva: "../../assets/images/pollomalli3.0_sinine.png",
+      kuva: "../../assets/images/Kurssipollo_turkoosi.svg",
       pisteet: 4
     },
     {
       Kurssikoodi: "X303",
       nimi: "Yrittäjyys",
-      kuva: "../../assets/images/pollomalli3.0_sateenkaari.png",
+      kuva: "../../assets/images/Kurssipollo_gradientlila.svg",
       pisteet: 10
     },
     {
       Kurssikoodi: "X303",
       nimi: "Yrittäjyys",
-      kuva: "../../assets/images/pollomalli3.0_vihree.png",
+      kuva: "../../assets/images/Kurssipollo_gradientkeltanen.svg",
       pisteet: 8
     },
     {
       Kurssikoodi: "X303",
       nimi: "Venäjä",
-      kuva: "../../assets/images/pollomalli3.0_lumipollo.png",
+      kuva: "../../assets/images/Kurssipollo_tummansininen.svg",
       pisteet: 7
     },
     {
       Kurssikoodi: "X303",
       nimi: "Ruotsi 1",
-      kuva: "../../assets/images/pollomalli3.0_punane.png",
+      kuva: "../../assets/images/Kurssipollo_toffee.svg",
       pisteet: 7
     },
     {
       Kurssikoodi: "X303",
       nimi: "Viestintä",
-      kuva: "../../assets/images/kurssipollo_lila.png",
+      kuva: "../../assets/images/Kurssipollo_jokupunanen.svg",
       pisteet: 7
     },
     {
       Kurssikoodi: "X303",
       nimi: "Liiketalousmatiikka",
-      kuva: "../../assets/images/kurssipollo_mikatamaon.png",
+      kuva: "../../assets/images/Kurssipollo_harmaa.svg",
       pisteet: 7
     },
     {
       Kurssikoodi: "X303",
       nimi: "Yrittäjyys",
-      kuva: "../../assets/images/kursspollo_tummakeltanen.png",
+      kuva: "../../assets/images/Kurssipollo_sinilila.svg",
       pisteet: 7
     }
   ];

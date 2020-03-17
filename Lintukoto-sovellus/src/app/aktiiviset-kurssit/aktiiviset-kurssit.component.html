@@ -43,27 +43,27 @@
         </div>
       </nav>
     </header> -->
-    <div class="button-container">
-      <button class="btn btn-success lisays-nappi" (click)="avaa(UusiKurssi)">
-        Lisää uusi kurssi
-      </button>
-      <button
-        class="btn btn-success lisays-nappi"
-        data-toggle="modal"
-        data-target="#myModal"
-      >
-        Lisää uusi muistiinpano
-      </button>
-      <button
-        class="btn btn-success lisays-nappi"
-        data-toggle="modal"
-        data-target="#tehtavanLisaysModal"
-      >
-        Lisää uusi tehtävä
-      </button>
-    </div>
 
     <ul class="kurssi-listaus">
+      <div class="button-container">
+        <button class="btn btn-success lisays-nappi" (click)="avaa(UusiKurssi)">
+          Lisää uusi kurssi
+        </button>
+        <button
+          class="btn btn-success lisays-nappi"
+          data-toggle="modal"
+          data-target="#myModal"
+        >
+          Lisää uusi muistiinpano
+        </button>
+        <button
+          class="btn btn-success lisays-nappi"
+          data-toggle="modal"
+          data-target="#tehtavanLisaysModal"
+        >
+          Lisää uusi tehtävä
+        </button>
+      </div>
       <li
         *ngFor="let kurssi of kurssit2[0].aktiiviset_kurssit"
         id="kurssilista"
@@ -178,7 +178,7 @@
               </option>
               <input
                 type="text"
-                value="../../assets/images/orsipollo4.png"
+                value="../../assets/images/Kurssipollo_surku1.svg"
                 hidden
                 name="kuva"
               />
