@@ -6,10 +6,16 @@ body {
   padding-bottom: 2em;
   height: auto;
 }
-
+#taulu_untuvikosta_kuva {
+  height: auto;
+  width: 80px;
+}
 #henkipollo_kuva {
   height: auto;
   width: 430px;
+}
+.taulukuva {
+  grid-area: taulukuva;
 }
 .kuva {
   grid-area: kuva;
@@ -26,7 +32,7 @@ body {
   background-color: rgb(235, 235, 235);
   display: grid;
   grid-template-areas:
-    "otsikko otsikko otsikko otsikko "
+    "otsikko otsikko otsikko taulukuva "
     "linkit linkit kuva kuva"
     "linkit linkit kuva kuva";
   width: 75%;
@@ -35,6 +41,14 @@ body {
 }
 .otsikkoTaso {
   grid-area: otsikko;
+}
+
+.otsikkoTaso img {
+  float: right;
+}
+
+.otsikkoTaso h1, p {
+  position: relative;
 }
 
 @media (max-width: 991px) {
