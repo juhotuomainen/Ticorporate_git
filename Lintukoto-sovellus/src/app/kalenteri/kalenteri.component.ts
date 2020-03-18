@@ -400,13 +400,13 @@ export class KalenteriComponent implements OnInit {
 
   // määrittää asteet jolla tehtävien pituutta voi kalenterissa muuttaa, nyt asetettu 10min
   onResizeStart(args: ResizeEventArgs): void {
-    // args.scroll.enable = true;
+    args.scroll.enable = true;
     args.interval = 10;
     args.scroll.scrollBy = 100;
   }
   // määrittää asteet jolla tehtävien paikkaa voi kalenterissa muuttaa , nyt asetettu 10min
   onDragStart(args: DragEventArgs): void {
-    // args.scroll.enable = true;
+    args.scroll.enable = true;
     args.interval = 10;
     args.scroll.scrollBy = 100;
   }
