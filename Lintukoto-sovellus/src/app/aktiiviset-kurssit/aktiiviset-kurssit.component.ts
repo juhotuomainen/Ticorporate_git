@@ -17,6 +17,8 @@ declare var $: any;
 export class AktiivisetKurssitComponent implements OnInit {
   kurssiTaulukko: Array<Muistiinpano> = [];
   modalContent: any;
+  muistiinpano2;
+  otsikko;
   value;
   arvo;
   tunnus = localStorage.user;
@@ -46,6 +48,14 @@ export class AktiivisetKurssitComponent implements OnInit {
     this.modalContent = kurssi;
     this.modalService.open(content, { ariaLabelledBy: "modal-basic-title" });
   }
+
+  open2(content, otsikko, muistiinpano) {
+    //this.modalContent = content;
+    this.muistiinpano2 = muistiinpano;
+    this.otsikko = otsikko;
+    this.modalService.open(content, { ariaLabelledBy: "modal-basic-title" });
+  }
+
   avaa(content) {
     this.modalService.open(content, { ariaLabelledBy: "modal-basic-title" });
   }

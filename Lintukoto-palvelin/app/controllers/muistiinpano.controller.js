@@ -1,4 +1,5 @@
 const Muistiinpano = require('../models/muistiinpano.model.js');
+const Kayttaja = require('../models/user.model');
 
 // Create and Save a new Note
 // Create and Save a new Note
@@ -141,5 +142,26 @@ exports.delete = (req, res) => {
       return res.status(500).send({
         message: 'Could not delete note with id ' + req.params.noteId
       });
+    });
+};
+
+exports.muokkaamp = (req, res, next) => {
+  console.log(req.body);
+  console.log(req.query);
+  Kayttaja.Kayttaja.update(
+    { tunnus: req.body.tunnus },
+    { $set: { 'aktiiviset_kurssit.$[elem].muistiinpanot.$[el]': req.body } },
+    {
+      arrayFilters: [
+        { 'elem.nimi': 'Ohjelmointi' },
+        { 'el.otsikko': req.body.otsikko }
+      ]
+    }
+  )
+    .then(result => {
+      res.status(200).json({ message: 'muistiinpano tallennettu' });
+    })
+    .catch(err => {
+      res.status(500).json({ message: err.message });
     });
 };
