@@ -11,7 +11,6 @@ const MuistiinpanoSchema1 = mongoose.Schema(
   },
   { collection: 'Muistiinpano1' }
 );
-mongoose.model('Muistiinpano1', MuistiinpanoSchema1);
 
 const Kurssi2Schema = mongoose.Schema({
   aktiiviset_kurssit: { type: Object },
@@ -45,3 +44,5 @@ exports.AktiivisetKurssit = mongoose.model(
   AktiivisetKurssitSchema
 );
 exports.Kayttaja = mongoose.model('kayttaja', KayttajaSchema);
+
+exports.Muistiinpano11 = mongoose.model('Muistiinpano1', MuistiinpanoSchema1);

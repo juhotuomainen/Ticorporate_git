@@ -18,4 +18,6 @@ module.exports = app => {
   app.delete('/notes/:noteId', muistiinpano.delete);
 
   app.post('/muokkaamp', muistiinpano.muokkaamp);
+
+  app.post('/poistamp', muistiinpano.poistamp);
 };
