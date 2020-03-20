@@ -333,7 +333,11 @@
 
       <!-- Modal footer -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-success">
+        <button
+          type="button"
+          (click)="modal.dismiss('Cross click')"
+          class="btn btn-success"
+        >
           Peruuta
         </button>
         <button type="button" class="btn btn-danger" (click)="poistamp()">
