@@ -369,20 +369,11 @@ export class KalenteriComponent implements OnInit {
         };
         //.addEvent-illä voidaan lisätä kyseinen tapahtuma kalenteriin
         this.scheduleInstance.addEvent(eventData);
-<<<<<<< HEAD
-
-        //poistaa listasta tehtävän sen jälkeen kun se on lisätty kalenteriin
-        this.gridObj.deleteRecord(event.data[0]);
-
-        //debug
-        console.log(tehtavaLista);
-=======
         //poistaa listasta tehtävän sen jälkeen kun se on lisätty kalenteriin
         this.gridObj.deleteRecord("GridId", event.data[0].GridId);
 
         //debug
         console.log(tehtavaLista, event);
->>>>>>> 07383f010c3d9bb41a9d7e8acc2ea496fbe64136
         // this.scheduleObj.openEditor(eventData, 'Add', true);
         //this.gridObj.deleteRecord("Id", this.gridObj.getSelectedRecords());
         //this.gridObj.deleteRecord(event.data[0])
@@ -391,8 +382,6 @@ export class KalenteriComponent implements OnInit {
     }
   }
 
-<<<<<<< HEAD
-=======
   private dataManager: DataManager = new DataManager({
     url: "http://localhost:3000/GetData",
     crudUrl: "http://localhost:3000/BatchData",
@@ -409,7 +398,6 @@ export class KalenteriComponent implements OnInit {
     query: this.dataQuery
   };
 
->>>>>>> 07383f010c3d9bb41a9d7e8acc2ea496fbe64136
   // määrittää asteet jolla tehtävien pituutta voi kalenterissa muuttaa, nyt asetettu 10min
   onResizeStart(args: ResizeEventArgs): void {
     // args.scroll.enable = true;

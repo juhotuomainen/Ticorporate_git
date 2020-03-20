@@ -1,18 +1,5 @@
 /* tekstikentän muotoilut*/
 .tekstit {
-<<<<<<< HEAD
-  width: 500px;
-}
-/* .info {
-  position: static;
-  max-width: 500px;
-  margin: 10px;
-} */
-/* sisäänkirjautumislomakkeen muotoilut*/
-.login {
-  width: 40%;
-  max-height: 300px;
-=======
   width: 44%;
   display: inline-block;
   position: inherit;
@@ -23,7 +10,6 @@
 /* sisäänkirjautumislomakkeen muotoilut*/
 .login {
   width: 42%;
->>>>>>> 07383f010c3d9bb41a9d7e8acc2ea496fbe64136
   padding: 1em;
   align-content: center;
   justify-content: center;
@@ -45,14 +31,7 @@ label {
 h2,
 label {
   text-align: center;
-<<<<<<< HEAD
-  position: inherit;
-  width: 80%;
-  margin: 0 auto;
-  display: block;
-=======
   position: relative;
->>>>>>> 07383f010c3d9bb41a9d7e8acc2ea496fbe64136
 }
 .kirjautumisnappi {
   margin-top: 10px;
@@ -61,12 +40,8 @@ label {
 .otsikko {
   text-align: center;
   position: relative;
-<<<<<<< HEAD
   width: 50%;
   display: inline-block;
-=======
-  margin: 10px;
->>>>>>> 07383f010c3d9bb41a9d7e8acc2ea496fbe64136
 }
 
 /* kuvan muotoilut*/
@@ -90,21 +65,19 @@ label {
     top: 0px;
     margin-bottom: 45px;
   }
-<<<<<<< HEAD
+
   .info {
     text-align: center;
     position: relative;
     max-width: 500px;
     left: 0px;
     top: 0px;
-=======
+  }
 
   .otsikko {
     text-align: center;
     position: relative;
     top: 0px;
     margin: 10px;
->>>>>>> 07383f010c3d9bb41a9d7e8acc2ea496fbe64136
   }
 }
-
