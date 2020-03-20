@@ -2,6 +2,7 @@
   width: 80px;
   height: 80px;
   margin: 20px;
+  cursor: pointer;
 }
 .aktiivinen {
   display: block;

@@ -25,7 +25,8 @@ import {
   ResizeService,
   CellClickEventArgs,
   ScheduleComponent,
-  ResizeEventArgs
+  ResizeEventArgs,
+  EventSettingsModel
 } from "@syncfusion/ej2-angular-schedule";
 
 import {
@@ -38,6 +39,8 @@ import {
 } from "@syncfusion/ej2-angular-grids";
 
 import { CdkDragDrop } from "@angular/cdk/drag-drop";
+
+import { DataManager, UrlAdaptor, Query } from "@syncfusion/ej2-data";
 
 import { loadCldr, L10n } from "@syncfusion/ej2-base";
 /*import * as numberingSystems from './numberingSystems.json';
@@ -303,7 +306,6 @@ export class KalenteriComponent implements OnInit {
   public gridDS: Object = tehtavaLista;
   public allowDragAndDrop: boolean = true;
   public srcDropOptions: RowDropSettingsModel = { targetID: "Schedule" };
-  public primaryKeyVal: boolean = true;
 
   public editSettings: EditSettingsModel = {
     allowAdding: true,
@@ -355,7 +357,8 @@ export class KalenteriComponent implements OnInit {
         );
         // tehdään eventistä oikean muotoinen
         let eventData: { [key: string]: Object } = {
-          Id: filteredData[0].Id,
+          user: localStorage.getItem("user"),
+          Id: Math.random() * 1000 * 10,
           Name: filteredData[0].Name,
           Title: filteredData[0].Title,
           Subject: filteredData[0].Subject,
@@ -366,12 +369,20 @@ export class KalenteriComponent implements OnInit {
         };
         //.addEvent-illä voidaan lisätä kyseinen tapahtuma kalenteriin
         this.scheduleInstance.addEvent(eventData);
+<<<<<<< HEAD
 
         //poistaa listasta tehtävän sen jälkeen kun se on lisätty kalenteriin
         this.gridObj.deleteRecord(event.data[0]);
 
         //debug
         console.log(tehtavaLista);
+=======
+        //poistaa listasta tehtävän sen jälkeen kun se on lisätty kalenteriin
+        this.gridObj.deleteRecord("GridId", event.data[0].GridId);
+
+        //debug
+        console.log(tehtavaLista, event);
+>>>>>>> 07383f010c3d9bb41a9d7e8acc2ea496fbe64136
         // this.scheduleObj.openEditor(eventData, 'Add', true);
         //this.gridObj.deleteRecord("Id", this.gridObj.getSelectedRecords());
         //this.gridObj.deleteRecord(event.data[0])
@@ -380,6 +391,25 @@ export class KalenteriComponent implements OnInit {
     }
   }
 
+<<<<<<< HEAD
+=======
+  private dataManager: DataManager = new DataManager({
+    url: "http://localhost:3000/GetData",
+    crudUrl: "http://localhost:3000/BatchData",
+    adaptor: new UrlAdaptor(),
+    crossDomain: true
+  });
+
+  private dataQuery: Query = new Query()
+    .from("Events")
+    .addParams("user", localStorage.getItem("user"));
+
+  public eventSettings: EventSettingsModel = {
+    dataSource: this.dataManager,
+    query: this.dataQuery
+  };
+
+>>>>>>> 07383f010c3d9bb41a9d7e8acc2ea496fbe64136
   // määrittää asteet jolla tehtävien pituutta voi kalenterissa muuttaa, nyt asetettu 10min
   onResizeStart(args: ResizeEventArgs): void {
     // args.scroll.enable = true;
