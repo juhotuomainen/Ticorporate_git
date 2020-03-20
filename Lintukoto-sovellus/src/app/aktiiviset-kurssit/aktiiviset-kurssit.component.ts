@@ -5,6 +5,7 @@ import { Muistiinpano } from "../muistiinpano.model";
 import { DragAndDrop } from "@syncfusion/ej2-angular-schedule";
 
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { KurssiService } from "./kurssi.service";
 
 declare var $: any;
 
@@ -15,8 +16,13 @@ declare var $: any;
   providers: [ModalComponent, NgbModal]
 })
 export class AktiivisetKurssitComponent implements OnInit {
+  navigationSubscription;
   kurssiTaulukko: Array<Muistiinpano> = [];
   modalContent: any;
+  muistiinpano2;
+  otsikko;
+  otsikkoUusi;
+  kurssi;
   value;
   arvo;
   tunnus = localStorage.user;
@@ -24,7 +30,8 @@ export class AktiivisetKurssitComponent implements OnInit {
   @Output() kurssit3: Array<any> = [];
   constructor(
     private yhteysAPI: YhteysAPIService,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private kurssiService: KurssiService
   ) {}
 
   showModal2(): void {
@@ -46,6 +53,28 @@ export class AktiivisetKurssitComponent implements OnInit {
     this.modalContent = kurssi;
     this.modalService.open(content, { ariaLabelledBy: "modal-basic-title" });
   }
+
+  open2(content, otsikko, muistiinpano, kurssi) {
+    //this.modalContent = content;
+    this.muistiinpano2 = muistiinpano;
+    this.otsikko = otsikko;
+    this.otsikkoUusi = otsikko;
+    this.kurssi = kurssi;
+    this.modalService.open(content, { ariaLabelledBy: "modal-basic-title" });
+  }
+
+  poistamp() {
+    document.getElementById("muistiinpano-close-nappi").click();
+    document.getElementById("sulkunappi").click();
+    location.reload(true);
+
+    this.kurssiService.poistaMuistiinpano(
+      this.otsikko,
+      this.kurssi,
+      this.tunnus
+    );
+  }
+
   avaa(content) {
     this.modalService.open(content, { ariaLabelledBy: "modal-basic-title" });
   }
