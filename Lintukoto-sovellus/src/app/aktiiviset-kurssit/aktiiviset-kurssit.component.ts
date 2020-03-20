@@ -6,7 +6,6 @@ import { DragAndDrop } from "@syncfusion/ej2-angular-schedule";
 
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { KurssiService } from "./kurssi.service";
-import { Router, NavigationEnd } from "@angular/router";
 
 declare var $: any;
 
@@ -32,8 +31,7 @@ export class AktiivisetKurssitComponent implements OnInit {
   constructor(
     private yhteysAPI: YhteysAPIService,
     private modalService: NgbModal,
-    private kurssiService: KurssiService,
-    private router: Router
+    private kurssiService: KurssiService
   ) {}
 
   showModal2(): void {
@@ -66,15 +64,15 @@ export class AktiivisetKurssitComponent implements OnInit {
   }
 
   poistamp() {
+    document.getElementById("muistiinpano-close-nappi").click();
     document.getElementById("sulkunappi").click();
-    // location.reload(true);
+    location.reload(true);
 
     this.kurssiService.poistaMuistiinpano(
       this.otsikko,
       this.kurssi,
       this.tunnus
     );
-    this.router.navigate(["/aktiiviset"]);
   }
 
   avaa(content) {
