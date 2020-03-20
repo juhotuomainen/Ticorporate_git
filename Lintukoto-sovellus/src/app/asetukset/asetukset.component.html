@@ -17,7 +17,10 @@
         <!--Max-arvo on tällä puolella 2020-05-05 
           mutta ts-tiedoston puolelta siihen syötetään aina current date, joten tästä ei tarvitse välittää-->
         <input
-          type="date" id="datefield" min="1990-01-01" max="2020-05-05"
+          type="date"
+          id="datefield"
+          min="1990-01-01"
+          max="2020-05-05"
           [(ngModel)]="asetuslomake.aloituspaiva"
           name="aloituspaiva"
           class="form-control"
@@ -41,7 +44,9 @@
           >Koulutusohjelman opintopisteiden kokonaismäärä</label
         ><br />
         <input
-          type="number" min="0" max="800"
+          type="number"
+          min="0"
+          max="800"
           [(ngModel)]="asetuslomake.kokonaisOp"
           class="form-control"
           name="kokonaisOp"
