@@ -18,6 +18,7 @@
             hidden
             [(ngModel)]="asetuslomake.tunnus"
             name="tunnus"
+id="aloituspaiva"
           />
           <!--Max-arvo on tällä puolella 2020-05-05 
           mutta ts-tiedoston puolelta siihen syötetään aina current date, joten tästä ei tarvitse välittää-->
@@ -41,6 +42,7 @@
             class="form-control"
             name="ryhmatunnus"
             [placeholder]="asetuksetLadattu.asetukset.ryhmatunnus"
+id="ryhmatunnus"
           />
         </div>
 
@@ -56,6 +58,7 @@
             class="form-control"
             name="kokonaisOp"
             [value]="asetuksetLadattu.asetukset.kokonaisOp"
+id="kokonaisOp"
           />
         </div>
       </fieldset>
@@ -65,17 +68,21 @@
       <fieldset form="form1">
           <legend>Opiskeluasetukset</legend>
         <div class="form-check">
+
+<br />
+<!-- P-elementti, jossa asiaa kuvaavaa tekstiä. -->
+<p>Olen kiinnostunut osallistumaan mahdollisiin ryhmäni opiskelutuokioihin</p>
           <label class="form-check-label bold" for="yhteisetTuokiot"
-            >Olen kiinnostunut osallistumaan mahdollisiin ryhmäni
-            opiskelutuokioihin</label
-          ><br />
+            >Kyllä</label
+          >
           <input
             type="checkbox"
             [(ngModel)]="asetuksetLadattu.asetukset.yhteisetTuokiot"
             name="yhteisetTuokiot"
             class="form-check-input"
-          />
-          Kyllä<br />
+id="yhteisetTuokiot"          
+/>
+          <br />
         </div>
         <!--Radio-napit, joilla kysytään onko opiskeluajankohdalla väliä-->
         <div class="form-check">
@@ -83,30 +90,37 @@
             >Opiskelen tehokkaimmin tähän aikaan päivästä:</label
           >
           <br />
+
+<label for="mihinAikaanVain">Mihin aikaan vain</label>
           <input
             type="radio"
             name="opiskeluajankohta"
             [(ngModel)]="asetuksetLadattu.asetukset.opiskeluajankohta"
             class="form-check-input"
             value="milloinVain"
+id="mihinAikaanVain"
           />
-          Mihin aikaan vain<br />
+          <br />
+<label for="aamupaiva">Aamupäivä</label>
           <input
             type="radio"
             name="opiskeluajankohta"
             [(ngModel)]="asetuksetLadattu.asetukset.opiskeluajankohta"
             class="form-check-input"
             value="aamupaiva"
+id="aamupaiva"
           />
-          Aamupäivä<br />
+          <br />
+<label for="iltapaiva">Iltapäivä</label>
           <input
             type="radio"
             name="opiskeluajankohta"
             [(ngModel)]="asetuksetLadattu.asetukset.opiskeluajankohta"
             class="form-check-input"
             value="iltapaiva"
+id="iltapaiva"
           />
-          Iltapäivä<br />
+          <br />
         </div>
       </fieldset>
 
@@ -114,18 +128,21 @@
       <fieldset form="form1">
           <legend>Pöllöjen näkyvyys</legend>
         <div class="form-check">
-          <label class="form-check-label bold" for="pollojenNakyminen"
-            >Haluan nähdä pöllöt sovelluksessani:</label
-          >
+          <p>Haluan nähdä pöllöt sovelluksessani:</p>
+          
           <br />
+          <label class="form-check-label bold" for="pollojenNakyminen"
+            >Kyllä</label
+          >
           <input
             type="checkbox"
             [(ngModel)]="asetuksetLadattu.asetukset.pollojenNakyminen"
             checked="checked"
             name="pollojenNakyminen"
             class="form-check-input"
+id="pollojenNakyminen"
           />
-          Kyllä<br />
+          <br />
         </div>
       </fieldset>
       <!-- Henkipöllön asetukset -->
@@ -136,28 +153,34 @@
             >Näistä teemoista haluan henkipöllön kertovan minulle:</label
           >
           <br />
+<label for="opinnot">Opinnot</label>
           <input
             type="checkbox"
             [(ngModel)]="asetuksetLadattu.asetukset.henkipolloOpinnot"
             checked="checked"
             name="henkipolloOpinnot"
             class="form-check-input"
+id="opinnot">
           />
-          Opinnot<br />
+          <br />
+<label for="elamanhallinta">Elämänhallinta</label>
           <input
             type="checkbox"
             [(ngModel)]="asetuksetLadattu.asetukset.henkipolloElama"
             name="henkipolloElama"
             checked="checked"
             class="form-check-input"
+id="elamanhallinta"
           />
-          Elämänhallinta<br />
+          <br />
+<label for="valistus">Valistus</label>
           <input
             type="checkbox"
             [(ngModel)]="asetuksetLadattu.asetukset.henkipolloValistus"
             checked="checked"
             name="henkipolloValistus"
             class="form-check-input"
+id="valistus"
           />
           Valistus<br />
         </div>
