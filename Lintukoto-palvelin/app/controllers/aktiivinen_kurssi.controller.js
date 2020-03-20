@@ -150,19 +150,6 @@ exports.findjaupdate = (req, res) => {
   // });
 };
 
-exports.muokkaamp1 = (req, res, next) => {
-  Kayttaja.Kayttaja.updateOne(
-    { tunnus: req.body.tunnus, 'aktiiviset_kurssit.nimi': req.body.kurssi },
-    { $set: { 'aktiiviset.$.muistiinpanot.[el]': req.body } },
-    { arrayFilters: [{ 'el.otsikko': req.body.otsikko }] }
-  ).then(result => {
-    res.status(200).json({ message: 'muistiinpano tallennettu' });
-  });
-  // .catch(err => {
-  //   res.status(500).json({ message: err.message });
-  // });
-};
-
 exports.createKurssi = (req, res) => {
   // Validate request
   if (!req.body) {

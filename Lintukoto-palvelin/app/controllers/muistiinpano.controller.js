@@ -170,8 +170,7 @@ exports.muokkaamp = async (req, res, next) => {
   const muistiinpano_index = await kayttaja.aktiiviset_kurssit[
     kurssi_index
   ].muistiinpanot.findIndex(checkNote);
-  console.log(kurssi_index);
-  console.log('muistiinpano index = ' + muistiinpano_index);
+
   const id = await kayttaja.aktiiviset_kurssit[kurssi_index].muistiinpanot[
     muistiinpano_index
   ]._id;
@@ -196,41 +195,6 @@ exports.muokkaamp = async (req, res, next) => {
   });
 
   res.status(200).redirect('http://localhost:4200/aktiiviset');
-
-  // Kayttaja.Muistiinpano11.findOne({ _id: id2 }, (err, doc) => {
-  //   if (err) {
-  //     console.log(err);
-  //   } else {
-  //     doc.muistiinpano = req.body.muistiinpano;
-  //     doc.save();
-  //     res.status(200).json({ message: 'lol' });
-  //   }
-  // });
-  // .then(result => {
-  //   res.status(200).json({ message: result });
-  // })
-  // .catch(err => {
-  //   console.log(err);
-  // });
-
-  // Kayttaja.Kayttaja.updateOne(
-  //   { tunnus: req.body.tunnus },
-  //   {
-  //     $set: { 'aktiiviset_kurssit.$[kurssi].muistiinpanot.$[mp]': req.body }
-  //   },
-  //   {
-  //     arrayFilters: [
-  //       { 'kurssi.nimi': 'Ohjelmointi' },
-  //       { 'mp.otsikko': req.body.otsikko }
-  //     ]
-  //   }
-  // )
-  //   .then(result => {
-  //     res.status(200).json({ message: 'muistiinpano tallennettu' });
-  //   })
-  //   .catch(err => {
-  //     res.status(500).json({ message: err.message });
-  //   });
 };
 exports.poistamp = async (req, res) => {
   console.log(req.body);
