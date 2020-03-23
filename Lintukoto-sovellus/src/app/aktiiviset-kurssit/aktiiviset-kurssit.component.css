@@ -13,6 +13,7 @@
   align-self: center;
   height: 123px;
 }
+
 #muistiinpano-linkki {
   display: block;
   cursor: pointer;
@@ -32,6 +33,10 @@
   border-radius: 5px;
 }
 
+h5 {
+  color: white;
+}
+
 .kurssi-kortti {
   margin: 1em 2em;
   width: 180px;
@@ -44,7 +49,6 @@
 }
 .button-container {
   text-align: center;
-  background-color: #fafafa;
 }
 .linkki {
   color: burlywood;
@@ -82,7 +86,47 @@ h6 {
 .kurssi-listaus {
   text-align: center;
   padding: 0;
+  background-image: url("../../assets/images/tapettihuone.png");
+  background-position: center;
+  background-size: none;
+  background-repeat: repeat;
+  margin-bottom: 0;
 }
 .lisays-nappi {
   margin: 1em 1.5em;
+}
+body {
+  background-color: #335164;
+}
+
+.modal-textarea {
+  width: 95%;
+  height: 300px;
+  align-self: center;
+  margin: 0 auto;
+  display: block;
+}
+
+.modal-input {
+  width: 95%;
+  align-self: center;
+  margin: 0 auto 0.5em auto;
+  display: block;
+}
+
+.muokkaus-body {
+  text-align: center;
+}
+
+.icon-linkki-delete {
+  cursor: pointer;
+}
+.icon-linkki-delete:hover {
+  color: #dc3545;
+}
+.icon-linkki-edit {
+  cursor: pointer;
+}
+.icon-linkki-edit:hover {
+  color: #007bff;
 }

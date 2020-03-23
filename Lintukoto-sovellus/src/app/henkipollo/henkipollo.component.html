@@ -9,6 +9,8 @@
           &times;
         </button>
       </div>
+
+      <!--Vihreät painikkeet, joissa eri vastausvaihtoehdot-->
       <button
         class="btn btn-success nappula"
         data-toggle="modal"
@@ -26,7 +28,11 @@
       >
         Mitä tällä sivulla tehdään?
       </button>
-      <button class="btn btn-success nappula">
+      <button
+        class="btn btn-success nappula"
+        routerLink="/pesa"
+        (click)="hideModal()"
+      >
         Henkipöllön pesä
       </button>
 
@@ -93,6 +99,7 @@
     <div class="modal-content">
       <!-- Modal Header -->
 
+      <!--Sivukohtaiset vastaukset kysymykseen-->
       <div *ngIf="router.url === '/suoritetut'">
         <div class="modal-header">
           <h4 class="modal-title">Suoritetut kurssit</h4>
@@ -194,8 +201,9 @@
           </button>
         </div>
         <p class="margin">
-          “Tämä on minun pesäni. Täältä saat apua pulmaan kuin pulmaan! 
-          Linkkien takaa löydät paljon arvokasta tietoa opintojasi varten ja vähän muuhunkin.”
+          “Tämä on minun pesäni. Täältä saat apua pulmaan kuin pulmaan! Linkkien
+          takaa löydät paljon arvokasta tietoa opintojasi varten ja vähän
+          muuhunkin.”
         </p>
       </div>
 

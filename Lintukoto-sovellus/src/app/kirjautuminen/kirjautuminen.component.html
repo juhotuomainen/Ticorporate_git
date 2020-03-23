@@ -1,17 +1,16 @@
-<div class="otsikko"><h1>Lintukoto</h1></div>
-<div class="otsikko tekstit">
+<div class="tekstit">
+  <h1 class="otsikko">Lintukoto</h1>
   <p>
     Lintukoto on opiskelijoiden ajanhallintaa helpottava sovellus.<br />
     Pääset sovellukseen kirjautumalla henkilökohtaisella käyttäjätunnuksella ja
     salasanalla.
   </p>
-  <img src="../../assets/images/LOGO_ilman_taustaa.png" id="lintukoto_logo" />
+  <img src="../../assets/images/LOGO_ilman_taustaa.png" id="lintukoto_logo" alt="Lintukoto-sovelluksen logo"/>
 </div>
-
 <!--Sisäänkirjautumisen lomake-->
 <div class="login">
-  <h2 class="login-header">Kirjaudu sisään</h2>
   <form #loginForm="ngForm" (submit)="login(loginForm)">
+    <h2 class="login-header">Kirjaudu sisään</h2>
     <label for="#tunnus">Käyttäjätunnus</label>
     <input
       class="form-control"
@@ -32,5 +31,7 @@
     <button class="btn btn-primary" type="submit" id="submit-btn">
       Lähetä
     </button>
+
   </form>
+
 </div>

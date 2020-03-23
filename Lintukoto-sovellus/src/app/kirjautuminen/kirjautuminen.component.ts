@@ -7,6 +7,8 @@ import { Kayttaja } from "../kayttaja.model";
 import { NgForm } from "@angular/forms";
 import { Router } from "@angular/router";
 import { UserService } from "../user.service";
+import { MatDialog, MatDialogConfig } from '@angular/material';
+import { DialogComponent } from '../dialog/dialog.component';
 
 @Component({
   selector: "app-kirjautuminen",
@@ -31,7 +33,8 @@ export class KirjautuminenComponent implements OnInit {
     private http: HttpClient,
     private userService: UserService,
     private router: Router,
-    private yhteysAPI: YhteysAPIService
+    private yhteysAPI: YhteysAPIService,
+    private dialog: MatDialog
   ) {
     // luo lomakkeen tiedot ryhmään ja ryhmän sisällä olio
     // this.userData = this.FormBuilder.group({ username: "", password: "" });
@@ -55,10 +58,16 @@ export class KirjautuminenComponent implements OnInit {
         localStorage.setItem("token", res.token);
         localStorage.setItem("user", this.loginData.tunnus);
         this.router.navigate(["/kalenteri"]);
+        this.popup();
       },
       err => {
         alert("Invalid username or password");
       }
     );
+  }
+
+  // Avaa sisäänkirjautuessa popup-ikkunan
+  popup() {
+    this.dialog.open(DialogComponent);
   }
 }
