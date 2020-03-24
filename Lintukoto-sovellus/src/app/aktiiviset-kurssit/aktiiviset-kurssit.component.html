@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>{{ title }}</title>
+<!-- Muutettu otsikko (title-elementin sisältö) havainnolliselmmaksi. Aiemmin tässä oli pelkkä otsikko, joka tuli title-oliosta, mutta  nyt sen lisäksi myös havainnollista, "Aktiiviset kurssit" -sivusta kertovaa tekstiä. -->
+    <title>Aktiiviset kurssit | {{ title }}</title>
   </head>
   <body>
     <!-- <header>
@@ -16,7 +17,7 @@
           data-target="#navbarNavAltMarkup"
           aria-controls="navbarNavAltMarkup"
           aria-expanded="false"
-          aria-label="Toggle navigation"
+          aria-label="Navigointivalikon näkyminen"
         >
           <span class="navbar-toggler-icon"></span>
           <span class="navbar-toggler-icon"></span>
@@ -44,35 +45,45 @@
       </nav>
     </header> -->
 
+
     <ul class="kurssi-listaus">
+
       <div class="button-container">
-        <button class="btn btn-success lisays-nappi" (click)="avaa(UusiKurssi)">
+<label class="bold" for="uusiKurssi">Lisää uusi kurssi</label>
+        <button class="btn btn-success lisays-nappi" (click)="avaa(UusiKurssi)" id="uusiKurssi">
           Lisää uusi kurssi
+
         </button>
+<!-- UusiMuistiinpano-painikkeen label-elementti. Painikkeessa id on sama kuin labelin for-attribuuttikin eli uusiMuistiinpano. -->
+<label  for="uusiMuistiinpano">Lisää uusi muistiinpano</label>
         <button
           class="btn btn-success lisays-nappi"
           data-toggle="modal"
           data-target="#myModal"
+id=uusiMuistiinpano"
         >
           Lisää uusi muistiinpano
         </button>
+<label for="uusiTehtava">Lisää uusi tehtävä</label>
         <button
           class="btn btn-success lisays-nappi"
           data-toggle="modal"
           data-target="#tehtavanLisaysModal"
+id="uusiTehtava"
         >
           Lisää uusi tehtävä
         </button>
       </div>
+<h2>Kurssilistaus</h2>
       <li
         *ngFor="let kurssi of kurssit2[0].aktiiviset_kurssit"
         id="kurssilista"
       >
         <div class="kurssi-kortti">
           <img src="{{ kurssi.kuva }}" id="pollo" />
-          <h5>{{ kurssi.nimi }}</h5>
+          <h3>{{ kurssi.nimi }}</h3>
           <div id="muistiinpanolista">
-            <h6>Muistiinpanot</h6>
+            <h4>Muistiinpanot</h4>
             <div *ngFor="let muistio of kurssi.muistiinpanot">
               <a
                 (click)="open(content, muistio.otsikko)"
@@ -85,7 +96,7 @@
               <ng-template #content let-modal>
                 <div class="modal-header" id="myModal2">
                   <!-- Modal Header -->
-                  <h4 class="modal-title">{{ muistio.otsikko }}</h4>
+                  <h3 class="modal-title">{{ muistio.otsikko }}</h3>
                   <button
                     type="button"
                     class="close"
@@ -101,14 +112,16 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
+<label for="sulje">Sulje</label>
                   <button
                     type="button"
                     class="btn btn-danger"
                     (click)="modal.dismiss('Cross click')"
+id="sulje"
                   >
                     Sulje
                   </button>
-
+<label for="close-modal2">Sulje</label>
                   <!-- this button is hidden, used to close from typescript -->
                   <button
                     type="button"
@@ -116,14 +129,14 @@
                     data-dismiss="modal"
                     style="display: none"
                   >
-                    Close
+                    Sulje
                   </button>
                 </div>
               </ng-template>
             </div>
           </div>
           <div class="teht-done">
-            <h6>Tehdyt tehtävät</h6>
+            <h4>Tehdyt tehtävät</h4>
             <a
               *ngFor="let tehtava of kurssi.tehdytTehtavat"
               (click)="open(content, tehtava.tehtava)"
@@ -133,7 +146,7 @@
             </a>
           </div>
           <div class="teht-undone">
-            <h6>Tekemättömät tehtävät</h6>
+            <h4>Tekemättömät tehtävät</h4>
             <a
               *ngFor="let tehtava of kurssi.uudetTehtavat"
               (click)="open(content, tehtava.tehtava)"
@@ -149,12 +162,13 @@
       <div class="modal-header" id="UusiKurssiModal">
         <!-- Uusi kurssi Modal Header -->
         <h4 class="modal-title">Lisää uusi kurssi</h4>
+<label for="rastipainike">Rastipainike</label>
         <button
           type="button"
           class="close"
           (click)="modal.dismiss('Cross click')"
         >
-          &times;
+          Rastipainike &times;
         </button>
       </div>
       <!-- Uusi kurssi modal body -->
@@ -186,18 +200,22 @@
             </select>
           </div>
           <hr />
+<label for="lisaa">Lisää</label>
           <div class="button-container">
             <button
               class="btn btn-primary modal-nappi"
               type="submit"
               method="POST"
+id="lisaa"
             >
               Lisää
             </button>
+<label for"suljeModaali">Sulje "Lisää uusi kurssi" -ikkuna</label>
             <button
               type="button"
               class="btn btn-danger modal-nappi"
               (click)="modal.dismiss('Cross click')"
+id="suljeModaali"
             >
               Sulje
             </button>
@@ -211,7 +229,7 @@
           data-dismiss="modal"
           style="display: none"
         >
-          Close
+          Sulje
         </button>
       </div>
     </ng-template>
