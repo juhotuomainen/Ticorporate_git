@@ -47,13 +47,14 @@ body {
   float: right;
 }
 
-.otsikkoTaso h1, p {
+.otsikkoTaso h1,
+p {
   position: relative;
 }
 
 @media (max-width: 991px) {
   #henkipollo_kuva {
-    position: relative;
+    position: static;
     top: 0px;
     right: 0px;
   }
