@@ -53,10 +53,22 @@ h1 {
   color: forestgreen;
 }
 .content-container {
-  background: url("../../assets/images/Tapetti.png");
+  background: url("../../assets/images/tapettihuone.png");
   z-index: 0;
   background-position: center;
   background-repeat: repeat;
   padding-bottom: 3em;
   padding-top: 2em;
+}
+.inblock {
+  display: inline-block;
+  position: relative;
+  margin-left: 0.3em;
+  margin-bottom: 0.3em;
+}
+
+.labeli {
+  display: inline-block;
+  position: relative;
+  margin: 0 auto;
 }

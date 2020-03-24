@@ -10,7 +10,7 @@ import { HenkipolloinfoComponent } from "./henkipolloinfo/henkipolloinfo.compone
 import { ErrorComponent } from "./error/error.component";
 import { PesaComponent } from "./pesa/pesa.component";
 
-import { AuthGuard } from './auth.guard';
+import { AuthGuard } from "./auth.guard";
 
 const routes: Routes = [
   // canActivate: [AuthGuard] varmistaa että on kirjauduttu sisään, ennen kuin päästään muualle sovelluksessa
@@ -22,7 +22,8 @@ const routes: Routes = [
   {
     path: "aktiiviset",
     component: AktiivisetKurssitComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    runGuardsAndResolvers: "always"
   },
   {
     path: "suoritetut",
@@ -53,7 +54,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { onSameUrlNavigation: "reload" })],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
