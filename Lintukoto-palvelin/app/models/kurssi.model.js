@@ -5,11 +5,11 @@ const KurssiSchema = mongoose.Schema(
     kurssikoodi: String,
     nimi: String,
     kuva: String,
-    muistiinpanot: Array,
-    tehdytTehtavat: Array,
-    uudetTehtavat: Array
+    opintopisteet: Number,
+    tehtavat: Array,
+    koulutusohjelma: String,
+    kontaktit: String
   },
   { collection: 'kurssi' }
 );
-module.exports = KurssiSchema;
 module.exports = mongoose.model('kurssi', KurssiSchema);

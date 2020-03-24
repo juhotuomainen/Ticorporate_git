@@ -13,11 +13,24 @@ exports.create = (req, res) => {
       message: 'Note content can not be empty'
     });
   }
+
+  let opintopisteet;
+
+  Kurssi.findOne({ nimi: req.body.nimi })
+    .then(kurssi => {
+      opintopisteet = kurssi.opintopisteet;
+    })
+    .catch(err => {
+      console.log(err);
+    });
+
   const aktiivinen = new Object({
     kurssikoodi: req.body.kurssikoodi,
     nimi: req.body.nimi,
     kuva: req.body.kuva,
-    muistiinpanot: req.body.muistiinpanot
+    muistiinpanot: [],
+    aikataulu: true,
+    opintopisteet: opintopisteet
   });
 
   // const aktiivinen = new AktiivinenKurssi({
