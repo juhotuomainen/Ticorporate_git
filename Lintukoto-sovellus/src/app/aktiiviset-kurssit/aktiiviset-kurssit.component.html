@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 <!-- Muutettu otsikko (title-elementin sisältö) havainnolliselmmaksi. Aiemmin tässä oli pelkkä otsikko, joka tuli title-oliosta, mutta  nyt sen lisäksi myös havainnollista, "Aktiiviset kurssit" -sivusta kertovaa tekstiä. -->
-    <title>Aktiiviset kurssit | {{ title }}</title>
+    <title>{{ title }}</title>
   </head>
   <body>
     <!-- <header>
@@ -49,36 +49,41 @@
     <ul class="kurssi-listaus">
 
       <div class="button-container">
-<label class="bold" for="uusiKurssi">Lisää uusi kurssi</label>
-        <button class="btn btn-success lisays-nappi" (click)="avaa(UusiKurssi)" id="uusiKurssi">
+<label class="bold" for="uusiKurssi">Lisää uusi kurssi
+        <button class="btn btn-success lisays-nappi" (click)="avaa(UusiKurssi)" id="uusiKurssi"
+aria-label="Lisää uusi kurssi">
           Lisää uusi kurssi
 
+
         </button>
+<!-- abr-elementti, joka sisältää aria-label-parametrin, jonka ruudunlukuohjelma lukee varmasti asetuksista riippumatta. -->
+
+</label>
 <!-- UusiMuistiinpano-painikkeen label-elementti. Painikkeessa id on sama kuin labelin for-attribuuttikin eli uusiMuistiinpano. -->
-<label  for="uusiMuistiinpano">Lisää uusi muistiinpano</label>
+<label  for="uusiMuistiinpano"><span>Lisää uusi muistiinpano</span>
         <button
           class="btn btn-success lisays-nappi"
           data-toggle="modal"
           data-target="#myModal"
-id=uusiMuistiinpano"
-        >
+id="uusiMuistiinpano"
+aria-label"Lisää muistiinpano">
           Lisää uusi muistiinpano
         </button>
+</label>
 <label for="uusiTehtava">Lisää uusi tehtävä</label>
         <button
           class="btn btn-success lisays-nappi"
           data-toggle="modal"
           data-target="#tehtavanLisaysModal"
 id="uusiTehtava"
-        >
+aria-label="Lisää uusi tehtävä">
           Lisää uusi tehtävä
         </button>
       </div>
-<h2>Kurssilistaus</h2>
+
       <li
         *ngFor="let kurssi of kurssit2[0].aktiiviset_kurssit"
-        id="kurssilista"
-      >
+        id="kurssilista">
         <div class="kurssi-kortti">
           <img src="{{ kurssi.kuva }}" id="pollo" />
           <h3>{{ kurssi.nimi }}</h3>
@@ -101,6 +106,7 @@ id="uusiTehtava"
                     type="button"
                     class="close"
                     (click)="modal.dismiss('Cross click')"
+aria-label="Sulje"
                   >
                     &times;
                   </button>
@@ -118,6 +124,7 @@ id="uusiTehtava"
                     class="btn btn-danger"
                     (click)="modal.dismiss('Cross click')"
 id="sulje"
+aria-label="sulje"
                   >
                     Sulje
                   </button>
@@ -167,6 +174,7 @@ id="sulje"
           type="button"
           class="close"
           (click)="modal.dismiss('Cross click')"
+aria-label="rastipainike"
         >
           Rastipainike &times;
         </button>
@@ -185,6 +193,7 @@ id="sulje"
               id="kurssinValinta"
               ngbAutofocus
               name="nimi"
+aria-label="Kurssin valinta"
             >
               <option>-- Valitse kurssi --</option>
               <option *ngFor="let i of kurssit3[0]">
@@ -210,13 +219,13 @@ id="lisaa"
             >
               Lisää
             </button>
-<label for"suljeModaali">Sulje "Lisää uusi kurssi" -ikkuna</label>
+<label for="suljeModaali">Sulje </label>
             <button
               type="button"
               class="btn btn-danger modal-nappi"
               (click)="modal.dismiss('Cross click')"
 id="suljeModaali"
-            >
+            aria-label="Sulje Lisää uusi kurssi -ikkuna">
               Sulje
             </button>
           </div>
