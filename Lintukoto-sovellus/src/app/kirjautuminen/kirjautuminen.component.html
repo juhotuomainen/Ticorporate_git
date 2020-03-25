@@ -7,6 +7,7 @@
   </p>
   <img src="../../assets/images/LOGO_ilman_taustaa.png" id="lintukoto_logo" alt="Lintukoto-sovelluksen logo"/>
 </div>
+
 <!--Sisäänkirjautumisen lomake-->
 <div class="login">
   <form #loginForm="ngForm" (submit)="login(loginForm)">
@@ -19,6 +20,7 @@
       name="tunnus"
       [(ngModel)]="loginData.tunnus"
     />
+
     <label for="#password">Salasana</label>
     <input
       class="form-control"
@@ -29,7 +31,7 @@
     />
 
     <button class="btn btn-primary" type="submit" id="submit-btn">
-      Lähetä
+      Kirjaudu
     </button>
 
   </form>
