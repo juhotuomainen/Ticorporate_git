@@ -46,13 +46,16 @@
 
     <ul class="kurssi-listaus">
       <div class="button-container">
-        <button class="btn btn-success lisays-nappi" (click)="avaa(UusiKurssi)">
+        <button class="btn btn-success lisays-nappi" (click)="avaa(UusiKurssi)"
+aria-label="Lisää uusi kurssi"
+>
           Lisää uusi kurssi
         </button>
         <button
           class="btn btn-success lisays-nappi"
           data-toggle="modal"
           data-target="#myModal"
+aria-label="Lisää uusi muistiinpano"
         >
           Lisää uusi muistiinpano
         </button>
@@ -60,6 +63,7 @@
           class="btn btn-success lisays-nappi"
           data-toggle="modal"
           data-target="#tehtavanLisaysModal"
+aria-label="Lisää uusi tehtävä"
         >
           Lisää uusi tehtävä
         </button>
@@ -91,6 +95,7 @@
                     class="close"
                     id="muistiinpano-close-nappi"
                     (click)="modal.dismiss('Cross click')"
+aria-label="Sulje muistiinpanon muokkausikkuna"
                   >
                     &times;
                   </button>
@@ -130,6 +135,7 @@
                     type="button"
                     class="btn btn-danger"
                     (click)="modal.dismiss('Cross click')"
+aria-label="Sulje"
                   >
                     Sulje
                   </button>
@@ -178,6 +184,7 @@
           type="button"
           class="close"
           (click)="modal.dismiss('Cross click')"
+aria-label="Sulje lisää uusi kurssi -ikkuna"
         >
           &times;
         </button>
@@ -216,6 +223,7 @@
               class="btn btn-primary modal-nappi"
               type="submit"
               method="POST"
+aria-label="Lisää uusi kurssi"
             >
               Lisää
             </button>
@@ -223,6 +231,7 @@
               type="button"
               class="btn btn-danger modal-nappi"
               (click)="modal.dismiss('Cross click')"
+aria-label="Sulje uuden kurssin muokkausikkuna"
             >
               Sulje
             </button>
@@ -251,6 +260,7 @@
           type="button"
           class="close"
           (click)="modal.dismiss('Cross click')"
+aria-label="sulje muistiinpanon muokkausikkuna"
         >
           &times;
         </button>
@@ -269,31 +279,38 @@
             hidden
             name="otsikko"
             class="modal-input"
+aria-label="otsikko"
           />
           <input
             value="{{ otsikkoUusi }}"
             placeholder="{{ otsikkoUusi }}"
             name="otsikkoUusi"
             class="modal-input"
+aria-label="Uusi otsikko"
           />
           <label class="keskitetty-label" for="muistiinpano"
             >Muistiinpano</label
           >
           <textarea class="modal-textarea" name="muistiinpano">{{
             muistiinpano2
-          }}</textarea>
+          }}
+aria-label="Muistiinpanon kuvaus"
+</textarea>
         </div>
         <input type="text" hidden [value]="tunnus" name="tunnus" />
         <input type="text" hidden [value]="kurssi" name="kurssi" />
         <!-- Modal footer -->
         <div class="modal-footer">
-          <button type="submit" class="btn btn-success">
+          <button type="submit" class="btn btn-success"
+aria-label="Tallenna"
+>
             Tallenna
           </button>
           <button
             type="button"
             class="btn btn-danger"
             (click)="modal.dismiss('Cross click')"
+aria-label="Sulje muistiinpanon muokkausikkuna"
           >
             Sulje
           </button>
@@ -322,6 +339,7 @@
           type="button"
           class="close"
           (click)="modal.dismiss('Cross click')"
+aria-label="Sulje muistiinpanon poistoikkuna"
         >
           &times;
         </button>
@@ -333,10 +351,12 @@
 
       <!-- Modal footer -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-success">
+        <button type="button" class="btn btn-success"
+aria-label="Peruuta">
           Peruuta
         </button>
-        <button type="button" class="btn btn-danger" (click)="poistamp()">
+        <button type="button" class="btn btn-danger" (click)="poistamp()"
+aria-label="Poista">
           Poista
         </button>
 
