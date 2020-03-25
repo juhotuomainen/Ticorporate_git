@@ -86,7 +86,8 @@ Fyysisten toteutettavien tavoitteiden lisäksi projektin oppimistavoitteena on o
 
 ### Projektin hyväksyminen
 
-Projekti on saavuttanut Definition of Done’n (DoD) kun toimiva websovellus on valmis, ja siitä löytyvät seuraavat ominaisuudet: 
+Projekti on saavuttanut Definition of Done’n (DoD) kun toimiva websovellus on valmis 
+ja siitä löytyvät seuraavat ominaisuudet: 
 - Sisään- ja uloskirjautumistoiminnot
 - Kalenterinäkymä
 - Omien kalenteri-eventtien lisääminen ja poistaminen
