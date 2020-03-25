@@ -82,24 +82,25 @@
 
       <div class="form-check">
         <label class="form-check-label bold" for="henkipollonAsetukset"
-          >Näistä teemoista haluan henkipöllön kertovan minulle:</label
+          >Haluan nämä Henkipöllön ominaisuudet:</label
         ><br />
         <div>
           <label class="form-check-label labeli" for="henkipolloOpinnot"
-            >Opinnot</label
+            ></label
           >
           <input
             type="checkbox"
             [(ngModel)]="asetuksetLadattu.asetukset.henkipolloOpinnot"
-            checked="checked"
             name="henkipolloOpinnot"
+            checked="checked"
             class="form-check-input inblock"
           />
+          Tervehdys sisäänkirjautuessa
         </div>
         <!-- Opinnot<br /> -->
         <div>
           <label class="form-check-label labeli" for="henkipolloElama"
-            >Elämänhallinta</label
+            ></label
           >
           <input
             type="checkbox"
@@ -108,19 +109,21 @@
             checked="checked"
             class="form-check-input inblock"
           />
+          Kehut suoritettuani jotain
         </div>
         <!-- Elämänhallinta<br /> -->
         <div>
           <label class="form-check-label labeli" for="henkipolloValistus"
-            >Valistus</label
+            ></label
           >
           <input
             type="checkbox"
             [(ngModel)]="asetuksetLadattu.asetukset.henkipolloValistus"
-            checked="checked"
             name="henkipolloValistus"
+            checked="checked"
             class="form-check-input inblock"
           />
+          Apu jos opinnoissa on haasteita
         </div>
         <!-- Valistus<br /> -->
       </div>

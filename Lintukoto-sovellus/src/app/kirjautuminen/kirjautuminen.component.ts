@@ -9,6 +9,7 @@ import { Router } from "@angular/router";
 import { UserService } from "../user.service";
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { DialogComponent } from '../dialog/dialog.component';
+import { AsetuksetService } from '../asetukset/asetukset.service';
 
 @Component({
   selector: "app-kirjautuminen",
@@ -34,7 +35,8 @@ export class KirjautuminenComponent implements OnInit {
     private userService: UserService,
     private router: Router,
     private yhteysAPI: YhteysAPIService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private dialogiasetukset: AsetuksetService
   ) {
     // luo lomakkeen tiedot ryhmään ja ryhmän sisällä olio
     // this.userData = this.FormBuilder.group({ username: "", password: "" });
@@ -58,7 +60,12 @@ export class KirjautuminenComponent implements OnInit {
         localStorage.setItem("token", res.token);
         localStorage.setItem("user", this.loginData.tunnus);
         this.router.navigate(["/kalenteri"]);
-        this.popup();
+        // hakee asetuksista tiedon, haluaanko käyttäjä nähdä Henkipöllön tervehdyksen sisään kirjautuessa
+        this.http.get("henkipolloOpinnot", this.dialogiasetukset.asetusLadattu.henkipolloOpinnot);
+        // Jos käyttäjä on raksinut asetuksista ruudun jossa sallitaan tervehdys, kutsutaan tervehdyksen käynnitävä metodi
+        if (this.dialogiasetukset.asetusLadattu.henkipolloOpinnot == true) {
+          this.popup();
+        }
       },
       err => {
         alert("Invalid username or password");
@@ -66,7 +73,7 @@ export class KirjautuminenComponent implements OnInit {
     );
   }
 
-  // Avaa sisäänkirjautuessa popup-ikkunan
+  // Avaa sisäänkirjautuessa Henkipöllön tervehdyksen popup-ikkunan
   popup() {
     this.dialog.open(DialogComponent);
   }
