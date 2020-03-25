@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>{{ title }}</title>
+<!-- Muutettu title-elementin otsikko havainnollisemmaksi. Se kertoo nyt tarkemmin, että kyse on Aktiiviset kurssit -sivusta. -->
+    <title>Aktiiviset kurssit | {{ title }}</title>
   </head>
   <body>
     <!-- <header>
@@ -43,7 +44,8 @@
         </div>
       </nav>
     </header> -->
-
+<h1>Aktiiviset kurssit</h1>
+<h2>Kurssilistaus</h2>
     <ul class="kurssi-listaus">
       <div class="button-container">
         <button class="btn btn-success lisays-nappi" (click)="avaa(UusiKurssi)"
@@ -74,9 +76,9 @@ aria-label="Lisää uusi tehtävä"
       >
         <div class="kurssi-kortti">
           <img src="{{ kurssi.kuva }}" id="pollo" alt="Kuva kurssipöllöstä" />
-          <h5>{{ kurssi.nimi }}</h5>
+          <h3>{{ kurssi.nimi }}</h3>
           <div id="muistiinpanolista">
-            <h6>Muistiinpanot</h6>
+            <h4>Muistiinpanot</h4>
             <div *ngFor="let muistio of kurssi.muistiinpanot">
               <a
                 (click)="open(content, muistio.otsikko)"
@@ -154,7 +156,7 @@ aria-label="Sulje"
             </div>
           </div>
           <div class="teht-done">
-            <h6>Tehdyt tehtävät</h6>
+            <h4>Tehdyt tehtävät</h4>
             <a
               *ngFor="let tehtava of kurssi.tehdytTehtavat"
               (click)="open(content, tehtava.tehtava)"
@@ -164,7 +166,7 @@ aria-label="Sulje"
             </a>
           </div>
           <div class="teht-undone">
-            <h6>Tekemättömät tehtävät</h6>
+            <h4>Tekemättömät tehtävät</h4>
             <a
               *ngFor="let tehtava of kurssi.uudetTehtavat"
               (click)="open(content, tehtava.tehtava)"
@@ -291,11 +293,10 @@ aria-label="Uusi otsikko"
           <label class="keskitetty-label" for="muistiinpano"
             >Muistiinpano</label
           >
-          <textarea class="modal-textarea" name="muistiinpano">{{
+          <textarea class="modal-textarea" name="muistiinpano"
+aria-label="Muistiinpanon sisältö">{{
             muistiinpano2
-          }}
-aria-label="Muistiinpanon kuvaus"
-</textarea>
+          }}</textarea>
         </div>
         <input type="text" hidden [value]="tunnus" name="tunnus" />
         <input type="text" hidden [value]="kurssi" name="kurssi" />
@@ -346,7 +347,7 @@ aria-label="Sulje muistiinpanon poistoikkuna"
       </div>
       <!-- Modal body -->
       <div class="modal-body">
-        <p>Haluatko varmasi poistaa muistiinpanon: {{ otsikko }}?</p>
+        <p>Haluatko varmasti poistaa muistiinpanon: {{ otsikko }}?</p>
       </div>
 
       <!-- Modal footer -->
