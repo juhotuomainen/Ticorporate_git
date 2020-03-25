@@ -31,7 +31,7 @@ exports.create = (req, res) => {
         kurssikoodi: req.body.kurssikoodi,
         nimi: req.body.nimi,
         kuva: req.body.kuva,
-        muistiinpanot: [],
+        muistiinpanot: [{}],
         aikataulu: true,
         opintopisteet: opintopisteet
       });
