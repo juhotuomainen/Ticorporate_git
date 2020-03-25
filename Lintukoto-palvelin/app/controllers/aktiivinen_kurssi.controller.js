@@ -13,25 +13,37 @@ exports.create = (req, res) => {
       message: 'Note content can not be empty'
     });
   }
-
+  console.log(req.body.nimi);
   let opintopisteet;
 
   Kurssi.findOne({ nimi: req.body.nimi })
     .then(kurssi => {
+      console.log(kurssi);
       opintopisteet = kurssi.opintopisteet;
     })
     .catch(err => {
       console.log(err);
-    });
+    })
+    .then(lol => {
+      console.log(this.opintopisteet);
 
-  const aktiivinen = new Object({
-    kurssikoodi: req.body.kurssikoodi,
-    nimi: req.body.nimi,
-    kuva: req.body.kuva,
-    muistiinpanot: [],
-    aikataulu: true,
-    opintopisteet: opintopisteet
-  });
+      const aktiivinen = new Object({
+        kurssikoodi: req.body.kurssikoodi,
+        nimi: req.body.nimi,
+        kuva: req.body.kuva,
+        muistiinpanot: [],
+        aikataulu: true,
+        opintopisteet: opintopisteet
+      });
+
+      Kayttaja.Kayttaja.findOneAndUpdate(
+        { tunnus: req.body.tunnus },
+        {
+          $push: { aktiiviset_kurssit: aktiivinen }
+        },
+        { upsert: true }
+      ).then(res.status(200).redirect('http://localhost:4200/aktiiviset'));
+    });
 
   // const aktiivinen = new AktiivinenKurssi({
   //   kurssikoodi: req.body.kurssikoodi,
@@ -42,14 +54,6 @@ exports.create = (req, res) => {
   // const useri = Kayttaja.findOne({ tunnus: req.body.tunnus });
   // console.log(useri.nimi + 'Testaushommia 666 !!!!!!!!!!');
   // useri.kurssit.update(aktiivinen);
-
-  Kayttaja.Kayttaja.findOneAndUpdate(
-    { tunnus: req.body.tunnus },
-    {
-      $push: { aktiiviset_kurssit: aktiivinen }
-    },
-    { upsert: true }
-  ).then(res.status(200).redirect('http://localhost:4200/aktiiviset'));
 
   // useri
   //   .save()
@@ -134,7 +138,10 @@ exports.findjaupdate = (req, res) => {
 
   // const user =  Kayttaja.Kayttaja.findOne({ tunnus: req.body.tunnus });
   Kayttaja.Kayttaja.updateOne(
-    { tunnus: req.body.tunnus, 'aktiiviset_kurssit.nimi': req.body.kurssi },
+    {
+      tunnus: req.body.tunnus,
+      'aktiiviset_kurssit.nimi': req.body.kurssi
+    },
     { $push: { 'aktiiviset_kurssit.$.muistiinpanot': req.body } }
   )
     .then(res.status(200).redirect('http://localhost:4200/aktiiviset'))

@@ -71,6 +71,7 @@
         <div class="kurssi-kortti">
           <img src="{{ kurssi.kuva }}" id="pollo" alt="Kuva kurssipöllöstä" />
           <h5>{{ kurssi.nimi }}</h5>
+          <h5>({{ kurssi.opintopisteet }}op)</h5>
           <div id="muistiinpanolista">
             <h6>Muistiinpanot</h6>
             <div *ngFor="let muistio of kurssi.muistiinpanot">
@@ -197,8 +198,7 @@
               ngbAutofocus
               name="nimi"
             >
-              <option>-- Valitse kurssi --</option>
-              <option *ngFor="let i of kurssit3[0]">
+              <option value="{{ i.nimi }}" *ngFor="let i of kurssit3[0]">
                 {{ i.nimi }}
               </option>
               <input
