@@ -69,7 +69,17 @@
         id="kurssilista"
       >
         <div class="kurssi-kortti">
-          <img src="{{ kurssi.kuva }}" id="pollo" alt="Kuva kurssipöllöstä" />
+          <img
+            src="{{ kurssi.kuva }}"
+            id="pollo"
+            alt="Kuva kurssipöllöstä, joka ilmoittaa, onko kurssi aikataulussa."
+          />
+          <p *ngIf="kurssi.aikataulu" class="hidden">
+            Kurssi etenee aikataulussa. Hienoa!
+          </p>
+          <p *ngIf="!kurssi.aikataulu" class="hidden">
+            Kurssin suoritus ei etene aikataulussa. Nyt on aika ryhdistäytyä!
+          </p>
           <h5>{{ kurssi.nimi }}</h5>
           <h5>({{ kurssi.opintopisteet }}op)</h5>
           <div id="muistiinpanolista">
