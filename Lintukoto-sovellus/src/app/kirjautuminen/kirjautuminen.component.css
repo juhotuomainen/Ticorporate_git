@@ -27,7 +27,6 @@ h2 {
 label {
   width: 70%;
   margin: 0 auto;
-  display: block;
 }
 h2,
 label {
@@ -41,7 +40,8 @@ label {
 .otsikko {
   text-align: center;
   position: relative;
-  margin: 10px;
+  width: 50%;
+  display: inline-block;
 }
 
 /* kuvan muotoilut*/
@@ -67,6 +67,14 @@ label {
   .tekstit {
     text-align: center;
     position: relative;
+    left: 0px;
+    top: 0px;
+  }
+
+  .info {
+    text-align: center;
+    position: relative;
+    max-width: 500px;
     left: 0px;
     top: 0px;
   }

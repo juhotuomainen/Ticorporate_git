@@ -4,14 +4,16 @@ html {
 body {
   background: url("../../assets/images/tapettihuone.png");
   background-position: center;
-  background-repeat: repeat;
+  background-repeat: repeat-y;
   padding-top: 2em;
   padding-bottom: 2em;
+
 }
 .margin {
   margin: 20px;
 }
 #taulu {
+
   height: auto;
   width: 80px;
   margin-top: 30px;
