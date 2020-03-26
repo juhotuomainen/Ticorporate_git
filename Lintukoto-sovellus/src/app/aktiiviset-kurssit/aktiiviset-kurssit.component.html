@@ -172,10 +172,10 @@
             <h6>Tekemättömät tehtävät</h6>
             <a
               *ngFor="let tehtava of kurssi.uudetTehtavat"
-              (click)="open(content, tehtava.tehtava)"
+              (click)="open(tehtavamodal, tehtava)"
               class="tehtava-linkki"
             >
-              {{ tehtava.tehtava }}
+              {{ tehtava }}
             </a>
           </div>
         </div>
@@ -359,6 +359,46 @@
           type="button"
           id="close-modal4"
           data-dismiss="myModal4"
+          style="display: none"
+        >
+          Close
+        </button>
+      </div>
+    </ng-template>
+
+    <ng-template #tehtavamodal let-modal>
+      <div class="modal-header" id="myModal2">
+        <!-- Modal Header -->
+        <h4 class="modal-title">Tehtävä</h4>
+        <button
+          type="button"
+          class="close"
+          id="muistiinpano-close-nappi"
+          (click)="modal.dismiss('Cross click')"
+        >
+          &times;
+        </button>
+      </div>
+      <!-- Modal 2 body -->
+      <div class="modal-body">
+        <p ngbAutofocus>{{ tehtava }}</p>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-danger"
+          (click)="modal.dismiss('Cross click')"
+        >
+          Sulje
+        </button>
+
+        <!-- this button is hidden, used to close from typescript -->
+        <button
+          type="button"
+          id="close-modal2"
+          data-dismiss="modal"
           style="display: none"
         >
           Close
