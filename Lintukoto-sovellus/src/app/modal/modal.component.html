@@ -74,30 +74,30 @@
 </div>
 
 <!-- The Modal -->
-<!-- <div class="modal fade" id="myModal2">
+<div class="modal fade" id="myModal2">
   <div class="modal-dialog">
     <div class="modal-content">
-       Modal Header -->
+      <!-- Modal Header -->
 
-<!-- <div class="modal-header">
+      <div class="modal-header">
         <h4 class="modal-title">Muistiinpano</h4>
         <button type="button" class="close" (click)="hideModal2()">
           &times;
         </button>
-      </div> -->
-<!-- 
-      Modal 2 body
+      </div>
+      -->
+      <!--  Modal 2 body -->
       <div class="modal-body">
         <p>Muistiinpanon sisältö</p>
       </div>
 
-       Modal footer 
+      Modal footer
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" (click)="hideModal2()">
           Sulje
         </button>
 
-        this button is hidden, used to close from typescript 
+        this button is hidden, used to close from typescript
         <button
           type="button"
           id="close-modal2"
@@ -109,7 +109,7 @@
       </div>
     </div>
   </div>
-</div> -->
+</div>
 
 <div class="modal fade" id="tehtavanLisaysModal">
   <div class="modal-dialog">
@@ -127,12 +127,12 @@
         <form
           (submit)="submit()"
           method="POST"
-          action="http://localhost:3000/tehtavat"
+          action="http://localhost:3000/tehtavanLisays"
         >
           <div class="select-container">
             <label for="kurssi" class="labelit"> Kurssi</label>
             <select name="kurssi" class="form-control nimi-selecti">
-              <option *ngFor="let kurssi of kurssit2[0]">{{
+              <option *ngFor="let kurssi of kurssit2[0].aktiiviset_kurssit">{{
                 kurssi.nimi
               }}</option>
             </select>
@@ -143,6 +143,8 @@
 
           <label for="deadline" class="labelit"> Deadline</label>
           <input name="deadline" class="modal-input" placeholder="Deadline" />
+
+          <input type="text" [value]="kayttajatunnus" hidden name="tunnus" />
           <button
             type="submit"
             method="POST"

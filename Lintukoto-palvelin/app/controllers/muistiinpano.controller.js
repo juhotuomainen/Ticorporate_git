@@ -224,7 +224,7 @@ exports.poistamp = async (req, res) => {
     muistiinpano_index
   ]._id;
 
-  kayttaja.aktiiviset_kurssit[kurssi_index].muistiinpanot.splice(
+  await kayttaja.aktiiviset_kurssit[kurssi_index].muistiinpanot.splice(
     muistiinpano_index,
     1
   );
