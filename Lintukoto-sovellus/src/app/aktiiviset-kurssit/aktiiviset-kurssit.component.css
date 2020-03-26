@@ -139,3 +139,13 @@ body {
   height: 1px;
   overflow: hidden;
 }
+
+.rivitys {
+  display: inline;
+  padding-left: 1em;
+}
+
+.boldaus {
+  display: inline;
+  font-weight: bold;
+}

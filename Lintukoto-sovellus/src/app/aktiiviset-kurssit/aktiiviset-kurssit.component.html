@@ -345,6 +345,10 @@
       <!-- Modal 2 body -->
       <div class="modal-body">
         <p ngbAutofocus>{{ tehtava.tehtava }}</p>
+        <div *ngIf="tehtava.deadline">
+          <p class="boldaus">Deadline:</p>
+          <p class="rivitys">{{ tehtava.deadline }}</p>
+        </div>
       </div>
 
       <!-- Modal footer -->
