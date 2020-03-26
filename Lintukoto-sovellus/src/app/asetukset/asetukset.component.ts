@@ -70,18 +70,17 @@ export class AsetuksetComponent implements OnInit {
     let today: any = new Date();
     let dd: any = today.getDate();
     // Tammikuu on 0, joten fiksun tulostuksen takia +1
-    let mm: any = today.getMonth()+1;
+    let mm: any = today.getMonth() + 1;
     let yyyy: any = today.getFullYear();
-     if(dd<10){
-            dd='0'+dd
-        } 
-        if(mm<10){
-            mm='0'+mm
-        } 
-    
-    // Koottu päivämäärä viedään lomakkeen max-kohtaan
-    today = yyyy+'-'+mm+'-'+dd;
-    document.getElementById("datefield").setAttribute("max", today);
+    if (dd < 10) {
+      dd = "0" + dd;
+    }
+    if (mm < 10) {
+      mm = "0" + mm;
+    }
 
+    // Koottu päivämäärä viedään lomakkeen max-kohtaan
+    today = yyyy + "-" + mm + "-" + dd;
+    document.getElementById("datefield").setAttribute("max", today);
   }
 }

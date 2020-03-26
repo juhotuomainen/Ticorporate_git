@@ -1,25 +1,25 @@
 /* tekstikentän muotoilut*/
 .tekstit {
-  width: 44%;
-  display: inline-block;
-  position: inherit;
-  margin-left: 4%;
-  top: 0%;
+  width: 370px;
+  position: absolute;
+  top: 40px;
+  left: 15%;
+  text-align: center;
+  margin: 4em auto;
 }
 
 /* sisäänkirjautumislomakkeen muotoilut*/
 .login {
-  width: 42%;
+  width: 360px;
   padding: 1em;
-  align-content: center;
-  justify-content: center;
-  align-self: center;
+  position: absolute;
+  top: 150px;
+  left: 50%;
   text-align: center;
   margin: 4em auto;
-  display: inline-flex;
 }
 
-.login input,
+input,
 h2 {
   margin: 0.3em auto;
   display: block;
@@ -46,11 +46,11 @@ label {
 
 /* kuvan muotoilut*/
 #lintukoto_logo {
-  width: 350px;
-  margin: 1em auto;
-  display: block;
+  width: 370px;
 }
-
+.kuva {
+  text-align: center;
+}
 #submit-btn {
   margin: 1em auto;
   width: 60%;
@@ -63,7 +63,12 @@ label {
     position: relative;
     left: 0px;
     top: 0px;
-    margin-bottom: 45px;
+  }
+  .tekstit {
+    text-align: center;
+    position: relative;
+    left: 0px;
+    top: 0px;
   }
 
   .info {

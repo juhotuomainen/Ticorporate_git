@@ -46,7 +46,7 @@ import { HenkipolloinfoComponent } from "./henkipolloinfo/henkipolloinfo.compone
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ErrorComponent } from "./error/error.component";
 import { MatDialogModule, MatButtonModule } from "@angular/material";
-import { DialogComponent } from './dialog/dialog.component';
+import { DialogComponent } from "./dialog/dialog.component";
 
 @NgModule({
   declarations: [
@@ -82,9 +82,7 @@ import { DialogComponent } from './dialog/dialog.component';
     MatDialogModule,
     MatButtonModule
   ],
-  entryComponents: [
-    DialogComponent
-  ],
+  entryComponents: [DialogComponent],
   providers: [
     DragAndDropService,
     ResizeService,
