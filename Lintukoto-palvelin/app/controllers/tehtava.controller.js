@@ -19,7 +19,7 @@ exports.create = async (req, res) => {
   // Create a Note
   const tehtava = new Object({
     tehtava: req.body.tehtava,
-    deadline: req.body.deadline,
+    deadline: new Date(req.body.deadline),
     kurssi: req.body.kurssi
   });
 

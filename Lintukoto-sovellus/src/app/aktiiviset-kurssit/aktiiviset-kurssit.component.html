@@ -347,7 +347,9 @@
         <p ngbAutofocus>{{ tehtava.tehtava }}</p>
         <div *ngIf="tehtava.deadline">
           <p class="boldaus">Deadline:</p>
-          <p class="rivitys">{{ tehtava.deadline }}</p>
+          <p class="rivitys">
+            {{ tehtava.deadline | date: "d.M.yyyy, H:mm" }}
+          </p>
         </div>
       </div>
 
