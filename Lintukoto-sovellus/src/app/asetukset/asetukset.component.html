@@ -76,8 +76,8 @@ id="kokonaisOp"
 <!-- P-elementti, jossa asiaa kuvaavaa tekstiä. -->
 <p>Olen kiinnostunut osallistumaan mahdollisiin ryhmäni opiskelutuokioihin</p>
           <label class="form-check-label bold" for="yhteisetTuokiot"
-            >Kyllä</label
-          >
+            >Kyllä</label>
+          
           <input
             type="checkbox"
             [(ngModel)]="asetuksetLadattu.asetukset.yhteisetTuokiot"
@@ -86,12 +86,13 @@ id="kokonaisOp"
 id="yhteisetTuokiot"          
 aria-label="Kyllä"
 />
+
           <br />
         </div>
         <!--Radio-napit, joilla kysytään onko opiskeluajankohdalla väliä-->
         <div class="form-check">
-          <label class="form-check-label bold" for="opiskeluajankohta"
-            >Opiskelen tehokkaimmin tähän aikaan päivästä:</label>
+          
+          <p>Opiskelen tehokkaimmin tähän aikaan päivästä:</p>
           <br />
 
 <label for="mihinAikaanVain">Mihin aikaan vain</label>
@@ -105,7 +106,7 @@ id="mihinAikaanVain"
 aria-label="Mihin aikaan vain"
           />
           <br />
-<label for="aamupaiva">Aamupäivä</label>
+<label for="aamupaiva">Aamupäivä</label></label>
           <input
             type="radio"
             name="opiskeluajankohta"
@@ -114,6 +115,7 @@ aria-label="Mihin aikaan vain"
             value="aamupaiva"
 id="aamupaiva"
 aria-label="Aamupäivä"
+
           />
           <br />
 <label for="iltapaiva">Iltapäivä</label>
@@ -126,6 +128,7 @@ aria-label="Aamupäivä"
 id="iltapaiva"
 aria-label="Iltapäivä"
           />
+
           <br />
         </div>
       </fieldset>
@@ -138,8 +141,7 @@ aria-label="Iltapäivä"
           
           <br />
           <label class="form-check-label bold" for="pollojenNakyminen"
-            >Kyllä</label
-          >
+            >Kyllä</label>
           <input
             type="checkbox"
             [(ngModel)]="asetuksetLadattu.asetukset.pollojenNakyminen"
@@ -149,6 +151,7 @@ aria-label="Iltapäivä"
 id="pollojenNakyminen"
 aria-label="Kyllä"
           />
+
           <br />
         </div>
       </fieldset>
@@ -170,6 +173,7 @@ aria-label="Kyllä"
 id="opinnot"
 aria-label="Opinnot"
           />
+
           <br />
 <label for="elamanhallinta">Elämänhallinta</label>
           <input
@@ -181,6 +185,8 @@ aria-label="Opinnot"
 id="elamanhallinta"
 aria-label="Elämänhallinta"
           />
+
+
           <br />
 <label for="valistus">Valistus</label>
           <input
@@ -192,7 +198,8 @@ aria-label="Elämänhallinta"
 id="valistus"
 aria-label="valistus"          
 />
-          Valistus<br />
+
+         <br />
         </div>
       </fieldset>
       <!--Tallennusnappi-->
