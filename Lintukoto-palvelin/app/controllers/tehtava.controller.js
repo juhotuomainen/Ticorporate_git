@@ -16,16 +16,12 @@ exports.create = async (req, res) => {
 
   const kayttaja = await Kayttaja.Kayttaja.findOne({ tunnus: req.body.tunnus });
 
-  console.log(kayttaja.tunnus);
-
   // Create a Note
   const tehtava = new Object({
     tehtava: req.body.tehtava,
     deadline: req.body.deadline,
     kurssi: req.body.kurssi
   });
-
-  console.log(tehtava);
 
   function checkName(value) {
     if (value.nimi == req.body.kurssi) {
@@ -37,8 +33,6 @@ exports.create = async (req, res) => {
   const kurssi_index = await kayttaja.aktiiviset_kurssit.findIndex(checkName);
 
   await kayttaja.aktiiviset_kurssit[kurssi_index].uudetTehtavat.push(tehtava);
-
-  console.log('kurssin index -> ' + kurssi_index);
 
   // Save Note in the database
   kayttaja
