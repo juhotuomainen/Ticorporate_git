@@ -1,11 +1,19 @@
 body {
   background: url("../../assets/images/tapettihuone.png");
   background-position: center;
-  background-repeat: repeat;
+  background-repeat: repeat-y;
   padding-top: 2em;
   padding-bottom: 2em;
   height: auto;
+  margin: 0;
 }
+
+footer {
+  background: url("../../assets/images/tapettihuone.png");
+  background-position: center;
+  background-repeat: repeat-y;
+}
+
 #taulu_untuvikosta_kuva {
   height: auto;
   width: 80px;
@@ -47,7 +55,8 @@ body {
   float: right;
 }
 
-.otsikkoTaso h1, p {
+.otsikkoTaso h1,
+p {
   position: relative;
 }
 

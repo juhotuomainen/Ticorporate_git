@@ -5,6 +5,7 @@ const AktiivinenKurssiSchema = mongoose.Schema({
   nimi: String,
   kuva: String,
   muistiinpanot: Array,
+  opintopisteet: Number,
   uudetTehtavat: Array,
   tehdytTehtavat: Array
 });
