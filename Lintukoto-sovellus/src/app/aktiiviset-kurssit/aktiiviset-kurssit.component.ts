@@ -24,6 +24,7 @@ export class AktiivisetKurssitComponent implements OnInit {
   otsikkoUusi;
   kurssi;
   value;
+  tehtava;
   arvo;
   tunnus = localStorage.user;
   @Output() kurssit2: Array<any> = [];
@@ -51,6 +52,7 @@ export class AktiivisetKurssitComponent implements OnInit {
   open(content, kurssi) {
     //this.modalContent = content;
     this.modalContent = kurssi;
+    this.tehtava = kurssi;
     this.modalService.open(content, { ariaLabelledBy: "modal-basic-title" });
   }
 
