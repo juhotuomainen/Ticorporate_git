@@ -15,11 +15,13 @@ exports.create = (req, res) => {
   }
   console.log(req.body.nimi);
   let opintopisteet;
+  let tehtavat;
 
   Kurssi.findOne({ nimi: req.body.nimi })
     .then(kurssi => {
       console.log(kurssi);
       opintopisteet = kurssi.opintopisteet;
+      tehtavat = kurssi.tehtavat;
     })
     .catch(err => {
       console.log(err);
@@ -33,6 +35,7 @@ exports.create = (req, res) => {
         kuva: req.body.kuva,
         muistiinpanot: [{}],
         aikataulu: true,
+        uudetTehtavat: tehtavat,
         opintopisteet: opintopisteet
       });
 

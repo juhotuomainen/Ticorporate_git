@@ -1,10 +1,10 @@
 html {
-  height: 100vh;
+  height: auto;
 }
 body {
   background: url("../../assets/images/tapettihuone.png");
   background-position: center;
-  background-repeat: repeat-y;
+  background-repeat: repeat;
   padding-top: 2em;
   padding-bottom: 2em;
 }

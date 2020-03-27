@@ -81,6 +81,7 @@ h6 {
   border-radius: 5px;
 }
 .tehtava-linkki {
+  cursor: pointer;
   display: block;
 }
 .kurssi-listaus {
@@ -138,4 +139,14 @@ body {
   width: 1px;
   height: 1px;
   overflow: hidden;
+}
+
+.rivitys {
+  display: inline;
+  padding-left: 1em;
+}
+
+.boldaus {
+  display: inline;
+  font-weight: bold;
 }
