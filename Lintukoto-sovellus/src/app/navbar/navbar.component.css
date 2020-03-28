@@ -20,6 +20,7 @@ h1 {
 
 .navbar-white a {
   color: white;
+  text-shadow: 1px 1px 1px black;
 }
 
 .navbar a {
@@ -31,6 +32,11 @@ h1 {
   height: 3px;
   display: block;
   margin: 3px 0;
+}
+
+.router-link-active {
+  color: skyblue !important;
+  text-shadow: 1px 1px 1px black;
 }
 
 .navbar a:hover,
