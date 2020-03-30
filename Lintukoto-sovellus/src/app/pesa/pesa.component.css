@@ -63,9 +63,13 @@ p {
   position: relative;
 }
 
+h2 {
+  font-size: 22px;
+}
+
 h3 {
   font-size: 18px;
-  font-style: unset;
+  font-weight: bold;
   margin-top: 15px; 
 }
 
