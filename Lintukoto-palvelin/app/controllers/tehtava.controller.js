@@ -1,9 +1,10 @@
 const Tehtava = require('../models/tehtava.model.js');
 const AktiivinenKurssi = require('../models/aktiivinen_kurssi.model');
+const Kayttaja = require('../models/user.model');
 
 // Create and Save a new Note
 // Create and Save a new Note
-exports.create = (req, res) => {
+exports.create = async (req, res) => {
   // Validate request
   if (!req.body) {
     return res.status(400).send({
@@ -11,17 +12,33 @@ exports.create = (req, res) => {
     });
   }
 
+  console.log(req.body);
+
+  const kayttaja = await Kayttaja.Kayttaja.findOne({ tunnus: req.body.tunnus });
+
   // Create a Note
-  const tehtava = new Tehtava({
+  const tehtava = new Object({
     tehtava: req.body.tehtava,
-    deadline: req.body.deadline,
+    deadline: new Date(req.body.deadline),
     kurssi: req.body.kurssi
   });
 
+  function checkName(value) {
+    if (value.nimi == req.body.kurssi) {
+      return true;
+    }
+    return false;
+  }
+
+  const kurssi_index = await kayttaja.aktiiviset_kurssit.findIndex(checkName);
+
+  await kayttaja.aktiiviset_kurssit[kurssi_index].uudetTehtavat.push(tehtava);
+
   // Save Note in the database
-  tehtava
+  kayttaja
     .save()
     .then(data => {
+      console.log(data);
       res.status(200).redirect('http://localhost:4200/aktiiviset');
     })
     .catch(err => {

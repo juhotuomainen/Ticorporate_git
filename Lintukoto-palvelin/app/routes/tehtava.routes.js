@@ -4,4 +4,5 @@ module.exports = app => {
   // Create a new Note
   //app.post('/tehtavat', tehtava.create);
   app.post('/tehtavat', tehtava.findjaupdate);
+  app.post('/tehtavanLisays', tehtava.create);
 };
