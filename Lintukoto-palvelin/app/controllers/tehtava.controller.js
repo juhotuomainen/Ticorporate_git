@@ -12,6 +12,12 @@ exports.create = async (req, res) => {
     });
   }
 
+  if (!req.body.deadline) {
+    return res.status(400).send({
+      message: 'Täytä deadline kohtaan päivämäärä ja kellonaika!'
+    });
+  }
+
   // Haetaan kannasta käyttäjä ja tallennetaan se "kayttaja" muuttujaan
 
   const kayttaja = await Kayttaja.Kayttaja.findOne({ tunnus: req.body.tunnus });

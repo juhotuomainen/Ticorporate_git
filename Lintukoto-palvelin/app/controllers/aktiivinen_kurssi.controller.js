@@ -62,7 +62,7 @@ exports.create = (req, res) => {
         aikataulu: true,
         uudetTehtavat: tehtavat,
         opintopisteet: opintopisteet,
-        kontaktit: kontaktit2
+        kontaktit: kontaktit
       });
 
       Kayttaja.Kayttaja.findOneAndUpdate(
