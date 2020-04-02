@@ -30,26 +30,25 @@ export class AsetuksetComponent implements OnInit {
     });
   }
 
+  // onSumbit funktiolla lähetetään asetukset ja tallennetaan ne tietokantaan
+
   onSubmit(asetusdata) {
-    // koska backiä ei ole vielä niin tieto tallentuu localstorageen
-    console.log(asetusdata);
     this.asetus.tallennaKayttajanAsetukset(asetusdata);
-    // let asetukset = JSON.parse(localStorage.getItem("asetukset"));
-    // katsoo onko taulukossa dataa. Jos ei niin lisätään datatiedon
-    // if (asetukset === null) {
-    // asetukset = [asetusdata];
-    // } else {
-    // jos on niin päivitetään vain muiden asetusten joukkon
-    // asetukset.push(asetusdata);
-    // }
+
     document.getElementById("ilmoitus").classList.add("naytaIlmoitus");
 
     document.getElementById("ilmoitus").classList.remove("piilotaIlmoitus");
   }
+
+  // haeTunnus funktiolla haetaan käyttäjätunnus localstoragesta ja
+  // tallennetaan se tunnus & asetuslomake.tunnus muuttujiin
+
   haeTunnus() {
     this.tunnus = localStorage.getItem("user");
     this.asetuslomake.tunnus = localStorage.getItem("user");
   }
+  // funktio hakee käyttäjän asetukset tietokanasta ja tallentaa ne asetuksetLadattu muuttujaan,
+  // jotta ne voidaan näyttää viewissä.
   haeAsetukset(tunnus) {
     this.asetus.haeKayttajanAsetukset(tunnus).then(asetukset => {
       this.asetuksetLadattu = asetukset;
