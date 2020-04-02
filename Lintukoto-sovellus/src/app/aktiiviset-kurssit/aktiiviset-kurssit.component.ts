@@ -35,6 +35,8 @@ export class AktiivisetKurssitComponent implements OnInit {
     private kurssiService: KurssiService
   ) {}
 
+  // SEURAAVAT 6 FUNKTIOITA AVAA JA SULKEE ERI MODALEITA
+
   showModal2(): void {
     $("#myModal2").modal("show");
   }
@@ -42,7 +44,6 @@ export class AktiivisetKurssitComponent implements OnInit {
     $("#UusiKurssi").modal("show");
   }
   sendModal2(): void {
-    // do something here
     this.hideModal2();
   }
   hideModal2(): void {
@@ -50,20 +51,22 @@ export class AktiivisetKurssitComponent implements OnInit {
   }
 
   open(content, kurssi) {
-    //this.modalContent = content;
     this.modalContent = kurssi;
     this.tehtava = kurssi;
     this.modalService.open(content, { ariaLabelledBy: "modal-basic-title" });
   }
 
   open2(content, otsikko, muistiinpano, kurssi) {
-    //this.modalContent = content;
     this.muistiinpano2 = muistiinpano;
     this.otsikko = otsikko;
     this.otsikkoUusi = otsikko;
     this.kurssi = kurssi;
     this.modalService.open(content, { ariaLabelledBy: "modal-basic-title" });
   }
+
+  // MUISTIINPANON POISTO
+  // suljetaan modal ja kutsutaan kurssiServicen poistaMuistiinpano funktiota, joka poistaa
+  // muistiinpanon tietokannasta.
 
   poistamp() {
     document.getElementById("muistiinpano-close-nappi").click();
@@ -77,10 +80,14 @@ export class AktiivisetKurssitComponent implements OnInit {
     );
   }
 
+  // Modalin avaus
+
   avaa(content) {
     this.modalService.open(content, { ariaLabelledBy: "modal-basic-title" });
   }
   muistiinpano: Array<Muistiinpano>;
+
+  // funktio hakee ja palauttaa kurssikoodit kurssit2 taulukosta.
 
   kurssihaku() {
     for (let Kurssikoodi in this.kurssit2) {
@@ -98,6 +105,8 @@ export class AktiivisetKurssitComponent implements OnInit {
     console.log(this.kurssit2[0]);
   };
 
+  // hakee muistiinpanot kannasta
+
   haeMuistiinpanot = () => {
     for (let kurssi of this.kurssit2) {
       this.yhteysAPI
@@ -106,6 +115,8 @@ export class AktiivisetKurssitComponent implements OnInit {
     }
   };
 
+  // Hakee käyttäjän kurssin kannasta
+
   haeKurssit = tunnus => {
     this.yhteysAPI
       .getKurssit(tunnus)
@@ -113,26 +124,17 @@ export class AktiivisetKurssitComponent implements OnInit {
     console.log(this.kurssit2);
   };
 
+  // Hakee kaikki saatavilla olevat kurssit kannasta
+
   haeKaikkiKurssit = () => {
     this.yhteysAPI.getKaikkiKurssit().subscribe(data => {
       this.kurssit3.push(data);
-      console.log(data);
     });
-    console.log("KURSSIT 3 !!!! !!!!! !!!! -> " + this.kurssit3);
   };
 
-  // showModal(): void {
-  // this.displayService.setShowModal(true);
-  // communication to show the modal, I use a behaviour subject from a service layer here
-  // }
-
   ngOnInit() {
-    // this.yhteysAPI
-    //   .getMuistiinpano("f344")
-    //   .subscribe(data => (this.kurssiTaulukko = data));
     this.haeMuistiinpanot();
     this.haeKurssit(this.tunnus);
     this.haeKaikkiKurssit();
-    console.log(this.tunnus + "testaushommia!!!!!!!!!");
   }
 }
