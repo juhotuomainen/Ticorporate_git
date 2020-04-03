@@ -8,7 +8,7 @@ const KurssiSchema = mongoose.Schema(
     opintopisteet: Number,
     tehtavat: Array,
     koulutusohjelma: String,
-    kontaktit: String
+    kontaktit: Array
   },
   { collection: 'kurssi' }
 );
