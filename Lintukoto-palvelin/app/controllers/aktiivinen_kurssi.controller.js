@@ -1,6 +1,7 @@
 const AktiivinenKurssi = require('../models/aktiivinen_kurssi.model');
 const Kurssi = require('../models/kurssi.model');
 const Kayttaja = require('../models/user.model');
+const KalenteriMerkinta = require('../models/kalenterimerkinta.model');
 const Muistiinpano = require('../models/muistiinpano.model');
 const url = require('../../config/database.config');
 
@@ -18,9 +19,11 @@ exports.create = (req, res) => {
 
   let opintopisteet;
   let tehtavat;
-
+  let kontaktit;
+  let user = req.body.tunnus;
   // Etsitään tietokannan 'kurssi' collectionista match, jonka nimi matchaa req.body.nimeen.
   // -> Tallennetaan opintopisteet ja tehtavat ko. muuttujiin
+  // -> JOS kurssilla on kontaktitunteja, tehdaan niista kalenterimerkinnat
   // -> Luodaan "aktiivinen" Objecti, josta tehdään uusi aktiivinen kurssi.
   // - >Lopuksi pushataan luotu "aktiivinen" Objekti oikean käyttäjän tietoihin.
 
@@ -29,12 +32,27 @@ exports.create = (req, res) => {
       console.log(kurssi);
       opintopisteet = kurssi.opintopisteet;
       tehtavat = kurssi.tehtavat;
+      kontaktit = kurssi.kontaktit;
+      if (kurssi.kontaktit !== 'Verkko') {
+        for (let tunti of kontaktit) {
+          let merkinta = new KalenteriMerkinta({
+            Subject: kurssi.nimi,
+            Id: Math.random(),
+            StartTime: tunti.StartTime,
+            EndTime: tunti.EndTime,
+            IsAllDay: false,
+            Description: kurssi.nimi + ' kontakti tunti',
+            user: user
+          });
+          merkinta.save();
+        }
+      }
     })
     .catch(err => {
       console.log(err);
     })
     .then(lol => {
-      console.log(this.opintopisteet);
+      console.log(opintopisteet);
 
       const aktiivinen = new Object({
         kurssikoodi: req.body.kurssikoodi,
@@ -43,7 +61,8 @@ exports.create = (req, res) => {
         muistiinpanot: [{}],
         aikataulu: true,
         uudetTehtavat: tehtavat,
-        opintopisteet: opintopisteet
+        opintopisteet: opintopisteet,
+        kontaktit: kontaktit
       });
 
       Kayttaja.Kayttaja.findOneAndUpdate(

@@ -7,7 +7,8 @@ const AktiivinenKurssiSchema = mongoose.Schema({
   muistiinpanot: Array,
   opintopisteet: Number,
   uudetTehtavat: Array,
-  tehdytTehtavat: Array
+  tehdytTehtavat: Array,
+  kontaktit: Array
 });
 
 module.exports = mongoose.model('AktiivinenKurssi', AktiivinenKurssiSchema);

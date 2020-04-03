@@ -1,9 +1,10 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, ViewChild } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
 import { YhteysAPIService } from "../yhteys-api.service";
 import { Muistiinpano } from "../muistiinpano.model";
 import { AktiivisetKurssitComponent } from "../aktiiviset-kurssit/aktiiviset-kurssit.component";
 import { Kurssit } from "../kurssit.model";
+import { NgForm } from "@angular/forms";
 
 declare var $: any;
 
@@ -16,7 +17,9 @@ export class ModalComponent implements OnInit {
   kurssiTaulukko: Array<Muistiinpano> = [];
   kayttajatunnus = localStorage.getItem("user");
   user;
+  virhe;
   @Input() kurssit2: [];
+  @ViewChild("f", null) formi: NgForm;
 
   constructor(private yhteysAPI: YhteysAPIService) {}
 
@@ -51,6 +54,7 @@ export class ModalComponent implements OnInit {
     document.getElementById("close-modal2").click();
   }
   hideTehtavanLisaysModal(): void {
+    console.log(this.formi);
     document.getElementById("close-modal-teht").click();
   }
 }
