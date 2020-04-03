@@ -2,26 +2,35 @@ const Tehtava = require('../models/tehtava.model.js');
 const AktiivinenKurssi = require('../models/aktiivinen_kurssi.model');
 const Kayttaja = require('../models/user.model');
 
-// Create and Save a new Note
-// Create and Save a new Note
+// LUODAAN JA TALLENNETAAN KURSSILLE UUSI TEHTÄVÄ
+
 exports.create = async (req, res) => {
-  // Validate request
+  // Tarkistetaan pyyntö
   if (!req.body) {
     return res.status(400).send({
-      message: 'Note content can not be empty'
+      message: 'Täytä vaaditut kentät lisätäksesi uuden tehtävän.'
     });
   }
 
-  console.log(req.body);
+  if (!req.body.deadline) {
+    return res.status(400).send({
+      message: 'Täytä deadline kohtaan päivämäärä ja kellonaika!'
+    });
+  }
+
+  // Haetaan kannasta käyttäjä ja tallennetaan se "kayttaja" muuttujaan
 
   const kayttaja = await Kayttaja.Kayttaja.findOne({ tunnus: req.body.tunnus });
 
-  // Create a Note
+  // Luodaan tehtävä Objekti
   const tehtava = new Object({
     tehtava: req.body.tehtava,
     deadline: new Date(req.body.deadline),
     kurssi: req.body.kurssi
   });
+
+  // Funktio, jolla haetaan oikea kurssi (etsitään kannasta kurssi, jonka nimi
+  // vastaa pyynnön mukana tullutta kurssia)
 
   function checkName(value) {
     if (value.nimi == req.body.kurssi) {
@@ -30,11 +39,15 @@ exports.create = async (req, res) => {
     return false;
   }
 
+  // Haetaan oikean kurssin index taulukossa ja tallennetaan se kurssi:index muuttujaan
+
   const kurssi_index = await kayttaja.aktiiviset_kurssit.findIndex(checkName);
+
+  // Lisätään tehtava Objekti kantaan uudetTehtavat taulukkoon
 
   await kayttaja.aktiiviset_kurssit[kurssi_index].uudetTehtavat.push(tehtava);
 
-  // Save Note in the database
+  // Lopuksi tallennetaan kayttaja muuttuja tietokantaan
   kayttaja
     .save()
     .then(data => {
@@ -43,24 +56,7 @@ exports.create = async (req, res) => {
     })
     .catch(err => {
       res.status(500).send({
-        message: err.message || 'Some error occurred while creating the Note.'
+        message: err.message || 'Virhe! Jokin meni pieleen tehtävää luotaessa.'
       });
     });
-};
-
-exports.findjaupdate = (req, res) => {
-  if (!req.body) {
-    return res.status(400).send({
-      message: 'Dataa ei löytynyt'
-    });
-  }
-  query = { nimi: req.body.kurssi };
-  console.log(query);
-  AktiivinenKurssi.findOneAndUpdate(
-    query,
-    {
-      $push: { uudetTehtavat: req.body }
-    },
-    { new: true }
-  ).then(res.redirect('http://localhost:4200/aktiiviset'));
 };

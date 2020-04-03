@@ -19,6 +19,8 @@ export class AsetuksetService {
   };
   constructor(private http: HttpClient, private router: Router) {}
 
+  // TALLENNETAAN KÄYTTÄJÄN ASETUKSET TIETOKANTAAN
+
   tallennaKayttajanAsetukset(lomake: Object) {
     this.http
       .post("http://localhost:3000/tallennaAseukset", lomake)
@@ -27,9 +29,13 @@ export class AsetuksetService {
       });
   }
 
+  // GETTERI JOLLA HAETAAN asetusLadattu objekti
+
   haeAsetusLadattu() {
     return this.asetusLadattu;
   }
+
+  // HAETAAN KÄYTTÄJÄN ASETUKSET KANNASTA
 
   haeKayttajanAsetukset(tunnus) {
     return new Promise((resolve, reject) => {

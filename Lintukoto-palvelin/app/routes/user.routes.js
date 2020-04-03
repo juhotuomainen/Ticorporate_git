@@ -6,6 +6,11 @@ module.exports = app => {
 
   const Kayttaja = require('../models/user.model');
 
+  // LOGIN
+  // Haetaan kannasta käyttäjä ja verrataan syötettyä salasanaa kannassa olevaan
+  // salasanaan.
+  // -> Luodaan ja palautetaan JWT token joka on voimassa 1 tunnin.
+
   app.post('/login', (req, res) => {
     Kayttaja.Kayttaja.find({ tunnus: req.body.tunnus })
       .exec()
@@ -46,6 +51,9 @@ module.exports = app => {
       })
       .catch();
   });
+
+  // REKISTÖRÖIDÄÄN UUSI TUNNUS
+  // Lisätään uusi tunnus tietokantaan ja haeataaan syötetty salasana
 
   app.post('/signup', (req, res, next) => {
     Kayttaja.Kayttaja.find({ tunnus: req.body.tunnus })
@@ -88,6 +96,8 @@ module.exports = app => {
       });
   });
 
+  // KÄYTTÄJÄN POISTO (ei tällä hetkellä toiminnassa)
+
   app.delete('/:KayttajaId', (req, res, next) => {
     Kayttaja.deleteOne({ _id: req.params.KayttajaId })
       .exec()
@@ -100,16 +110,20 @@ module.exports = app => {
       });
   });
 
+  // ASETUSTEN TALLENNUS
+  // Etsitään kannasta oikea käyttäjä ja tallennetaan syötetyt asetukset
+
   app.post('/tallennaAseukset', (req, res, next) => {
-    console.log(req.body);
     Kayttaja.Kayttaja.findOneAndUpdate(
       { tunnus: req.body.tunnus },
       { $set: { asetukset: req.body } }
     ).then(res.status(200).json({ message: 'Asetukset tallennettu' }));
   });
 
+  // ASETUSTEN HAKU
+  // Haetaan kannasta käyttäjän asetukset
+
   app.get('/haeAsetukset', (req, res, next) => {
-    console.log(req);
     Kayttaja.Kayttaja.findOne({ tunnus: req.query.tunnus }).then(user => {
       res.status(200).json({ asetukset: user.asetukset });
     });
