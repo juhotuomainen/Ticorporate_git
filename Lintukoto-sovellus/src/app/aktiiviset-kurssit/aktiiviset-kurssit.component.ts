@@ -6,6 +6,7 @@ import { DragAndDrop } from "@syncfusion/ej2-angular-schedule";
 
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { KurssiService } from "./kurssi.service";
+import { ActivatedRoute } from "@angular/router";
 
 declare var $: any;
 
@@ -32,7 +33,8 @@ export class AktiivisetKurssitComponent implements OnInit {
   constructor(
     private yhteysAPI: YhteysAPIService,
     private modalService: NgbModal,
-    private kurssiService: KurssiService
+    private kurssiService: KurssiService,
+    private route: ActivatedRoute
   ) {}
 
   // SEURAAVAT 6 FUNKTIOITA AVAA JA SULKEE ERI MODALEITA
