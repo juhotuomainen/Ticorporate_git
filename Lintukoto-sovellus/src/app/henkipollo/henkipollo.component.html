@@ -5,7 +5,7 @@
       <!-- Modal Header -->
       <div class="modal-header">
         <h4 class="modal-title">Kuinka voin auttaa?</h4>
-        <button type="button" class="close" (click)="hideModal()">
+        <button type="button" class="close" (click)="hideModalpollo()">
           &times;
         </button>
       </div>
@@ -15,7 +15,7 @@
         class="btn btn-success nappula"
         data-toggle="modal"
         data-target="#qotdmodal"
-        (click)="hideModal()"
+        (click)="hideModalpollo()"
         (click)="randomLause()"
       >
         Hauska fakta
@@ -24,14 +24,14 @@
         class="btn btn-success nappula"
         data-toggle="modal"
         data-target="#sivumodal"
-        (click)="hideModal()"
+        (click)="hideModalpollo()"
       >
         Mitä tällä sivulla tehdään?
       </button>
       <button
         class="btn btn-success nappula"
         routerLink="/pesa"
-        (click)="hideModal()"
+        (click)="hideModalpollo()"
       >
         Henkipöllön pesä
       </button>
@@ -39,13 +39,13 @@
       <button
         type="button"
         class="btn btn-danger modal-nappi nappula"
-        (click)="hideModal()"
+        (click)="hideModalpollo()"
       >
         Sulje
       </button>
       <button
         type="button"
-        id="close-modal"
+        id="close-modalpollo"
         data-dismiss="modal"
         style="display: none"
       >
