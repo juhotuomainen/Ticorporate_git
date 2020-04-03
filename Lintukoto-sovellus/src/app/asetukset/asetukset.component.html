@@ -65,47 +65,63 @@
 <fieldset form="form1">
 <legend>Opiskeluasetukset</legend>
       <div class="form-check">
+<!-- Muutettiin  label-elementti kappaleeksi (p), sillä ruudunlukuohjelmaa, sillä haluan osallistua mahdollisiiin ryhmäni opiskelutuokioihin -tekstin ja säätimen kyllä-tekstin kanssa olisi tullut ongelmia ruudunlukujohjelman kanssa (lähinnä NVDA). -->
+<p>Olen kiinnostunut osallistumaan mahdollisiin ryhmäni
+          opiskelutuokioihin</p>
+        <br />
         <label class="form-check-label bold" for="yhteisetTuokiot"
-          >Olen kiinnostunut osallistumaan mahdollisiin ryhmäni
-          opiskelutuokioihin</label
-        ><br />
+          >Kyllä</label>
         <input
           type="checkbox"
           [(ngModel)]="asetuksetLadattu.asetukset.yhteisetTuokiot"
           name="yhteisetTuokiot"
           class="form-check-input"
+id="yhteisetTuokiot"
         />
-        Kyllä<br />
+        <br />
       </div>
       <!--Radio-napit, joilla kysytään onko opiskeluajankohdalla väliä-->
       <div class="form-check">
-        <label class="form-check-label bold" for="opiskeluajankohta"
-          >Opiskelen tehokkaimmin tähän aikaan päivästä:</label
-        ><br />
+<p>Opiskelen tehokkaimmin tähän aikaan päivästä:</p>
+        
+<!-- Muutettiin  label-elementti kappaleeksi (p), sillä ruudunlukuohjelmaa, sillä haluan osallistua mahdollisiiin ryhmäni opiskelutuokioihin -tekstin ja säätimen kyllä-tekstin kanssa olisi tullut ongelmia ruudunlukujohjelman kanssa (lähinnä NVDA). Seuraavien säädinten label-elementtien for-attribuutti ja id-attribuutti on keksitty, sillä niitä ei ollut koodissa ennen muutosten teon aloittamista. -->
+<br />
+        <label class="form-check-label bold" for="mihinAikaanVain"
+          >Mihin aikaan vain</label>
+
         <input
           type="radio"
           name="opiskeluajankohta"
           [(ngModel)]="asetuksetLadattu.asetukset.opiskeluajankohta"
           class="form-check-input"
           value="milloinVain"
+id="mihinAikaanVain"
         />
-        Mihin aikaan vain<br />
+        <br />
+        <label class="form-check-label bold" for="aamupaiva"
+          >aamupäibbä</label>
+
         <input
           type="radio"
           name="opiskeluajankohta"
           [(ngModel)]="asetuksetLadattu.asetukset.opiskeluajankohta"
           class="form-check-input"
           value="aamupaiva"
+id="aamupaiva"
         />
-        Aamupäivä<br />
+        <br />
+        <label class="form-check-label bold" for="iltapaiva"
+          >Iltapäivä</label>
+
         <input
           type="radio"
           name="opiskeluajankohta"
           [(ngModel)]="asetuksetLadattu.asetukset.opiskeluajankohta"
           class="form-check-input"
           value="iltapaiva"
+id="iltapaiva"
         />
-        Iltapäivä<br />
+        <br />
       </div>
 
 </fieldset>
@@ -113,66 +129,69 @@
 <fieldset form="form1">
 <legend>Pöllöjen näkyvyys</legend>
       <div class="form-check">
+<p>Haluan nähdä pöllöt sovelluksessani:</p>
+        <br />
         <label class="form-check-label bold" for="pollojenNakyminen"
-          >Haluan nähdä pöllöt sovelluksessani:</label
-        ><br />
+          >Kyllä</label>
         <input
           type="checkbox"
           [(ngModel)]="asetuksetLadattu.asetukset.pollojenNakyminen"
           checked="checked"
           name="pollojenNakyminen"
           class="form-check-input"
+id="pollojenNakyminen"
         />
-        Kyllä<br />
+        <br />
       </div>
 </fieldset>
 <fieldset form="form1">
 <legend>Henkipöllön asetukset</legend>
       <div class="form-check">
-        <label class="form-check-label bold" for="henkipollonAsetukset"
-          >Haluan nämä Henkipöllön ominaisuudet:</label
-        ><br />
+<p>Haluan nämä Henkipöllön ominaisuudet:</p>
+        <br />
         <div>
           <label
             class="form-check-label labeli"
             for="henkipolloOpinnot"
-          ></label>
+          >Tervehdys sisäänkirjautuessa</label>
           <input
             type="checkbox"
             [(ngModel)]="asetuksetLadattu.asetukset.henkipolloOpinnot"
             name="henkipolloOpinnot"
             checked="checked"
             class="form-check-input inblock"
+id="henkipolloOpinnot"
           />
-          Tervehdys sisäänkirjautuessa
+<!-- Alun  perin tässä ollut teksti tervehdys sisäänkirjautuessa on siirretty label-elementtiin. Sama pätee myös valintaruutuihin kehut suoritettuani jotain ja Apua kun opinnoissa on haasteita -->          
         </div>
         <!-- Opinnot<br /> -->
         <div>
-          <label class="form-check-label labeli" for="henkipolloElama"></label>
+          <label class="form-check-label labeli" for="henkipolloElama">Kehut suoritettuani jotain</label>
           <input
             type="checkbox"
             [(ngModel)]="asetuksetLadattu.asetukset.henkipolloElama"
             name="henkipolloElama"
             checked="checked"
             class="form-check-input inblock"
+id="henkipolloElama"
           />
-          Kehut suoritettuani jotain
+          
         </div>
         <!-- Elämänhallinta<br /> -->
         <div>
           <label
             class="form-check-label labeli"
             for="henkipolloValistus"
-          ></label>
+          >Apu jos opinnoissa on haasteita</label>
           <input
             type="checkbox"
             [(ngModel)]="asetuksetLadattu.asetukset.henkipolloValistus"
             name="henkipolloValistus"
             checked="checked"
             class="form-check-input inblock"
+id="henkipolloValistus"
           />
-          Apu jos opinnoissa on haasteita
-        </div>
+       </div>
         <!-- Valistus<br /> -->
       </div>
 </fieldset>
