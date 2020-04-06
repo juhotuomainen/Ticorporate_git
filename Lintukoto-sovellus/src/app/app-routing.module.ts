@@ -6,9 +6,9 @@ import { SuoritetutKurssitComponent } from "./suoritetut-kurssit/suoritetut-kurs
 import { AsetuksetComponent } from "./asetukset/asetukset.component";
 import { KirjautuminenComponent } from "./kirjautuminen/kirjautuminen.component";
 import { ModalComponent } from "./modal/modal.component";
-import { HenkipolloinfoComponent } from "./henkipolloinfo/henkipolloinfo.component";
 import { ErrorComponent } from "./error/error.component";
 import { PesaComponent } from "./pesa/pesa.component";
+import { KauppaComponent } from "./kauppa/kauppa.component";
 
 import { AuthGuard } from "./auth.guard";
 
@@ -17,44 +17,45 @@ const routes: Routes = [
   {
     path: "kalenteri",
     component: KalenteriComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
   {
     path: "aktiiviset",
     component: AktiivisetKurssitComponent,
     canActivate: [AuthGuard],
-    runGuardsAndResolvers: "always"
+    runGuardsAndResolvers: "always",
   },
   {
     path: "suoritetut",
     component: SuoritetutKurssitComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
   {
     path: "asetukset",
     component: AsetuksetComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
   { path: "kirjautuminen", component: KirjautuminenComponent },
   { path: "muistiinpano", component: ModalComponent, canActivate: [AuthGuard] },
+
   {
-    path: "henkipolloinfo",
-    component: HenkipolloinfoComponent,
-    canActivate: [AuthGuard]
+    path: "kauppa",
+    component: KauppaComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: "pesa",
     component: PesaComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
 
   { path: "", component: KirjautuminenComponent },
 
-  { path: "**", component: ErrorComponent }
+  { path: "**", component: ErrorComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { onSameUrlNavigation: "reload" })],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}

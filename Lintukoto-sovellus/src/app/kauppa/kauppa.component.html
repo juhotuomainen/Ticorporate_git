@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div *ngFor="let tuote of tuotteet" class="tuotteet">
+      <div class="kuva">
+        <img src="{{ tuote.kuva }}" alt="Jokaisen tuotteen kuva" />
+      </div>
+      <div class="nimi">
+        <h4>{{ tuote.nimi }}</h4>
+      </div>
+      <div class="hinta">
+        <h5>{{ tuote.hinta }}pst.</h5>
+      </div>
+    </div>
+  </body>
+</html>
