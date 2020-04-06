@@ -14,7 +14,7 @@ declare var $: any;
   selector: "app-aktiiviset-kurssit",
   templateUrl: "./aktiiviset-kurssit.component.html",
   styleUrls: ["./aktiiviset-kurssit.component.css"],
-  providers: [ModalComponent, NgbModal]
+  providers: [ModalComponent, NgbModal],
 })
 export class AktiivisetKurssitComponent implements OnInit {
   navigationSubscription;
@@ -36,6 +36,12 @@ export class AktiivisetKurssitComponent implements OnInit {
     private kurssiService: KurssiService,
     private route: ActivatedRoute
   ) {}
+
+  // Tehtavan valmiiksi merkkaus
+
+  tehtavaValmis(tehtava, kurssi, tunnus) {
+    this.kurssiService.tehtavaTehty(tehtava, kurssi, tunnus);
+  }
 
   // SEURAAVAT 6 FUNKTIOITA AVAA JA SULKEE ERI MODALEITA
 
@@ -102,7 +108,7 @@ export class AktiivisetKurssitComponent implements OnInit {
   }
   lisaaKurssi() {}
 
-  loggaus = function() {
+  loggaus = function () {
     console.log(this.kurssiTaulukko);
     console.log(this.kurssit2[0]);
   };
@@ -113,23 +119,23 @@ export class AktiivisetKurssitComponent implements OnInit {
     for (let kurssi of this.kurssit2) {
       this.yhteysAPI
         .getSingleMuistiinpano(kurssi.Kurssikoodi)
-        .subscribe(data => kurssi.muistiinpanot.push(data));
+        .subscribe((data) => kurssi.muistiinpanot.push(data));
     }
   };
 
   // Hakee käyttäjän kurssin kannasta
 
-  haeKurssit = tunnus => {
+  haeKurssit = (tunnus) => {
     this.yhteysAPI
       .getKurssit(tunnus)
-      .subscribe(data => this.kurssit2.push(data));
+      .subscribe((data) => this.kurssit2.push(data));
     console.log(this.kurssit2);
   };
 
   // Hakee kaikki saatavilla olevat kurssit kannasta
 
   haeKaikkiKurssit = () => {
-    this.yhteysAPI.getKaikkiKurssit().subscribe(data => {
+    this.yhteysAPI.getKaikkiKurssit().subscribe((data) => {
       this.kurssit3.push(data);
     });
   };
