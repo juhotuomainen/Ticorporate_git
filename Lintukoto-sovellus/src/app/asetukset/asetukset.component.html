@@ -17,8 +17,11 @@
         <!--Max-arvo on tällä puolella 2020-05-05 
           mutta ts-tiedoston puolelta siihen syötetään aina current date, joten tästä ei tarvitse välittää-->
         <input
-          type="date" id="datefield" min="1990-01-01" max="2020-05-05"
-          [(ngModel)]="asetuslomake.aloituspaiva"
+          type="date"
+          id="datefield"
+          min="1990-01-01"
+          max="2020-05-05"
+          [(ngModel)]="asetuksetLadattu.asetukset.aloituspaiva"
           name="aloituspaiva"
           class="form-control"
           [value]="asetuksetLadattu.asetukset.aloituspaiva"
@@ -29,7 +32,7 @@
         <label class="bold" for="ryhmatunnus">Ryhmätunnus</label><br />
         <input
           type="text"
-          [(ngModel)]="asetuslomake.ryhmatunnus"
+          [(ngModel)]="asetuksetLadattu.asetukset.ryhmatunnus"
           class="form-control"
           name="ryhmatunnus"
           [placeholder]="asetuksetLadattu.asetukset.ryhmatunnus"
@@ -42,10 +45,13 @@
           >Koulutusohjelman opintopisteiden kokonaismäärä</label
         ><br />
         <input
-          type="number" min="0" max="800"
-          [(ngModel)]="asetuslomake.kokonaisOp"
+          type="number"
+          min="0"
+          max="800"
+          [(ngModel)]="asetuksetLadattu.asetukset.kokonaisOp"
           class="form-control"
           name="kokonaisOp"
+          [placeholder]="asetuksetLadattu.asetukset.kokonaisOp"
           [value]="asetuksetLadattu.asetukset.kokonaisOp"
         />
       </div>
@@ -82,25 +88,25 @@
 
       <div class="form-check">
         <label class="form-check-label bold" for="henkipollonAsetukset"
-          >Näistä teemoista haluan henkipöllön kertovan minulle:</label
+          >Haluan nämä Henkipöllön ominaisuudet:</label
         ><br />
         <div>
-          <label class="form-check-label labeli" for="henkipolloOpinnot"
-            >Opinnot</label
-          >
+          <label
+            class="form-check-label labeli"
+            for="henkipolloOpinnot"
+          ></label>
           <input
             type="checkbox"
             [(ngModel)]="asetuksetLadattu.asetukset.henkipolloOpinnot"
-            checked="checked"
             name="henkipolloOpinnot"
+            checked="checked"
             class="form-check-input inblock"
           />
+          Tervehdys sisäänkirjautuessa
         </div>
         <!-- Opinnot<br /> -->
         <div>
-          <label class="form-check-label labeli" for="henkipolloElama"
-            >Elämänhallinta</label
-          >
+          <label class="form-check-label labeli" for="henkipolloElama"></label>
           <input
             type="checkbox"
             [(ngModel)]="asetuksetLadattu.asetukset.henkipolloElama"
@@ -108,19 +114,22 @@
             checked="checked"
             class="form-check-input inblock"
           />
+          Kehut suoritettuani jotain
         </div>
         <!-- Elämänhallinta<br /> -->
         <div>
-          <label class="form-check-label labeli" for="henkipolloValistus"
-            >Valistus</label
-          >
+          <label
+            class="form-check-label labeli"
+            for="henkipolloValistus"
+          ></label>
           <input
             type="checkbox"
             [(ngModel)]="asetuksetLadattu.asetukset.henkipolloValistus"
-            checked="checked"
             name="henkipolloValistus"
+            checked="checked"
             class="form-check-input inblock"
           />
+          Apu jos opinnoissa on haasteita
         </div>
         <!-- Valistus<br /> -->
       </div>

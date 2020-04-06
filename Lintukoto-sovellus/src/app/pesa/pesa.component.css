@@ -1,73 +1,92 @@
+html {
+  height: auto;
+}
 body {
-  background: url("../../assets/images/tapettihuone.png");
+  background: url("../../assets/images/pelkka_tapetti.png");
   background-position: center;
   background-repeat: repeat;
   padding-top: 2em;
   padding-bottom: 2em;
   height: auto;
 }
-#taulu_untuvikosta_kuva {
+.margin {
+  margin: 20px;
+}
+#taulu {
   height: auto;
   width: 80px;
+  margin-top: 30px;
+  margin-right: 30px;
 }
 #henkipollo_kuva {
   height: auto;
   width: 430px;
+  margin: 10px;
 }
+
 .taulukuva {
   grid-area: taulukuva;
 }
 .kuva {
   grid-area: kuva;
 }
-.margin {
-  margin: 20px;
-}
+
 .listat {
   grid-area: linkit;
+}
+
+.otsikkoTaso {
+  grid-area: otsikko;
 }
 
 .grid-container {
   position: relative;
   background-color: rgb(235, 235, 235);
   display: grid;
+
   grid-template-areas:
     "otsikko otsikko otsikko taulukuva "
     "linkit linkit kuva kuva"
     "linkit linkit kuva kuva";
+
   width: 75%;
   margin: 2em auto;
   border: 10px solid #8f5400;
-}
-.otsikkoTaso {
-  grid-area: otsikko;
 }
 
 .otsikkoTaso img {
   float: right;
 }
 
-.otsikkoTaso h1, p {
+.otsikkoTaso h1,
+p {
   position: relative;
+}
+
+h2 {
+  font-size: 22px;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 15px; 
 }
 
 @media (max-width: 991px) {
   #henkipollo_kuva {
-    position: relative;
-    top: 0px;
-    right: 0px;
+    height: auto;
+    width: 300px;
+    margin: 10px;
   }
 }
 
-@media (max-width: 630px) {
-  #henkipollo_kuva {
-    position: relative;
-    top: 0px;
-    right: 0px;
-  }
-  .kuva {
-    text-align: center;
-    height: 400px;
-    width: 400px;
+@media (max-width: 830px) {
+  .grid-container {
+    grid-template-areas:
+      "otsikko otsikko "
+      "linkit linkit "
+      "linkit linkit "
+      "kuva taulukuva";
   }
 }

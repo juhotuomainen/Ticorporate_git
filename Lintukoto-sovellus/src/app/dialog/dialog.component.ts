@@ -7,16 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DialogComponent implements OnInit {
 
-  valittuKehu;
+  valittuTervehdys;
 
   constructor() { }
 
   ngOnInit() {
-    this.randomKehu();
+    this.randomTervehdys();
   }
 
-  // Taulukko, jossa on kaikki kehuvaihtoehdot
-  kehut = [
+  // Taulukko, jossa on kaikki tervehdysvaihtoehdot sisäänkirjautuessa
+  tervehdykset = [
     "Olet tehnyt upeasti hommia viime aikoina, hyvää työtä!",
     "Olet ollut mestari ajankäyttäjä. Jatka samaan malliin!",
     "Olen seurannut sinun ahkeraa työskentelyäsi. Osaat hyvin!",
@@ -27,13 +27,12 @@ export class DialogComponent implements OnInit {
     "Hienoa katsella, kun joku osaa.",
     "Sinulla on homma hallussa! Ja vaikka ei olisikaan, otat homman kyllä aina lopulta haltuun!",
     "Tähän aktiivisuuteen ei ole kellään nokan koputtamista."
-
   ];
   
   //arpoo randomilla yhden kehun aiemmin luodusta taulukosta
-  randomKehu() {
-    this.valittuKehu = this.kehut[
-      Math.floor(Math.random() * this.kehut.length)
+  randomTervehdys() {
+    this.valittuTervehdys = this.tervehdykset[
+      Math.floor(Math.random() * this.tervehdykset.length)
     ];
   }
 

@@ -7,43 +7,6 @@
     <title>{{ title }}</title>
   </head>
   <body>
-    <!-- <header>
-      <nav class="navbar navbar-expand-lg navbar-white bg-dark">
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNavAltMarkup"
-          aria-controls="navbarNavAltMarkup"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-          <span class="navbar-toggler-icon"></span>
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a class="nav-item nav-link linkki" (click)="avaa(UusiKurssi)"
-              >Lisää uusi kurssi</a
-            >
-            <a
-              class="nav-item nav-link linkki"
-              data-toggle="modal"
-              data-target="#myModal"
-              >Lisää muistiinpano</a
-            >
-            <a
-              class="nav-item nav-link linkki"
-              data-toggle="modal"
-              data-target="#tehtavanLisaysModal"
-              >Lisää tehtävä</a
-            >
-          </div>
-        </div>
-      </nav>
-    </header> -->
-
     <ul class="kurssi-listaus">
       <div class="button-container">
         <button class="btn btn-success lisays-nappi" (click)="avaa(UusiKurssi)">
@@ -69,8 +32,19 @@
         id="kurssilista"
       >
         <div class="kurssi-kortti">
-          <img src="{{ kurssi.kuva }}" id="pollo" alt="Kuva kurssipöllöstä" />
+          <img
+            src="{{ kurssi.kuva }}"
+            id="pollo"
+            alt="Kuva kurssipöllöstä, joka ilmoittaa, onko kurssi aikataulussa."
+          />
+          <p *ngIf="kurssi.aikataulu" class="hidden">
+            Kurssi etenee aikataulussa. Hienoa!
+          </p>
+          <p *ngIf="!kurssi.aikataulu" class="hidden">
+            Kurssin suoritus ei etene aikataulussa. Nyt on aika ryhdistäytyä!
+          </p>
           <h5>{{ kurssi.nimi }}</h5>
+          <h5>({{ kurssi.opintopisteet }}op)</h5>
           <div id="muistiinpanolista">
             <h6>Muistiinpanot</h6>
             <div *ngFor="let muistio of kurssi.muistiinpanot">
@@ -161,7 +135,7 @@
             <h6>Tekemättömät tehtävät</h6>
             <a
               *ngFor="let tehtava of kurssi.uudetTehtavat"
-              (click)="open(content, tehtava.tehtava)"
+              (click)="open(tehtavamodal, tehtava)"
               class="tehtava-linkki"
             >
               {{ tehtava.tehtava }}
@@ -197,8 +171,7 @@
               ngbAutofocus
               name="nimi"
             >
-              <option>-- Valitse kurssi --</option>
-              <option *ngFor="let i of kurssit3[0]">
+              <option value="{{ i.nimi }}" *ngFor="let i of kurssit3[0]">
                 {{ i.nimi }}
               </option>
               <input
@@ -333,7 +306,11 @@
 
       <!-- Modal footer -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-success">
+        <button
+          type="button"
+          (click)="modal.dismiss('Cross click')"
+          class="btn btn-success"
+        >
           Peruuta
         </button>
         <button type="button" class="btn btn-danger" (click)="poistamp()">
@@ -345,6 +322,52 @@
           type="button"
           id="close-modal4"
           data-dismiss="myModal4"
+          style="display: none"
+        >
+          Close
+        </button>
+      </div>
+    </ng-template>
+
+    <ng-template #tehtavamodal let-modal>
+      <div class="modal-header" id="myModal2">
+        <!-- Modal Header -->
+        <h4 class="modal-title">Tehtävä</h4>
+        <button
+          type="button"
+          class="close"
+          id="muistiinpano-close-nappi"
+          (click)="modal.dismiss('Cross click')"
+        >
+          &times;
+        </button>
+      </div>
+      <!-- Modal 2 body -->
+      <div class="modal-body">
+        <p ngbAutofocus>{{ tehtava.tehtava }}</p>
+        <div *ngIf="tehtava.deadline">
+          <p class="boldaus">Deadline:</p>
+          <p class="rivitys">
+            {{ tehtava.deadline | date: "d.M.yyyy, H:mm" }}
+          </p>
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-danger"
+          (click)="modal.dismiss('Cross click')"
+        >
+          Sulje
+        </button>
+
+        <!-- this button is hidden, used to close from typescript -->
+        <button
+          type="button"
+          id="close-modal2"
+          data-dismiss="modal"
           style="display: none"
         >
           Close

@@ -24,6 +24,9 @@ const AktiivisetKurssitSchema = mongoose.Schema(
     kurssikoodi: { type: String },
     nimi: { type: String },
     kuva: { type: String },
+    opintopisteet: { type: Number },
+    aikataulu: { type: Boolean },
+    uudetTehtavat: { type: [] },
     muistiinpanot: [MuistiinpanoSchema1]
   },
   { collection: 'AktiivisetKurssit' }
