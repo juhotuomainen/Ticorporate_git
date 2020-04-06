@@ -2,7 +2,7 @@ html {
   height: auto;
 }
 body {
-  background: url("../../assets/images/tapettihuone.png");
+  background: url("../../assets/images/pelkka_tapetti.png");
   background-position: center;
   background-repeat: repeat;
   padding-top: 2em;
@@ -61,6 +61,16 @@ body {
 .otsikkoTaso h1,
 p {
   position: relative;
+}
+
+h2 {
+  font-size: 22px;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 15px; 
 }
 
 @media (max-width: 991px) {
