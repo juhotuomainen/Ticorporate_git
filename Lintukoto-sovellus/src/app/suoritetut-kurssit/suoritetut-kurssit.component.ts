@@ -3,6 +3,7 @@ import Swiper from "swiper";
 import { YhteysAPIService } from "../yhteys-api.service";
 import { Kurssi } from "../kurssi.model";
 import { Observable } from "rxjs";
+import { User } from "../user.model";
 
 @Component({
   selector: "app-suoritetut-kurssit",
@@ -15,6 +16,8 @@ export class SuoritetutKurssitComponent implements AfterViewInit, OnInit {
   tunnus = localStorage.user;
 
   kurssit2: Array<Kurssi> = new Array();
+
+  kayttaja: User;
 
   mySwiper: Swiper;
   // tslint:disable-next-line: ban-types
@@ -109,10 +112,11 @@ export class SuoritetutKurssitComponent implements AfterViewInit, OnInit {
       .subscribe((data: Kurssi) => {
         this.kurssit2.push(data);
         console.log(data);
-        for (let kurssi of this.kurssit2) {
-          this.kurssityht = this.kurssityht + kurssi.opintopisteet;
-        }
       });
+    this.yhteysApi.getKurssit(this.tunnus).subscribe((tunnus) => {
+      this.kayttaja = tunnus;
+      console.log(this.kayttaja);
+    });
   }
 
   ngAfterViewInit() {

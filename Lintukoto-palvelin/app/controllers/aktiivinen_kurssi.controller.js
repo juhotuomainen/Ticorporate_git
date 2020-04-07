@@ -13,7 +13,7 @@ exports.create = (req, res) => {
   // Tarkistetaan, että requestin mukana tulee body, ja jos ei tule lähetetään virheilmoitus.
   if (!req.body) {
     return res.status(400).send({
-      message: 'Virhe! Kurssia ei löytynyt.',
+      message: 'Virhe! Kurssia ei löytynyt.'
     });
   }
 
@@ -42,7 +42,7 @@ exports.create = (req, res) => {
             EndTime: tunti.EndTime,
             IsAllDay: false,
             Description: kurssi.nimi + ' kontakti tunti',
-            user: user,
+            user: user
           });
           merkinta.save();
         }
@@ -62,13 +62,13 @@ exports.create = (req, res) => {
         aikataulu: true,
         uudetTehtavat: tehtavat,
         opintopisteet: opintopisteet,
-        kontaktit: kontaktit,
+        kontaktit: kontaktit
       });
 
       Kayttaja.Kayttaja.findOneAndUpdate(
         { tunnus: req.body.tunnus },
         {
-          $push: { aktiiviset_kurssit: aktiivinen },
+          $push: { aktiiviset_kurssit: aktiivinen }
         },
         { upsert: true }
       ).then(res.status(200).redirect('http://localhost:4200/aktiiviset'));
@@ -94,7 +94,7 @@ exports.lataaSuoritetut = (req, res) => {
 exports.findjaupdate = (req, res) => {
   if (!req.body) {
     return res.status(400).send({
-      message: 'Dataa ei löytynyt',
+      message: 'Dataa ei löytynyt'
     });
   }
   console.log(req.body);
@@ -102,7 +102,7 @@ exports.findjaupdate = (req, res) => {
   Kayttaja.Kayttaja.updateOne(
     {
       tunnus: req.body.tunnus,
-      'aktiiviset_kurssit.nimi': req.body.kurssi,
+      'aktiiviset_kurssit.nimi': req.body.kurssi
     },
     { $push: { 'aktiiviset_kurssit.$.muistiinpanot': req.body } }
   )
@@ -118,14 +118,14 @@ exports.createKurssi = (req, res) => {
   // Validoidaan pyyntö
   if (!req.body) {
     return res.status(400).send({
-      message: 'Valitse kurssi pudotusvalikosta. Kurssi ei voi olla tyhjä!',
+      message: 'Valitse kurssi pudotusvalikosta. Kurssi ei voi olla tyhjä!'
     });
   }
 
   const kurssi = new Kurssi({
     kurssikoodi: req.body.kurssikoodi,
     nimi: req.body.nimi,
-    kuvaus: req.body.kuvaus,
+    kuvaus: req.body.kuvaus
   });
 
   kurssi
@@ -135,7 +135,7 @@ exports.createKurssi = (req, res) => {
     })
     .catch((err) => {
       res.status(500).send({
-        message: err.message || 'Some error occurred while creating the Note.',
+        message: err.message || 'Some error occurred while creating the Note.'
       });
     });
 };
@@ -149,7 +149,7 @@ exports.findAllKurssi = (req, res) => {
     })
     .catch((err) => {
       res.status(500).send({
-        message: err.message || 'Some error occurred while retrieving notes.',
+        message: err.message || 'Some error occurred while retrieving notes.'
       });
     });
 };
@@ -169,6 +169,9 @@ exports.suoritettu = async (req, res) => {
   const kurssi_index = await kayttaja.aktiiviset_kurssit.findIndex(checkName);
 
   const kurssi = await kayttaja.aktiiviset_kurssit[kurssi_index];
+
+  kayttaja.opintopisteet =
+    (await kayttaja.opintopisteet) + kurssi.opintopisteet;
 
   await kayttaja.suoritetut_kurssit.push(kurssi);
 
