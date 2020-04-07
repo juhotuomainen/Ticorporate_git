@@ -5,6 +5,7 @@ export class Kurssi {
     public kuva: string,
     public muistiinpanot: string,
     public tehdytTehtavat: [],
-    public uudetTehtavat: []
+    public uudetTehtavat: [],
+    public opintopisteet: number
   ) {}
 }

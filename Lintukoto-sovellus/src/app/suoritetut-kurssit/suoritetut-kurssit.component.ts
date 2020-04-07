@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit } from "@angular/core";
 import Swiper from "swiper";
 import { YhteysAPIService } from "../yhteys-api.service";
 import { Kurssi } from "../kurssi.model";
+import { Observable } from "rxjs";
 
 @Component({
   selector: "app-suoritetut-kurssit",
@@ -13,7 +14,7 @@ export class SuoritetutKurssitComponent implements AfterViewInit, OnInit {
 
   tunnus = localStorage.user;
 
-  kurssit2: Kurssi;
+  kurssit2: Array<Kurssi> = new Array();
 
   mySwiper: Swiper;
   // tslint:disable-next-line: ban-types
@@ -99,18 +100,19 @@ export class SuoritetutKurssitComponent implements AfterViewInit, OnInit {
   ];
 
   //opintopisteet yhteensä
-  kurssityht: number = this.kurssit
-    .map((a) => a.pisteet)
-    .reduce(function (a, b) {
-      return a + b;
-    });
-
+  kurssityht: number;
   constructor(private yhteysApi: YhteysAPIService) {}
 
   ngOnInit() {
-    this.yhteysApi.getSuoritetutKurssit(this.tunnus).subscribe((data) => {
-      this.kurssit2 = data;
-    });
+    this.yhteysApi
+      .getSuoritetutKurssit(this.tunnus)
+      .subscribe((data: Kurssi) => {
+        this.kurssit2.push(data);
+        console.log(data);
+        for (let kurssi of this.kurssit2) {
+          this.kurssityht = this.kurssityht + kurssi.opintopisteet;
+        }
+      });
   }
 
   ngAfterViewInit() {
