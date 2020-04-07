@@ -1,4 +1,4 @@
-module.exports = app => {
+module.exports = (app) => {
   const kurssi = require('../controllers/aktiivinen_kurssi.controller.js');
   const muistiinpano = require('../controllers/muistiinpano.controller');
   const express = require('express');
@@ -16,4 +16,6 @@ module.exports = app => {
   app.get('/lataakurssit', kurssi.findAllKurssi);
 
   app.post('/uusikurssi', kurssi.createKurssi);
+
+  app.post('/kurssiSuoritettu', kurssi.suoritettu);
 };

@@ -7,6 +7,17 @@ import { HttpClient } from "@angular/common/http";
 export class KurssiService {
   constructor(private http: HttpClient) {}
 
+  kurssiOnSuoritettu(kurssi, tunnus) {
+    this.http
+      .post("http://localhost:3000/kurssiSuoritettu", {
+        kurssi: kurssi,
+        tunnus: tunnus,
+      })
+      .subscribe((lol) => {
+        location.reload();
+      });
+  }
+
   tehtavaTehty(tehtava, kurssi, tunnus) {
     this.http
       .post("http://localhost:3000/tehtavaOnValmis", {
