@@ -83,6 +83,12 @@ exports.findAll = (req, res) => {
   });
 };
 
+exports.lataaSuoritetut = (req, res) => {
+  Kayttaja.Kayttaja.findOne({ tunnus: req.query.tunnus }).then((result) => {
+    res.send(result.suoritetut_kurssit);
+  });
+};
+
 // ETSITÄÄN KÄYTTÄJÄ JA LISÄTÄÄN TÄLLE UUSI MUISTIINPANO
 
 exports.findjaupdate = (req, res) => {
@@ -148,10 +154,10 @@ exports.findAllKurssi = (req, res) => {
     });
 };
 
+// SIIRRETÄÄN SUORITETTU KURSSI POIS AKTIIVISET KURSSIT TAULUKOSTA SUORITETUT KURSSIT TAULUKKOON
+
 exports.suoritettu = async (req, res) => {
   const kayttaja = await Kayttaja.Kayttaja.findOne({ tunnus: req.body.tunnus });
-  console.log(req.body);
-  console.log(kayttaja);
 
   function checkName(value) {
     if (value.nimi == req.body.kurssi) {

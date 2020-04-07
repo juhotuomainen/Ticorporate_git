@@ -13,6 +13,8 @@ module.exports = (app) => {
 
   //app.get('/kurssit?kurssi=${kurssi}', kurssi.find);
 
+  app.get('/lataaSuoritetutkurssit', kurssi.lataaSuoritetut);
+
   app.get('/lataakurssit', kurssi.findAllKurssi);
 
   app.post('/uusikurssi', kurssi.createKurssi);

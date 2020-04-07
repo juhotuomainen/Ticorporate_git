@@ -10,7 +10,7 @@ import { Kayttaja } from "./kayttaja.model";
 //import "rxjs/add/operator/map";
 //import "rxjs/operator/do";
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class YhteysAPIService {
   constructor(private http: HttpClient) {}
@@ -30,19 +30,29 @@ export class YhteysAPIService {
   getKurssit(tunnus: string): Observable<Kurssi[]> {
     console.log(tunnus);
     return this.http.get<Kurssi[]>(`http://localhost:3000/kurssit`, {
-      params: { tunnus: tunnus }
+      params: { tunnus: tunnus },
     });
   }
   getKaikkiKurssit(): Observable<Kurssit[]> {
     return this.http.get<Kurssit[]>(`http://localhost:3000/lataakurssit`);
   }
+
+  getSuoritetutKurssit(tunnus: string): Observable<Kurssi> {
+    return this.http.get<Kurssi>(
+      `http://localhost:3000/lataaSuoritetutkurssit`,
+      {
+        params: { tunnus: tunnus },
+      }
+    );
+  }
+
   getUser(): Observable<Kayttaja> {
     return this.http.get<Kayttaja>("http://localhost:3000/getuser");
   }
   lahetaKirjautumisTiedot(tunnus, password): Observable<Kayttaja> {
     return this.http.post<Kayttaja>("http://localhost:3000/login", [
       tunnus,
-      password
+      password,
     ]);
   }
 }
