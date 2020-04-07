@@ -68,6 +68,7 @@ exports.valmis = async (req, res) => {
     tehtava: req.body.tehtava,
     deadline: null,
     kurssi: req.body.kurssi,
+    valmis: true,
   });
 
   function checkName(value) {
