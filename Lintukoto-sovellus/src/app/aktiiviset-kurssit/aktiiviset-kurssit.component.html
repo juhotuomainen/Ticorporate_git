@@ -113,7 +113,7 @@
                     type="button"
                     id="close-modal2"
                     data-dismiss="modal"
-                    style="display: none"
+                    style="display: none;"
                   >
                     Close
                   </button>
@@ -125,7 +125,7 @@
             <h6>Tehdyt tehtävät</h6>
             <a
               *ngFor="let tehtava of kurssi.tehdytTehtavat"
-              (click)="open(content, tehtava.tehtava)"
+              (click)="open(tehtavamodal, tehtava)"
               class="tehtava-linkki"
             >
               {{ tehtava.tehtava }}
@@ -207,7 +207,7 @@
           type="button"
           id="close-modal2"
           data-dismiss="modal"
-          style="display: none"
+          style="display: none;"
         >
           Close
         </button>
@@ -276,7 +276,7 @@
             type="button"
             id="close-modal2"
             data-dismiss="modal"
-            style="display: none"
+            style="display: none;"
           >
             Close
           </button>
@@ -322,7 +322,7 @@
           type="button"
           id="close-modal4"
           data-dismiss="myModal4"
-          style="display: none"
+          style="display: none;"
         >
           Close
         </button>
@@ -356,6 +356,13 @@
       <!-- Modal footer -->
       <div class="modal-footer">
         <button
+          *ngIf="!tehtava.valmis"
+          class="btn btn-success"
+          (click)="tehtavaValmis(tehtava.tehtava, tehtava.kurssi, tunnus)"
+        >
+          Merkkaa tehdyksi <i class="fa fa-check"></i>
+        </button>
+        <button
           type="button"
           class="btn btn-danger"
           (click)="modal.dismiss('Cross click')"
@@ -368,7 +375,7 @@
           type="button"
           id="close-modal2"
           data-dismiss="modal"
-          style="display: none"
+          style="display: none;"
         >
           Close
         </button>
