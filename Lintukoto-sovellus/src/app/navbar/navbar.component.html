@@ -38,7 +38,13 @@
           routerLinkActive="router-link-active"
           >Suoritetut kurssit</a
         >
-
+        <a
+          *ngIf="router.url !== '/kirjautuminen' && router.url !== '/'"
+          class="nav-item nav-link white"
+          routerLink="/kauppa"
+          routerLinkActive="router-link-active"
+          >Kauppa</a
+        >
         <a
           *ngIf="router.url !== '/kirjautuminen' && router.url !== '/'"
           class="nav-item nav-link white"

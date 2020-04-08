@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul class="tuotteet-lista">
+      <div class="kurssityht">
+        <h5 class="otsikkotext">
+          Opintopisteet yhteensä: {{ kayttaja.opintopisteet }}
+        </h5>
+      </div>
+      <div *ngFor="let tuote of tuotteet" class="tuotteet">
+        <div class="kuva">
+          <img src="{{ tuote.kuva }}" alt="{{ tuote.nimi }}-kuva" />
+        </div>
+        <div class="nimi">
+          <h4 class="otsikkotext">{{ tuote.nimi }}</h4>
+        </div>
+        <div class="hinta">
+          <h5 class="otsikkotext">{{ tuote.hinta }}pst.</h5>
+        </div>
+      </div>
+    </ul>
+  </body>
+</html>

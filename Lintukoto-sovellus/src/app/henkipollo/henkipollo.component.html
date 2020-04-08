@@ -47,7 +47,7 @@
         type="button"
         id="close-modalpollo"
         data-dismiss="modal"
-        style="display: none"
+        style="display: none;"
       >
         Close
       </button>
@@ -85,7 +85,7 @@
         type="button"
         id="close-modalqotd"
         data-dismiss="modal"
-        style="display: none"
+        style="display: none;"
       >
         Close
       </button>
@@ -206,6 +206,20 @@
           muuhunkin.”
         </p>
       </div>
+      <div *ngIf="router.url === '/kauppa'">
+        <div class="modal-header">
+          <h4 class="modal-title">Kauppa</h4>
+          <button type="button" class="close" (click)="hideModalsivu()">
+            &times;
+          </button>
+        </div>
+        <p class="margin">
+          “Tämä on kauppa-sivu. Täältä pystyt ostamaan erilaisia asusteita ja
+          värejä kurssipöllöillesi. Pisteitä asusteiden ostamiseen saat
+          suoritettuasi kursseilla annettuja tehtäviä ja suorittamalla
+          kursseja.”
+        </p>
+      </div>
 
       <button
         type="button"
@@ -220,7 +234,7 @@
         type="button"
         id="close-modalsivu"
         data-dismiss="modal"
-        style="display: none"
+        style="display: none;"
       >
         Close
       </button>
