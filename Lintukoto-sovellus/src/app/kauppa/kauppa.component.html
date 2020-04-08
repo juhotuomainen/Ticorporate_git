@@ -6,16 +6,23 @@
     <title>Document</title>
   </head>
   <body>
-    <div *ngFor="let tuote of tuotteet" class="tuotteet">
-      <div class="kuva">
-        <img src="{{ tuote.kuva }}" alt="Jokaisen tuotteen kuva" />
+    <ul class="tuotteet-lista">
+      <div class="kurssityht">
+        <h5 class="otsikkotext">
+          Opintopisteet yhteensä: {{ kayttaja.opintopisteet }}
+        </h5>
       </div>
-      <div class="nimi">
-        <h4>{{ tuote.nimi }}</h4>
+      <div *ngFor="let tuote of tuotteet" class="tuotteet">
+        <div class="kuva">
+          <img src="{{ tuote.kuva }}" alt="{{ tuote.nimi }}-kuva" />
+        </div>
+        <div class="nimi">
+          <h4 class="otsikkotext">{{ tuote.nimi }}</h4>
+        </div>
+        <div class="hinta">
+          <h5 class="otsikkotext">{{ tuote.hinta }}pst.</h5>
+        </div>
       </div>
-      <div class="hinta">
-        <h5>{{ tuote.hinta }}pst.</h5>
-      </div>
-    </div>
+    </ul>
   </body>
 </html>

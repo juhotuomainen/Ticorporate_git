@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Tuote } from "../tuote.model";
+import { User } from "../user.model";
+import { YhteysAPIService } from "../yhteys-api.service";
 
 @Component({
   selector: "app-kauppa",
@@ -7,6 +9,10 @@ import { Tuote } from "../tuote.model";
   styleUrls: ["./kauppa.component.css"],
 })
 export class KauppaComponent implements OnInit {
+  tunnus = localStorage.user;
+  kayttaja: User;
+  kurssityht: number;
+
   tuotteet: Array<Tuote> = [
     {
       nimi: "Hyrrahattu",
@@ -24,58 +30,58 @@ export class KauppaComponent implements OnInit {
       kuva: "../../assets/images/lippalakki.svg",
     },
     {
-      nimi: "Kyynel",
-      hinta: 1,
-      kuva: "../../assets/images/kyyneleet.svg",
+      nimi: "Kaulahuivi",
+      hinta: 5,
+      kuva: "../../assets/images/kaulahuivi.svg",
     },
     {
-      nimi: "Lippalakki",
-      hinta: 3,
-      kuva: "../../assets/images/lippalakki.svg",
+      nimi: "Kruunu",
+      hinta: 2,
+      kuva: "../../assets/images/kruunu.svg",
     },
     {
-      nimi: "Lippalakki",
-      hinta: 3,
-      kuva: "../../assets/images/lippalakki.svg",
+      nimi: "Hiiri",
+      hinta: 4,
+      kuva: "../../assets/images/hiiri.svg",
     },
     {
-      nimi: "Lippalakki",
+      nimi: "Laukku",
       hinta: 3,
-      kuva: "../../assets/images/lippalakki.svg",
+      kuva: "../../assets/images/laukku.svg",
     },
     {
-      nimi: "Lippalakki",
-      hinta: 3,
-      kuva: "../../assets/images/lippalakki.svg",
+      nimi: "Silinteri",
+      hinta: 9,
+      kuva: "../../assets/images/mustahattu.svg",
     },
     {
-      nimi: "Lippalakki",
+      nimi: "Naamio",
       hinta: 3,
-      kuva: "../../assets/images/lippalakki.svg",
+      kuva: "../../assets/images/naamio.svg",
     },
     {
-      nimi: "Lippalakki",
+      nimi: "Pipo",
       hinta: 3,
-      kuva: "../../assets/images/lippalakki.svg",
+      kuva: "../../assets/images/pipo.svg",
     },
     {
-      nimi: "Lippalakki",
-      hinta: 3,
-      kuva: "../../assets/images/lippalakki.svg",
+      nimi: "Rusetti",
+      hinta: 2,
+      kuva: "../../assets/images/rusetti.svg",
     },
     {
-      nimi: "Lippalakki",
-      hinta: 3,
-      kuva: "../../assets/images/lippalakki.svg",
-    },
-    {
-      nimi: "Lippalakki",
-      hinta: 3,
-      kuva: "../../assets/images/lippalakki.svg",
+      nimi: "Pyöreät lasit",
+      hinta: 5,
+      kuva: "../../assets/images/pyoreetlasit.svg",
     },
   ];
 
-  constructor() {}
+  constructor(private yhteysApi: YhteysAPIService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.yhteysApi.getKurssit(this.tunnus).subscribe((tunnus) => {
+      this.kayttaja = tunnus;
+      console.log(this.kayttaja);
+    });
+  }
 }
