@@ -151,7 +151,7 @@
             *ngIf="!f.controls.kurssi.valid && !f.controls.kurssi.untouched"
             class="varoitus"
           >
-            Tehtävä kenttä ei voi olla tyhjä!
+            Kurssi kenttä ei voi olla tyhjä!
           </p>
 
           <label for="tehtava" class="labelit"> Tehtava</label>
@@ -188,6 +188,7 @@
           >
             Lisää sekä päivämäärä, että kellonaika.
           </p>
+
           <button
             [disabled]="!f.valid"
             type="submit"

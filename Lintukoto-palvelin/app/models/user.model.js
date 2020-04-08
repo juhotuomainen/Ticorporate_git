@@ -27,16 +27,34 @@ const AktiivisetKurssitSchema = mongoose.Schema(
     opintopisteet: { type: Number },
     aikataulu: { type: Boolean },
     uudetTehtavat: { type: [] },
+    tehdytTehtavat: { type: [] },
     muistiinpanot: [MuistiinpanoSchema1]
   },
   { collection: 'AktiivisetKurssit' }
 );
+
+const SuoritetutKurssitSchema = mongoose.Schema(
+  {
+    _id: mongoose.Schema.Types.ObjectId,
+    kurssikoodi: { type: String },
+    nimi: { type: String },
+    kuva: { type: String },
+    opintopisteet: { type: Number },
+    aikataulu: { type: Boolean },
+    tehdytTehtavat: { type: [] },
+    muistiinpanot: [MuistiinpanoSchema1]
+  },
+  { collection: 'SuoritetutKurssit' }
+);
+
 const KayttajaSchema = mongoose.Schema(
   {
     _id: mongoose.Schema.Types.ObjectId,
     tunnus: { type: String, required: true, unique: true },
     password: { type: String, required: true },
+    opintopisteet: { type: Number },
     aktiiviset_kurssit: [AktiivisetKurssitSchema],
+    suoritetut_kurssit: [SuoritetutKurssitSchema],
     asetukset: { type: Object, required: false }
   },
   { collection: 'kayttaja' }
