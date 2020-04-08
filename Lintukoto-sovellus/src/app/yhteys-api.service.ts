@@ -6,11 +6,12 @@ import { Kurssi } from "./kurssi.model";
 import { Observable } from "rxjs";
 import { Kurssit } from "./kurssit.model";
 import { Kayttaja } from "./kayttaja.model";
+import { User } from "./user.model";
 // import { Observable } from 'rxjs/observable';
 //import "rxjs/add/operator/map";
 //import "rxjs/operator/do";
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class YhteysAPIService {
   constructor(private http: HttpClient) {}
@@ -27,22 +28,32 @@ export class YhteysAPIService {
       `http://localhost:3000/notes?kurssi=${kurssi}`
     );
   }
-  getKurssit(tunnus: string): Observable<Kurssi[]> {
+  getKurssit(tunnus: string): Observable<User> {
     console.log(tunnus);
-    return this.http.get<Kurssi[]>(`http://localhost:3000/kurssit`, {
-      params: { tunnus: tunnus }
+    return this.http.get<User>(`http://localhost:3000/kurssit`, {
+      params: { tunnus: tunnus },
     });
   }
   getKaikkiKurssit(): Observable<Kurssit[]> {
     return this.http.get<Kurssit[]>(`http://localhost:3000/lataakurssit`);
   }
+
+  getSuoritetutKurssit(tunnus: string): Observable<Kurssi> {
+    return this.http.get<Kurssi>(
+      `http://localhost:3000/lataaSuoritetutkurssit`,
+      {
+        params: { tunnus: tunnus },
+      }
+    );
+  }
+
   getUser(): Observable<Kayttaja> {
     return this.http.get<Kayttaja>("http://localhost:3000/getuser");
   }
   lahetaKirjautumisTiedot(tunnus, password): Observable<Kayttaja> {
     return this.http.post<Kayttaja>("http://localhost:3000/login", [
       tunnus,
-      password
+      password,
     ]);
   }
 }

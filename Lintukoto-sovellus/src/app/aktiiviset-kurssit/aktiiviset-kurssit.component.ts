@@ -28,6 +28,7 @@ export class AktiivisetKurssitComponent implements OnInit {
   tehtava;
   arvo;
   tunnus = localStorage.user;
+  suoritettuKurssiNimi;
   @Output() kurssit2: Array<any> = [];
   @Output() kurssit3: Array<any> = [];
   constructor(
@@ -56,6 +57,16 @@ export class AktiivisetKurssitComponent implements OnInit {
   }
   hideModal2(): void {
     document.getElementById("close-modal2").click();
+  }
+
+  kurssiSuoritettuh(kurssi, tunnus) {
+    this.kurssiService.kurssiOnSuoritettu(kurssi, tunnus);
+  }
+
+  openKurssiSuoritettu(content, kurssi) {
+    this.modalContent = kurssi;
+    this.suoritettuKurssiNimi = kurssi;
+    this.modalService.open(content, { ariaLabelledBy: "modal-basic-title" });
   }
 
   open(content, kurssi) {

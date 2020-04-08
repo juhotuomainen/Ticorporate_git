@@ -28,7 +28,7 @@ exports.create = (req, res) => {
   // - >Lopuksi pushataan luotu "aktiivinen" Objekti oikean käyttäjän tietoihin.
 
   Kurssi.findOne({ nimi: req.body.nimi })
-    .then(kurssi => {
+    .then((kurssi) => {
       console.log(kurssi);
       opintopisteet = kurssi.opintopisteet;
       tehtavat = kurssi.tehtavat;
@@ -48,10 +48,10 @@ exports.create = (req, res) => {
         }
       }
     })
-    .catch(err => {
+    .catch((err) => {
       console.log(err);
     })
-    .then(lol => {
+    .then((lol) => {
       console.log(opintopisteet);
 
       const aktiivinen = new Object({
@@ -78,8 +78,14 @@ exports.create = (req, res) => {
 // ETSITÄÄN TIETTY KÄYTTÄJÄ JA PALAUTETAAN SEN TIEDOT
 
 exports.findAll = (req, res) => {
-  Kayttaja.Kayttaja.findOne({ tunnus: req.query.tunnus }).then(result => {
+  Kayttaja.Kayttaja.findOne({ tunnus: req.query.tunnus }).then((result) => {
     res.send(result);
+  });
+};
+
+exports.lataaSuoritetut = (req, res) => {
+  Kayttaja.Kayttaja.findOne({ tunnus: req.query.tunnus }).then((result) => {
+    res.send(result.suoritetut_kurssit);
   });
 };
 
@@ -101,7 +107,7 @@ exports.findjaupdate = (req, res) => {
     { $push: { 'aktiiviset_kurssit.$.muistiinpanot': req.body } }
   )
     .then(res.status(200).redirect('http://localhost:4200/aktiiviset'))
-    .catch(err => {
+    .catch((err) => {
       console.log(err);
     });
 };
@@ -124,10 +130,10 @@ exports.createKurssi = (req, res) => {
 
   kurssi
     .save()
-    .then(result => {
+    .then((result) => {
       res.status(200).redirect('http://localhost:4200/aktiiviset');
     })
-    .catch(err => {
+    .catch((err) => {
       res.status(500).send({
         message: err.message || 'Some error occurred while creating the Note.'
       });
@@ -138,12 +144,45 @@ exports.createKurssi = (req, res) => {
 
 exports.findAllKurssi = (req, res) => {
   Kurssi.find()
-    .then(notes => {
+    .then((notes) => {
       res.send(notes);
     })
-    .catch(err => {
+    .catch((err) => {
       res.status(500).send({
         message: err.message || 'Some error occurred while retrieving notes.'
       });
+    });
+};
+
+// SIIRRETÄÄN SUORITETTU KURSSI POIS AKTIIVISET KURSSIT TAULUKOSTA SUORITETUT KURSSIT TAULUKKOON
+
+exports.suoritettu = async (req, res) => {
+  const kayttaja = await Kayttaja.Kayttaja.findOne({ tunnus: req.body.tunnus });
+
+  function checkName(value) {
+    if (value.nimi == req.body.kurssi) {
+      return true;
+    }
+    return false;
+  }
+
+  const kurssi_index = await kayttaja.aktiiviset_kurssit.findIndex(checkName);
+
+  const kurssi = await kayttaja.aktiiviset_kurssit[kurssi_index];
+
+  kayttaja.opintopisteet =
+    (await kayttaja.opintopisteet) + kurssi.opintopisteet;
+
+  await kayttaja.suoritetut_kurssit.push(kurssi);
+
+  await kayttaja.aktiiviset_kurssit.splice(kurssi_index, 1);
+
+  (await kayttaja)
+    .save()
+    .then((kayttaja) => {
+      res.status(200).json({ message: 'Kurssi suoritettu' });
+    })
+    .catch((err) => {
+      res.status(500).json({ message: err });
     });
 };
