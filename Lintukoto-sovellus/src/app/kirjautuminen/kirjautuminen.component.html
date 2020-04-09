@@ -40,4 +40,35 @@
       Kirjaudu
     </button>
   </form>
+<!-- Rekisteröitymisen mahdollistavan modaali-ikkunan avausnappi, joka avaa avaaRekisterointiModaali -modaali-ikkunan. -->
+<button class="btn btn-primary" id="rekisteroidy"(click)="avaaRekisteroitymisModal(rekisteroitymisModaali)"
+aria-label="Rekisteröidy (aukeaa ruudunlukuohjelman käyttäjälle erilliseen ikkunaan)"
+>Rekisteröidy</button>
 </div>
+<!-- Modaalin luontirivi -->
+<ng-template #rekisteroitymisModaali let-modal>
+<!-- Modaalin osat -->
+<div>
+<h2>Rekisteröidy Lintukoto-sovellukseen</h2>
+<button type="button" class="close" (click)="modal.dismiss('cross click')"
+aria-label="Sulje rekisteröinti-ikkuna"
+>&times; </button>
+</div>
+<!-- Rekisteröintilomake -->
+<form method="post" action="http://localhost:3000/signup" (submit)="submit()">
+<p>Pakolliset kentät on merkitty tähtimerkillä <strong><abbr>*</abbr></strong>.</p>
+<fieldset>
+<legend>Rekisteröintitiedot</legend>
+<label for="kayttajatunnus">Käyttäjätunnus: <abbr title="pakollinen" aria-label="pakollinen">*</abbr></label>
+<input id="kayttajatunnus" name="tunnus" type="text" />
+<label for="salasana">Salasana: <abbr title="pakollinen" aria-label="pakollinen">*</abbr></label>
+<input id="salasana" name="password" type="password" />
+</fieldset>
+<button type="submit" class="btn btn-success"
+aria-label="Rekisteröidy"
+>Rekisteröidy</button>
+<button type="button" class="btn btn-danger"
+aria-label="Sulje rekisteröinti-ikkuna"
+>Sulje</button>
+</form>
+</ng-template>

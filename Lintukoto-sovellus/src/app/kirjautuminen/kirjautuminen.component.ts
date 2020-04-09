@@ -10,6 +10,7 @@ import { UserService } from "../user.service";
 import { MatDialog, MatDialogConfig } from "@angular/material";
 import { DialogComponent } from "../dialog/dialog.component";
 import { AsetuksetService } from "../asetukset/asetukset.service";
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: "app-kirjautuminen",
@@ -36,9 +37,16 @@ export class KirjautuminenComponent implements OnInit {
     private router: Router,
     private yhteysAPI: YhteysAPIService,
     private dialog: MatDialog,
-    private dialogiasetukset: AsetuksetService
+    private dialogiasetukset: AsetuksetService,
+// Sijoitetaan suojattuun Private) ngbModal-muuttujaan NgbModal-luokka
+private ngModal: NgbModal,
   ) {}
-
+// Luodaan rekisteröintimodaalia käsittelevä funktio. Se avaa modaali-ikkunan.
+avaaRekisteroitymisModal(modalNimi: any)
+{
+// avataan modaali-ikkuna eli parametrina äsken annettu modalNimi. Se on ensimmäinen parametri this.nbgmodal.open-metodissa ja toinen on olio, jossa on arvo aria-LabelledBy ja arvona ruudunlukuohjelmalle näytettävä teksti.
+this.ngModal.open(modalNimi, {ariaLabelledBy:"Rekisteröidy Lintukoto-sovellukseen"});
+}
   ngOnInit() {
     // subscribe tallentaa sen cred-muuttujaan
     // this.AuthService.getData().subscribe((data: any[]) => {

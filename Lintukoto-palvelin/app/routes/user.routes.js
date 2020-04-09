@@ -80,9 +80,9 @@ module.exports = app => {
                 .save()
                 .then(result => {
                   console.log(result);
-                  res.status(201).json({
-                    message: 'Käyttäjä luotu'
-                  });
+                  res.status(201).redirect('http://localhost:4200/');
+                    
+                  // loppuaalto, loppusulku ja puolipiste poistettiin sen vuoksi, koska toiminnallisuutta muutettiin siten, että käyttäjä uudelleenohjataan kirjautumissivulle.
                 })
                 .catch(err => {
                   console.log(err);
