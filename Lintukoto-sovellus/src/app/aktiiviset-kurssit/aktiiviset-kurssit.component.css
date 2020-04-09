@@ -33,7 +33,7 @@
   border-radius: 5px;
 }
 
-h5 {
+h3 {
   color: white;
 }
 
@@ -60,7 +60,7 @@ h5 {
   display: inline-block;
   margin: 1em 1em;
 }
-h6 {
+h4 {
   text-decoration: underline;
 }
 .teht-done {

@@ -50,8 +50,8 @@ aria-label="Lisää uusi tehtävä"
           <p *ngIf="!kurssi.aikataulu" class="hidden">
             Kurssin suoritus ei etene aikataulussa. Nyt on aika ryhdistäytyä!
           </p>
-          <h5>{{ kurssi.nimi }}</h5>
-          <h5>({{ kurssi.opintopisteet }}op)</h5>
+          <h3>{{ kurssi.nimi }}</h3>
+          <h3>({{ kurssi.opintopisteet }}op)</h3>
           <button
             class="btn btn-success"
             *ngIf="kurssi.uudetTehtavat.length == 0"
