@@ -5,7 +5,7 @@
       <!-- Modal Header -->
       <div class="modal-header">
         <h4 class="modal-title">Kuinka voin auttaa?</h4>
-        <button type="button" class="close" (click)="hideModal()">
+        <button type="button" class="close" (click)="hideModalpollo()">
           &times;
         </button>
       </div>
@@ -15,7 +15,7 @@
         class="btn btn-success nappula"
         data-toggle="modal"
         data-target="#qotdmodal"
-        (click)="hideModal()"
+        (click)="hideModalpollo()"
         (click)="randomLause()"
       >
         Hauska fakta
@@ -24,7 +24,7 @@
         class="btn btn-success nappula"
         data-toggle="modal"
         data-target="#sivumodal"
-        (click)="hideModal()"
+        (click)="hideModalpollo()"
       >
         Mitä tällä sivulla tehdään?
       </button>
@@ -39,15 +39,15 @@
       <button
         type="button"
         class="btn btn-danger modal-nappi nappula"
-        (click)="hideModal()"
+        (click)="hideModalpollo()"
       >
         Sulje
       </button>
       <button
         type="button"
-        id="close-modal"
+        id="close-modalpollo"
         data-dismiss="modal"
-        style="display: none"
+        style="display: none;"
       >
         Close
       </button>
@@ -85,7 +85,7 @@
         type="button"
         id="close-modalqotd"
         data-dismiss="modal"
-        style="display: none"
+        style="display: none;"
       >
         Close
       </button>
@@ -206,6 +206,20 @@
           muuhunkin.”
         </p>
       </div>
+      <div *ngIf="router.url === '/kauppa'">
+        <div class="modal-header">
+          <h4 class="modal-title">Kauppa</h4>
+          <button type="button" class="close" (click)="hideModalsivu()">
+            &times;
+          </button>
+        </div>
+        <p class="margin">
+          “Tämä on kauppa-sivu. Täältä pystyt ostamaan erilaisia asusteita ja
+          värejä kurssipöllöillesi. Pisteitä asusteiden ostamiseen saat
+          suoritettuasi kursseilla annettuja tehtäviä ja suorittamalla
+          kursseja.”
+        </p>
+      </div>
 
       <button
         type="button"
@@ -220,7 +234,7 @@
         type="button"
         id="close-modalsivu"
         data-dismiss="modal"
-        style="display: none"
+        style="display: none;"
       >
         Close
       </button>

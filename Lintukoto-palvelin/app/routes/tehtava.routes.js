@@ -1,7 +1,7 @@
-module.exports = app => {
+module.exports = (app) => {
   const kurssi = require('../controllers/aktiivinen_kurssi.controller.js');
   const tehtava = require('../controllers/tehtava.controller');
-  // Create a new Note
-  //app.post('/tehtavat', tehtava.create);
-  app.post('/tehtavat', tehtava.findjaupdate);
+  // Lisätään uusi tehtävä
+  app.post('/tehtavanLisays', tehtava.create);
+  app.post('/tehtavaOnValmis', tehtava.valmis);
 };

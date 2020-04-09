@@ -6,54 +6,56 @@ import { SuoritetutKurssitComponent } from "./suoritetut-kurssit/suoritetut-kurs
 import { AsetuksetComponent } from "./asetukset/asetukset.component";
 import { KirjautuminenComponent } from "./kirjautuminen/kirjautuminen.component";
 import { ModalComponent } from "./modal/modal.component";
-import { HenkipolloinfoComponent } from "./henkipolloinfo/henkipolloinfo.component";
 import { ErrorComponent } from "./error/error.component";
 import { PesaComponent } from "./pesa/pesa.component";
+import { KauppaComponent } from "./kauppa/kauppa.component";
 
-import { AuthGuard } from './auth.guard';
+import { AuthGuard } from "./auth.guard";
 
 const routes: Routes = [
   // canActivate: [AuthGuard] varmistaa että on kirjauduttu sisään, ennen kuin päästään muualle sovelluksessa
   {
     path: "kalenteri",
     component: KalenteriComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
   {
     path: "aktiiviset",
     component: AktiivisetKurssitComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    runGuardsAndResolvers: "always",
   },
   {
     path: "suoritetut",
     component: SuoritetutKurssitComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
   {
     path: "asetukset",
     component: AsetuksetComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
   { path: "kirjautuminen", component: KirjautuminenComponent },
   { path: "muistiinpano", component: ModalComponent, canActivate: [AuthGuard] },
+
   {
-    path: "henkipolloinfo",
-    component: HenkipolloinfoComponent,
-    canActivate: [AuthGuard]
+    path: "kauppa",
+    component: KauppaComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: "pesa",
     component: PesaComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
   },
 
   { path: "", component: KirjautuminenComponent },
 
-  { path: "**", component: ErrorComponent }
+  { path: "**", component: ErrorComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes, { onSameUrlNavigation: "reload" })],
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}

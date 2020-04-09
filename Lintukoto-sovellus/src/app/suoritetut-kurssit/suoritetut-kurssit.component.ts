@@ -1,13 +1,23 @@
 import { Component, OnInit, AfterViewInit } from "@angular/core";
 import Swiper from "swiper";
+import { YhteysAPIService } from "../yhteys-api.service";
+import { Kurssi } from "../kurssi.model";
+import { Observable } from "rxjs";
+import { User } from "../user.model";
 
 @Component({
   selector: "app-suoritetut-kurssit",
   templateUrl: "./suoritetut-kurssit.component.html",
-  styleUrls: ["./swiper.min.css", "./suoritetut-kurssit.component.css"]
+  styleUrls: ["./swiper.min.css", "./suoritetut-kurssit.component.css"],
 })
-export class SuoritetutKurssitComponent implements AfterViewInit {
+export class SuoritetutKurssitComponent implements AfterViewInit, OnInit {
   title: "Suoritetut kurssit";
+
+  tunnus = localStorage.user;
+
+  kurssit2: Array<Kurssi> = new Array();
+
+  kayttaja: User;
 
   mySwiper: Swiper;
   // tslint:disable-next-line: ban-types
@@ -16,90 +26,98 @@ export class SuoritetutKurssitComponent implements AfterViewInit {
       Kurssikoodi: "X301",
       nimi: "Web sovelluskehitys",
       kuva: "../../assets/images/Kurssipollo_oranssi.svg",
-      pisteet: 5
+      pisteet: 5,
     },
     {
       Kurssikoodi: "X302",
       nimi: "Tietokannat",
       kuva: "../../assets/images/Kurssipollo_violetti.svg",
-      pisteet: 1
+      pisteet: 1,
     },
     {
       Kurssikoodi: "X303",
       nimi: "Yrittäjyys",
       kuva: "../../assets/images/Kurssipollo_gradientlilaoranssi.svg",
-      pisteet: 1
+      pisteet: 1,
     },
     {
       Kurssikoodi: "X304",
       nimi: "Web-liiketoiminta",
       kuva: "../../assets/images/Kurssipollo_surku1.svg",
-      pisteet: 2
+      pisteet: 2,
     },
     {
       Kurssikoodi: "X303",
       nimi: "Yrittäjyys",
       kuva: "../../assets/images/Kurssipollo_tummanvihree.svg",
-      pisteet: 3
+      pisteet: 3,
     },
     {
       Kurssikoodi: "X303",
       nimi: "Yrittäjyys",
       kuva: "../../assets/images/Kurssipollo_turkoosi.svg",
-      pisteet: 4
+      pisteet: 4,
     },
     {
       Kurssikoodi: "X303",
       nimi: "Yrittäjyys",
       kuva: "../../assets/images/Kurssipollo_gradientlila.svg",
-      pisteet: 10
+      pisteet: 10,
     },
     {
       Kurssikoodi: "X303",
       nimi: "Yrittäjyys",
       kuva: "../../assets/images/Kurssipollo_gradientkeltanen.svg",
-      pisteet: 8
+      pisteet: 8,
     },
     {
       Kurssikoodi: "X303",
       nimi: "Venäjä",
       kuva: "../../assets/images/Kurssipollo_tummansininen.svg",
-      pisteet: 7
+      pisteet: 7,
     },
     {
       Kurssikoodi: "X303",
       nimi: "Ruotsi 1",
       kuva: "../../assets/images/Kurssipollo_toffee.svg",
-      pisteet: 7
+      pisteet: 7,
     },
     {
       Kurssikoodi: "X303",
       nimi: "Viestintä",
       kuva: "../../assets/images/Kurssipollo_jokupunanen.svg",
-      pisteet: 7
+      pisteet: 7,
     },
     {
       Kurssikoodi: "X303",
       nimi: "Liiketalousmatiikka",
       kuva: "../../assets/images/Kurssipollo_harmaa.svg",
-      pisteet: 7
+      pisteet: 7,
     },
     {
       Kurssikoodi: "X303",
       nimi: "Yrittäjyys",
       kuva: "../../assets/images/Kurssipollo_sinilila.svg",
-      pisteet: 7
-    }
+      pisteet: 7,
+    },
   ];
 
   //opintopisteet yhteensä
-  kurssityht: number = this.kurssit
-    .map(a => a.pisteet)
-    .reduce(function(a, b) {
-      return a + b;
-    });
+  kurssityht: number;
+  constructor(private yhteysApi: YhteysAPIService) {}
 
-  constructor() {}
+  ngOnInit() {
+    this.yhteysApi
+      .getSuoritetutKurssit(this.tunnus)
+      .subscribe((data: Kurssi) => {
+        this.kurssit2.push(data);
+        console.log(data);
+      });
+    this.yhteysApi.getKurssit(this.tunnus).subscribe((tunnus) => {
+      this.kayttaja = tunnus;
+      console.log(this.kayttaja);
+    });
+  }
 
   ngAfterViewInit() {
     //swiperin koodi
@@ -114,15 +132,15 @@ export class SuoritetutKurssitComponent implements AfterViewInit {
         stretch: 0,
         depth: 100,
         modifier: 1,
-        slideShadows: true
+        slideShadows: true,
       },
       keyboard: {
-        enabled: true
+        enabled: true,
       },
       pagination: {
         el: ".swiper-pagination",
-        type: "bullets"
-      }
+        type: "bullets",
+      },
     });
   }
 }

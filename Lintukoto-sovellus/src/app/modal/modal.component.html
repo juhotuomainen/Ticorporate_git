@@ -74,30 +74,30 @@
 </div>
 
 <!-- The Modal -->
-<!-- <div class="modal fade" id="myModal2">
+<div class="modal fade" id="myModal2">
   <div class="modal-dialog">
     <div class="modal-content">
-       Modal Header -->
+      <!-- Modal Header -->
 
-<!-- <div class="modal-header">
+      <div class="modal-header">
         <h4 class="modal-title">Muistiinpano</h4>
         <button type="button" class="close" (click)="hideModal2()">
           &times;
         </button>
-      </div> -->
-<!-- 
-      Modal 2 body
+      </div>
+      -->
+      <!--  Modal 2 body -->
       <div class="modal-body">
         <p>Muistiinpanon sisältö</p>
       </div>
 
-       Modal footer 
+      Modal footer
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" (click)="hideModal2()">
           Sulje
         </button>
 
-        this button is hidden, used to close from typescript 
+        this button is hidden, used to close from typescript
         <button
           type="button"
           id="close-modal2"
@@ -109,7 +109,7 @@
       </div>
     </div>
   </div>
-</div> -->
+</div>
 
 <div class="modal fade" id="tehtavanLisaysModal">
   <div class="modal-dialog">
@@ -125,25 +125,72 @@
       <!-- Modal body -->
       <div class="modal-body">
         <form
+          #f="ngForm"
           (submit)="submit()"
           method="POST"
-          action="http://localhost:3000/tehtavat"
+          action="http://localhost:3000/tehtavanLisays"
         >
           <div class="select-container">
             <label for="kurssi" class="labelit"> Kurssi</label>
-            <select name="kurssi" class="form-control nimi-selecti">
-              <option *ngFor="let kurssi of kurssit2[0]">{{
-                kurssi.nimi
-              }}</option>
+            <select
+              name="kurssi"
+              ngModel
+              required
+              class="form-control nimi-selecti"
+            >
+              <option value="" disabled selected>Valitse kurssi</option>
+              <option
+                required
+                id="kurssi"
+                *ngFor="let kurssi of kurssit2[0].aktiiviset_kurssit"
+                >{{ kurssi.nimi }}</option
+              >
             </select>
           </div>
+          <p
+            *ngIf="!f.controls.kurssi.valid && !f.controls.kurssi.untouched"
+            class="varoitus"
+          >
+            Kurssi kenttä ei voi olla tyhjä!
+          </p>
 
           <label for="tehtava" class="labelit"> Tehtava</label>
-          <input name="tehtava" class="modal-input" placeholder="Tehtävä" />
+          <input
+            name="tehtava"
+            id="tehtava"
+            ngModel
+            class="modal-input"
+            placeholder="Tehtävä"
+            required
+          />
+          <p
+            *ngIf="!f.controls.tehtava.valid && !f.controls.tehtava.untouched"
+            class="varoitus"
+          >
+            Tehtävä kenttä ei voi olla tyhjä!
+          </p>
 
           <label for="deadline" class="labelit"> Deadline</label>
-          <input name="deadline" class="modal-input" placeholder="Deadline" />
+          <input
+            type="datetime-local"
+            name="deadline"
+            id="deadline"
+            class="modal-input"
+            min="2020-01-01T21:00"
+            ngModel
+            required
+          />
+
+          <input type="text" [value]="kayttajatunnus" hidden name="tunnus" />
+          <p
+            *ngIf="!f.controls.deadline.valid && !f.controls.deadline.untouched"
+            class="varoitus"
+          >
+            Lisää sekä päivämäärä, että kellonaika.
+          </p>
+
           <button
+            [disabled]="!f.valid"
             type="submit"
             method="POST"
             name="tehtavaLahete"

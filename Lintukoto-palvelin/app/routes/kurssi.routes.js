@@ -1,30 +1,23 @@
-module.exports = app => {
+module.exports = (app) => {
   const kurssi = require('../controllers/aktiivinen_kurssi.controller.js');
   const muistiinpano = require('../controllers/muistiinpano.controller');
   const express = require('express');
-  // Create a new Note
+  // Luo uusi "aktiivinen kurssi" käyttäjälle
   app.post('/kurssit', kurssi.create);
 
+  // Luo uusi muistiinpano
   app.post('/kurssit/uus', kurssi.findjaupdate);
 
-  // Retrieve all Notes
+  // Hae kaikki kurssit
   app.get('/kurssit', kurssi.findAll);
 
-  app.get('/kurssit?kurssi=${kurssi}', kurssi.find);
+  //app.get('/kurssit?kurssi=${kurssi}', kurssi.find);
+
+  app.get('/lataaSuoritetutkurssit', kurssi.lataaSuoritetut);
 
   app.get('/lataakurssit', kurssi.findAllKurssi);
 
   app.post('/uusikurssi', kurssi.createKurssi);
+
+  app.post('/kurssiSuoritettu', kurssi.suoritettu);
 };
-
-//   app.get('/aktiiviset_kurssit', aktiivisetKurssit.findAll);
-
-//   // Retrieve a single Note with noteId
-//   app.get('/notes?kurssi=${kurssi}', muistiinpano.find);
-
-//   // Update a Note with noteId
-//   app.put('/notes/:noteId', muistiinpano.update);
-
-//   // Delete a Note with noteId
-//   app.delete('/notes/:noteId', muistiinpano.delete);
-// };

@@ -10,7 +10,7 @@ import { ScheduleModule, WeekService } from "@syncfusion/ej2-angular-schedule";
 import {
   DragAndDropService,
   ResizeService,
-  RecurrenceEditorModule
+  RecurrenceEditorModule,
 } from "@syncfusion/ej2-angular-schedule";
 
 import { KalenteriComponent } from "./kalenteri/kalenteri.component";
@@ -37,16 +37,16 @@ import {
   GridModule,
   RowDDService,
   EditService,
-  ToolbarService
+  ToolbarService,
 } from "@syncfusion/ej2-angular-grids";
 import { YhteysAPIService } from "./yhteys-api.service";
 import { PesaComponent } from "./pesa/pesa.component";
 import { HenkipolloComponent } from "./henkipollo/henkipollo.component";
-import { HenkipolloinfoComponent } from "./henkipolloinfo/henkipolloinfo.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ErrorComponent } from "./error/error.component";
 import { MatDialogModule, MatButtonModule } from "@angular/material";
-import { DialogComponent } from './dialog/dialog.component';
+import { DialogComponent } from "./dialog/dialog.component";
+import { KauppaComponent } from "./kauppa/kauppa.component";
 
 @NgModule({
   declarations: [
@@ -60,9 +60,9 @@ import { DialogComponent } from './dialog/dialog.component';
     KirjautuminenComponent,
     PesaComponent,
     HenkipolloComponent,
-    HenkipolloinfoComponent,
     ErrorComponent,
-    DialogComponent
+    DialogComponent,
+    KauppaComponent,
   ],
   imports: [
     BrowserModule,
@@ -80,11 +80,9 @@ import { DialogComponent } from './dialog/dialog.component';
     NgbModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
   ],
-  entryComponents: [
-    DialogComponent
-  ],
+  entryComponents: [DialogComponent],
   providers: [
     DragAndDropService,
     ResizeService,
@@ -92,8 +90,8 @@ import { DialogComponent } from './dialog/dialog.component';
     EditService,
     ToolbarService,
     YhteysAPIService,
-    NgbModal
+    NgbModal,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

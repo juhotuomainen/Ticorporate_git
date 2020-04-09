@@ -1,0 +1,42 @@
+.kuva {
+  height: auto;
+  width: 150px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+body {
+  background-image: url("../../assets/images/pelkka_tapetti.png");
+}
+.nimi {
+  vertical-align: bottom;
+}
+
+.tuotteet {
+  text-align: center;
+  background-color: rgba(51, 81, 100, 0.3);
+  backdrop-filter: blur(12px);
+  width: 210px;
+  height: 210px;
+  margin: 10px;
+  padding: 10px;
+  float: left;
+  line-height: 130px;
+}
+.kurssityht {
+  background-color: rgba(31, 24, 24, 0.5);
+  backdrop-filter: blur(12px);
+  position: relative;
+  width: 260px;
+  padding: 10px;
+  margin-right: auto;
+  top: 1em;
+  margin-left: auto;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.otsikkotext {
+  color: #f7f7f7;
+  margin: 0;
+}

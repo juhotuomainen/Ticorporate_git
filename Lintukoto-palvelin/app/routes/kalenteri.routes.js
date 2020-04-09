@@ -20,7 +20,6 @@ module.exports = app => {
     });
 
     app.post('/GetData', (req, res) => {
-      console.log('QUERY ->>>>>' + req);
       dbo
         .collection('ScheduleData')
         .find({ user: req.body.user })
@@ -29,7 +28,6 @@ module.exports = app => {
         });
     });
     app.post('/BatchData', (req, res) => {
-      console.log(req.body.params.user);
       var eventData = [];
       if (
         req.body.action == 'insert' ||

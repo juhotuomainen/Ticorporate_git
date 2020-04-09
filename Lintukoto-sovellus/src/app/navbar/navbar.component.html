@@ -17,6 +17,7 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a
+          *ngIf="router.url !== '/kirjautuminen' && router.url !== '/'"
           class="nav-item nav-link active"
           routerLink="/kalenteri"
           routerLinkActive="router-link-active"
@@ -24,19 +25,28 @@
         >
 
         <a
+          *ngIf="router.url !== '/kirjautuminen' && router.url !== '/'"
           class="nav-item nav-link white"
           routerLink="/aktiiviset"
           routerLinkActive="router-link-active"
           >Aktiiviset kurssit</a
         >
         <a
+          *ngIf="router.url !== '/kirjautuminen' && router.url !== '/'"
           class="nav-item nav-link white"
           routerLink="/suoritetut"
           routerLinkActive="router-link-active"
           >Suoritetut kurssit</a
         >
-
         <a
+          *ngIf="router.url !== '/kirjautuminen' && router.url !== '/'"
+          class="nav-item nav-link white"
+          routerLink="/kauppa"
+          routerLinkActive="router-link-active"
+          >Kauppa</a
+        >
+        <a
+          *ngIf="router.url !== '/kirjautuminen' && router.url !== '/'"
           class="nav-item nav-link white"
           routerLink="/pesa"
           routerLinkActive="router-link-active"
@@ -44,6 +54,7 @@
         >
 
         <a
+          *ngIf="router.url !== '/kirjautuminen' && router.url !== '/'"
           class="nav-item nav-link white"
           routerLink="/asetukset"
           routerLinkActive="router-link-active"
@@ -51,7 +62,7 @@
         >
 
         <a
-          class="nav-item nav-link white"
+          class="nav-item nav-link white rightf"
           *ngIf="!authService.loggedIn"
           routerLink="/kirjautuminen"
           routerLinkActive="router-link-active"
@@ -59,10 +70,10 @@
         >
 
         <a
-          class="nav-item nav-link white"
+          class="nav-item nav-link white rightf"
           *ngIf="authService.loggedIn"
           (click)="authService.logout()"
-          [routerLink]="['/']"
+          [routerLink]="['/kirjautuminen']"
           >Kirjaudu ulos</a
         >
       </div>
