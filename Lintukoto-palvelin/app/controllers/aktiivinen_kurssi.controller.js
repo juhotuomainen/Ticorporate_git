@@ -12,7 +12,6 @@ const mongoose = require('mongoose');
 exports.create = (req, res) => {
   // Tarkistetaan, että requestin mukana tulee body, ja jos ei tule lähetetään virheilmoitus.
   if (!req.body) {
-// Palautetaan tilaviesti 400, jos muistiinpanoa ei löydy req-luokan body-ominaisuudesta
     return res.status(400).send({
       message: 'Virhe! Kurssia ei löytynyt.'
     });
@@ -74,10 +73,23 @@ exports.create = (req, res) => {
         { upsert: true }
       ).then(res.status(200).redirect('http://localhost:4200/aktiiviset'));
     });
-
 };
 
 // ETSITÄÄN TIETTY KÄYTTÄJÄ JA PALAUTETAAN SEN TIEDOT
+
+exports.findAll = (req, res) => {
+  Kayttaja.Kayttaja.findOne({ tunnus: req.query.tunnus }).then((result) => {
+    res.send(result);
+  });
+};
+
+exports.lataaSuoritetut = (req, res) => {
+  Kayttaja.Kayttaja.findOne({ tunnus: req.query.tunnus }).then((result) => {
+    res.send(result.suoritetut_kurssit);
+  });
+};
+
+// ETSITÄÄN KÄYTTÄJÄ JA LISÄTÄÄN TÄLLE UUSI MUISTIINPANO
 
 exports.findjaupdate = (req, res) => {
   if (!req.body) {
@@ -85,7 +97,6 @@ exports.findjaupdate = (req, res) => {
       message: 'Dataa ei löytynyt'
     });
   }
-// Tulostetaan req-metodin body-osan sisältö konsoliin.
   console.log(req.body);
 
   Kayttaja.Kayttaja.updateOne(
@@ -101,7 +112,7 @@ exports.findjaupdate = (req, res) => {
     });
 };
 
-// LUODAAN UUSI AKTIIVINEN KURSSI KÄYTTÄJÄLLE. CreateKurssi-olio, jonka parametreina req- ja res-parametrit sisältävä nuolifunktio, joka suorittaa kurssin teon.
+// LUODAAN UUSI AKTIIVNEN KURSSI KÄYTTÄJÄLLE
 
 exports.createKurssi = (req, res) => {
   // Validoidaan pyyntö
@@ -110,40 +121,35 @@ exports.createKurssi = (req, res) => {
       message: 'Valitse kurssi pudotusvalikosta. Kurssi ei voi olla tyhjä!'
     });
   }
-// Luodaan new-avainsanalla uusi kurssi-mallin mukainen kurssi, jolla on kurssikoodi, nimi ja kuvaus. Ne löytyvät req-luokan body-ominaisuudesta, esimerkiksi kuvaus löytyy viittaamalla kohtaan req.body.kuvaus.
+
   const kurssi = new Kurssi({
     kurssikoodi: req.body.kurssikoodi,
     nimi: req.body.nimi,
     kuvaus: req.body.kuvaus
   });
-// Tallennetaan kurssi tietokantaan
+
   kurssi
     .save()
     .then((result) => {
       res.status(200).redirect('http://localhost:4200/aktiiviset');
     })
     .catch((err) => {
-
       res.status(500).send({
-        message: err.message || 'Jokin virhe tapahtui muistiinpanoa luotaessa.'
+        message: err.message || 'Some error occurred while creating the Note.'
       });
     });
 };
 
 // ETSITÄÄN KAIKKI KURSSIT
 
-
 exports.findAllKurssi = (req, res) => {
-// Etsitään kutsumalla find-metodia Kurssi- MongoDB-mallin kautta
   Kurssi.find()
-<<<<<<< HEAD
-// Ketjutetaan tehtävää eteenpäin pisteen avulla välittämällä find()-metodin tulos then-metodille, joka lähettää muistiinnpanot eteenpäin käyttäen res-luokan send-ominaisuutta, jonka parametrina on notes (muistiinpanot)..
-    .then(notes => {
+    .then((notes) => {
       res.send(notes);
     })
-
+    .catch((err) => {
       res.status(500).send({
-        message: err.message || 'Jokin virhe tapahtui muistiinpanoa haettaessa.'
+        message: err.message || 'Some error occurred while retrieving notes.'
       });
     });
 };

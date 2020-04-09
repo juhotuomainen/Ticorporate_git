@@ -1,4 +1,3 @@
-// tehtävä ja aktiivinen kurssi käyttöön
 const Tehtava = require('../models/tehtava.model.js');
 const AktiivinenKurssi = require('../models/aktiivinen_kurssi.model');
 const Kayttaja = require('../models/user.model');
@@ -110,5 +109,4 @@ exports.valmis = async (req, res) => {
         message: err.message || 'Virhe! Jokin meni pieleen tehtävää luotaessa.',
       });
     });
-
 };
