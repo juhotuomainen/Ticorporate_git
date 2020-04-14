@@ -44,7 +44,7 @@ private ngModal: NgbModal,
 // Luodaan rekisteröintimodaalia käsittelevä funktio. Se avaa modaali-ikkunan.
 avaaRekisteroitymisModal(modalNimi: any)
 {
-// avataan modaali-ikkuna eli parametrina äsken annettu modalNimi. Se on ensimmäinen parametri this.nbgmodal.open-metodissa ja toinen on olio, jossa on arvo aria-LabelledBy ja arvona ruudunlukuohjelmalle näytettävä teksti.
+// avataan modaali-ikkuna eli parametrina äsken annettu modalNimi. Se on ensimmäinen parametri this.nbgmodal.open-metodissa ja toinen on olio, jossa on arvo aria-LabelledBy ja arvona ruudunlukuohjelmalle sekä muille avustaville teknologioille näytettävä teksti.
 this.ngModal.open(modalNimi, {ariaLabelledBy:"Rekisteröidy Lintukoto-sovellukseen"});
 }
   ngOnInit() {
