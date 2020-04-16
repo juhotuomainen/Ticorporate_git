@@ -9,14 +9,19 @@ Siina Kaakinen
 Annika Manninen
 Tuukka Neijonen
 
-## Lyhyt yleiskuvaus saavutettavuustestauksesta
+## Johdanto
+### Projekti lyhyesti
+Projektin tavoitteena on tehdä web-sovellus, jonka tavoitteena on helpottaa opiskelijoiden ajanhallintaa visualisoimalla opiskelijan ajankäyttö ja opintojaksot. Lisäksi sovellukseen kuuluu Henkipöllö, joka opastaa opiskelijaa tarvittaessa opinnoissa niiden edistämiseksi.
+
+
+### Dokumentin tarkoitus
 Tämän dokumentin tarkoituksena on kuvata Lintukoto-projektin saavutettavuustestausta eri näkökulmista hyödyntäen Verkkosivujen saavutettavuusohjeet -standardia (engl. Web Content Accessibility Guidelines, WCAG 2.1). Standardin englanninkielinen versio löytyy osoitteesta [https://www.w3.org/TR/2018/REC-WCAG21-20180605/](https://www.w3.org/TR/2018/REC-WCAG21-20180605/).
 Suomenkielinen, virallinen käännös löytyy osoitteesta [https://www.w3.org/Translations/WCAG21-fi/](https://www.w3.org/Translations/WCAG21-fi/). Standardi koostuu ohjeista ja onnistumiskriteereistä, jotka on jaettu neljän perusarvon (hallittava, havaittava, ymmärrettävä ja toimintavarma) ympärille. Lisäksi mukana on ohjeidenmukaisuutta koskevia asioita, sanasto ja kappale, jossa selitetään syötteiden tarkoitukset käyttöliittymäkomponenteissa. Saavutettavuustestauksen tavoitteena on parantaa sovelluksen saavutettavuutta niin, että priorisoinnin vuoksi seuraavat saavutettavuustason A määrityksistä toteutuisivat: Verkkosisällön saavutettavuusohjeiden (WCAG) ohje 1.1 ("Tekstivastineet"), jossa suositellaan laittamaan tekstivastineet muille kuin tekstielementeille (kuten kuville), ja ohjeen 2.5 "Syötetavat" toteutuisi siten, että kaikissa tarpeellisiksi katsotuissa sivun elementeissä on asianmukaiset nimilapputagit (<label>-elementti, ohjeen 2.5 onnistumiskriteeri "2.5.3 Nimilappu nimessä", "Label in Name"). Lisäksi olisi järkevää, jos standardin ohjeessa 1.2 oleva kriteeri 1.2.6 ("Määrittele tarkoitus, "Identify purpose") toteutuisi.
 
 Suunnitelmassa kerrotaan testattavat ominaisuudet eri testausluokkien/kategorioiden avulla, joilla on omat alaluokkansa. Käytännössä testataan visuaalisia ja ei-visuaalisia elementtejä. Ensimmäiseen kategoriaan kuuluu muun muassa käyttöliittymän visuaalinen selkeys, kontrastit, responsiivisuus (tekstin koon asianmukainen muuttuminen sivun kokoa muutettaessa) ja asian testaaminen muilla tavoin, kuten Nielsenin heuristiikkaoppeja hyödyntäen. Ei-visuaalisiin testausmenetelmiin kuuluu kaikki sellainen toiminta, jossa näköä ei tarvita tai sen merkitys on vähäisempi, kuten sovelluksen testaus näppäimistöllä ja ruudunlukuohjelman avulla. Kaikki sovelluksen näkymät tullaan testaamaan samoja menetelmiä hyödyntäen: manuaalisen havainnoinnin jälkeen tehdään asiaa täydentävä ja tarkentava konetestaus, jolloin asiasta muodostuu tarkempi kokonaiskuva.
 
 ## Testistrategia
-Tässä luvussa kuvataan lyhyesti käytettävä testistrategia eli manuaalisen havainnointitestauksen (Exploratory testing, tutkiva testaus) ja konetestauksen (WAVE-testaus) tuloksia. Erityisesti tarkkaillaan sitä, noudatetaanko Lintukoto-sovelluksessa WCAG 2.1:tä. Tavoitteena olisi, että ainakin osa saavutettavuustason A asioista täyttyisi. 
+Tässä luvussa kuvataan lyhyesti käytettävä testistrategia eli manuaalisen havainnointitestauksen (Exploratory testing, tutkiva testaus) ja konetestauksen (WAVE-testaus) menetelmiä. Erityisesti tarkkaillaan sitä, noudatetaanko Lintukoto-sovelluksessa WCAG 2.1:tä. Tavoitteena olisi, että ainakin osa saavutettavuustason A asioista täyttyisi (Ks. "Lyhyt yleiskuvaus" otsikko ylempänä). 
 
 ### Testin kohteet
 Kaikki sovelluksen näkymät (Kirjautumis-, Kalenteri, -Aktiiviset kurssit-, Suoritetut kurssit- ja Asetukset-sivu) testataan seuraavalla tavalla:
