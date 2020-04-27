@@ -8,9 +8,9 @@
     <title>Aktiiviset kurssit | {{ title }}</title>
   </head>
   <body>
-<h1>Aktiiviset kurssit</h1>
-<h2>Kurssilistaus</h2>
-    <ul class="kurssi-listaus">
+<!-- Kakkostason otsikko, joka ei näy näkevälle mutta näkyy ruudnlukuohjelmalle (ja myös saavutettavuusrajapinnalle), sijaitsi alun perin tässä, mutta se on siirretty painikkeiden Lisää uusi kurssi, Lisää uusi tehtävä ja Lisää uusi muistiinpano jälkeen. -->
+
+<h1 aria-hidden="false">Aktiiviset kurssit</h1>
       <div class="button-container">
         <button class="btn btn-success lisays-nappi" (click)="avaa(UusiKurssi)"
 aria-label="Lisää uusi kurssi"
@@ -34,6 +34,9 @@ aria-label="Lisää uusi tehtävä"
           Lisää uusi tehtävä
         </button>
       </div>
+<!-- Ykköstason otsikko Aktiiviset kurssit oli aiemmin tässä, mutta se on siirretty ennen painikkeita. -->
+<h2 aria-hidden="false" >Kurssilistaus</h2>
+    <ul class="kurssi-listaus">
       <li
         *ngFor="let kurssi of kurssit2[0].aktiiviset_kurssit"
         id="kurssilista"
