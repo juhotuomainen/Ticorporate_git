@@ -4,6 +4,10 @@
   <div id="background">
     <h1>Asetukset</h1>
     <form (ngSubmit)="onSubmit(form1.value)" #form1="ngForm">
+<fieldset form="form1">
+<!-- Huom! Legend-tagi heti fieldset-tagin perässä, jotta ruudunlukuohjelma osaa lukea lomaketta oikein. Se tulee myös olla ennen div-elementtiä, jotta lomake toimii (todettu toimivaksi ruudunlukuohjelmilla JAWS ja NVDA). -->
+<legend>Koulutusohjelman asetukset</legend>
+
       <div class="form-group">
         <label class="bold" for="aloituspaiva">Opintojen aloituspäivä</label
         ><br />
@@ -55,115 +59,138 @@
           [value]="asetuksetLadattu.asetukset.kokonaisOp"
         />
       </div>
-
+</fieldset>
       <!--checkboxit tästä eteenpäin-->
       <!--checkboxeilla varmistetaan kiinnostusta yhdessä opiskeluun, pöllöjen näkyminen sivuilla sekä henkipöllön asetukset-->
+<fieldset form="form1">
+<legend>Opiskeluasetukset</legend>
       <div class="form-check">
-        <label class="form-check-label bold" for="yhteisetTuokiot"
-          >Olen kiinnostunut osallistumaan mahdollisiin ryhmäni
-          opiskelutuokioihin</label
-        ><br />
+<!-- Muutettiin  label-elementti kappaleeksi (p), sillä haluan osallistua mahdollisiin ryhmäni opiskelutuokioihin -tekstin ja säätimen kyllä-tekstin kanssa olisi tullut ongelmia ruudunlukujohjelman kanssa (lähinnä NVDA). -->
+<p>Olen kiinnostunut osallistumaan mahdollisiin ryhmäni
+          opiskelutuokioihin:</p>
+        <label class="form-check-label" for="yhteisetTuokiot"
+          >Kyllä</label>
         <input
           type="checkbox"
           [(ngModel)]="asetuksetLadattu.asetukset.yhteisetTuokiot"
           name="yhteisetTuokiot"
-          class="form-check-input"
+          class="form-check-input inblock"
+id="yhteisetTuokiot"
         />
-        Kyllä<br />
+        <!-- Valistus<br /> -->
+      </div>
+      <!--Radio-napit, joilla kysytään onko opiskeluajankohdalla väliä-->
+      <div class="form-check">
+<p>Opiskelen tehokkaimmin tähän aikaan päivästä:</p>
+        
+<!-- Muutettiin  label-elementti kappaleeksi (p), sillä ruudunlukuohjelmaa, sillä haluan osallistua mahdollisiiin ryhmäni opiskelutuokioihin -tekstin ja säätimen kyllä-tekstin kanssa olisi tullut ongelmia ruudunlukujohjelman kanssa (lähinnä NVDA). Seuraavien säädinten label-elementtien for-attribuutti ja id-attribuutti on keksitty, sillä niitä ei ollut koodissa ennen muutosten teon aloittamista. -->
+        <label class="form-check-label" for="mihinAikaanVain"
+          >Mihin aikaan vain</label>
+
+        <input
+          type="radio"
+          name="opiskeluajankohta"
+          [(ngModel)]="asetuksetLadattu.asetukset.opiskeluajankohta"
+          class="form-check-input inblock"
+          value="milloinVain"
+id="mihinAikaanVain"
+        />
+        <br />
+        <label class="form-check-label" for="aamupaiva"
+          >Aamupäivä</label>
+
+        <input
+          type="radio"
+          name="opiskeluajankohta"
+          [(ngModel)]="asetuksetLadattu.asetukset.opiskeluajankohta"
+          class="form-check-input inblock"
+          value="aamupaiva"
+id="aamupaiva"
+        />
+        <br />
+        <label class="form-check-label" for="iltapaiva"
+          >Iltapäivä</label>
+
+        <input
+          type="radio"
+          name="opiskeluajankohta"
+          [(ngModel)]="asetuksetLadattu.asetukset.opiskeluajankohta"
+          class="form-check-input inblock"
+          value="iltapaiva"
+id="iltapaiva"
+        />
+        <br />
       </div>
 
+</fieldset>
+
+<fieldset form="form1">
+<legend>Pöllöjen näkyvyys</legend>
       <div class="form-check">
-        <label class="form-check-label bold" for="pollojenNakyminen"
-          >Haluan nähdä pöllöt sovelluksessani:</label
-        ><br />
+<p>Haluan nähdä pöllöt sovelluksessani:</p>
+        <label class="form-check-label" for="pollojenNakyminen"
+          >Kyllä</label>
         <input
           type="checkbox"
           [(ngModel)]="asetuksetLadattu.asetukset.pollojenNakyminen"
           checked="checked"
           name="pollojenNakyminen"
-          class="form-check-input"
+          class="form-check-input inblock"
+id="pollojenNakyminen"
         />
-        Kyllä<br />
+        <br />
       </div>
-
+</fieldset>
+<fieldset form="form1">
+<legend>Henkipöllön asetukset</legend>
       <div class="form-check">
-        <label class="form-check-label bold" for="henkipollonAsetukset"
-          >Haluan nämä Henkipöllön ominaisuudet:</label
-        ><br />
+<p>Haluan nämä Henkipöllön ominaisuudet:</p>
         <div>
           <label
             class="form-check-label labeli"
             for="henkipolloOpinnot"
-          ></label>
+          >Tervehdys sisäänkirjautuessa</label>
           <input
             type="checkbox"
             [(ngModel)]="asetuksetLadattu.asetukset.henkipolloOpinnot"
             name="henkipolloOpinnot"
             checked="checked"
             class="form-check-input inblock"
+id="henkipolloOpinnot"
           />
-          Tervehdys sisäänkirjautuessa
+<!-- Alun  perin tässä ollut teksti tervehdys sisäänkirjautuessa on siirretty label-elementtiin. Sama pätee myös valintaruutuihin kehut suoritettuani jotain ja Apua kun opinnoissa on haasteita -->          
         </div>
         <!-- Opinnot<br /> -->
         <div>
-          <label class="form-check-label labeli" for="henkipolloElama"></label>
+          <label class="form-check-label labeli" for="henkipolloElama">Kehut suoritettuani jotain</label>
           <input
             type="checkbox"
             [(ngModel)]="asetuksetLadattu.asetukset.henkipolloElama"
             name="henkipolloElama"
             checked="checked"
             class="form-check-input inblock"
+id="henkipolloElama"
           />
-          Kehut suoritettuani jotain
-        </div>
+            </div>
         <!-- Elämänhallinta<br /> -->
         <div>
           <label
             class="form-check-label labeli"
             for="henkipolloValistus"
-          ></label>
+          >Apu jos opinnoissa on haasteita</label>
           <input
             type="checkbox"
             [(ngModel)]="asetuksetLadattu.asetukset.henkipolloValistus"
             name="henkipolloValistus"
             checked="checked"
             class="form-check-input inblock"
+id="henkipolloValistus"
           />
-          Apu jos opinnoissa on haasteita
-        </div>
+       </div>
         <!-- Valistus<br /> -->
       </div>
-
-      <!--Radio-napit, joilla kysytään onko opiskeluajankohdalla väliä-->
-      <div class="form-check">
-        <label class="form-check-label bold" for="opiskeluajankohta"
-          >Opiskelen tehokkaimmin tähän aikaan päivästä:</label
-        ><br />
-        <input
-          type="radio"
-          name="opiskeluajankohta"
-          [(ngModel)]="asetuksetLadattu.asetukset.opiskeluajankohta"
-          class="form-check-input"
-          value="milloinVain"
-        />
-        Mihin aikaan vain<br />
-        <input
-          type="radio"
-          name="opiskeluajankohta"
-          [(ngModel)]="asetuksetLadattu.asetukset.opiskeluajankohta"
-          class="form-check-input"
-          value="aamupaiva"
-        />
-        Aamupäivä<br />
-        <input
-          type="radio"
-          name="opiskeluajankohta"
-          [(ngModel)]="asetuksetLadattu.asetukset.opiskeluajankohta"
-          class="form-check-input"
-          value="iltapaiva"
-        />
-        Iltapäivä<br />
-      </div>
+</fieldset>
+<!-- Alun perin radiopainikkeet, joiden avulla määriteltiin opiskeluajankohta, olivat tässä, mutta siirsin niiden paikkaa, koska mielestäni ne kuuluvat paremmin yhteen "Haluan osallistua yhteisiin opiskelutuokioihin" -valintaruudun kanssa, jonka olen laittanut lomakekenttäryhmään "Opiskeluasetukset". Radiopainikkeiden CSS-asetuksia voisi myös muokata vastaamaan tekemääni käyttöliittymämuutosta. -->
 
       <!--Tallennusnappi-->
       <div class="btn-container">

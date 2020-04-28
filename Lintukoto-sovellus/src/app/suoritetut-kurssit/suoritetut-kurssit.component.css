@@ -27,6 +27,21 @@ body {
   margin-left: 1em;
   margin-top: 1em;
 }
+
+/* Kolmostason otsikon määrittelyt (kurssin otsikko tulee tietokannasta). */
+h3 {
+/* Asetetaan fontin kooksi 1em. */
+font-size: 1em;
+
+/* Elementins isätila paddingilla */
+padding: 0;
+/* tasataan teksti keskelle text-align -attribuutilla. */
+text-align: center;
+/* valkoinen väri elementille heksadesimaalilukuna. */
+color: #fefefd;
+/* marginaaliksi 0 */
+margin: 0;
+}
 .otsikkotext {
   color: #f7f7f7;
   margin: 0;
@@ -84,7 +99,7 @@ img {
   position: center;
   margin-left: 40px;
 }
-.swiper-slide .details h3 {
+.swiper-slide .details h1 {
   margin: 0;
   padding: 0;
   font-size: 20px;

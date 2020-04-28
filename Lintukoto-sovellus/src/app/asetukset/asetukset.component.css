@@ -12,12 +12,21 @@ h1 {
   width: 50%;
   margin: auto;
 }
+/* fieldset-luokka, joka määrittelee lomakesäätimien tyylin. */
+fieldset {
+/* Tasataan teksti keskelle text-align -attribuutilla. */
+text-align: center;
 
+}
 /* Muokkaa asetus-sivun "kyselyjen" yksittäisiä kyselykohtia */
 .form-check {
   margin-top: 20px;
   margin-bottom: 20px;
   text-align: center;
+}
+
+p {
+  font-weight: bold;
 }
 
 .tallennusnappi {

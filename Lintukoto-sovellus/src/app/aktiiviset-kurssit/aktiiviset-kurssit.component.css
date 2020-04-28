@@ -25,18 +25,31 @@
   overflow: auto;
   height: 150px;
   margin-top: 1em;
-  background-image: url("/../../assets/images/muistilappu.png");
+  background-image: url("../../assets/images/muistilappu.png");
   background-position: center;
   background-size: initial;
   margin-top: 1em;
   border: solid black 1px;
   border-radius: 5px;
 }
-
-h5 {
-  color: white;
+/* Otsikkojen (näkeville näkymättömät "Aktiiviset kurssit" (taso 1), "Kurssilistaus" (taso 2) ja kaikille näkyvät kurssien otsikot (tulevat tietokannasta, taso 3), muistiinpanot (tulevat tietokannasta, taso 4) ja sekä "Tehdyt tehtävät" ja "Tekemättömät tehtävät" kurssin alapuolella (taso 4). */
+h1 {
+font-size: 0px;
+/* Kokeiltiin text-indent: -10000px;, mutta tulos näytti näkevän henkklön mukaan huonommalta, joten muutosta ei tehty tällä asetuksella. */
 }
 
+h2 {
+font-size: 0px;
+/* Kokeiltiin text-indent: -10000px;, mutta tulos näytti näkevän henkklön mukaan huonommalta, joten muutosta ei tehty tällä asetuksella. */
+}
+
+h3 {
+font-size: 1.25em;
+  color: white;
+}
+h4 {
+font-size: 1em;
+}
 .kurssi-kortti {
   margin: 1em 1em;
   width: 200px;
@@ -60,7 +73,7 @@ h5 {
   display: inline-block;
   margin: 1em 1em;
 }
-h6 {
+h4 {
   text-decoration: underline;
 }
 .teht-done {

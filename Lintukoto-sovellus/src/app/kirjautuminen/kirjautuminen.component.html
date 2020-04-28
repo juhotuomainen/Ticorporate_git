@@ -18,26 +18,24 @@
 <div class="login">
   <form #loginForm="ngForm" (submit)="login(loginForm)">
     <h2 class="login-header">Kirjaudu sisään</h2>
-    <label for="#tunnus">Käyttäjätunnus</label>
-    <input
-      class="form-control"
-      type="text"
-      #tunnus="ngModel"
-      name="tunnus"
-      [(ngModel)]="loginData.tunnus"
-    />
 
-    <label for="#password">Salasana</label>
-    <input
-      class="form-control"
-      type="password"
-      #password="ngModel"
-      name="password"
-      [(ngModel)]="loginData.password"
-    />
+    <!-- Kohta, jossa kerrotaan pakollisten kenttien merkintätavasta. Se parantaa saavutettavuutta ja siinä on käytetty MDN:n tutoriaalia (löytyy osoitteesta https://developer.mozilla.org/en-US/docs/Learn/Forms/How_to_structure_a_web_form). Siinä on siis kappale (p), jonka sisällä on tekstiä, ja strong-elementti (strong eli korostus). Strong-elementissä on puolestaan abbr-elementti (abbreviation eli lyhenne), jonka sisällä on tähtimerkki (*). -->
+    <p>
+      Pakolliset kentät on merkitty tähdellä <strong><abbr>*</abbr></strong>.
+    </p>
+    <!-- Seuraavissa label-elementeissä on seuraava rakenne: for-attribuutin sisältävän label-elementin sisällä on tekstiä ja abbr-elementti, jossa on puolestaan title- ja aria-label-attribuutit ja niillä asianmukaiset arvot (esimerkiksi käyttäjätunnus-kentässä kummankin arvo on  pakollinen). Abbr-elementin tekstinä on puolestaan tähtimerkki (*). Tässä on sovellettu MDN:n tutoriaalin kohtaaa "Active learning: building a form structure". -->
+    <label for="#tunnus">Käyttäjätunnus
+      <abbr title="pakollinen" aria-label="pakollinen">*</abbr></label>
+    <input id="#tunnus" class="form-control" type="text" #tunnus="ngModel" name="tunnus"
+      [(ngModel)]="loginData.tunnus" />
+
+    <label for="#password">Salasana <abbr title="pakollinen" aria-label="pakollinen">*</abbr></label>
+    <input id="#password" class="form-control" type="password" #password="ngModel" name="password"
+      [(ngModel)]="loginData.password" />
 
     <button class="btn btn-primary" type="submit" id="submit-btn">
       Kirjaudu
     </button>
   </form>
 </div>
+

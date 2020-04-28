@@ -1,7 +1,7 @@
 {
   "name": "lintukoto",
   "version": "1.0.0",
-  "description": "Lintukoto-sovellus on opiskelijioille tarkoitettu ajanhallintasovellus, josta opiskelija näkee kontaktitunnit, kurssisuoritukset sekä tekemättä olevat ja tehdyt tehtävät. Sovelluksessa on myös eri näkymiä, kuten pää-, kalenteri- kauppa- ja asetusnäkymä.",
+  "description": "Lintukoto-sovellus on opiskelijoille tarkoitettu ajanhallintasovellus, josta opiskelija näkee kontaktitunnit, kurssisuoritukset sekä tekemättä olevat ja tehdyt tehtävät. Sovelluksessa on myös eri näkymiä, kuten pää-, kalenteri- kauppa- ja asetusnäkymä.",
   "main": "palvelin.js",
   "scripts": {
     "start": "node palvelin.js",
