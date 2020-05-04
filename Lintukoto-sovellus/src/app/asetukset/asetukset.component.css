@@ -25,6 +25,10 @@ text-align: center;
   text-align: center;
 }
 
+p {
+  font-weight: bold;
+}
+
 .tallennusnappi {
   width: 100px;
   margin: 1em auto;
