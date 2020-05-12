@@ -1,6 +1,9 @@
+html {
+  background-color: #335164;
+}
+
 h1 {
-  margin-left: 10px;
-  margin-top: 10px;
+  color: black;
 }
 
 /* Muokkaa asetus-sivun "kyselyjen" kokonaisuutta */
@@ -12,8 +15,9 @@ h1 {
 
 /* Muokkaa asetus-sivun "kyselyjen" yksittäisiä kyselykohtia */
 .form-check {
-  margin-top: 10px;
+  margin-top: 20px;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 .tallennusnappi {
@@ -25,14 +29,46 @@ h1 {
   text-align: center;
 }
 
-.background {
+#background {
   width: 70%;
-  background-color: rgba(0, 0, 0, 0.12);
-  margin: 2em auto;
+  background: rgb(235, 235, 235);
+  height: 100%;
+  margin: 0 auto 0 auto;
+  border: 10px solid #8f5400;
   border-radius: 8px;
   padding-top: 2em;
   padding-bottom: 2em;
 }
 h1 {
   text-align: center;
+}
+.bold {
+  font-weight: bold;
+}
+.piilotaIlmoitus {
+  visibility: hidden;
+}
+.naytaIlmoitus {
+  visibility: visible;
+  color: forestgreen;
+}
+.content-container {
+  background: url("../../assets/images/tapettihuone.png");
+  z-index: 0;
+  background-position: center;
+  background-repeat: repeat;
+  padding-bottom: 3em;
+  padding-top: 2em;
+}
+.inblock {
+  display: inline-block;
+  position: relative;
+  margin-left: 0.3em;
+  margin-bottom: 0.3em;
+}
+
+.labeli {
+  display: inline-block;
+  position: relative;
+  margin: 0 auto;
 }

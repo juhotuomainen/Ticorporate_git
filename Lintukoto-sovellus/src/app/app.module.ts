@@ -45,6 +45,8 @@ import { HenkipolloComponent } from "./henkipollo/henkipollo.component";
 import { HenkipolloinfoComponent } from "./henkipolloinfo/henkipolloinfo.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ErrorComponent } from "./error/error.component";
+import { MatDialogModule, MatButtonModule } from "@angular/material";
+import { DialogComponent } from "./dialog/dialog.component";
 
 @NgModule({
   declarations: [
@@ -59,7 +61,8 @@ import { ErrorComponent } from "./error/error.component";
     PesaComponent,
     HenkipolloComponent,
     HenkipolloinfoComponent,
-    ErrorComponent
+    ErrorComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -75,8 +78,11 @@ import { ErrorComponent } from "./error/error.component";
     DragDropModule,
     HttpModule,
     NgbModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatButtonModule
   ],
+  entryComponents: [DialogComponent],
   providers: [
     DragAndDropService,
     ResizeService,

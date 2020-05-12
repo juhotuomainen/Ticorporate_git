@@ -5,15 +5,17 @@
       <!-- Modal Header -->
       <div class="modal-header">
         <h4 class="modal-title">Kuinka voin auttaa?</h4>
-        <button type="button" class="close" (click)="hideModal()">
+        <button type="button" class="close" (click)="hideModalpollo()">
           &times;
         </button>
       </div>
+
+      <!--Vihreät painikkeet, joissa eri vastausvaihtoehdot-->
       <button
         class="btn btn-success nappula"
         data-toggle="modal"
         data-target="#qotdmodal"
-        (click)="hideModal()"
+        (click)="hideModalpollo()"
         (click)="randomLause()"
       >
         Hauska fakta
@@ -22,24 +24,28 @@
         class="btn btn-success nappula"
         data-toggle="modal"
         data-target="#sivumodal"
-        (click)="hideModal()"
+        (click)="hideModalpollo()"
       >
         Mitä tällä sivulla tehdään?
       </button>
-      <button class="btn btn-success nappula">
+      <button
+        class="btn btn-success nappula"
+        routerLink="/pesa"
+        (click)="hideModalpollo()"
+      >
         Henkipöllön pesä
       </button>
 
       <button
         type="button"
         class="btn btn-danger modal-nappi nappula"
-        (click)="hideModal()"
+        (click)="hideModalpollo()"
       >
         Sulje
       </button>
       <button
         type="button"
-        id="close-modal"
+        id="close-modalpollo"
         data-dismiss="modal"
         style="display: none"
       >
@@ -93,6 +99,7 @@
     <div class="modal-content">
       <!-- Modal Header -->
 
+      <!--Sivukohtaiset vastaukset kysymykseen-->
       <div *ngIf="router.url === '/suoritetut'">
         <div class="modal-header">
           <h4 class="modal-title">Suoritetut kurssit</h4>
@@ -194,8 +201,9 @@
           </button>
         </div>
         <p class="margin">
-          “Tämä on minun pesäni. Täältä saat apua pulmaan kuin pulmaan! 
-          Linkkien takaa löydät paljon arvokasta tietoa opintojasi varten ja vähän muuhunkin.”
+          “Tämä on minun pesäni. Täältä saat apua pulmaan kuin pulmaan! Linkkien
+          takaa löydät paljon arvokasta tietoa opintojasi varten ja vähän
+          muuhunkin.”
         </p>
       </div>
 

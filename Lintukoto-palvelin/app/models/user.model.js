@@ -11,7 +11,6 @@ const MuistiinpanoSchema1 = mongoose.Schema(
   },
   { collection: 'Muistiinpano1' }
 );
-mongoose.model('Muistiinpano1', MuistiinpanoSchema1);
 
 const Kurssi2Schema = mongoose.Schema({
   aktiiviset_kurssit: { type: Object },
@@ -25,6 +24,9 @@ const AktiivisetKurssitSchema = mongoose.Schema(
     kurssikoodi: { type: String },
     nimi: { type: String },
     kuva: { type: String },
+    opintopisteet: { type: Number },
+    aikataulu: { type: Boolean },
+    uudetTehtavat: { type: [] },
     muistiinpanot: [MuistiinpanoSchema1]
   },
   { collection: 'AktiivisetKurssit' }
@@ -34,7 +36,8 @@ const KayttajaSchema = mongoose.Schema(
     _id: mongoose.Schema.Types.ObjectId,
     tunnus: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    aktiiviset_kurssit: [AktiivisetKurssitSchema]
+    aktiiviset_kurssit: [AktiivisetKurssitSchema],
+    asetukset: { type: Object, required: false }
   },
   { collection: 'kayttaja' }
 );
@@ -44,3 +47,5 @@ exports.AktiivisetKurssit = mongoose.model(
   AktiivisetKurssitSchema
 );
 exports.Kayttaja = mongoose.model('kayttaja', KayttajaSchema);
+
+exports.Muistiinpano11 = mongoose.model('Muistiinpano1', MuistiinpanoSchema1);

@@ -6,6 +6,7 @@ import {
 
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { Router } from "@angular/router";
+
 @Component({
   selector: "app-henkipollo",
   templateUrl: "./henkipollo.component.html",
@@ -18,8 +19,8 @@ export class HenkipolloComponent implements OnInit {
     this.randomLause();
   }
 
-  hideModal(): void {
-    document.getElementById("close-modal").click();
+  hideModalpollo(): void {
+    document.getElementById("close-modalpollo").click();
   }
   hideModalqotd(): void {
     document.getElementById("close-modalqotd").click();

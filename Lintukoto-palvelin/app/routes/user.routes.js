@@ -1,10 +1,15 @@
 module.exports = app => {
   const express = require('express');
   const mongoose = require('mongoose');
-  const bcrypt = require('bcrypt');
+  const bcrypt = require('bcryptjs');
   const jwt = require('jsonwebtoken');
 
   const Kayttaja = require('../models/user.model');
+
+  // LOGIN
+  // Haetaan kannasta käyttäjä ja verrataan syötettyä salasanaa kannassa olevaan
+  // salasanaan.
+  // -> Luodaan ja palautetaan JWT token joka on voimassa 1 tunnin.
 
   app.post('/login', (req, res) => {
     Kayttaja.Kayttaja.find({ tunnus: req.body.tunnus })
@@ -47,8 +52,11 @@ module.exports = app => {
       .catch();
   });
 
+  // REKISTÖRÖIDÄÄN UUSI TUNNUS
+  // Lisätään uusi tunnus tietokantaan ja haeataaan syötetty salasana
+
   app.post('/signup', (req, res, next) => {
-    Kayttaja.find({ tunnus: req.body.tunnus })
+    Kayttaja.Kayttaja.find({ tunnus: req.body.tunnus })
       .exec()
       .then(kayttaja => {
         if (kayttaja.length >= 1) {
@@ -63,7 +71,7 @@ module.exports = app => {
                 error: err
               });
             } else {
-              const kayttaja = new Kayttaja({
+              const kayttaja = new Kayttaja.Kayttaja({
                 _id: new mongoose.Types.ObjectId(),
                 tunnus: req.body.tunnus,
                 password: hash
@@ -88,6 +96,8 @@ module.exports = app => {
       });
   });
 
+  // KÄYTTÄJÄN POISTO (ei tällä hetkellä toiminnassa)
+
   app.delete('/:KayttajaId', (req, res, next) => {
     Kayttaja.deleteOne({ _id: req.params.KayttajaId })
       .exec()
@@ -98,5 +108,24 @@ module.exports = app => {
         console.log(err);
         res.status(500).json({ message: 'Käyttäjätiliä ei voitu poistaa' });
       });
+  });
+
+  // ASETUSTEN TALLENNUS
+  // Etsitään kannasta oikea käyttäjä ja tallennetaan syötetyt asetukset
+
+  app.post('/tallennaAseukset', (req, res, next) => {
+    Kayttaja.Kayttaja.findOneAndUpdate(
+      { tunnus: req.body.tunnus },
+      { $set: { asetukset: req.body } }
+    ).then(res.status(200).json({ message: 'Asetukset tallennettu' }));
+  });
+
+  // ASETUSTEN HAKU
+  // Haetaan kannasta käyttäjän asetukset
+
+  app.get('/haeAsetukset', (req, res, next) => {
+    Kayttaja.Kayttaja.findOne({ tunnus: req.query.tunnus }).then(user => {
+      res.status(200).json({ asetukset: user.asetukset });
+    });
   });
 };

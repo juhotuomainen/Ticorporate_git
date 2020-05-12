@@ -36,3 +36,16 @@
 .labelit {
   margin-top: 1em;
 }
+input.ng-invalid.ng-touched,
+select.ng-invalid.ng-touched {
+  border: #dc3545 1px solid;
+}
+input.ng-valid.ng-touched,
+select.ng-valid.ng-touched {
+  border: green 1px solid;
+}
+p.varoitus {
+  color: #dc3545;
+  margin-bottom: 0;
+  margin-top: 0.5em;
+}

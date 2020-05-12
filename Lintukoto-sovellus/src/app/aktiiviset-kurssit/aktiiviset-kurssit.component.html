@@ -7,70 +7,44 @@
     <title>{{ title }}</title>
   </head>
   <body>
-    <!-- <header>
-      <nav class="navbar navbar-expand-lg navbar-white bg-dark">
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNavAltMarkup"
-          aria-controls="navbarNavAltMarkup"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-          <span class="navbar-toggler-icon"></span>
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a class="nav-item nav-link linkki" (click)="avaa(UusiKurssi)"
-              >Lisää uusi kurssi</a
-            >
-            <a
-              class="nav-item nav-link linkki"
-              data-toggle="modal"
-              data-target="#myModal"
-              >Lisää muistiinpano</a
-            >
-            <a
-              class="nav-item nav-link linkki"
-              data-toggle="modal"
-              data-target="#tehtavanLisaysModal"
-              >Lisää tehtävä</a
-            >
-          </div>
-        </div>
-      </nav>
-    </header> -->
-    <div class="button-container">
-      <button class="btn btn-success lisays-nappi" (click)="avaa(UusiKurssi)">
-        Lisää uusi kurssi
-      </button>
-      <button
-        class="btn btn-success lisays-nappi"
-        data-toggle="modal"
-        data-target="#myModal"
-      >
-        Lisää uusi muistiinpano
-      </button>
-      <button
-        class="btn btn-success lisays-nappi"
-        data-toggle="modal"
-        data-target="#tehtavanLisaysModal"
-      >
-        Lisää uusi tehtävä
-      </button>
-    </div>
-
     <ul class="kurssi-listaus">
+      <div class="button-container">
+        <button class="btn btn-success lisays-nappi" (click)="avaa(UusiKurssi)">
+          Lisää uusi kurssi
+        </button>
+        <button
+          class="btn btn-success lisays-nappi"
+          data-toggle="modal"
+          data-target="#myModal"
+        >
+          Lisää uusi muistiinpano
+        </button>
+        <button
+          class="btn btn-success lisays-nappi"
+          data-toggle="modal"
+          data-target="#tehtavanLisaysModal"
+        >
+          Lisää uusi tehtävä
+        </button>
+      </div>
       <li
         *ngFor="let kurssi of kurssit2[0].aktiiviset_kurssit"
         id="kurssilista"
       >
         <div class="kurssi-kortti">
-          <img src="{{ kurssi.kuva }}" id="pollo" />
+          <img
+            src="{{ kurssi.kuva }}"
+            id="pollo"
+            alt="Kuva kurssipöllöstä, joka ilmoittaa, onko kurssi aikataulussa."
+          />
+          <p *ngIf="kurssi.aikataulu" class="hidden">
+            Kurssi etenee aikataulussa. Hienoa!
+          </p>
+          <p *ngIf="!kurssi.aikataulu" class="hidden">
+            Kurssin suoritus ei etene aikataulussa. Nyt on aika ryhdistäytyä!
+          </p>
           <h5>{{ kurssi.nimi }}</h5>
+          <h5>({{ kurssi.opintopisteet }}op)</h5>
           <div id="muistiinpanolista">
             <h6>Muistiinpanot</h6>
             <div *ngFor="let muistio of kurssi.muistiinpanot">
@@ -89,6 +63,7 @@
                   <button
                     type="button"
                     class="close"
+                    id="muistiinpano-close-nappi"
                     (click)="modal.dismiss('Cross click')"
                   >
                     &times;
@@ -101,6 +76,30 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
+                  <a
+                    class="icon-linkki-edit"
+                    (click)="
+                      open2(
+                        muokkaus,
+                        muistio.otsikko,
+                        muistio.muistiinpano,
+                        muistio.kurssi
+                      )
+                    "
+                    ><i class="far fa-edit fa-lg"></i
+                  ></a>
+                  <a
+                    class="icon-linkki-delete"
+                    (click)="
+                      open2(
+                        poisto,
+                        muistio.otsikko,
+                        muistio.muistiinpano,
+                        muistio.kurssi
+                      )
+                    "
+                    ><i class="far fa-trash-alt fa-lg"></i
+                  ></a>
                   <button
                     type="button"
                     class="btn btn-danger"
@@ -136,7 +135,7 @@
             <h6>Tekemättömät tehtävät</h6>
             <a
               *ngFor="let tehtava of kurssi.uudetTehtavat"
-              (click)="open(content, tehtava.tehtava)"
+              (click)="open(tehtavamodal, tehtava)"
               class="tehtava-linkki"
             >
               {{ tehtava.tehtava }}
@@ -172,13 +171,12 @@
               ngbAutofocus
               name="nimi"
             >
-              <option>-- Valitse kurssi --</option>
-              <option *ngFor="let i of kurssit3[0]">
+              <option value="{{ i.nimi }}" *ngFor="let i of kurssit3[0]">
                 {{ i.nimi }}
               </option>
               <input
                 type="text"
-                value="../../assets/images/orsipollo4.png"
+                value="../../assets/images/Kurssipollo_surku1.svg"
                 hidden
                 name="kuva"
               />
@@ -203,6 +201,167 @@
             </button>
           </div>
         </form>
+
+        <!-- this button is hidden, used to close from typescript -->
+        <button
+          type="button"
+          id="close-modal2"
+          data-dismiss="modal"
+          style="display: none"
+        >
+          Close
+        </button>
+      </div>
+    </ng-template>
+
+    <!--MUISTIINPANON MUOKKAUS MODAL-->
+
+    <ng-template #muokkaus let-modal>
+      <div class="modal-header" id="myModal4">
+        <!-- Modal Header -->
+        <h4>Muokkaa muistiinpanoa</h4>
+        <button
+          type="button"
+          class="close"
+          (click)="modal.dismiss('Cross click')"
+        >
+          &times;
+        </button>
+      </div>
+      <!-- Modal 2 body -->
+      <form
+        (submit)="submit()"
+        action="http://localhost:3000/muokkaamp"
+        method="POST"
+      >
+        <div class="modal-body muokkaus-body">
+          <label class="keskitetty-label" for="otsikko">Otsikko</label>
+          <input
+            value="{{ otsikko }}"
+            placeholder="{{ otsikko }}"
+            hidden
+            name="otsikko"
+            class="modal-input"
+          />
+          <input
+            value="{{ otsikkoUusi }}"
+            placeholder="{{ otsikkoUusi }}"
+            name="otsikkoUusi"
+            class="modal-input"
+          />
+          <label class="keskitetty-label" for="muistiinpano"
+            >Muistiinpano</label
+          >
+          <textarea class="modal-textarea" name="muistiinpano">{{
+            muistiinpano2
+          }}</textarea>
+        </div>
+        <input type="text" hidden [value]="tunnus" name="tunnus" />
+        <input type="text" hidden [value]="kurssi" name="kurssi" />
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-success">
+            Tallenna
+          </button>
+          <button
+            type="button"
+            class="btn btn-danger"
+            (click)="modal.dismiss('Cross click')"
+          >
+            Sulje
+          </button>
+
+          <!-- this button is hidden, used to close from typescript -->
+          <button
+            type="button"
+            id="close-modal2"
+            data-dismiss="modal"
+            style="display: none"
+          >
+            Close
+          </button>
+        </div>
+      </form>
+    </ng-template>
+
+    <!--MUISTIINPANON POISTO MODAL-->
+
+    <ng-template #poisto let-modal>
+      <div class="modal-header" id="myModal4">
+        <!-- Modal Header -->
+        <h4>Poista muistiinpano</h4>
+        <button
+          id="sulkunappi"
+          type="button"
+          class="close"
+          (click)="modal.dismiss('Cross click')"
+        >
+          &times;
+        </button>
+      </div>
+      <!-- Modal body -->
+      <div class="modal-body">
+        <p>Haluatko varmasi poistaa muistiinpanon: {{ otsikko }}?</p>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button
+          type="button"
+          (click)="modal.dismiss('Cross click')"
+          class="btn btn-success"
+        >
+          Peruuta
+        </button>
+        <button type="button" class="btn btn-danger" (click)="poistamp()">
+          Poista
+        </button>
+
+        <!-- this button is hidden, used to close from typescript -->
+        <button
+          type="button"
+          id="close-modal4"
+          data-dismiss="myModal4"
+          style="display: none"
+        >
+          Close
+        </button>
+      </div>
+    </ng-template>
+
+    <ng-template #tehtavamodal let-modal>
+      <div class="modal-header" id="myModal2">
+        <!-- Modal Header -->
+        <h4 class="modal-title">Tehtävä</h4>
+        <button
+          type="button"
+          class="close"
+          id="muistiinpano-close-nappi"
+          (click)="modal.dismiss('Cross click')"
+        >
+          &times;
+        </button>
+      </div>
+      <!-- Modal 2 body -->
+      <div class="modal-body">
+        <p ngbAutofocus>{{ tehtava.tehtava }}</p>
+        <div *ngIf="tehtava.deadline">
+          <p class="boldaus">Deadline:</p>
+          <p class="rivitys">
+            {{ tehtava.deadline | date: "d.M.yyyy, H:mm" }}
+          </p>
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-danger"
+          (click)="modal.dismiss('Cross click')"
+        >
+          Sulje
+        </button>
 
         <!-- this button is hidden, used to close from typescript -->
         <button

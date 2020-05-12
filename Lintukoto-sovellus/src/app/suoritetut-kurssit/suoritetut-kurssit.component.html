@@ -9,9 +9,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   </head>
   <body>
-    <div class="otsikko">
+    <!-- <div class="otsikko">
       <h3 class="otsikkotext">Suoritetut Kurssit</h3>
-    </div>
+    </div> -->
     <div class="kurssityht">
       <h5 class="otsikkotext">Opintopisteet yhteensä: {{ kurssityht }}</h5>
     </div>
@@ -23,7 +23,7 @@
           class="swiper-slide"
         >
           <div class="imgBx" id="taulu">
-            <img src="{{ kurssi.kuva }}" />
+            <img src="{{ kurssi.kuva }}" alt="Jokaisen suoritetun kurssin persoonallisen kurssipöllön kuva"/>
           </div>
           <div class="details">
             <h3>{{ kurssi.nimi }} ({{ kurssi.pisteet }}p)</h3>
